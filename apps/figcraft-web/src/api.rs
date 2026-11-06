@@ -1,7 +1,8 @@
-//! `window.figcraft`: the control channel for the page, as promises.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! `window.mostinterface`: the control channel for the page, as promises.
 //!
 //! The same JSON methods as the desktop control server (`docs/control-protocol.md`), so an agent
-//! driving FigCraft in a browser tab (or an `<iframe>` in another app) uses the same commands as
+//! driving Most Interface in a browser tab (or an `<iframe>` in another app) uses the same commands as
 //! the CLI and the MCP server:
 //!
 //! ```js
@@ -11,7 +12,7 @@
 //! const {data} = await figcraft.screenshot()                            // the canvas as PNG (base64)
 //! await figcraft.openFile("home.fig", bytes)                            // `file.open` with the bytes
 //! figcraft.captureDownloads(true)                                       // saves stay in the page…
-//! figcraft.files(); await figcraft.readFile("home.figcraft")            // …to be read back
+//! figcraft.files(); await figcraft.readFile("home.mostinterface")            // …to be read back
 //! ```
 //!
 //! Results resolve with the method's `result`; errors reject with an `Error`.
@@ -111,7 +112,7 @@ fn set_fn(obj: &js_sys::Object, name: &str, f: JsValue) -> Result<(), JsValue> {
     js_sys::Reflect::set(obj, &name.into(), &f).map(|_| ())
 }
 
-/// Install `window.figcraft`.
+/// Install `window.mostinterface`.
 pub fn install() -> Result<(), JsValue> {
     let obj = js_sys::Object::new();
     set_fn(

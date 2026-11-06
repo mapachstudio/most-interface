@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The team list of the server in Preferences (milestone M9): the files shared from it now, which
 //! everyone who reaches the server may open, when its operator turned the list on (`team_files`).
 //! `collab.files {refresh: true}` asks for it beside your own files, and Home ▸ Online shows it.
@@ -95,10 +96,10 @@ fn listed(web: String, files: Vec<figcraft_collab::message::TeamFile>) -> TeamLi
 
 impl Session {
     /// Ask the server in Preferences for its team list (none asked when online sharing is off,
-    /// without the network, or of the public server FigCraft ships with: it keeps none).
+    /// without the network, or of the public server Most Interface ships with: it keeps none).
     pub(crate) fn team_refresh(&mut self) -> Result<()> {
         let server = plain_server(&self.prefs.publish_server);
-        let public = option_env!("FIGCRAFT_DEFAULT_SERVER").is_none() && same_server(&server, DEFAULT_SERVER);
+        let public = option_env!("MOST_INTERFACE_DEFAULT_SERVER").is_none() && same_server(&server, DEFAULT_SERVER);
         if server.is_empty() || public || self.live.link().is_none() || crate::file_access::network_refused().is_some() {
             self.live.team = None;
             return Ok(());

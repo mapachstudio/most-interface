@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Recovery copies: a run that ends without closing leaves copies of its unsaved documents that the
 //! next start opens again (a running app's are left alone); a normal quit leaves nothing.
 
@@ -108,7 +109,7 @@ fn a_recovered_copy_stays_while_its_replacement_cant_be_written() {
     let left = crashed(&edited(), &root);
     let (next, mut r) = restart(&root);
     // Something is in the way of this run's copy: writing it fails.
-    let mine = root.join(std::process::id().to_string()).join(format!("{}.figcraft", next.docs[0].uid));
+    let mine = root.join(std::process::id().to_string()).join(format!("{}.mostinterface", next.docs[0].uid));
     std::fs::create_dir_all(&mine).unwrap();
     r.write(&next, true);
     r.tick(&next, 100.0);
@@ -305,7 +306,7 @@ fn saving_or_closing_waits_for_a_slow_write_so_the_copy_does_not_come_back() {
     let mut r = Recovery::start(&root).unwrap();
     let dir = std::fs::read_dir(&root).unwrap().flatten().next().unwrap().path();
     let uid = s.docs[0].uid;
-    let copy = dir.join(format!("{uid}.figcraft"));
+    let copy = dir.join(format!("{uid}.mostinterface"));
     r.hold(uid, 1, slow_write(copy.clone()));
     s.ds_mut().unwrap().mark_saved();
     r.write(&s, false);
@@ -314,7 +315,7 @@ fn saving_or_closing_waits_for_a_slow_write_so_the_copy_does_not_come_back() {
     // Closed: the same.
     let s = edited();
     let uid = s.docs[0].uid;
-    let copy = dir.join(format!("{uid}.figcraft"));
+    let copy = dir.join(format!("{uid}.mostinterface"));
     r.hold(uid, 1, slow_write(copy.clone()));
     r.write(&Session::empty(), false);
     std::thread::sleep(std::time::Duration::from_millis(400));
@@ -329,14 +330,14 @@ fn an_emergency_save_waits_for_the_write_in_flight_and_copies_the_newest_revisio
     let mut r = Recovery::start(&root).unwrap();
     let dir = std::fs::read_dir(&root).unwrap().flatten().next().unwrap().path();
     let uid = s.docs[0].uid;
-    let copy = dir.join(format!("{uid}.figcraft"));
+    let copy = dir.join(format!("{uid}.mostinterface"));
     r.hold(uid, 0, slow_write(copy.clone()));
     r.write(&s, true);
     assert!(std::fs::read(&copy).is_ok_and(|b| b != b"stale"), "the newest revision replaced the slow write");
     let _ = std::fs::remove_dir_all(&root);
 }
 
-/// The files named `*.figcraft` in the run folder under `root`.
+/// The files named `*.mostinterface` in the run folder under `root`.
 fn copy_count(root: &std::path::Path) -> usize {
     let Some(dir) = std::fs::read_dir(root).unwrap().flatten().next().map(|e| e.path()) else { return 0 };
     std::fs::read_dir(dir).unwrap().flatten().filter(|f| f.path().extension().is_some_and(|e| e == "figcraft")).count()
@@ -345,7 +346,7 @@ fn copy_count(root: &std::path::Path) -> usize {
 /// A folder at the path of `s`'s first document's copy in the run folder under `root`.
 fn blocked_copy(root: &std::path::Path, s: &Session) -> std::path::PathBuf {
     let dir = std::fs::read_dir(root).unwrap().flatten().next().unwrap().path();
-    let blocker = dir.join(format!("{}.figcraft", s.docs[0].uid));
+    let blocker = dir.join(format!("{}.mostinterface", s.docs[0].uid));
     std::fs::create_dir(&blocker).unwrap();
     blocker
 }

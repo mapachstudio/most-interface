@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Library commands: publish this file as a library (to its file, or to a server for the team);
 //! enable, use and update other libraries (their components, styles and variables), swap one for
 //! another, and see how files use a team library.
@@ -53,7 +54,7 @@ pub fn specs() -> Vec<CommandSpec> {
         spec!(
             "library.add",
             "Add library",
-            "{path (.figcraft file published as a library, or a share link of a file on a server: a view link is enough)}",
+            "{path (.mostinterface file published as a library, or a share link of a file on a server: a view link is enough)}",
             true,
             add
         ),

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Repackage a FigCraft Linux tarball as a single-file Flatpak bundle:
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Repackage a Most Interface Linux tarball as a single-file Flatpak bundle:
 #
 #   $DIST/figcraft-<version>-linux-<arch>.flatpak
 #
@@ -12,12 +13,12 @@
 # installed per-user from Flathub. Unless --no-test, the bundle is then installed per-user and
 # `figcraft-cli --version` (or `figcraft --version` without the CLI) is run inside the sandbox
 # as a smoke test.
-# Manifest: packaging/linux/flatpak/ai.storyteller.figcraft.bundle.yml.
+# Manifest: packaging/linux/flatpak/com.grupomostmexico.mostinterface.bundle.yml.
 set -euo pipefail
 # shellcheck source=../env.sh
 . "$(dirname "${BASH_SOURCE[0]}")/../env.sh"
 HERE="$ROOT/packaging/linux"
-APP_ID=ai.storyteller.figcraft
+APP_ID=com.grupomostmexico.mostinterface
 FLATHUB=https://dl.flathub.org/repo/flathub.flatpakrepo
 
 TEST=1
@@ -46,7 +47,7 @@ for tool in flatpak flatpak-builder; do
   command -v "$tool" >/dev/null || { echo "error: $tool not found (apt install flatpak flatpak-builder librsvg2-common)" >&2; exit 1; }
 done
 
-echo "==> FigCraft $VERSION Flatpak bundle for $ARCH from $(basename "$TARBALL")"
+echo "==> Most Interface $VERSION Flatpak bundle for $ARCH from $(basename "$TARBALL")"
 
 WORK="$CARGO_TARGET_DIR/flatpak-bundle"
 rm -rf "$WORK"

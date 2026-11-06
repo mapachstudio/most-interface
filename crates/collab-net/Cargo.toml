@@ -1,9 +1,10 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-collab-net"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-description = "FigCraft live sessions over the network: the WebSocket transport, the session host the app embeds, invite links and presence relay (carries figcraft-collab's messages)"
+description = "Most Interface live sessions over the network: the WebSocket transport, the session host the app embeds, invite links and presence relay (carries figcraft-collab's messages)"
 
 [lints]
 workspace = true

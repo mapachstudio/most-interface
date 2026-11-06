@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The browser client (step 4 of `docs/collab-protocol.md`): the web build joins a session a
 //! desktop app hosts, or a file on a `figcraft-server` (also over `wss://` behind a TLS reverse
 //! proxy), and publishes files to a server, through the browser's WebSocket API (`web-sys`), with
@@ -142,7 +143,7 @@ fn js_error(e: &wasm_bindgen::JsValue) -> String {
 fn reachable(server: &Endpoint) -> Result<(), String> {
     let secure_page = web_sys::window().and_then(|w| w.location().protocol().ok()).is_some_and(|p| p == "https:");
     if secure_page && !server.secure && !server.loopback() {
-        return Err("this page was loaded over https, and browsers block unencrypted ws:// connections; use a wss:// address (a server behind TLS), open FigCraft from an http:// address (like http://localhost:8767), or use the desktop app".into());
+        return Err("this page was loaded over https, and browsers block unencrypted ws:// connections; use a wss:// address (a server behind TLS), open Most Interface from an http:// address (like http://localhost:8767), or use the desktop app".into());
     }
     Ok(())
 }

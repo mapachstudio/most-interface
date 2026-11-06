@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Components at scale: a synthetic design system (every property kind, nesting four deep, styles
 //! and light/dark variables) and a file using it with overrides at every nesting level. Edits of
 //! deep mains, variant switches, swaps, resets, detach, push, library updates, copy/paste and
@@ -468,7 +469,7 @@ fn library_setup(path: &str) -> (Session, DesignSystem, Session, DesignSystem, V
 #[test]
 fn library_updates_reach_consumers_with_every_override_kept() {
     let dir = scratch("updates");
-    let path = dir.join("ds.figcraft").to_string_lossy().into_owned();
+    let path = dir.join("ds.mostinterface").to_string_lossy().into_owned();
     let (mut lib_s, ds, mut s, local, _) = library_setup(&path);
     let before = overrides(s.doc().unwrap());
     assert!(before.len() > 50);
@@ -519,7 +520,7 @@ fn library_updates_reach_consumers_with_every_override_kept() {
 #[test]
 fn pasting_instances_into_other_files_follows_their_mains() {
     let dir = scratch("paste");
-    let path = dir.join("ds.figcraft").to_string_lossy().into_owned();
+    let path = dir.join("ds.mostinterface").to_string_lossy().into_owned();
     let (mut lib_s, ds, mut s, local, inst) = library_setup(&path);
     // From the consumer (library mains) into a new file: the library copies come along.
     let doc = s.doc().unwrap();
@@ -730,7 +731,7 @@ fn alt_dropping_a_component_onto_an_instance_swaps_it() {
 #[test]
 fn alt_dropping_a_library_component_swaps_to_it() {
     let dir = scratch("swap");
-    let path = dir.join("ds.figcraft").to_string_lossy().into_owned();
+    let path = dir.join("ds.mostinterface").to_string_lossy().into_owned();
     let (_lib, ds, mut s, local, inst) = library_setup(&path);
     let doc = &s.doc().unwrap().clone();
     let (top, glyph) =

@@ -1,5 +1,5 @@
 {
-  "id": "org.figcraft.examples.tidy-names",
+  "id": "org.mostinterface.examples.tidy-names",
   "name": "Tidy names",
   "version": "1.0.0",
   "description": "Cleans up layer names: extra spaces, the \"copy\" left by duplicating, and letter case.",

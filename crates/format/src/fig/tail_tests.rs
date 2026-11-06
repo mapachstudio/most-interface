@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The import's tail: editable vector networks, the closest layers for kinds the editor doesn't
 //! have (sticky notes, shapes with text, connectors, tables) and variable prototype actions, on
 //! fixtures built in code with the parent module's helpers.
@@ -663,7 +664,7 @@ fn connectors_without_a_saved_path_follow_their_line_style() {
     let line: Vec<_> =
         network_of(&doc, "Line").vertices.iter().map(|v| world("Line") * figcraft_doc::geom::Point::new(v.x, v.y)).map(|p| (p.x, p.y)).collect();
     assert_eq!(line, [(100.0, 650.0), (300.0, 650.0)]);
-    assert!(warnings.iter().any(|w| w.contains("FigCraft's own routing")), "{warnings:?}");
+    assert!(warnings.iter().any(|w| w.contains("Most Interface's own routing")), "{warnings:?}");
 }
 
 /// A connector with a label but no saved snapshot: a frame holding its line and its label,

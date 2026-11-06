@@ -1,5 +1,6 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Widgets (ABI v3; editable text fields and a property menu since v4): a plugin draws a layer on
-//! the canvas by describing it, and FigCraft builds the layers. The description comes from the plugin, so it is untrusted: [`WidgetRender::parse`]
+//! the canvas by describing it, and Most Interface builds the layers. The description comes from the plugin, so it is untrusted: [`WidgetRender::parse`]
 //! checks its size, node count, depth, numbers, strings, colours and image sizes before the engine
 //! sees it. The engine decides where the layers go (only inside the widget's own layer).
 
@@ -31,7 +32,7 @@ const MAX_MENU: usize = 8;
 const MAX_SWATCHES: usize = 8;
 const MAX_MENU_LABEL: usize = 32;
 
-/// What a widget is made of: FigCraft's own layer kinds.
+/// What a widget is made of: Most Interface's own layer kinds.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum WidgetKind {

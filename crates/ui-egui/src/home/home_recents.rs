@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The home screen's recent files: a grid of cards, each with the picture its file carries on the
 //! colour of its page, or a table (name, last modified, created). Sorted by name, creation or last
 //! change either way round; a click selects a file, a double-click or Enter opens it, the arrow
@@ -764,7 +765,7 @@ fn arrows(ui: &Ui, recents: &mut Recents, files: &[Shown], across: usize, down: 
 fn file_icon(ui: &Ui, t: &Tokens, center: egui::Pos2, file: &Shown) {
     let r = Rect::from_center_size(center, vec2(16.0, 16.0));
     match FileKind::of(Path::new(&file.path)) {
-        FileKind::FigCraft | FileKind::Fig | FileKind::Sketch => {
+        FileKind::Most Interface | FileKind::Fig | FileKind::Sketch => {
             ui.painter().rect_filled(r, CornerRadius::same(4), t.accent);
             icons::paint(ui.painter(), r.shrink(3.0), icons::file_mark(file.kind), t.accent_on);
         }

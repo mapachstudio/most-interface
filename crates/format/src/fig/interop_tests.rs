@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! What other readers of `.fig` files need from the export: the document and its pages say they
 //! are visible and opaque, every drawn layer carries its outline, text carries its layout
 //! settings, and the schema written into the file numbers its definitions, fields and enum values
@@ -424,7 +425,7 @@ fn schema_text_takes_numbers_and_refuses_bad_ones() {
     }
 }
 
-/// Local only (`FIGCRAFT_FIG_SAMPLES`): every definition, field and enum value the export writes
+/// Local only (`MOST_INTERFACE_FIG_SAMPLES`): every definition, field and enum value the export writes
 /// has the kind, type and number it has in each sample's own schema.
 #[test]
 fn local_samples_agree_with_the_written_schema() {

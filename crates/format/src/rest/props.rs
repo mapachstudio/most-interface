@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Property mapping for the REST file JSON: JSON readers, enums, paints, effects, strokes,
 //! corners, constraints, auto layout, layout grids and export settings.
 
@@ -197,7 +198,7 @@ fn image(cx: &mut Ctx, p: &Value) -> ImagePaint {
     }
     let fig = cx.fig_sources.is_some();
     if has_filters && fig {
-        cx.warn("image filters use FigCraft's approximate renderer");
+        cx.warn("image filters use Most Interface's approximate renderer");
     }
     ImagePaint {
         image: cx.image_key(text(p, "imageRef").unwrap_or("")),

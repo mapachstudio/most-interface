@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Transform behaviour suite, written from the public documentation of design tools: resizing
 //! (Shift, Alt, both, flipping past an edge), rotating (Shift in 15° steps), groups and several
 //! layers with different rotations or flips, frames and constraints, lines, text, nudging, the
@@ -137,7 +138,7 @@ fn command_resize_crops_image_pixels_and_round_trips() {
     assert_eq!(s.doc().unwrap(), &original);
     ex(&mut s, "edit.redo", json!({}));
     assert_eq!(s.doc().unwrap(), &cropped);
-    let path = std::env::temp_dir().join(format!("figcraft-command-crop-{}.figcraft", std::process::id()));
+    let path = std::env::temp_dir().join(format!("figcraft-command-crop-{}.mostinterface", std::process::id()));
     ex(&mut s, "file.saveAs", json!({"path": path}));
     let mut reopened = session();
     ex(&mut reopened, "file.open", json!({"path": path}));

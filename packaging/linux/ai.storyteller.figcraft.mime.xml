@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- shared-mime-info definitions for FigCraft's own document type and for Sketch files, which
-     FigCraft opens (SVG, PNG and JPEG are already in the system database). Installed to /usr/share/mime/packages/ (update-mime-database runs on
+<!-- shared-mime-info definitions for Most Interface's own document type and for Sketch files, which
+     Most Interface opens (SVG, PNG and JPEG are already in the system database). Installed to /usr/share/mime/packages/ (update-mime-database runs on
      install). -->
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
   <mime-type type="application/x-figcraft">
-    <comment>FigCraft document</comment>
-    <icon name="ai.storyteller.figcraft"/>
-    <glob pattern="*.figcraft"/>
+    <comment>Most Interface document</comment>
+    <icon name="com.grupomostmexico.mostinterface"/>
+    <glob pattern="*.mostinterface"/>
   </mime-type>
   <!-- Sketch 48 and newer save a zip of JSON. -->
   <mime-type type="application/x-sketch">

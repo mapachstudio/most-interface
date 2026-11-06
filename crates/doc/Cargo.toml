@@ -1,9 +1,10 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-doc"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-description = "FigCraft document model: pages, the node tree, properties, components, styles, variables, prototype data"
+description = "Most Interface document model: pages, the node tree, properties, components, styles, variables, prototype data"
 
 [lints]
 workspace = true

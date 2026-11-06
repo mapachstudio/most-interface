@@ -1,8 +1,9 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Chinese, Japanese, Korean, Bengali and Thai text in the UI. egui's own fonts and Inter have no glyphs
 //! for them, so the UI adds a face per script it needs: the UI language's, the scripts in the open file's names
 //! and comments, the language picker's and typed text. Desktop finds them among the installed
 //! fonts (the system font scan), only once one is needed, so English users load none; the web
-//! build has only the CJK faces built in from craft-fonts (`FIGCRAFT_EMBED_CJK`), else none (no
+//! build has only the CJK faces built in from craft-fonts (`MOST_INTERFACE_EMBED_CJK`), else none (no
 //! Bengali or Thai face is built in, so the web leaves them out).
 
 use std::sync::Arc;

@@ -1,9 +1,10 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-pathops"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-description = "FigCraft path operations: booleans (union, subtract, intersect, exclude), outline stroke with inside/center/outside alignment, arrowheads"
+description = "Most Interface path operations: booleans (union, subtract, intersect, exclude), outline stroke with inside/center/outside alignment, arrowheads"
 
 [lints]
 workspace = true

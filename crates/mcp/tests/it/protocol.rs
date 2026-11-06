@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! JSON-RPC / MCP protocol behaviour.
 
 use crate::common;
@@ -132,7 +133,7 @@ fn tools_call_happy_and_error_paths() {
     assert!(c.err("batch", json!({"commands": [{"command": 3}]})).contains("step 0"));
     assert!(c.err("pointer", json!({"x": 1})).contains("`y`"));
     assert!(c.err("type_text", json!({"text": "hi"})).contains("not editing text"));
-    assert!(c.err("open_file", json!({"path": "/definitely/not/here.figcraft"})).contains("here.figcraft"));
+    assert!(c.err("open_file", json!({"path": "/definitely/not/here.mostinterface"})).contains("here.mostinterface"));
     // Names a tool or a command doesn't take are refused, not ignored (#1413).
     let e = c.err("run_command", json!({"command": "inspect.code", "args": {"id": id, "language": "html"}}));
     assert!(e.contains("unknown argument `args` (it takes command, document, params)"), "{e}");

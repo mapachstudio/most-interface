@@ -1,4 +1,5 @@
-//! The FigCraft document model.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! The Most Interface document model.
 //!
 //! A [`Document`] holds pages; each page is the root of a tree of [`Node`]s (frames, groups, shapes,
 //! text, components, instances…). Nodes are stored by id in a map of `Arc`s, so cloning a document

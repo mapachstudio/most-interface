@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Smoke test for packaging/linux/AppRun: the AppImage's desktop integration writes
 # and refreshes the host .desktop entry and icons, is idempotent, honours the opt-out
 # and an unwritable HOME, and always launches the app; `cli` runs figcraft-cli instead.
@@ -8,13 +9,13 @@ set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$HERE/../.." && pwd)"
-APP_ID=ai.storyteller.figcraft
+APP_ID=com.grupomostmexico.mostinterface
 
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
 # Fake AppDir with the real AppRun, .desktop template, icons, and a stub binary.
-APPDIR="$TMP/FigCraft.AppDir"
+APPDIR="$TMP/Most Interface.AppDir"
 mkdir -p "$APPDIR/usr/bin"
 install -Dm755 "$HERE/AppRun" "$APPDIR/AppRun"
 install -Dm644 "$HERE/$APP_ID.desktop" "$APPDIR/usr/share/applications/$APP_ID.desktop"
@@ -73,7 +74,7 @@ grep -Fxq "Exec=\"$(readlink -f "$APPIMAGE")\" %U" "$DESKTOP" || fail "Exec not 
 
 # 6. Opt-out installs nothing.
 rm -rf "$XDG_DATA_HOME"
-FIGCRAFT_NO_DESKTOP_INTEGRATION=1 "$APPDIR/AppRun" >/dev/null || fail "opt-out launch exited non-zero"
+MOST_INTERFACE_NO_DESKTOP_INTEGRATION=1 "$APPDIR/AppRun" >/dev/null || fail "opt-out launch exited non-zero"
 [[ ! -e "$XDG_DATA_HOME" ]] || fail "opt-out still integrated"
 
 # 7. An unwritable data dir never blocks the launch.
@@ -107,7 +108,7 @@ out="$("$APPDIR/AppRun" cli)" || fail "bare cli launch exited non-zero"
 [[ "$out" = "cli stub: " ]] || fail "bare cli output: $out"
 [[ ! -e "$XDG_DATA_HOME" ]] || fail "cli launch integrated the desktop"
 # Only the first argument selects the CLI.
-out="$("$APPDIR/AppRun" file.figcraft cli)" || fail "app launch with a later cli argument exited non-zero"
-[[ "$out" = "stub: file.figcraft cli" ]] || fail "later cli argument hijacked the launch: $out"
+out="$("$APPDIR/AppRun" file.mostinterface cli)" || fail "app launch with a later cli argument exited non-zero"
+[[ "$out" = "stub: file.mostinterface cli" ]] || fail "later cli argument hijacked the launch: $out"
 
 echo "AppRun desktop integration ok"

@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `figcraft-cli export … -o out.xml` (Android Vector Drawable) end to end.
 
 use std::process::Command;
@@ -16,7 +17,7 @@ fn xml_export_writes_a_drawable_and_prints_its_notes() {
         r##"{"command":"shape.rectangle","params":{"x":0,"y":0,"width":24,"height":24,"name":"Dot","props":{"fill":"#ff0000","effects":[{"type":"dropShadow"}]}}}"##,
     )
     .unwrap();
-    let file = d.join("doc.figcraft");
+    let file = d.join("doc.mostinterface");
     let out = bin().arg("run").arg(&script).arg("--out").arg(&file).output().unwrap();
     assert!(out.status.success(), "{}", String::from_utf8_lossy(&out.stderr));
 

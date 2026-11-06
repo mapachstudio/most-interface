@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Dev Mode in the UI, the tail: the compare view compares with a saved version picked at its
 //! bottom, and falls back when that version goes away.
 
@@ -333,7 +334,7 @@ fn dev_mode_imports_no_dropped_file_into_the_design_and_says_why() {
     }
     assert_eq!(layers(&u), 0, "the design is unchanged");
     // A dropped document still opens as a file of its own.
-    let s = drop_on_canvas(&mut u, &["Other.figcraft"], b"");
+    let s = drop_on_canvas(&mut u, &["Other.mostinterface"], b"");
     assert!(crate::live_tests::has_text(&s, "Drop to open"));
     assert_eq!(u.app.ui.pending_opens.iter().map(|p| p.command).collect::<Vec<_>>(), ["file.open"]);
     u.app.ui.pending_opens.clear();
@@ -398,7 +399,7 @@ fn dev_mode_assets_panel_places_and_applies_nothing() {
 fn dev_mode_assets_panel_accepts_no_library_updates() {
     let dir = std::env::temp_dir().join(format!("figcraft-dev-mode-updates-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("Library.figcraft");
+    let path = dir.join("Library.mostinterface");
     let mut lib = Session::new();
     lib.execute("style.create", &json!({"type": "paint", "name": "Brand", "value": [{"type": "solid", "color": "#0000FF"}]})).unwrap();
     lib.execute("library.publish", &json!({})).unwrap();

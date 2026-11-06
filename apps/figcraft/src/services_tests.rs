@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The preferences are kept as plugins change, not only when the app quits: a plugin imported
 //! (then removed) is still there (gone) when the app is killed and starts again.
 
@@ -124,10 +125,10 @@ fn the_next_dialog_starts_in_the_folder_of_the_last_pick() {
     use crate::services::{folder_to_remember, remembering, start_folder};
     use std::path::PathBuf;
     let dir = root("last-folder");
-    let file = dir.join("Poster.figcraft");
+    let file = dir.join("Poster.mostinterface");
     assert_eq!(folder_to_remember(&file, false), Some(dir.clone()), "a file: its folder");
     assert_eq!(folder_to_remember(&dir, true), Some(dir.clone()), "a folder pick: the folder itself");
-    assert_eq!(folder_to_remember(std::path::Path::new("Poster.figcraft"), false), None, "a bare name has no folder");
+    assert_eq!(folder_to_remember(std::path::Path::new("Poster.mostinterface"), false), None, "a bare name has no folder");
 
     let last = Arc::new(Mutex::new(None::<PathBuf>));
     let mut pick = remembering(last.clone(), Box::pin(std::future::ready(Some(file.clone()))), false);

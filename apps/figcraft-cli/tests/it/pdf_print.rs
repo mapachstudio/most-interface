@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `figcraft-cli export` with PDF print options: bleed, marks, CMYK; bad lengths are usage errors.
 
 use std::process::Command;
@@ -13,7 +14,7 @@ fn pdf_export_with_bleed_marks_and_cmyk() {
     let script = d.join("s.jsonl");
     std::fs::write(&script, r##"{"command":"frame.create","params":{"x":0,"y":0,"width":100,"height":50,"name":"A","props":{"fill":"#ff0000"}}}"##)
         .unwrap();
-    let file = d.join("doc.figcraft");
+    let file = d.join("doc.mostinterface");
     assert!(bin().arg("run").arg(&script).arg("--out").arg(&file).status().unwrap().success());
 
     let pdf = d.join("print.pdf");

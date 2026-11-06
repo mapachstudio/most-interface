@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The app icon: rasterises the master `assets/app-icon/figcraft.svg` (the chameleon, see
 //! `assets/app-icon/README.md`) with the `resvg` CLI (`cargo install resvg`). Writes
 //! figcraft-<size>.png (macOS grid), the hicolor theme and figcraft.ico. The outputs are
@@ -42,7 +43,7 @@ pub fn generate(root: &Path) -> bool {
         if size <= 512 {
             let hd = dir.join(format!("hicolor/{size}x{size}/apps"));
             let _ = std::fs::create_dir_all(&hd);
-            ok &= render(&tile, size, &hd.join("ai.storyteller.figcraft.png"));
+            ok &= render(&tile, size, &hd.join("com.grupomostmexico.mostinterface.png"));
         }
     }
     // Windows .ico (PNG-compressed entries).
@@ -73,7 +74,7 @@ pub fn generate(root: &Path) -> bool {
     // The lighter trace keeps the scalable theme icon cheap to render.
     let sd = dir.join("hicolor/scalable/apps");
     let _ = std::fs::create_dir_all(&sd);
-    let target = sd.join("ai.storyteller.figcraft.svg");
+    let target = sd.join("com.grupomostmexico.mostinterface.svg");
     let _ = std::fs::remove_file(&target);
     ok &= std::fs::copy(dir.join("figcraft-small.svg"), &target).is_ok();
     eprintln!("icon: wrote {}", dir.display());

@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Copying one fill, stroke or effect row (`fill.copy`, `stroke.copy`, `effect.copy`) and pasting
 //! it onto other layers (`fill.paste`, `stroke.paste`, `effect.paste`): the Design panel's row
 //! menus.
@@ -171,7 +172,7 @@ fn a_copied_image_whose_hash_key_is_also_taken_gets_a_free_key() {
     assert!(key.bytes().all(|b| b.is_ascii_alphanumeric()), "the key is archive-valid: {key}");
     let dir = std::env::temp_dir().join(format!("figcraft-image-key-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("pasted.figcraft").to_string_lossy().to_string();
+    let path = dir.join("pasted.mostinterface").to_string_lossy().to_string();
     ex(&mut s, "file.save", json!({"path": path}));
     let mut t = Session::empty();
     ex(&mut t, "file.open", json!({"path": path}));

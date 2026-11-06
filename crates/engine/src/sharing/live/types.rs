@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::{
     Access, Admin, AdminReply, Arc, ClientMsg, Code, Document, HostInfo, IpAddr, LibraryReply, LibraryReq, NO_TEAM_LIBRARIES, Peer, PluginReply,
     PluginReq, Presence, Resume, Serialize, ServerMsg, Signal, code,
@@ -6,10 +7,10 @@ use super::{
 /// The server files are shared through online unless Preferences name another: the only place
 /// its address is written.
 ///
-/// A build can ship another one, or none: set `FIGCRAFT_DEFAULT_SERVER` when compiling to a
-/// server's address (`wss://host/`), or to nothing (`FIGCRAFT_DEFAULT_SERVER=`) for a build whose
+/// A build can ship another one, or none: set `MOST_INTERFACE_DEFAULT_SERVER` when compiling to a
+/// server's address (`wss://host/`), or to nothing (`MOST_INTERFACE_DEFAULT_SERVER=`) for a build whose
 /// online sharing stays off until the user enters a server in Preferences.
-pub const DEFAULT_SERVER: &str = match option_env!("FIGCRAFT_DEFAULT_SERVER") {
+pub const DEFAULT_SERVER: &str = match option_env!("MOST_INTERFACE_DEFAULT_SERVER") {
     Some(server) => server,
     None => "wss://collab.craftapps.dev/",
 };

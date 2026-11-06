@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Slots opened from REST file JSON: instances keep their own slot content through edits and
 //! moves of the mains, and through saving.
 
@@ -79,7 +80,7 @@ fn rest_slot_content_survives_main_edits_moves_and_saving() {
     let bytes = figcraft_format::save_bytes(s.doc().unwrap(), None).unwrap();
     let data = base64::engine::general_purpose::STANDARD.encode(bytes);
     let mut again = Session::new();
-    ex(&mut again, "file.open", json!({"data": data, "name": "slots.figcraft"}));
+    ex(&mut again, "file.open", json!({"data": data, "name": "slots.mostinterface"}));
     healthy(&again);
     let (slot, names) = slot_content(&again);
     assert_eq!(names, want);

@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Plugins: WebAssembly modules that act on the document through the same commands as the menus,
 //! CLI and MCP server, inside the sandbox of `figcraft-plugin`. This module is the policy: which
 //! commands a plugin may call (its manifest's permissions, and never files, other documents, the
@@ -159,7 +160,7 @@ fn refusal(m: &Manifest, command: &str, params: &Value) -> Option<String> {
     {
         return Some(why);
     }
-    // A widget's own data is FigCraft's to write, so no plugin can forge or retarget a widget.
+    // A widget's own data is Most Interface's to write, so no plugin can forge or retarget a widget.
     if writes_widget_data(params, 0) {
         return Some(format!("plugins can't write `{}…` layer data", crate::widgets::DATA_PREFIX));
     }

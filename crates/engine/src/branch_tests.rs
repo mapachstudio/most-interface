@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Branches through commands: create, edit on both sides, review, resolve, merge as one undo step,
 //! update from main, archive, saving with the file, and a fuzz test over random real commands.
 
@@ -155,7 +156,7 @@ fn styles_variables_and_comments_merge() {
 fn branch_tabs_save_with_the_main_file_and_come_back() {
     let dir = std::env::temp_dir().join(format!("figcraft-branches-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("file.figcraft").to_string_lossy().to_string();
+    let path = dir.join("file.mostinterface").to_string_lossy().to_string();
     let (mut s, id, r) = branched();
     ok(&mut s, "node.set", json!({"id": r[0], "props": {"name": "Branch edit"}}));
     // Saving on the branch tab saves the main file, branch included.

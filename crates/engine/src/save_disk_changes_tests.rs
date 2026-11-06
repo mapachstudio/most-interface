@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Saving never silently replaces what another app wrote to the open file since it was opened or
 //! saved here (#1330): Save and auto-save refuse, `overwrite` and Revert to saved settle it.
 
@@ -9,7 +10,7 @@ use crate::cmd::file::FileSnapshot;
 fn temp_file(name: &str) -> String {
     let dir = std::env::temp_dir().join(format!("figcraft-disk-changes-{}-{name}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    dir.join("TESTE.figcraft").to_string_lossy().into_owned()
+    dir.join("TESTE.mostinterface").to_string_lossy().into_owned()
 }
 
 /// What the file on disk names its first page.

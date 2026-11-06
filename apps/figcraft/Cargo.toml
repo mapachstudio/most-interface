@@ -1,10 +1,11 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 publish = false
-description = "FigCraft desktop app"
+description = "Most Interface desktop app"
 default-run = "figcraft"
 
 [lints]
@@ -20,7 +21,7 @@ figcraft-text = { workspace = true }
 # bespoke Wayland xdg-decoration probe. See `[workspace.dependencies]`: pinned to the unmerged
 # craft-libs#217 branch and must be repointed to a merged `rev` before this PR is mergeable.
 craft-window = { workspace = true }
-# The suite's settings folder: `FIGCRAFT_CONFIG_DIR`, a portable marker, then the platform folder.
+# The suite's settings folder: `MOST_INTERFACE_CONFIG_DIR`, a portable marker, then the platform folder.
 craft-settings = { workspace = true }
 egui = { workspace = true }
 eframe = { workspace = true, features = ["default_fonts", "wgpu", "accesskit", "clipboard", "wayland", "x11"] }
@@ -44,7 +45,7 @@ windows = { version = "0.62", default-features = false, features = ["UI_ViewMana
 [target.'cfg(all(unix, not(target_os = "macos")))'.dependencies]
 zbus = { version = "5", default-features = false, features = ["async-io", "blocking-api"] }
 
-# Finder double-clicks, Open With, Dock drops and `open -a FigCraft file.figcraft` arrive as a
+# Finder double-clicks, Open With, Dock drops and `open -a Most Interface file.mostinterface` arrive as a
 # kAEOpenDocuments Apple event, which winit 0.30 doesn't handle. This crate (also used by GridCraft,
 # EffectCraft and PhotoCraft) registers the handler behind a safe API (Objective-C interop needs
 # unsafe, which the workspace forbids). Pinned exactly: review the diff before bumping.

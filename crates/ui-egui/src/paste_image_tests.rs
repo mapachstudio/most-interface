@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Pasting an image copied in another app (#663, #492). On the desktop, egui-winit swallows a plain
 //! Cmd/Ctrl+V, press and release, and sends a paste event for text or an image paste event for an
 //! image. The browser sends the press and a paste event (`web_clipboard_tests`).
@@ -16,7 +17,7 @@ use crate::{FigApp, Services};
 /// What the system clipboard holds when a paste chord is pressed (#716).
 #[derive(Clone, Copy, Debug)]
 enum Held {
-    /// FigCraft's own copy (its SVG text).
+    /// Most Interface's own copy (its SVG text).
     Ours,
     /// Text copied in another app.
     Text,
@@ -123,7 +124,7 @@ impl Win {
         self.frame(vec![Event::ModifiersChanged(Modifiers::NONE)]);
     }
 
-    /// A red rectangle A copied in FigCraft, and a grey rectangle B selected; then `held` on the
+    /// A red rectangle A copied in Most Interface, and a grey rectangle B selected; then `held` on the
     /// system clipboard. Returns (A, B).
     fn copy_a_select_b(&mut self, held: Held) -> (NodeId, NodeId) {
         let s = &mut self.app.session;
@@ -239,7 +240,7 @@ fn pasting_an_image_keeps_the_other_fills_variables() {
     assert!(!node.bound.is_empty(), "the colour fill under the image keeps its variable");
 }
 
-/// An image layer copied in FigCraft pastes as a layer, a selected shape or not.
+/// An image layer copied in Most Interface pastes as a layer, a selected shape or not.
 #[test]
 fn an_image_layer_copied_in_figcraft_pastes_as_a_layer() {
     let mut w = Win::new();

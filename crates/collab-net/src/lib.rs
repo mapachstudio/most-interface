@@ -1,4 +1,5 @@
-//! Live sessions over the network for FigCraft (milestone M9, steps 2 and 4
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Live sessions over the network for Most Interface (milestone M9, steps 2 and 4
 //! of `docs/collab-protocol.md`): the WebSocket transport, the session host the desktop app embeds,
 //! invite links, and presence relay. It carries the collaboration core's messages
 //! ([`figcraft_collab::message`]) and runs its [`Server`](figcraft_collab::Server) as the host's

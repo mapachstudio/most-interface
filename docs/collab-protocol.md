@@ -1,3 +1,4 @@
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # Real-time collaboration protocol (draft)
 
 Status: milestone M9. **Step 1 (the core, no networking) is implemented** in `crates/collab`:
@@ -22,7 +23,7 @@ are per document: an app hosts, joins and publishes several files at once (see H
 joining). The rest is the plan the next implementation PRs follow and update;
 sections say what is built.
 
-Goal: several people edit the same `.figcraft` file at the same time and see each other's edits,
+Goal: several people edit the same `.mostinterface` file at the same time and see each other's edits,
 cursors and selections live, on the desktop app and in the browser, without a central cloud
 service being required.
 
@@ -41,7 +42,7 @@ server code also builds as a standalone `figcraft-server` binary for self-hostin
 ## Why this shape
 
 Public engineering write-ups about multiplayer design tools converge on the same choices, and they
-fit FigCraft's architecture:
+fit Most Interface's architecture:
 
 - **WebSockets**: one long-lived, bidirectional, ordered connection; works natively (tungstenite)
   and in the browser build (the browser's WebSocket API through `web-sys`), passes through proxies
@@ -52,10 +53,10 @@ fit FigCraft's architecture:
   general CRDTs carry metadata and tombstones we don't need when a server orders everything. With
   per-property last-writer-wins plus a few tree rules (below), every client converges to the
   server's state, and the server can reject invalid changes (cycles, edits to deleted objects).
-- **State-based changes instead of replaying commands**: FigCraft's commands are deterministic
+- **State-based changes instead of replaying commands**: Most Interface's commands are deterministic
   locally, but replaying them on other clients would require identical documents, fonts and
   floating point everywhere. Instead a command runs once, on the client that issued it, and the
-  resulting document difference is what gets sent. FigCraft's document is a persistent map of
+  resulting document difference is what gets sent. Most Interface's document is a persistent map of
   `Arc<Node>` with dirty tracking, so computing the exact changed nodes and properties after a
   command is cheap.
 - **Binary encoding**: cursor traffic is frequent and documents are large; a compact, schema-based
@@ -279,7 +280,7 @@ Server → client:
 | `Refused {reason}` | The connection is refused (protocol version, token, session full, a message out of place). |
 | `Pong` | Keep-alive. |
 | `Admin {ready \| published {file, edit, view} \| files \| links \| link \| done \| failed {reason}}` | A managing connection's answer: the key is right, a published file with its first two links (tokens shown once), listings, a new link, done, or why not. |
-| `Library {ready {access} \| library {version, archive} \| unchanged {version} \| empty \| published {version} \| usage [{usage, updated}] \| failed {reason} \| noted \| detached [{detached, updated}] \| actions [{week, component, insertions, detachments}] \| assets [{file, styles, variables}]}` | A library connection's answer: the link is right (with its access), the library (a `.figcraft` archive holding it), no newer version, no library yet, kept, the usage reports, or why not; then (newer) a detach report kept, and the detach reports. |
+| `Library {ready {access} \| library {version, archive} \| unchanged {version} \| empty \| published {version} \| usage [{usage, updated}] \| failed {reason} \| noted \| detached [{detached, updated}] \| actions [{week, component, insertions, detachments}] \| assets [{file, styles, variables}]}` | A library connection's answer: the link is right (with its access), the library (a `.mostinterface` archive holding it), no newer version, no library yet, kept, the usage reports, or why not; then (newer) a detach report kept, and the detach reports. |
 | `Signal {client_id, signal: {kind, text}}` | Someone's cursor chat or spotlight, cleaned by the server; `ready` (about the client itself, after its welcome): signals may be sent. Only to clients whose hello announced `signals`. |
 | `Hosting {open, operator, terms, idle_secs, max_file_mb, expires?}` | The answer to `OpenHosting`, and after a welcome to clients whose hello announced `hosting`: anyone may publish, how to reach the operator, the terms (a URL), how long files published without the key are kept unopened, the largest file, and this file's expiry (seconds since 1970). |
 | `Admin {hosted {file, edit, view, owner, expires?} \| listing [row] \| reports [report] \| blocked [ip]}` | A file published without the key with its links and owner token (shown once), and the answers to the later managing requests. |
@@ -760,7 +761,7 @@ resuming with its offline edits, and leaving the session going back to snapshot 
   plain `ws://` endpoint at `/`, `figcraft://join?server=<ws(s)://host[:port][/path]>&file=…&token=…`
   for any endpoint (TLS, a path behind a proxy), or `ws(s)://…?file=…&token=…`. The desktop app,
   `figcraft-cli` and the browser all open `wss://`: natively through rustls (ring, Mozilla's root
-  certificates compiled in, plus any authority in the PEM file `FIGCRAFT_CA_FILE` names), always
+  certificates compiled in, plus any authority in the PEM file `MOST_INTERFACE_CA_FILE` names), always
   verifying the certificate; the browser through its own WebSocket.
 - **Managing files.** A connection that opens with `Manage {key}` instead of `Hello` sends
   `Admin` requests: publish a document (its snapshot) as a new file, which returns an edit link
@@ -797,7 +798,7 @@ resuming with its offline edits, and leaving the session going back to snapshot 
   version (edit links only), or read the usage reports. Requests are one-shot: the app opens a
   connection, asks and closes it.
 - **What is kept.** The published library a library file holds (manifest and snapshot with
-  per-asset versions) travels as a small `.figcraft` archive holding only it. The server reads it
+  per-asset versions) travels as a small `.mostinterface` archive holding only it. The server reads it
   in full with the limits a library file is read with, requires the file's library id once one is
   kept and a newer version, then writes it beside the file in a file of its own
   (`library-<version>.bin`, atomically) and only then records id, name and version in the file's
@@ -886,12 +887,12 @@ installing: [`plugins.md`](plugins.md#plugin-directories)):
   link and the reason. Other arguments are files, as paths or `file://` URLs.
 - **Windows**: the app registers itself per user as the opener of `figcraft://` under
   `HKEY_CURRENT_USER\Software\Classes\figcraft` (no administrator rights): the scheme, its icon
-  and `"<figcraft.exe>" "%1"`. Preferences ▸ **Open invite links in FigCraft** (and
+  and `"<figcraft.exe>" "%1"`. Preferences ▸ **Open invite links in Most Interface** (and
   `collab.registerLinks {on?}`) turns it on or off; it defaults to on for installed builds, which
   register on first run, and off for builds from source (inside a Cargo build directory, or debug
   builds), which leave any registration alone. Turning it off removes only this copy's
   registration. The registry sits behind a trait, so tests use a fake.
-- **macOS**: the bundle declares the scheme (`CFBundleURLTypes`), so links open FigCraft; the
+- **macOS**: the bundle declares the scheme (`CFBundleURLTypes`), so links open Most Interface; the
   link itself arrives as an Apple Event, which the windowing layer doesn't pass on yet, so the app
   opens without joining (paste the link) until it does.
 - **Linux and FreeBSD**: the desktop entry declares `x-scheme-handler/figcraft` and passes URLs
@@ -982,7 +983,7 @@ chooses to share on the network; the default is the invite link with a random to
   new for every session (stopping and starting again invalidates old links). It is compared in
   constant time (the hub's backend). It is in the invite link by design, so whoever holds the link
   can join until the session stops: share it like a password. It never travels in the WebSocket
-  request (the path is `/`), so proxies don't log it; FigCraft never logs it (logs name addresses
+  request (the path is `/`), so proxies don't log it; Most Interface never logs it (logs name addresses
   and ports only), and errors about links never echo the link. Traffic is not encrypted (`ws://`):
   on a shared network, others on the path could read presence and the token. Use a trusted LAN
   or a VPN; TLS (`wss://`) comes from a reverse proxy in front of a `figcraft-server`.

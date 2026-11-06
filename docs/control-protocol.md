@@ -1,10 +1,11 @@
-# FigCraft control protocol
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+# Most Interface control protocol
 
 The desktop app can be driven by other programs (tests, scripts, `figcraft-cli mcp --attach`,
 sibling Crafting Apps) through a loopback socket:
 
 ```sh
-cargo run -p figcraft -- --control 7979 [file.figcraft|file.svg|image]
+cargo run -p figcraft -- --control 7979 [file.mostinterface|file.svg|image]
 ```
 
 The app listens on `127.0.0.1:<port>` only. Each connection carries **newline-delimited JSON**:
@@ -97,11 +98,11 @@ read or write root and written only inside a write root; anything else is an ord
 resolved as `docs/mcp.md` › Confining file access describes. A root that isn't an existing folder
 stops the app before its window opens, and so does any option the app doesn't know (a mistyped
 flag such as `--automation-write-roots` exits with `unknown option`, never starts unconfined).
-Confined work reaches no FigCraft or plugin server either: hosting, joining, publishing and
+Confined work reaches no Most Interface or plugin server either: hosting, joining, publishing and
 sharing files, team libraries on a server and plugin directories are refused (`automation roots
 are set: commands don't reach the network …`). A root on a network share (a UNC path such as
 `\\server\share\…`, or a mounted network drive) is the exception: files read and written inside it,
-documents saved there included, go to that file server. Without the flags nothing changes. The flags arrived in FigCraft 0.7.0: 0.6.0 and earlier ignore
+documents saved there included, go to that file server. Without the flags nothing changes. The flags arrived in Most Interface 0.7.0: 0.6.0 and earlier ignore
 them and confine nothing.
 
 Not confined: opening the files given on the command line when the app starts and the documents
@@ -221,7 +222,7 @@ returns one level of children.
 
 ### `ui.inspect {}`
 
-UI state: panels and tabs (`panels`: the `left` and `right` panels' widths as asked for and whether the left one is closed, `leftCollapsed`), the cursor the canvas shows (`cursor`: a CSS cursor name such as `default`, `crosshair`, `ew-resize`, `grab`, `copy`, `not-allowed`, `zoom-in`, or one FigCraft draws: `rotate <degrees>`, `pen`, `pen-close`, `pen-add`, `pen-bend`, `eyedropper`, `comment`; `null` while the pointer is elsewhere or over something with a cursor of its own, a ruler guide or a gradient handle; the engine's own hint is `tool.overlay.cursor`), current tool (`tool`: its id, overlay hints and, for a selected
+UI state: panels and tabs (`panels`: the `left` and `right` panels' widths as asked for and whether the left one is closed, `leftCollapsed`), the cursor the canvas shows (`cursor`: a CSS cursor name such as `default`, `crosshair`, `ew-resize`, `grab`, `copy`, `not-allowed`, `zoom-in`, or one Most Interface draws: `rotate <degrees>`, `pen`, `pen-close`, `pen-add`, `pen-bend`, `eyedropper`, `comment`; `null` while the pointer is elsewhere or over something with a cursor of its own, a ruler guide or a gradient handle; the engine's own hint is `tool.overlay.cursor`), current tool (`tool`: its id, overlay hints and, for a selected
 ellipse, its arc handles `arcHandles`, for a selected rectangle, frame, polygon or star, its corner radius and ratio handles `shapeHandles`; see [mcp.md](mcp.md#measuring-the-scale-tool-arc-handles-and-selecting)), canvas rect, dialogs, view, timings (`frameMs`,
 `renderMs`), frames drawn since start or the last `ui.set {resetFrameStats: true}` (`framesDrawn`;
 an idle window draws none), how long building them took (`frameTimes`: `{frames, meanMs, maxMs}`, the
@@ -451,12 +452,12 @@ read -r reply <&3; echo "$reply"
 For agents, prefer the MCP server (`figcraft-cli mcp --attach 7979`, see `docs/mcp.md`): it wraps
 these methods in documented tools and returns images inline.
 
-## In the browser: `window.figcraft`
+## In the browser: `window.mostinterface`
 
 The web build has no TCP server (a page can't listen on a socket), so it offers the same methods to the
-page itself, as promises on `window.figcraft` (`apps/figcraft-web/src/api.rs`). An agent driving FigCraft in a
+page itself, as promises on `window.mostinterface` (`apps/figcraft-web/src/api.rs`). An agent driving Most Interface in a
 browser tab, or a host app showing it in an `<iframe>`, uses the commands it would send to the desktop
-app. It is opt-in: the page installs `window.figcraft` only when its URL has a `control` query entry
+app. It is opt-in: the page installs `window.mostinterface` only when its URL has a `control` query entry
 (`index.html?control`, which can be combined with other flags: `?webgl&control`).
 
 | Call | |

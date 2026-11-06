@@ -1,4 +1,5 @@
-//! Branches in `.figcraft` files: round trips, files from before branches, damaged entries.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Branches in `.mostinterface` files: round trips, files from before branches, damaged entries.
 
 use std::io::Write;
 use std::sync::Arc;

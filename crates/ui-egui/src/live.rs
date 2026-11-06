@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Live sessions in the window: other people's cursors (smoothly following their pointer, with a
 //! name tag) and selections on the canvas (their edits arrive through the engine's sync), their avatars at the top of the right panel (click one
 //! to follow their view), the Share popover (share the file online or on the local network and
@@ -32,7 +33,7 @@ pub mod agent;
 
 /// In the browser: what joining needs (a page can't host, and https pages can't reach `ws://`).
 const BROWSER_NOTE: &str = tr_noop(
-    "In the browser you can join sessions the desktop app hosts and files on a FigCraft server. A page opened over https reaches other computers only through wss:// links (a server behind TLS).",
+    "In the browser you can join sessions the desktop app hosts and files on a Most Interface server. A page opened over https reaches other computers only through wss:// links (a server behind TLS).",
 );
 
 /// How undo works in a session (per person).
@@ -190,7 +191,7 @@ pub fn avatar(painter: &egui::Painter, center: Pos2, r: f32, name: &str, fill: C
     painter.text(center, Align2::CENTER_CENTER, initials(name), semibold(r * 0.8), text_on(fill));
 }
 
-/// FigCraft's remote pointer: a notched dart pointing up-left from `tip`, filled with the
+/// Most Interface's remote pointer: a notched dart pointing up-left from `tip`, filled with the
 /// person's colour and edged in white so it shows on any canvas.
 pub fn pointer(painter: &egui::Painter, tip: Pos2, fill: Color32) {
     let at = |x: f32, y: f32| tip + vec2(x, y);
@@ -1052,7 +1053,7 @@ fn share_ui(app: &mut FigApp, ui: &mut Ui, t: &Tokens, share: &Share) {
                     app.clipboard_set_text(&code);
                     app.toast(tr("Join code copied"));
                 }
-                if widgets::button(ui, tr("Copy link"), false, true).on_hover_text(tr("An invite link that opens FigCraft and joins")).clicked() {
+                if widgets::button(ui, tr("Copy link"), false, true).on_hover_text(tr("An invite link that opens Most Interface and joins")).clicked() {
                     app.clipboard_set_text(&link);
                     app.toast(tr("Invite link copied"));
                 }
@@ -1343,7 +1344,7 @@ pub fn publish_dialog(app: &mut FigApp, ctx: &egui::Context) {
         ui.set_width(380.0);
         widgets::label(
             ui,
-            tr("Uploads this file to a FigCraft server and keeps this tab in sync with it. You get a link to edit and a link to view."),
+            tr("Uploads this file to a Most Interface server and keeps this tab in sync with it. You get a link to edit and a link to view."),
             t.text,
         );
         widgets::label(ui, tr("Server address"), t.text_secondary);

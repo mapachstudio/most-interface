@@ -1,4 +1,5 @@
-//! Sketch shared styles → FigCraft styles; Color Variables (swatches) → colour variables.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Sketch shared styles → Most Interface styles; Color Variables (swatches) → colour variables.
 
 use figcraft_doc::color::PaintKind;
 use figcraft_doc::{Document, Node, StyleKind};

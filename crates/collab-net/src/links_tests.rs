@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The `figcraft://` registration against a fake registry (tests never write the real one).
 
 use std::collections::BTreeMap;
@@ -36,15 +37,15 @@ fn exe(path: &str) -> PathBuf {
 
 #[test]
 fn registers_the_scheme_for_this_copy() {
-    let mut s = UrlScheme::new(Fake::default(), exe(r"C:\Apps\FigCraft\figcraft.exe"), true);
+    let mut s = UrlScheme::new(Fake::default(), exe(r"C:\Apps\Most Interface\figcraft.exe"), true);
     assert!(!s.registered());
     s.set(true).unwrap();
     assert!(s.registered());
     let reg = s.registry();
-    assert_eq!(reg.get(KEY, "").as_deref(), Some("URL:FigCraft invite link"));
+    assert_eq!(reg.get(KEY, "").as_deref(), Some("URL:Most Interface invite link"));
     assert_eq!(reg.get(KEY, "URL Protocol").as_deref(), Some(""), "marks the key as a URL scheme");
-    assert_eq!(reg.get(&format!(r"{KEY}\DefaultIcon"), "").as_deref(), Some(r#""C:\Apps\FigCraft\figcraft.exe",0"#));
-    assert_eq!(reg.get(&format!(r"{KEY}\shell\open\command"), "").as_deref(), Some(r#""C:\Apps\FigCraft\figcraft.exe" "%1""#));
+    assert_eq!(reg.get(&format!(r"{KEY}\DefaultIcon"), "").as_deref(), Some(r#""C:\Apps\Most Interface\figcraft.exe",0"#));
+    assert_eq!(reg.get(&format!(r"{KEY}\shell\open\command"), "").as_deref(), Some(r#""C:\Apps\Most Interface\figcraft.exe" "%1""#));
     assert_eq!(reg.values.len(), 4, "nothing else is written");
     s.set(false).unwrap();
     assert!(!s.registered());
@@ -80,7 +81,7 @@ fn cargo_builds_are_not_installed() {
     std::fs::create_dir_all(&bin).unwrap();
     std::fs::write(target.join("CACHEDIR.TAG"), "Signature: 8a477f597d28d172789f06886806bc55").unwrap();
     assert!(!installed_build(&bin.join("figcraft.exe")), "inside a Cargo build directory");
-    let installed = dir.join("Programs").join("FigCraft");
+    let installed = dir.join("Programs").join("Most Interface");
     std::fs::create_dir_all(&installed).unwrap();
     // Debug builds (these tests) never count as installed either.
     assert_eq!(installed_build(&installed.join("figcraft.exe")), !cfg!(debug_assertions));

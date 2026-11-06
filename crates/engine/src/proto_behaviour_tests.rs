@@ -1,7 +1,8 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Prototyping behaviour, written from the public documentation of prototype triggers, actions,
 //! animations, easing and interactive components. Each case states the rule, what it implies and
 //! a one-line derivation; where the documentation is silent the case says so and pins what
-//! FigCraft does. The player's side (gestures, overlays, timers, scrolling, smart animate) is
+//! Most Interface does. The player's side (gestures, overlays, timers, scrolling, smart animate) is
 //! `ui-egui`'s `present_behaviour_tests`.
 
 use figcraft_doc::proto::{Action, Direction, Easing, KeyMods, Transition, Trigger};
@@ -57,7 +58,7 @@ fn key_triggers_fire_for_their_key_or_combination() {
         ("Shift+K", "K", none, false, "not without its modifier"),
         ("Ctrl+Shift+K", "K", ctrl_shift, true, "two modifiers"),
         ("Ctrl+Shift+K", "K", shift, false, "every modifier of the combination must be held"),
-        ("Command+Option+K", "K", alt_cmd, true, "other spellings of the modifiers (FigCraft accepts them)"),
+        ("Command+Option+K", "K", alt_cmd, true, "other spellings of the modifiers (Most Interface accepts them)"),
         ("Space", "Space", none, true, "named keys"),
         ("space", "Space", none, true, "names in any case"),
         ("Return", "Enter", none, true, "common other names of keys"),

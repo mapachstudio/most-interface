@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The command line: `figcraft-server` serves; `key`, `files`, `links` and `plugins` manage the
 //! data directory. When a server is running on the directory they ask it (so revoking a link
 //! disconnects whoever joined with it at once); otherwise they change the directory themselves.
@@ -20,7 +21,7 @@ use crate::store::{self, KEY, Store};
 pub const SERVER_JSON: &str = "server.json";
 
 pub const USAGE: &str = "\
-figcraft-server: FigCraft's collaboration server (files, share links, live sessions)
+figcraft-server: Most Interface's collaboration server (files, share links, live sessions)
 
 Usage:
   figcraft-server [serve] [--listen ADDR] [--data DIR] [--public-url URL] [--config FILE]
@@ -346,7 +347,7 @@ fn key(cfg: &Config, rotate: bool) -> Result<String, String> {
     if rotate {
         out.push_str("A new server key: the old one no longer works.\n");
     }
-    let _ = writeln!(out, "Publish to this address (in FigCraft: File > Publish to server…):");
+    let _ = writeln!(out, "Publish to this address (in Most Interface: File > Publish to server…):");
     let _ = writeln!(out, "  {}?key={key}", public.url());
     let _ = writeln!(out, "Whoever has it can publish files and manage their links: share it only with people you trust.");
     if cfg.open_publish {
@@ -376,7 +377,7 @@ fn used(f: &FileRow) -> u64 {
 
 fn files_table(mut files: Vec<FileRow>, sort: Sort, now: u64) -> String {
     if files.is_empty() {
-        return "No files yet (publish one from FigCraft: File > Publish to server…).\n".into();
+        return "No files yet (publish one from Most Interface: File > Publish to server…).\n".into();
     }
     match sort {
         Sort::Id => {}

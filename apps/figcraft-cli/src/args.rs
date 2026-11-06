@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The command line, as clap types (craft-contrib RFC-0012). Values are parsed into their types
 //! here, so a bad one is a usage error naming its flag (exit 2) before any work starts, and the
 //! handlers never see it. A flag a subcommand doesn't take is a usage error, and so is one given
@@ -10,16 +11,16 @@ use std::net::{Ipv4Addr, SocketAddr};
 use clap::{ArgAction, Args, CommandFactory, FromArgMatches, Parser, Subcommand};
 use figcraft_doc::{PrintSettings, VdCompat};
 
-/// FigCraft without a window
+/// Most Interface without a window
 ///
-/// Files: .figcraft (native), .penpot (Penpot 2.x), .json (FigCraft or REST API file JSON), .fig
+/// Files: .mostinterface (native), .penpot (Penpot 2.x), .json (Most Interface or REST API file JSON), .fig
 /// (best effort; `info` lists what wasn't imported), .sketch (Sketch 48 or newer, best effort),
 /// .svg, .png/.jpg/.webp/.gif/.bmp (open as an image layer).
 #[derive(Parser)]
 #[command(name = "figcraft-cli", bin_name = "figcraft-cli", version, arg_required_else_help = true, after_help = "See docs/cli.md and docs/mcp.md.")]
 pub struct Cli {
-    /// Lay text out with the fonts built into FigCraft only, for renders that match on every
-    /// machine (or set FIGCRAFT_NO_SYSTEM_FONTS=1). Otherwise installed fonts are indexed the
+    /// Lay text out with the fonts built into Most Interface only, for renders that match on every
+    /// machine (or set MOST_INTERFACE_NO_SYSTEM_FONTS=1). Otherwise installed fonts are indexed the
     /// first time text is laid out, as in the app
     #[arg(long, global = true)]
     pub no_system_fonts: bool,
@@ -137,7 +138,7 @@ pub struct ScaleArg {
     pub scale: f64,
 }
 
-/// Convert by extension (.figcraft, .json, .svg, .png, .jpg, .webp, .pdf, .fig, .penpot)
+/// Convert by extension (.mostinterface, .json, .svg, .png, .jpg, .webp, .pdf, .fig, .penpot)
 #[derive(Args)]
 pub struct ConvertArgs {
     /// The document to read
@@ -224,7 +225,7 @@ pub enum PluginCommand {
 /// Send a plugin folder to a figcraft-server's plugin directory as a new version
 ///
 /// The folder holds figcraft-plugin.json, its module and an optional assets/ folder. The server's
-/// key comes from the address or the FIGCRAFT_SERVER_KEY environment variable (which keeps it out
+/// key comes from the address or the MOST_INTERFACE_SERVER_KEY environment variable (which keeps it out
 /// of the shell history); it is never printed.
 #[derive(Args)]
 pub struct PublishArgs {
@@ -248,7 +249,7 @@ pub enum ConnectCommand {
 /// Entries that don't fit (an unknown component, a bad template) are reported and skipped.
 #[derive(Args)]
 pub struct ConnectPublishArgs {
-    /// The design file (.figcraft), saved in place
+    /// The design file (.mostinterface), saved in place
     #[arg(value_name = "FILE")]
     pub file: String,
     /// The mappings
@@ -386,22 +387,22 @@ mod tests {
 
     #[test]
     fn info_and_the_roots() {
-        let Command::Info(a) = ok(&["info", "a.figcraft", "--json", "--automation-read-root", "in", "--automation-read-root=more"]) else {
+        let Command::Info(a) = ok(&["info", "a.mostinterface", "--json", "--automation-read-root", "in", "--automation-read-root=more"]) else {
             panic!("info")
         };
-        assert_eq!(a.file, "a.figcraft");
+        assert_eq!(a.file, "a.mostinterface");
         assert!(a.json);
         assert_eq!(a.roots.automation_read_root, ["in", "more"]);
         assert!(a.roots.automation_write_root.is_empty());
-        let Command::Info(a) = ok(&["info", "--json", "--", "--drawing.figcraft"]) else { panic!("info") };
-        assert_eq!(a.file, "--drawing.figcraft");
+        let Command::Info(a) = ok(&["info", "--json", "--", "--drawing.mostinterface"]) else { panic!("info") };
+        assert_eq!(a.file, "--drawing.mostinterface");
     }
 
     #[test]
     fn export_takes_every_documented_option() {
         let Command::Export(a) = ok(&[
             "export",
-            "app.figcraft",
+            "app.mostinterface",
             "-o",
             "poster.pdf",
             "--format=PDF",
@@ -421,28 +422,28 @@ mod tests {
         ]) else {
             panic!("export")
         };
-        assert_eq!((a.file.as_str(), a.out.as_str(), a.format.as_deref()), ("app.figcraft", "poster.pdf", Some("pdf")));
+        assert_eq!((a.file.as_str(), a.out.as_str(), a.format.as_deref()), ("app.mostinterface", "poster.pdf", Some("pdf")));
         assert_eq!((a.scale.scale, a.page.as_deref(), a.node.as_deref()), (2.0, Some("Screens"), Some("Poster")));
         let print = a.print();
         assert!((print.bleed - 3.0 * 72.0 / 25.4).abs() < 1e-9, "{}", print.bleed);
         assert!(print.crop_marks && print.bleed_marks && print.cmyk);
         assert_eq!(a.vd_compat, figcraft_doc::VdCompat::Exact);
         // The defaults, and `--out` for `-o`.
-        let Command::Export(a) = ok(&["export", "app.figcraft", "--out=exports/"]) else { panic!("export") };
+        let Command::Export(a) = ok(&["export", "app.mostinterface", "--out=exports/"]) else { panic!("export") };
         assert_eq!((a.out.as_str(), a.format.as_deref(), a.scale.scale, a.print().bleed), ("exports/", None, 1.0, 0.0));
         assert_eq!(a.vd_compat, figcraft_doc::VdCompat::default());
     }
 
     #[test]
     fn convert_render_run_commands_perf() {
-        let Command::Convert(a) = ok(&["convert", "in.svg", "out.figcraft"]) else { panic!("convert") };
-        assert_eq!((a.input.as_str(), a.output.as_str()), ("in.svg", "out.figcraft"));
-        let Command::Render(a) = ok(&["render", "doc.figcraft", "--out", "doc.png", "--scale=0.5", "--page", "P"]) else { panic!("render") };
+        let Command::Convert(a) = ok(&["convert", "in.svg", "out.mostinterface"]) else { panic!("convert") };
+        assert_eq!((a.input.as_str(), a.output.as_str()), ("in.svg", "out.mostinterface"));
+        let Command::Render(a) = ok(&["render", "doc.mostinterface", "--out", "doc.png", "--scale=0.5", "--page", "P"]) else { panic!("render") };
         assert_eq!((a.out.as_str(), a.scale.scale, a.page.as_deref()), ("doc.png", 0.5, Some("P")));
-        let Command::Run(a) = ok(&["run", "s.jsonl", "--in", "a.figcraft", "--out", "b.figcraft", "--automation-write-root", "."]) else {
+        let Command::Run(a) = ok(&["run", "s.jsonl", "--in", "a.mostinterface", "--out", "b.mostinterface", "--automation-write-root", "."]) else {
             panic!("run")
         };
-        assert_eq!((a.script.as_str(), a.input.as_deref(), a.out.as_deref()), ("s.jsonl", Some("a.figcraft"), Some("b.figcraft")));
+        assert_eq!((a.script.as_str(), a.input.as_deref(), a.out.as_deref()), ("s.jsonl", Some("a.mostinterface"), Some("b.mostinterface")));
         assert_eq!(a.roots.automation_write_root, ["."]);
         let Command::Commands(a) = ok(&["commands", "--json", "--filter=--help"]) else { panic!("commands") };
         assert!(a.json);
@@ -469,10 +470,10 @@ mod tests {
             panic!("plugin")
         };
         assert_eq!((a.folder.as_str(), a.server.as_str()), ("dist/counter", "ws://h:47900/"));
-        let Command::Connect { command: ConnectCommand::Publish(a) } = ok(&["connect", "publish", "ui.figcraft"]) else { panic!("connect") };
-        assert_eq!((a.file.as_str(), a.mappings.as_str(), a.dry_run), ("ui.figcraft", "figcraft.connect.json", false));
+        let Command::Connect { command: ConnectCommand::Publish(a) } = ok(&["connect", "publish", "ui.mostinterface"]) else { panic!("connect") };
+        assert_eq!((a.file.as_str(), a.mappings.as_str(), a.dry_run), ("ui.mostinterface", "figcraft.connect.json", false));
         let Command::Connect { command: ConnectCommand::Publish(a) } =
-            ok(&["connect", "publish", "ui.figcraft", "--mappings", "code/map.json", "--dry-run"])
+            ok(&["connect", "publish", "ui.mostinterface", "--mappings", "code/map.json", "--dry-run"])
         else {
             panic!("connect")
         };
@@ -497,7 +498,7 @@ mod tests {
             (&[], DisplayHelpOnMissingArgumentOrSubcommand),
             (&["bogus"], InvalidSubcommand),
             (&["version"], InvalidSubcommand),
-            (&["export", "x.figcraft"], MissingRequiredArgument),
+            (&["export", "x.mostinterface"], MissingRequiredArgument),
             (&["info", "--nope", "a"], UnknownArgument),
             (&["info", "a", "b"], UnknownArgument),
             (&["info", "--json=1", "a"], TooManyValues),
@@ -540,7 +541,7 @@ mod tests {
             &["-h"],
             &["help"],
             &["help", "export"],
-            &["export", "x.figcraft", "-o", "out", "--help"],
+            &["export", "x.mostinterface", "-o", "out", "--help"],
             &["export", "-o", "--help"],
             &["mcp", "--attach", "notaport", "--help"],
             &["mcp", "--bogus", "-h"],

@@ -1,9 +1,10 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-mcp"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-description = "FigCraft MCP server: JSON-RPC 2.0 over stdio, driving a headless engine session or a running FigCraft app"
+description = "Most Interface MCP server: JSON-RPC 2.0 over stdio, driving a headless engine session or a running Most Interface app"
 
 [lints]
 workspace = true

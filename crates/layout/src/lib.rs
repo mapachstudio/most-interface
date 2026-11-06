@@ -1,4 +1,5 @@
-//! FigCraft layout.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Most Interface layout.
 //!
 //! - [`layout_page`] / [`layout_frame`]: Figma-style auto layout. Children of an auto layout frame
 //!   are stacked horizontally or vertically (optionally wrapping, optionally aligned on their first

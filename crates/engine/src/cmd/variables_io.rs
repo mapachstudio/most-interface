@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Variables import and export: a file's collections as the local variables JSON (the shape the
 //! REST importer reads, so exports round-trip), as CSS custom properties or as Dart constants for
 //! Flutter, and such JSON read back into a file.
@@ -226,7 +227,7 @@ fn dart_comment(text: &str) -> String {
 /// per variable. Aliases are resolved to their value in that mode (a variable of another
 /// collection in that collection's default mode), so each class stands alone.
 fn dart(vars: &Variables, colls: &[&Collection]) -> String {
-    let mut out = String::from("// Variables exported from FigCraft.\n\nimport 'dart:ui';\n");
+    let mut out = String::from("// Variables exported from Most Interface.\n\nimport 'dart:ui';\n");
     let mut classes = BTreeSet::new();
     for c in colls {
         let base = dart_ident(&c.name, true);

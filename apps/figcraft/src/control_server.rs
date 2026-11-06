@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Localhost JSON-lines control server: each line `{"id", "method", "params"}` is queued for the UI
 //! thread; the reply line `{"id", "ok", "result" | "error"}` is written when the frame handled it.
 
@@ -69,12 +70,12 @@ fn request_timeout(v: &Value, default: Duration) -> Duration {
 fn timeout_message(failure: &WaitFailure, needs_frame: bool, waited: Duration) -> String {
     let secs = waited.as_secs_f64().ceil();
     match failure {
-        WaitFailure::Disconnected => "the FigCraft window closed before answering".into(),
+        WaitFailure::Disconnected => "the Most Interface window closed before answering".into(),
         WaitFailure::StillRunning => format!(
             "the app is still running this request after {secs} s: it will take effect when it finishes, but its reply is lost. Check the document before retrying"
         ),
         WaitFailure::Timeout if needs_frame => {
-            "timed out waiting for the UI: screenshots and input need the FigCraft window on screen (is it minimised or covered?)".into()
+            "timed out waiting for the UI: screenshots and input need the Most Interface window on screen (is it minimised or covered?)".into()
         }
         WaitFailure::Timeout => {
             format!("timed out after {secs} s before the app started this request (it was busy, or its window isn't drawing): it was not applied")
@@ -108,11 +109,11 @@ pub fn start(port: u16, busy: Duration, queue: Queue, ctx: CtxSlot, events: Arc<
         Ok(l) => l,
         Err(e) => {
             log::error!("control server: can't bind 127.0.0.1:{port}: {e} (another app may own it; pick another port)");
-            eprintln!("FigCraft control server failed to bind port {port}: {e}");
+            eprintln!("Most Interface control server failed to bind port {port}: {e}");
             return;
         }
     };
-    eprintln!("FigCraft control server listening on 127.0.0.1:{port}");
+    eprintln!("Most Interface control server listening on 127.0.0.1:{port}");
     let spawned = std::thread::Builder::new().name("figcraft-control".into()).spawn(move || {
         let mut workers = Vec::new();
         for stream in accepted(listener.incoming(), || std::thread::sleep(ACCEPT_RETRY)) {

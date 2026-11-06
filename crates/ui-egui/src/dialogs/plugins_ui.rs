@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Plugins in the UI: the installed plugins in the Plugins menu (widgets in Plugins ▸ Widgets), the
 //! parameters form a command with parameters asks for before it runs, the panels running plugins
 //! show, and the Manage plugins window (installed plugins, and a server's plugin directory to
@@ -116,7 +117,7 @@ pub fn start(app: &mut FigApp, id: &str, command: &str) {
 }
 
 /// A plugin offered a file to save (`dialog.pluginSave`: `name`, `data` as base64): the user picks
-/// where it goes in FigCraft's own save dialog, or the browser downloads it. The plugin never learns
+/// where it goes in Most Interface's own save dialog, or the browser downloads it. The plugin never learns
 /// the path.
 pub(crate) fn save_file(app: &mut FigApp, data: &Value) {
     use base64::Engine as _;
@@ -497,7 +498,7 @@ fn confirm_window(app: &mut FigApp, ctx: &Context, t: &Tokens) {
         ui.add_space(8.0);
         widgets::label(
             ui,
-            tr("Plugins run in FigCraft's sandbox, without files, network or clock. Install only plugins you trust."),
+            tr("Plugins run in Most Interface's sandbox, without files, network or clock. Install only plugins you trust."),
             t.text_secondary,
         );
         ui.add_space(4.0);

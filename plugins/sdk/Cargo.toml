@@ -1,9 +1,10 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-plugin-sdk"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-description = "Write FigCraft plugins in Rust: the plugin ABI (host functions, the entry point) wrapped with serde_json"
+description = "Write Most Interface plugins in Rust: the plugin ABI (host functions, the entry point) wrapped with serde_json"
 
 [lints]
 workspace = true

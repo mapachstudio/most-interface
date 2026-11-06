@@ -1,6 +1,7 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Starter templates: documents to begin from, built in code by running commands (no template
 //! files ship with the app). Everything in them is original and synthetic: the Ridgeline names,
-//! people and figures are invented, the pictures are drawn from shapes and the icons are FigCraft's
+//! people and figures are invented, the pictures are drawn from shapes and the icons are Most Interface's
 //! own ([`glyphs`]).
 //!
 //! Each template is real, editable content: shared colour and text styles, auto layout,

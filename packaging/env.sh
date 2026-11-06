@@ -1,12 +1,13 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # shellcheck shell=bash
 # Shared setup for the packaging scripts. Source it: `. "$(dirname "$0")/../env.sh"`.
 #
 # Exports:
 #   ROOT                  workspace root
-#   VERSION               [workspace.package] version from Cargo.toml (override: FIGCRAFT_VERSION)
+#   VERSION               [workspace.package] version from Cargo.toml (override: MOST_INTERFACE_VERSION)
 #   DIST                  output directory for release artifacts (default: $ROOT/dist/release)
-#   FIGCRAFT_BUILD_SHA    git commit baked into the binaries (apps/figcraft/build.rs)
-#   FIGCRAFT_BUILD_DATE   UTC build date, YYYY-MM-DD
+#   MOST_INTERFACE_BUILD_SHA    git commit baked into the binaries (apps/figcraft/build.rs)
+#   MOST_INTERFACE_BUILD_DATE   UTC build date, YYYY-MM-DD
 #   CARGO_TARGET_DIR      cargo's target dir (default: $ROOT/target)
 # Sets (not exported):
 #   BINS                  the binaries to build and ship: figcraft, plus figcraft-cli when the
@@ -27,7 +28,7 @@ workspace_version() {
   return $?
 }
 
-VERSION="${FIGCRAFT_VERSION:-$(workspace_version)}"
+VERSION="${MOST_INTERFACE_VERSION:-$(workspace_version)}"
 if [[ -z "$VERSION" ]]; then
   echo "error: could not read [workspace.package] version from $ROOT/Cargo.toml" >&2
   exit 1
@@ -38,11 +39,11 @@ DIST="${DIST:-$ROOT/dist/release}"
 mkdir -p "$DIST"
 export DIST
 
-if [[ -z "${FIGCRAFT_BUILD_SHA:-}" ]]; then
-  FIGCRAFT_BUILD_SHA="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null || true)"
+if [[ -z "${MOST_INTERFACE_BUILD_SHA:-}" ]]; then
+  MOST_INTERFACE_BUILD_SHA="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null || true)"
 fi
-export FIGCRAFT_BUILD_SHA
-export FIGCRAFT_BUILD_DATE="${FIGCRAFT_BUILD_DATE:-$(date -u +%Y-%m-%d)}"
+export MOST_INTERFACE_BUILD_SHA
+export MOST_INTERFACE_BUILD_DATE="${MOST_INTERFACE_BUILD_DATE:-$(date -u +%Y-%m-%d)}"
 export CARGO_TARGET_DIR="${CARGO_TARGET_DIR:-$ROOT/target}"
 
 # The headless CLI ships next to the app once apps/figcraft-cli exists.

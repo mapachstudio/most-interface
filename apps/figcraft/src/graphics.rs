@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Which graphics API draws the window, and what happens when it can't.
 //!
 //! eframe offers wgpu every backend it was built with, and between equal GPUs wgpu takes Vulkan
@@ -11,7 +12,7 @@
 //! Direct3D 12 took the first `dxcompiler.dll` on the search path, another program's, and failed
 //! on the missing `dxil.dll` beside it; Metal's Intel compiler aborts on them on older Macs. So
 //! Direct3D 12 compiles with FXC, which is part of Windows, and the validation shaders are left
-//! out: FigCraft draws nothing indirectly, so they would check nothing.
+//! out: Most Interface draws nothing indirectly, so they would check nothing.
 //!
 //! When the graphics still fail before the window's first frame, the app starts again with the
 //! next of its [`attempts`]: on Windows Vulkan, then OpenGL; elsewhere OpenGL; and last the first
@@ -30,7 +31,7 @@ use eframe::egui_wgpu::{WgpuConfiguration, WgpuSetup};
 use eframe::wgpu::{self, Backends, Dx12Compiler, InstanceFlags, Limits, PowerPreference};
 
 /// Which of the [`attempts`] this start is: set by the app itself when it starts again.
-pub const ATTEMPT_ENV: &str = "FIGCRAFT_GRAPHICS_ATTEMPT";
+pub const ATTEMPT_ENV: &str = "MOST_INTERFACE_GRAPHICS_ATTEMPT";
 
 /// Frames drawn before a failure below which the window was still starting up: the second frame
 /// begins once the first was presented.

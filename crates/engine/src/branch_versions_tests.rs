@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! A branch's own version history: versions saved on a branch tab go into the branch (not the
 //! main file's history), are viewed and restored there, are saved in the file with the branch and
 //! stay with it when it is merged or archived; merging adds a version to the main file's history.
@@ -64,7 +65,7 @@ fn versions_saved_on_a_branch_are_the_branchs_own() {
 fn branch_versions_save_with_the_file_and_survive_merging() {
     let dir = std::env::temp_dir().join(format!("figcraft-branch-versions-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("file.figcraft").to_string_lossy().to_string();
+    let path = dir.join("file.mostinterface").to_string_lossy().to_string();
     let (mut s, id, r) = branched();
     ok(&mut s, "node.set", json!({"id": r, "props": {"name": "On the branch"}}));
     ok(&mut s, "file.saveVersion", json!({"name": "Branch v1"}));

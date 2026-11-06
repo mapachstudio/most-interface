@@ -1,4 +1,5 @@
-//! A published library inside a `.figcraft` archive.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! A published library inside a `.mostinterface` archive.
 //!
 //! `library/manifest.json` holds the [`LibraryManifest`]; `library/document.json` the snapshot of
 //! the published assets (a `document.json` of its own). Images the snapshot uses are read from
@@ -97,8 +98,8 @@ pub(crate) fn read<R: Read + Seek>(
     Ok(Some(PublishedLibrary { manifest, doc: Arc::new(doc) }))
 }
 
-/// Read the published library of a `.figcraft` file (only its library entries are read): `None`
-/// when the file was never published, an error when it isn't a FigCraft archive or is damaged.
+/// Read the published library of a `.mostinterface` file (only its library entries are read): `None`
+/// when the file was never published, an error when it isn't a Most Interface archive or is damaged.
 pub fn read_library<R: Read + Seek>(r: R) -> Result<Option<PublishedLibrary>, FormatError> {
     read_library_within(r, u64::MAX)
 }

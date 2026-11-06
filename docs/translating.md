@@ -1,6 +1,7 @@
-# Translating FigCraft
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+# Translating Most Interface
 
-FigCraft's interface strings live in one TOML catalog per language in
+Most Interface's interface strings live in one TOML catalog per language in
 [`crates/ui-egui/locales/`](../crates/ui-egui/locales). The build bakes every catalog into the
 binary (desktop and web); nothing is read at run time. Preferences ▸ Language picks the language
 and the interface switches at once. System takes the first of the OS's preferred languages that has
@@ -78,7 +79,7 @@ CJK and Thai text need their own fonts, which egui and Inter lack: the desktop a
 one when something on screen needs it, so layer and page names in those scripts show whatever the
 UI language (see `crates/ui-egui/src/cjk.rs`). The web build has no system fonts,
 so Japanese, Korean and Chinese appear there only in a build with craft-fonts and
-`FIGCRAFT_EMBED_CJK=1` (Noto Sans CJK SC, +16 MB); otherwise they are left out of the picker. A
+`MOST_INTERFACE_EMBED_CJK=1` (Noto Sans CJK SC, +16 MB); otherwise they are left out of the picker. A
 Chinese UI puts its Chinese face first so Han takes Simplified Chinese shapes. Georgian is drawn in
 craft-fonts' Noto Sans Georgian, one of the built-in faces in `theme::install_fonts`, or else in an
 installed font on the desktop. Web builds keep it only when the craft-fonts they're built with has

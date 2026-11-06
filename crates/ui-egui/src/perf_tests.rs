@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! UI frame benchmarks on large documents (ignored by default; `cargo xtask bench` runs them in
 //! release): the whole UI drawn headless through egui, timing idle frames, hovering, panning and a
 //! layers panel with every screen expanded. Also the per-document-version caches that keep those
@@ -239,7 +240,7 @@ fn report_components(icons: usize, instances: usize) {
 #[test]
 #[ignore = "benchmark: cargo xtask bench"]
 fn perf_ui_frames() {
-    let sizes: Vec<usize> = std::env::var("FIGCRAFT_BENCH_LAYERS")
+    let sizes: Vec<usize> = std::env::var("MOST_INTERFACE_BENCH_LAYERS")
         .ok()
         .map(|s| s.split(',').filter_map(|v| v.trim().parse().ok()).collect())
         .unwrap_or_else(|| vec![1000, 10_000]);

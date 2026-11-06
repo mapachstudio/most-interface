@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! SVG text → text layers. Each absolutely positioned chunk (`<text x y>`, `<tspan x y>`) is a
 //! line; lines stacked at a steady pitch with the same anchor and font become one multi-line
 //! layer with that line height. `<tspan>` styles become style runs. The layer is placed so its
@@ -5,7 +6,7 @@
 //! the SVG names when it's installed (else the first installed of its fallbacks or generic family).
 //!
 //! usvg lays text out before handing it over and drops what it can't lay out, so one face from
-//! FigCraft's font database stands in for every family while parsing; FigCraft then lays the text
+//! Most Interface's font database stands in for every family while parsing; Most Interface then lays the text
 //! out with the real fonts. Text on one path comes in as text on a path; text on several paths,
 //! with per-glyph rotation or vertical comes in as outlines.
 
@@ -21,7 +22,7 @@ use super::paint::{Target, paint};
 use super::shape::place;
 use super::{Ctx, children, finish, finite, layer_name, xf};
 
-/// Family names FigCraft can draw (lower case).
+/// Family names Most Interface can draw (lower case).
 pub(crate) struct Fonts(HashSet<String>);
 
 impl Fonts {

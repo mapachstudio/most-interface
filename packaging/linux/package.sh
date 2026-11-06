@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Build and package FigCraft for Linux (<arch> is x86_64 or aarch64, or riscv64 when cross-compiling):
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Build and package Most Interface for Linux (<arch> is x86_64 or aarch64, or riscv64 when cross-compiling):
 #
 #   $DIST/figcraft-<version>-linux-<arch>.AppImage  any distro with glibc >= the build host's
 #   $DIST/figcraft-<version>-linux-<arch>.AppImage.zsync  delta updates (needs zsyncmake)
@@ -23,7 +24,7 @@ set -euo pipefail
 # shellcheck source=../env.sh
 . "$(dirname "${BASH_SOURCE[0]}")/../env.sh"
 HERE="$ROOT/packaging/linux"
-APP_ID=ai.storyteller.figcraft
+APP_ID=com.grupomostmexico.mostinterface
 
 verify_sha256() {
   local expected="$1"
@@ -49,10 +50,10 @@ case "$ARCH" in
   aarch64 | arm64) ARCH=aarch64; DEB_ARCH=arm64 ;;
   *) echo "unsupported architecture $ARCH" >&2; exit 2 ;;
 esac
-export FIGCRAFT_MAINTAINER="${FIGCRAFT_MAINTAINER:-FigCraft maintainers <figcraft@storyteller.ai>}"
+export MOST_INTERFACE_MAINTAINER="${MOST_INTERFACE_MAINTAINER:-Most Interface maintainers <figcraft@storyteller.ai>}"
 BASENAME="figcraft-$VERSION-linux-$ARCH"
 
-echo "==> FigCraft $VERSION for Linux $ARCH ($FORMATS; ${BINS[*]})"
+echo "==> Most Interface $VERSION for Linux $ARCH ($FORMATS; ${BINS[*]})"
 
 if [[ "$SKIP_BUILD" = 0 ]]; then
   (cd "$ROOT" && cargo build --release --locked "${CARGO_PKGS[@]}" ${CROSS_TARGET:+--target "$CROSS_TARGET"})
@@ -70,7 +71,7 @@ done
 install -Dm644 "$HERE/$APP_ID.desktop" "$STAGE/usr/share/applications/$APP_ID.desktop"
 install -Dm644 "$HERE/$APP_ID.mime.xml" "$STAGE/usr/share/mime/packages/$APP_ID.xml"
 mkdir -p "$STAGE/usr/share/metainfo"
-sed -e "s/@VERSION@/$VERSION/g" -e "s/@DATE@/$FIGCRAFT_BUILD_DATE/g" \
+sed -e "s/@VERSION@/$VERSION/g" -e "s/@DATE@/$MOST_INTERFACE_BUILD_DATE/g" \
   "$HERE/$APP_ID.metainfo.xml.in" >"$STAGE/usr/share/metainfo/$APP_ID.metainfo.xml"
 mkdir -p "$STAGE/usr/share/icons"
 cp -R "$ROOT/assets/app-icon/hicolor" "$STAGE/usr/share/icons/"
@@ -128,7 +129,7 @@ if has appimage; then
     echo "no pinned AppImage runtime for $ARCH; build the AppImage on x86_64 or aarch64" >&2
     exit 2
   fi
-  APPDIR="$WORK/FigCraft.AppDir"
+  APPDIR="$WORK/Most Interface.AppDir"
   cp -R "$STAGE" "$APPDIR"
   # AppRun is a script, not a symlink: it installs the .desktop entry and icons into
   # $XDG_DATA_HOME before launching, so Wayland compositors can resolve the window's

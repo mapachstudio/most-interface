@@ -1,7 +1,8 @@
-//! FigCraft's MCP server.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Most Interface's MCP server.
 //!
 //! [Model Context Protocol](https://modelcontextprotocol.io) over stdio: newline-delimited JSON-RPC
-//! 2.0, hand-written (no async runtime). The server exposes FigCraft as MCP tools, resources and
+//! 2.0, hand-written (no async runtime). The server exposes Most Interface as MCP tools, resources and
 //! prompts, and forwards everything to a [`Backend`]:
 //!
 //! - [`Headless`] hosts an in-process [`figcraft_engine::Session`] and answers the control-channel

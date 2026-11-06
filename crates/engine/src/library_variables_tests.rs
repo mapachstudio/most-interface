@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Library variables: publishing collections (hidden variables, versions), binding, aliasing and
 //! explicit modes from a library, read-only copies, updates, components that bind variables, and
 //! files that bring copies along.
@@ -144,7 +145,7 @@ fn assert_copies_read_only(s: &mut Session, local: &str) {
 /// `bind_alias_mode_read_only_and_updates`: saved and reopened, the file renders without the library.
 fn reopened_without_library(s: &mut Session, d: &std::path::Path, lib_path: &str, lid: &str, outer: NodeId) {
     // Saved and reopened, the copies, records and bindings stay; the file renders without the library.
-    let user_path = path_str(&d.join("app.figcraft"));
+    let user_path = path_str(&d.join("app.mostinterface"));
     ex(s, "file.saveAs", json!({"path": user_path}));
     std::fs::remove_file(lib_path).unwrap();
     let mut t = Session::empty();
@@ -186,7 +187,7 @@ fn library_update_follows(s: &mut Session, lib: &mut Session, local: &str, [inne
 #[test]
 fn bind_alias_mode_read_only_and_updates() {
     let d = dir("flow");
-    let lib_path = path_str(&d.join("theme.figcraft"));
+    let lib_path = path_str(&d.join("theme.mostinterface"));
     let mut lib = Session::new();
     theme(&mut lib);
     let lid = publish_to(&mut lib, &lib_path);
@@ -270,7 +271,7 @@ fn bind_alias_mode_read_only_and_updates() {
 #[test]
 fn library_colour_calculations_read_the_copies() {
     let d = dir("calc");
-    let lib_path = path_str(&d.join("theme.figcraft"));
+    let lib_path = path_str(&d.join("theme.mostinterface"));
     let mut lib = Session::new();
     theme(&mut lib);
     ex(
@@ -328,7 +329,7 @@ fn library_colour_calculations_read_the_copies() {
 #[test]
 fn library_components_keep_their_variable_bindings() {
     let d = dir("components");
-    let lib_path = path_str(&d.join("kit.figcraft"));
+    let lib_path = path_str(&d.join("kit.mostinterface"));
     let mut lib = Session::new();
     theme(&mut lib);
     let f = idv(&ex(&mut lib, "frame.create", json!({"x": 0, "y": 0, "width": 100, "height": 40, "name": "Chip"})));
@@ -373,7 +374,7 @@ fn library_components_keep_their_variable_bindings() {
     healthy(&s);
 
     // Another file importing these pages brings the copies and their records along.
-    let user_path = path_str(&d.join("user.figcraft"));
+    let user_path = path_str(&d.join("user.mostinterface"));
     ex(&mut s, "file.saveAs", json!({"path": user_path}));
     let mut t = Session::new();
     ex(&mut t, "file.import", json!({"path": user_path}));
@@ -399,7 +400,7 @@ fn library_variable_commands_fail_cleanly() {
 #[test]
 fn library_style_bindings_ignore_unrelated_local_variables() {
     let d = dir("style-bound");
-    let path = path_str(&d.join("lib.figcraft"));
+    let path = path_str(&d.join("lib.mostinterface"));
     let mut lib = Session::new();
     ex(&mut lib, "variable.createCollection", json!({"name": "Tokens"}));
     let var = ex(&mut lib, "variable.create", json!({"collection": "Tokens", "name": "Brand", "type": "color", "value": "#0000ff"}))["id"].clone();
@@ -453,7 +454,7 @@ fn modal_icon(s: &Session, inst: NodeId) -> NodeId {
 #[test]
 fn modes_set_inside_nested_instances_come_along() {
     let d = dir("nested-modes");
-    let lib_path = path_str(&d.join("kit.figcraft"));
+    let lib_path = path_str(&d.join("kit.mostinterface"));
     let mut lib = Session::new();
     let (button, _) = nested_mode_kit(&mut lib);
     let lid = publish_to(&mut lib, &lib_path);
@@ -475,7 +476,7 @@ fn modes_set_inside_nested_instances_come_along() {
 #[test]
 fn a_library_published_before_modes_were_overrides_keeps_the_modes_set_inside_nested_instances() {
     let d = dir("nested-modes-old");
-    let lib_path = path_str(&d.join("kit.figcraft"));
+    let lib_path = path_str(&d.join("kit.mostinterface"));
     let mut lib = Session::new();
     let (_, nested) = nested_mode_kit(&mut lib);
     // Published before `modes` was an override group: the copy has its mode but no marker.

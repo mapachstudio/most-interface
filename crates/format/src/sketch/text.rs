@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Sketch text layers → REST text nodes.
 //!
 //! A text layer's `attributedString` holds the `string` and `attributes`: runs given by `location`
@@ -98,7 +99,7 @@ pub(crate) fn node(cx: &mut Cx, l: &Value, node: &mut JsonMap<String, Value>) {
 
 /// How far a text layer moves so its lines sit where Sketch draws them. With a fixed line height,
 /// Sketch puts a line's extra height (line height − the font's own, taken as 1.2 × its size) above
-/// the text (`lineSpacingBehaviour` 0) or below it (1); FigCraft, like Sketch's default (2), puts
+/// the text (`lineSpacingBehaviour` 0) or below it (1); Most Interface, like Sketch's default (2), puts
 /// half on each side. Every line gets the same extra, so the whole layer moves.
 pub(crate) fn baseline_shift(l: &Value) -> f64 {
     let first = l

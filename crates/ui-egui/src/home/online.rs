@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Home ▸ Online: the files you put on a server from this computer (`collab.files`), each with
 //! where it is, whether others get in and when it was last opened. A row opens its file as its
 //! owner; its menu starts or stops sharing, copies the join code or link, renames it on the
@@ -310,7 +311,7 @@ fn team_row(app: &mut FigApp, ui: &mut Ui, t: &Tokens, server: &str, web: &str, 
         }
         if crate::right::menu_item(ui, tr("Copy link"), "") {
             app.clipboard_set_text(&team_link(server, &f.file));
-            app.toast(tr("Link copied: it opens the file in FigCraft"));
+            app.toast(tr("Link copied: it opens the file in Most Interface"));
             ui.close();
         }
         if !web.is_empty() && crate::right::menu_item(ui, tr("Copy browser link"), "") {

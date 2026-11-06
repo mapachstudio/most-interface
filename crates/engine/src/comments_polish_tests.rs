@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Comment polish: pins that follow their layers (and stay put when the layers go), messages you
 //! edit and delete, reactions, @mentions, read state, filters and sorting, links that reveal a
 //! thread, and files from before all this.
@@ -308,7 +309,7 @@ fn prompt_briefs_a_thread_for_an_agent() {
     assert_eq!(r["count"], 1);
     assert_eq!(r["truncated"], false);
     let text = r["text"].as_str().unwrap();
-    assert!(text.contains("# FigCraft feedback"));
+    assert!(text.contains("# Most Interface feedback"));
     assert!(text.contains("Make the padding 12"));
     assert!(text.contains("Button"));
     assert!(text.contains(&format!("node {f}")));

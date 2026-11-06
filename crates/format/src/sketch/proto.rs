@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Sketch prototype links, hotspots, export options and layout grids → REST.
 //!
 //! A layer's `flow` links it to an artboard (`destinationArtboardID`, or `back`) with an
@@ -53,7 +54,7 @@ pub(crate) fn export_settings(cx: &mut Cx, l: &Value, node: &mut JsonMap<String,
             "pdf" => "PDF",
             "webp" => "WEBP",
             _ => {
-                cx.warn("export settings in formats FigCraft doesn't export (TIFF, EPS, HEIC) were skipped");
+                cx.warn("export settings in formats Most Interface doesn't export (TIFF, EPS, HEIC) were skipped");
                 continue;
             }
         };
@@ -105,7 +106,7 @@ pub(crate) fn layout_grids(l: &Value, h: f64, node: &mut JsonMap<String, Value>)
     }
 }
 
-/// Notes about what the layer has that FigCraft keeps only as laid out: Smart Layout,
+/// Notes about what the layer has that Most Interface keeps only as laid out: Smart Layout,
 /// and overrides a master locks.
 pub(crate) fn notes(cx: &mut Cx, l: &Value) {
     // Stacks become auto layout; the older Smart Layout doesn't.
@@ -114,6 +115,6 @@ pub(crate) fn notes(cx: &mut Cx, l: &Value) {
     }
     let locked = l.get("overrideProperties").and_then(Value::as_array).is_some_and(|p| p.iter().any(|o| bool_field(o, "canOverride") == Some(false)));
     if locked {
-        cx.warn("overrides Sketch symbols locked can be changed in FigCraft");
+        cx.warn("overrides Sketch symbols locked can be changed in Most Interface");
     }
 }

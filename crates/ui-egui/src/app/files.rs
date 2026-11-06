@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::{
     AUTO_SAVE_RETRY_SECS, AUTO_SAVE_SECS, AUTOSAVE_SECS, Arc, DialogFuture, FigApp, OPEN_EXTENSIONS, OsStr, Path, PathBuf, PendingDialog, PickFuture,
     Picked, Poll, RepaintWaker, Services, TaskContext, Value, Waker, dialogs, i18n, json, repaint_in, windows,
@@ -10,17 +11,17 @@ impl FigApp {
             return;
         }
         let Ok(name) = self.session.doc().map(|d| d.name.clone()) else { return };
-        self.pick_save(i18n::tr("Save as"), &format!("{name}.figcraft"), &["figcraft", "fig"], |app, mut p| {
+        self.pick_save(i18n::tr("Save as"), &format!("{name}.mostinterface"), &["figcraft", "fig"], |app, mut p| {
             if p.extension().is_none_or(OsStr::is_empty) {
                 if !p.set_extension("figcraft") {
-                    app.toast(i18n::tr("Use the .figcraft or .fig extension."));
+                    app.toast(i18n::tr("Use the .mostinterface or .fig extension."));
                     return;
                 }
                 // This name wasn't confirmed by the system dialog: don't replace an existing file.
                 match p.try_exists() {
                     Ok(false) => {}
                     Ok(true) => {
-                        app.toast(i18n::tr("A .figcraft file with this name already exists. Choose its full name to confirm replacement."));
+                        app.toast(i18n::tr("A .mostinterface file with this name already exists. Choose its full name to confirm replacement."));
                         return;
                     }
                     Err(e) => {
@@ -29,7 +30,7 @@ impl FigApp {
                     }
                 }
             } else if !p.extension().and_then(OsStr::to_str).is_some_and(|e| e.eq_ignore_ascii_case("figcraft") || e.eq_ignore_ascii_case("fig")) {
-                app.toast(i18n::tr("Use the .figcraft or .fig extension."));
+                app.toast(i18n::tr("Use the .mostinterface or .fig extension."));
                 return;
             }
             if let Some(r) = app.run("file.saveAs", json!({"path": p.to_string_lossy()})) {
@@ -309,7 +310,7 @@ impl FigApp {
     }
 }
 
-/// A `.figcraft` file name: the document format a Save writes (a `.fig` is an export copy).
+/// A `.mostinterface` file name: the document format a Save writes (a `.fig` is an export copy).
 fn is_document_file(name: &str) -> bool {
     Path::new(name).extension().and_then(OsStr::to_str).is_some_and(|e| e.eq_ignore_ascii_case("figcraft"))
 }

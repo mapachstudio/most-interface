@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Sketch pages and layers → REST API file JSON nodes.
 
 use figcraft_doc::VectorNetwork;
@@ -305,7 +306,7 @@ pub(crate) fn layer(cx: &mut Cx, l: &Value, parent: Affine, depth: usize, root: 
 
 /// Layer `node` with a progressive opacity (Fade: the style's `contextSettings` with
 /// `isProgressive` and a gradient whose stops' opacity is the layer's) as a group in its place
-/// holding an alpha mask of that gradient over it; FigCraft has no progressive opacity. Other
+/// holding an alpha mask of that gradient over it; Most Interface has no progressive opacity. Other
 /// layers as they are.
 fn fade(cx: &mut Cx, l: &Value, node: JsonMap<String, Value>, world: Affine, w: f64, h: f64) -> Value {
     let ctx = l.get("style").and_then(|s| s.get("contextSettings"));
@@ -551,7 +552,7 @@ fn clip(s: &str) -> String {
 
 /// The child layers of `l` (placed at `world`, `size`) as REST nodes. A clipping mask clips the
 /// layers after it up to one that breaks the chain (or the next mask); when that happens before
-/// the end, the mask and what it clips are wrapped in a group of their own, since a FigCraft mask
+/// the end, the mask and what it clips are wrapped in a group of their own, since a Most Interface mask
 /// clips everything above it.
 pub(crate) fn children(cx: &mut Cx, l: &Value, world: Affine, size: (f64, f64), depth: usize, root: bool) -> Vec<Value> {
     // (ends a mask chain, is a drawn copy of the mask after it, the node)
@@ -562,7 +563,7 @@ pub(crate) fn children(cx: &mut Cx, l: &Value, world: Affine, size: (f64, f64), 
             layer(cx, c, world, depth + 1, root).map(|n| (breaks, n))
         })
         .flat_map(|(breaks, n)| match drawn_mask(&n) {
-            // Sketch also draws a mask with its own style, under what it clips; a FigCraft mask
+            // Sketch also draws a mask with its own style, under what it clips; a Most Interface mask
             // only clips, so a plain copy of it goes underneath.
             // The copy ends an earlier mask's chain as the mask itself would.
             Some(copy) => vec![(breaks, true, copy), (breaks, false, n)],

@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Files on a server, against a scripted link: `collab.publish` makes the open tab the server
 //! file's synced document (read-only until it is there, its undo history per person after), and
 //! a view link makes the synced document read-only (commands, gestures, editing tools and changes
@@ -144,7 +145,7 @@ fn a_view_link_makes_the_file_read_only() {
 }
 
 fn saved_file(s: &mut Session) -> std::path::PathBuf {
-    let path = std::env::temp_dir().join(format!("figcraft-live-revert-{}-{}.figcraft", std::process::id(), s.ds().unwrap().uid));
+    let path = std::env::temp_dir().join(format!("figcraft-live-revert-{}-{}.mostinterface", std::process::id(), s.ds().unwrap().uid));
     s.execute("file.saveVersion", &json!({"name": "Saved"})).unwrap();
     s.execute("file.save", &json!({"path": path})).unwrap();
     s.execute("file.rename", &json!({"name": "Unsaved"})).unwrap();

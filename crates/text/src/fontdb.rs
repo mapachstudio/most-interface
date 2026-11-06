@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The font database: embedded craft-fonts faces plus (on desktop) the system's fonts.
 
 use std::collections::{BTreeMap, HashMap};
@@ -133,7 +134,7 @@ impl std::fmt::Debug for Face {
 
 impl Face {
     /// The tracking the font's `trak` table gives text of `size` (pixels per glyph; 0 without a
-    /// table): Apple's platform text engine adds it on its own, FigCraft's doesn't.
+    /// table): Apple's platform text engine adds it on its own, Most Interface's doesn't.
     pub fn tracking(&self, size: f64) -> f64 {
         let (Some(first), Some(last)) = (self.track.first(), self.track.last()) else { return 0.0 };
         if !size.is_finite() || self.upem <= 0.0 {
@@ -1503,7 +1504,7 @@ pub fn family_styles(family: &str) -> Vec<String> {
 }
 
 /// Scan system fonts into the global db (desktop; a no-op on the web, or with
-/// `FIGCRAFT_NO_SYSTEM_FONTS` set). Runs once per process: a concurrent caller waits for that scan.
+/// `MOST_INTERFACE_NO_SYSTEM_FONTS` set). Runs once per process: a concurrent caller waits for that scan.
 /// The directory walk runs without holding the database lock; results are merged in one short write.
 pub fn scan_system_fonts() {
     SCANNED.get_or_init(|| {
@@ -1523,7 +1524,7 @@ pub fn scan_system_fonts() {
 
 /// Walk the system font folders again, for fonts installed while the app runs (the first scan is
 /// once per process): the families that were unknown before, and every family that gained faces.
-/// Before the first scan this is that scan; a no-op on the web or with `FIGCRAFT_NO_SYSTEM_FONTS`.
+/// Before the first scan this is that scan; a no-op on the web or with `MOST_INTERFACE_NO_SYSTEM_FONTS`.
 pub fn rescan_system_fonts() -> Rescan {
     #[cfg(not(target_arch = "wasm32"))]
     if !system_fonts_opted_out() {
@@ -1599,14 +1600,14 @@ pub fn local_only(family: &str) -> bool {
     db().read().unwrap_or_else(std::sync::PoisonError::into_inner).local_only(family)
 }
 
-/// `FIGCRAFT_NO_SYSTEM_FONTS` is set (and not `0`), or the process opted out
+/// `MOST_INTERFACE_NO_SYSTEM_FONTS` is set (and not `0`), or the process opted out
 /// ([`opt_out_of_system_fonts`]): renders use only the embedded fonts.
 #[cfg(not(target_arch = "wasm32"))]
 fn system_fonts_opted_out() -> bool {
-    OPTED_OUT.load(Ordering::Relaxed) || std::env::var_os("FIGCRAFT_NO_SYSTEM_FONTS").is_some_and(|v| !v.is_empty() && v != "0")
+    OPTED_OUT.load(Ordering::Relaxed) || std::env::var_os("MOST_INTERFACE_NO_SYSTEM_FONTS").is_some_and(|v| !v.is_empty() && v != "0")
 }
 
-/// Use only the embedded fonts for the rest of the process, as `FIGCRAFT_NO_SYSTEM_FONTS` does
+/// Use only the embedded fonts for the rest of the process, as `MOST_INTERFACE_NO_SYSTEM_FONTS` does
 /// (headless runs with `--no-system-fonts`): no call scans the system fonts after this.
 pub fn opt_out_of_system_fonts() {
     OPTED_OUT.store(true, Ordering::Relaxed);

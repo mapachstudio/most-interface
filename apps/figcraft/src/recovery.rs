@@ -1,6 +1,7 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Recovery copies, so a crash, a forced quit or a power cut loses at most a few seconds of work.
 //!
-//! While the app runs, each document with unsaved changes is copied to `Recovery/<pid>/<uid>.figcraft`
+//! While the app runs, each document with unsaved changes is copied to `Recovery/<pid>/<uid>.mostinterface`
 //! in the config folder, in the background, at most every [`INTERVAL`] seconds, and the copy goes
 //! once the document is saved or closed. The app holds a lock on its folder. At startup, the folders
 //! whose lock is free belong to runs that ended without closing: their copies open again as
@@ -181,7 +182,7 @@ impl Recovery {
     /// Copy every document with unsaved changes; `wait`: before returning (after a panic).
     pub fn write(&mut self, s: &Session, wait: bool) {
         for d in &s.docs {
-            let path = self.dir.join(format!("{}.figcraft", d.uid));
+            let path = self.dir.join(format!("{}.mostinterface", d.uid));
             let note = path.with_extension(ONLINE);
             if !needs_copy(s, d) {
                 if let Some(mut w) = self.written.remove(&d.uid) {
@@ -238,7 +239,7 @@ impl Recovery {
             let keep = open.contains(uid);
             if !keep {
                 w.join();
-                let _ = std::fs::remove_file(dir.join(format!("{uid}.figcraft")));
+                let _ = std::fs::remove_file(dir.join(format!("{uid}.mostinterface")));
                 let _ = std::fs::remove_file(dir.join(format!("{uid}.{ONLINE}")));
             }
             keep

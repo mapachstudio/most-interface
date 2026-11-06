@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::*;
 
 fn pending(styles: &[&str]) -> FontDb {
@@ -176,7 +177,7 @@ fn the_scan_skips_named_pipes() {
     use std::process::{Command, Stdio};
     use std::time::{Duration, Instant};
 
-    const INPUT: &str = "FIGCRAFT_TEST_PIPE_FONT_DIR";
+    const INPUT: &str = "MOST_INTERFACE_TEST_PIPE_FONT_DIR";
     if let Some(dir) = std::env::var_os(INPUT) {
         let mut pending = BTreeMap::new();
         scan_dir(std::path::Path::new(&dir), 0, &mut pending);

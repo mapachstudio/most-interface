@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use std::path::PathBuf;
 
 use figcraft_engine::Session;
@@ -17,7 +18,7 @@ fn open_dialog_finishes_after_the_async_picker_returns() {
     let dir = std::env::temp_dir().join(format!("figcraft-async-open-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&dir);
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("opened.figcraft");
+    let path = dir.join("opened.mostinterface");
     let doc = figcraft_doc::Document::new("Opened");
     std::fs::write(&path, figcraft_format::save_bytes(&doc, None).unwrap()).unwrap();
 
@@ -50,7 +51,7 @@ fn two_files(tag: &str) -> (FigApp, PathBuf, PathBuf) {
     let dir = std::env::temp_dir().join(format!("figcraft-async-{tag}-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&dir);
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("a.figcraft");
+    let path = dir.join("a.mostinterface");
     let mut app = FigApp::new(Session::empty(), Box::new(Picks(path.clone())));
     for _ in 0..2 {
         app.session.execute("file.new", &serde_json::json!({})).unwrap();
@@ -124,7 +125,7 @@ fn the_browser_reads_files_up_to_512_mib() {
 #[test]
 fn open_dialog_opens_picked_contents_as_a_new_unsaved_document() {
     let bytes = figcraft_format::save_bytes(&figcraft_doc::Document::new("Picked"), None).unwrap();
-    let mut app = FigApp::new(Session::empty(), Box::new(Contents("Picked.figcraft", bytes)));
+    let mut app = FigApp::new(Session::empty(), Box::new(Contents("Picked.mostinterface", bytes)));
     app.ui.home = true;
     app.open_dialog();
     assert!(app.session.docs.is_empty(), "opening waits for the picker result");

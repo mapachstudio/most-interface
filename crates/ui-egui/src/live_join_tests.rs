@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The Join dialog's keyboard (its field takes the keys when it opens; Escape closes it without
 //! reaching the canvas), opening the app with an invite link, and the browser's Share popover
 //! (it joins but can't host).
@@ -111,7 +112,7 @@ fn the_browser_shares_through_a_server_but_does_not_host() {
     assert!(has_text(&shapes, "Join with a code") && has_text(&shapes, "Join"));
     assert!(has_text(
         &shapes,
-        "In the browser you can join sessions the desktop app hosts and files on a FigCraft server. A page opened over https reaches other computers only through wss:// links (a server behind TLS)."
+        "In the browser you can join sessions the desktop app hosts and files on a Most Interface server. A page opened over https reaches other computers only through wss:// links (a server behind TLS)."
     ));
     // With one, it shares online only (the local network needs a page that can listen).
     h.app.session.execute("pref.publishServer", &json!({"url": "ws://127.0.0.1:47910/"})).unwrap();

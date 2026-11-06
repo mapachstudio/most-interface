@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Plugins: runs are one undo step and roll back when they fail, permissions and the host's own
 //! limits are enforced, fuel and memory are capped, and junk never gets in. Test plugins are
 //! assembled from WAT text: each makes a fixed list of command calls.
@@ -183,13 +184,13 @@ fn files_dialogs_history_and_plugins_are_off_limits() {
     let a = rect(&mut s, 0.0);
     ex(&mut s, "select.set", json!({"ids": [a]}));
     let dir = std::env::temp_dir().join(format!("figcraft-plugin-deny-{}", std::process::id()));
-    let target = dir.join("stolen.figcraft").to_string_lossy().into_owned();
+    let target = dir.join("stolen.mostinterface").to_string_lossy().into_owned();
     let refused = [
         ("file.saveAs", json!({"path": target})),
         ("file.open", json!({"path": "C:/Windows/win.ini"})),
         ("image.place", json!({"path": "secret.png"})),
         ("text.loadFont", json!({"path": "/etc/hosts"})),
-        ("library.add", json!({"path": "lib.figcraft"})),
+        ("library.add", json!({"path": "lib.mostinterface"})),
         ("plugin.run", json!({"id": "org.test.deny"})),
         ("plugin.remove", json!({"id": "org.test.deny"})),
         ("edit.undo", json!({})),
@@ -200,7 +201,7 @@ fn files_dialogs_history_and_plugins_are_off_limits() {
         ("codeConnect.import", json!({"path": "/etc/passwd"})),
         ("component.playground", json!({"id": a, "path": target})),
         ("variable.import", json!({"variables": "/etc/passwd"})),
-        ("collab.recoverFile", json!({"path": "copy.figcraft", "file": "x", "session": 1, "client": 1, "seq": 0})),
+        ("collab.recoverFile", json!({"path": "copy.mostinterface", "file": "x", "session": 1, "client": 1, "seq": 0})),
         ("window.new", json!({"path": "C:/Windows/win.ini"})),
         ("doc.switch", json!({"index": 0})),
         ("pref.keepTool", json!({})),
@@ -535,7 +536,7 @@ fn a_run_that_fails_afterwards_leaves_no_dialog_behind() {
 #[test]
 fn file_commands_stay_closed_to_plugins() {
     let mut s = Session::new();
-    let calls = [("file.saveAs", json!({"path": "/tmp/x.figcraft"}))];
+    let calls = [("file.saveAs", json!({"path": "/tmp/x.mostinterface"}))];
     install(&mut s, manifest("org.test.files", "read", &[]), &script(&calls, OnRefusal::Report, ""));
     let out = ex(&mut s, "plugin.run", json!({"id": "org.test.files"}));
     assert!(out["output"].as_str().unwrap_or_default().contains("isn't available to plugins"), "{out}");

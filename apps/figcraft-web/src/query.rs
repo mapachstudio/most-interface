@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The page's URL: the invite link its fragment names, and the flags its query sets; and the server
 //! the page names for itself.
 
@@ -26,7 +27,7 @@ pub fn page_server(content: &str) -> Option<String> {
 }
 
 /// Whether `search` (`location.search`, with or without its `?`) has a `control` entry (`?control`,
-/// or `?control=…` with any value): the page's control channel, `window.figcraft`, is installed only
+/// or `?control=…` with any value): the page's control channel, `window.mostinterface`, is installed only
 /// when it is asked for.
 pub fn control(search: &str) -> bool {
     search.strip_prefix('?').unwrap_or(search).split('&').any(|entry| entry.split('=').next() == Some("control"))

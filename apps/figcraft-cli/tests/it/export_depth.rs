@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Depth refusal through the actual CLI, including its exit status and destination writes.
 
 use figcraft_doc::color::{Color, Paint};
@@ -18,7 +19,7 @@ fn export_depth_cli_refuses_partial_files_and_accepts_an_inner_root() {
     let stamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos();
     let dir = std::env::temp_dir().join(format!("figcraft-cli-depth-process-{}-{stamp}", std::process::id()));
     std::fs::create_dir(&dir).unwrap();
-    let input = dir.join("deep.figcraft");
+    let input = dir.join("deep.mostinterface");
     std::fs::write(&input, figcraft_format::save_bytes(&doc, None).unwrap()).unwrap();
     for ext in ["svg", "pdf"] {
         let path = dir.join(format!("previous.{ext}"));

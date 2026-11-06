@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The import report: what a successful `.fig`, REST JSON or SVG import left out or changed, shown
 //! in a dialog window after the file opens, so the notes don't vanish with a toast.
 
@@ -158,7 +159,7 @@ pub fn show(app: &mut FigApp, ctx: &egui::Context) {
             ui.label(RichText::new(tr("Compatibility notes")).strong());
             ui.label(
                 RichText::new(tr(
-                    "FigCraft doesn't support every feature of these files yet. The notes list what was left out or changed in the imported copy; the original file is unchanged.",
+                    "Most Interface doesn't support every feature of these files yet. The notes list what was left out or changed in the imported copy; the original file is unchanged.",
                 ))
                 .color(t.text_secondary)
                 .font(regular(11.0)),

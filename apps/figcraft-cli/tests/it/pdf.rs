@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `figcraft-cli export --format pdf` and `convert … .pdf` end to end.
 
 use std::process::Command;
@@ -27,7 +28,7 @@ fn pdf_export_one_page_per_frame() {
         .join("\n"),
     )
     .unwrap();
-    let file = d.join("doc.figcraft");
+    let file = d.join("doc.mostinterface");
     let out = bin().arg("run").arg(&script).arg("--out").arg(&file).output().unwrap();
     assert!(out.status.success(), "{}", String::from_utf8_lossy(&out.stderr));
 

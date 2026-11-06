@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! MCP resources: the document, one layer, one command and the open comments.
 
 use serde_json::{Value, json};
@@ -18,7 +19,7 @@ pub enum ReadError {
 pub fn list() -> Value {
     json!({"resources": [
         {"uri": DOC_URI, "name": "document", "title": "Active document", "description": "The active document as JSON (current page's layer tree, pages, styles, selection, history), like inspect_document.", "mimeType": "application/json"},
-        {"uri": COMMANDS_URI, "name": "commands", "title": "Command catalog", "description": "Every FigCraft command with label, menu, shortcut and parameter docs.", "mimeType": "application/json"},
+        {"uri": COMMANDS_URI, "name": "commands", "title": "Command catalog", "description": "Every Most Interface command with label, menu, shortcut and parameter docs.", "mimeType": "application/json"},
         {"uri": COMMENTS_URI, "name": "comments", "title": "Open comments", "description": "Every open comment thread on every page, as JSON (the same objects as comment.list).", "mimeType": "application/json"},
     ]})
 }

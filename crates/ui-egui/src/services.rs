@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::{Arc, FigApp, Future, PathBuf, Pin, Session, Value, Wake, i18n, json};
 
 pub const MAX_CLIPBOARD_PNG_BYTES: usize = 256 * 1024 * 1024;
@@ -146,12 +147,12 @@ pub fn browser_stopped(unsaved: usize, kept: usize) -> String {
     } else {
         i18n::tr("Reload the page to get back the unsaved files the browser had room for.")
     };
-    format!("{} {next}", i18n::tr("FigCraft stopped because of an internal error."))
+    format!("{} {next}", i18n::tr("Most Interface stopped because of an internal error."))
 }
 
 /// The largest file read in the browser: wasm has at most 4 GiB of memory, and a file's contents
 /// are held about three times on their way to `file.open` (the bytes, base64, decoded again).
-/// As large as one member of a `.figcraft` file may be.
+/// As large as one member of a `.mostinterface` file may be.
 const MAX_BROWSER_FILE: f64 = (512u64 << 20) as f64;
 
 /// Checks a file of `size` bytes before the browser reads it (`Err`: what to tell the user).

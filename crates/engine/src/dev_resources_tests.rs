@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Dev resources: links for developers on layers, added, edited and removed, shown on a main
 //! component's instances, checked as web links (never fetched), saved, synced, undoable and in
 //! what agents inspect.
@@ -135,7 +136,7 @@ fn links_save_sync_and_show_in_inspect() {
     // Saved and reopened.
     let dir = std::env::temp_dir().join(format!("figcraft-devres-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("f.figcraft").to_string_lossy().into_owned();
+    let path = dir.join("f.mostinterface").to_string_lossy().into_owned();
     ok(&mut s, "file.saveAs", json!({"path": path}));
     let mut t = Session::empty();
     ok(&mut t, "file.open", json!({"path": path}));

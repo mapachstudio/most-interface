@@ -1,11 +1,12 @@
-//! Export timings over the example files: every top-level frame of each `examples/*.figcraft`
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Export timings over the example files: every top-level frame of each `examples/*.mostinterface`
 //! exported as PNG, JPG and WebP at 2x through [`export_file`], as Export and `figcraft-cli export`
 //! do. Run in release:
 //! `cargo test --release -p figcraft-engine --lib export_timings -- --ignored --nocapture`.
 //!
-//! `FIGCRAFT_EXPORT_BENCH_RUNS` sets the timed runs (default 7; one warm-up run first),
-//! `FIGCRAFT_EXPORT_BENCH_FORMATS` the formats (default `png,jpg,webp`) and
-//! `FIGCRAFT_EXPORT_BENCH_OUT` a folder to write the files of the last run to (to compare outputs).
+//! `MOST_INTERFACE_EXPORT_BENCH_RUNS` sets the timed runs (default 7; one warm-up run first),
+//! `MOST_INTERFACE_EXPORT_BENCH_FORMATS` the formats (default `png,jpg,webp`) and
+//! `MOST_INTERFACE_EXPORT_BENCH_OUT` a folder to write the files of the last run to (to compare outputs).
 
 use std::time::Instant;
 
@@ -58,9 +59,9 @@ fn run(docs: &[(String, Document, Vec<NodeId>)], format: ExportFormat) -> (f64, 
 #[test]
 #[ignore = "timing: run in release with --ignored --nocapture"]
 fn export_timings() {
-    let runs: usize = std::env::var("FIGCRAFT_EXPORT_BENCH_RUNS").ok().and_then(|v| v.parse().ok()).unwrap_or(7).max(1);
-    let formats = std::env::var("FIGCRAFT_EXPORT_BENCH_FORMATS").unwrap_or_else(|_| "png,jpg,webp".into());
-    let out = std::env::var("FIGCRAFT_EXPORT_BENCH_OUT").ok();
+    let runs: usize = std::env::var("MOST_INTERFACE_EXPORT_BENCH_RUNS").ok().and_then(|v| v.parse().ok()).unwrap_or(7).max(1);
+    let formats = std::env::var("MOST_INTERFACE_EXPORT_BENCH_FORMATS").unwrap_or_else(|_| "png,jpg,webp".into());
+    let out = std::env::var("MOST_INTERFACE_EXPORT_BENCH_OUT").ok();
     let docs = examples();
     let frames: usize = docs.iter().map(|d| d.2.len()).sum();
     println!("{} documents, {frames} frames, {runs} runs", docs.len());

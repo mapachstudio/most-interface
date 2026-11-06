@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! When the window can't open.
 //!
 //! Release builds on Windows have no console, so an error from `eframe::run_native` (no usable
@@ -21,7 +22,7 @@ pub fn failed(error: &eframe::Error, quiet: bool, tried: Option<&str>) {
     }
     let _ = rfd::MessageDialog::new()
         .set_level(rfd::MessageLevel::Error)
-        .set_title("FigCraft")
+        .set_title("Most Interface")
         .set_description(text)
         .set_buttons(rfd::MessageButtons::Ok)
         .show();

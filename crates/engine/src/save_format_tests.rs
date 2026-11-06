@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Save As can write an experimental `.fig` copy without replacing native save state.
 
 use std::path::PathBuf;
@@ -96,9 +97,9 @@ fn assert_save_state_unchanged(s: &Session, before: &DocState, recent: &[String]
 #[test]
 fn first_native_save_uses_chosen_filename_for_an_untitled_document() {
     let mut files = SaveFiles::new();
-    let path = files.path("Redis.figcraft");
-    let copy = files.path("Redis copy.figcraft");
-    let manual_copy = files.path("Other.figcraft");
+    let path = files.path("Redis.mostinterface");
+    let copy = files.path("Redis copy.mostinterface");
+    let manual_copy = files.path("Other.mostinterface");
     let mut s = Session::new();
     s.execute("file.saveAs", &json!({"path": path.to_string_lossy()})).unwrap();
     assert_eq!(s.ds().unwrap().doc.name, "Redis");
@@ -119,8 +120,8 @@ fn first_native_save_uses_chosen_filename_for_an_untitled_document() {
 #[test]
 fn opening_an_older_file_uses_its_filename_only_for_the_default_title() {
     let mut files = SaveFiles::new();
-    let old_path = files.path("Redis.figcraft");
-    let named_path = files.path("Other.figcraft");
+    let old_path = files.path("Redis.mostinterface");
+    let named_path = files.path("Other.mostinterface");
     let mut original = Session::new();
     std::fs::write(&old_path, crate::cmd::file::file_bytes(original.ds().unwrap()).unwrap()).unwrap();
     original.execute("file.rename", &json!({"name": "Chosen title"})).unwrap();
@@ -138,14 +139,14 @@ fn read_fig(path: &std::path::Path, result: &Value) -> figcraft_doc::Document {
     assert_eq!(result["format"], "fig");
     assert_eq!(result["bytes"], bytes.len());
     assert!(result["warnings"].is_array());
-    assert!(figcraft_format::load_bytes(&bytes).is_err(), "a .fig copy must not contain native FigCraft data");
+    assert!(figcraft_format::load_bytes(&bytes).is_err(), "a .fig copy must not contain native Most Interface data");
     figcraft_format::fig::import(&bytes, "Copy").unwrap().0
 }
 
 #[test]
 fn fig_save_as_keeps_native_path_dirty_state_and_history() {
     let mut files = SaveFiles::new();
-    let native = files.path("design.figcraft");
+    let native = files.path("design.mostinterface");
     let copy = files.path("copy.fig");
     let mut s = Session::new();
     rect(&mut s, "Saved rectangle");
@@ -224,7 +225,7 @@ fn fig_save_commands_accept_uppercase_extension() {
 #[test]
 fn fig_copy_from_branch_exports_active_document_without_saving_main() {
     let mut files = SaveFiles::new();
-    let native = files.path("main.figcraft");
+    let native = files.path("main.mostinterface");
     let copy = files.path("branch.fig");
     let mut s = Session::new();
     rect(&mut s, "Main rectangle");
@@ -282,7 +283,7 @@ fn fig_copy_write_failure_keeps_save_state() {
 fn save_as_without_extension_stays_native() {
     let mut files = SaveFiles::new();
     let requested = files.dir.join("native");
-    let native = files.path("native.figcraft");
+    let native = files.path("native.mostinterface");
     let mut s = Session::new();
     rect(&mut s, "Native rectangle");
     let result = s.execute("file.saveAs", &json!({"path": requested.to_string_lossy()})).unwrap();
@@ -298,7 +299,7 @@ fn save_as_without_extension_stays_native() {
 fn fig_copy_of_version_preview_keeps_visible_version_and_save_state() {
     let mut files = SaveFiles::new();
     for (index, command) in ["file.save", "file.saveAs"].into_iter().enumerate() {
-        let native = files.path(&format!("current-{index}.figcraft"));
+        let native = files.path(&format!("current-{index}.mostinterface"));
         let copy = files.path(&format!("version-{index}.FIG"));
         let mut s = Session::new();
         rect(&mut s, "A");
@@ -331,7 +332,7 @@ fn pending_save_choice_keeps_version_preview() {
         rect(&mut s, "A");
         s.execute("file.saveVersion", &json!({"name": "A only"})).unwrap();
         if native_path {
-            let native = files.path(&format!("saved-{index}.figcraft"));
+            let native = files.path(&format!("saved-{index}.mostinterface"));
             s.execute("file.save", &json!({"path": native.to_string_lossy()})).unwrap();
         }
         rect(&mut s, "B");
@@ -348,7 +349,7 @@ fn pending_save_choice_keeps_version_preview() {
 fn native_save_from_version_preview_writes_current_document() {
     let mut files = SaveFiles::new();
     for (index, (command, explicit)) in [("file.save", false), ("file.save", true), ("file.saveAs", true)].into_iter().enumerate() {
-        let native = files.path(&format!("native-version-{index}.figcraft"));
+        let native = files.path(&format!("native-version-{index}.mostinterface"));
         let mut s = Session::new();
         rect(&mut s, "A");
         s.execute("file.saveVersion", &json!({"name": "A only"})).unwrap();
@@ -374,7 +375,7 @@ fn implicit_save_protects_legacy_fig_destination() {
     let mut files = SaveFiles::new();
     for (index, command) in ["file.save", "file.saveAs"].into_iter().enumerate() {
         let legacy = files.path(&format!("legacy-{index}.FIG"));
-        let native = files.path(&format!("corrected-{index}.figcraft"));
+        let native = files.path(&format!("corrected-{index}.mostinterface"));
         let mut s = Session::new();
         rect(&mut s, "A");
         s.execute("file.saveVersion", &json!({"name": "A only"})).unwrap();

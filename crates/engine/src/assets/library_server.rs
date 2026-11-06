@@ -1,8 +1,9 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Team libraries: a file's published library kept on a `figcraft-server` under that file, and
 //! used by other files through one of its share links (a view link is enough to read it).
 //!
 //! A library on a server is the same published library a library file holds (manifest and
-//! snapshot, with per-asset versions), carried as a small `.figcraft` archive holding only it. Its
+//! snapshot, with per-asset versions), carried as a small `.mostinterface` archive holding only it. Its
 //! link takes the place of a library file's path in [`LibraryLink::path`], so everything else
 //! (the Assets panel, placing components, updates with overrides kept) works as for library files.
 //! The engine never opens a socket: requests go through the app's [`LiveLink`](crate::live::LiveLink).
@@ -53,7 +54,7 @@ pub fn shown_path(path: &str) -> String {
     format!("{}token=…{}", path.get(..at).unwrap_or_default(), path.get(end..).unwrap_or_default())
 }
 
-/// `lib` as the archive a server keeps: a `.figcraft` file holding only the library.
+/// `lib` as the archive a server keeps: a `.mostinterface` file holding only the library.
 pub fn archive(lib: &PublishedLibrary) -> Result<Vec<u8>> {
     let mut holder = Document::new(lib.manifest.name.clone());
     holder.published = Some(Arc::new(lib.clone()));

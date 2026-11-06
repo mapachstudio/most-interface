@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Variables, shared styles and instance sizes in exported `.fig` files: collections with their
 //! modes, variables with a value per mode, the bindings on layers, paints, gradient stops, effects
 //! and layout grids, the modes frames and pages set, style definitions and the links to them, and
@@ -1016,7 +1017,7 @@ fn junk_style_definitions_and_orders_never_panic() {
     }
 }
 
-/// Local only (`FIGCRAFT_FIG_SAMPLES`): each sample's variables, modes, bindings, styles and style
+/// Local only (`MOST_INTERFACE_FIG_SAMPLES`): each sample's variables, modes, bindings, styles and style
 /// links come back the same after an export and another import.
 #[test]
 fn local_samples_keep_their_variables_and_styles() {

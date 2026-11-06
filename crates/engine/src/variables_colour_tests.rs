@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Colour calculations: `{alpha: …}` (a referenced colour with its alpha replaced) and `{mix: …}`
 //! (a blend of two colour operands) as per-mode variable values — set and create shapes, lazy
 //! propagation to bound layers and mode switches, composition over aliases and other
@@ -334,7 +335,7 @@ fn calculations_survive_save_and_load() {
     );
     let dir = std::env::temp_dir().join(format!("figcraft-colour-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("d.figcraft");
+    let path = dir.join("d.mostinterface");
     ex(&mut s, "file.save", json!({"path": path.to_string_lossy()}));
     let mut t = Session::new();
     ex(&mut t, "file.open", json!({"path": path.to_string_lossy()}));

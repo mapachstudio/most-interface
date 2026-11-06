@@ -1,4 +1,5 @@
-//! `figcraft-server`: FigCraft's standalone collaboration server (milestone M9, step 5 of
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! `figcraft-server`: Most Interface's standalone collaboration server (milestone M9, step 5 of
 //! `docs/collab-protocol.md`; running it: `docs/server.md`).
 //!
 //! It keeps many files in a data directory ([`store`]), each with share links that let people

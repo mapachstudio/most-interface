@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Windows: embed the icon and version info in figcraft.exe and size its main thread's stack
 //! (no-op elsewhere).
 fn main() {
@@ -10,8 +11,8 @@ fn main() {
         if std::path::Path::new(ico).exists() {
             res.set_icon(ico);
         }
-        res.set("ProductName", "FigCraft");
-        res.set("FileDescription", "FigCraft");
+        res.set("ProductName", "Most Interface");
+        res.set("FileDescription", "Most Interface");
         res.set("CompanyName", "ArtCraft");
         if let Err(e) = res.compile() {
             println!("cargo::warning=winresource: {e}");
@@ -21,7 +22,7 @@ fn main() {
         let msvc = std::env::var("CARGO_CFG_TARGET_ENV").as_deref() == Ok("msvc");
         println!("cargo::rustc-link-arg-bins={}", if msvc { "/STACK:8388608" } else { "-Wl,--stack,8388608" });
     }
-    let sha = std::env::var("FIGCRAFT_BUILD_SHA").unwrap_or_default();
-    println!("cargo::rustc-env=FIGCRAFT_BUILD_SHA={sha}");
-    println!("cargo::rerun-if-env-changed=FIGCRAFT_BUILD_SHA");
+    let sha = std::env::var("MOST_INTERFACE_BUILD_SHA").unwrap_or_default();
+    println!("cargo::rustc-env=MOST_INTERFACE_BUILD_SHA={sha}");
+    println!("cargo::rerun-if-env-changed=MOST_INTERFACE_BUILD_SHA");
 }

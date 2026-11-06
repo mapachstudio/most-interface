@@ -1,15 +1,16 @@
-//! The FigCraft egui frontend.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! The Most Interface egui frontend.
 //!
 //! A thin shell over [`figcraft_engine::Session`]: panels read engine state and act by running
 //! commands; the canvas forwards pointer events to the engine's tools and draws overlays. Nothing
 //! below this crate knows about egui, so the frontend can be replaced.
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic, clippy::unimplemented, clippy::todo, clippy::unreachable)]
 
-/// FigCraft as craft-update knows it, with its 128 px icon and accent colour: the update
+/// Most Interface as craft-update knows it, with its 128 px icon and accent colour: the update
 /// prompt shows both, and an AppImage's menu entry gets the icon.
 #[cfg(not(target_arch = "wasm32"))]
 pub const UPDATE_APP: craft_update::app::App = craft_update::app::App {
-    icon_png: Some(include_bytes!("../../../assets/app-icon/hicolor/128x128/apps/ai.storyteller.figcraft.png")),
+    icon_png: Some(include_bytes!("../../../assets/app-icon/hicolor/128x128/apps/com.grupomostmexico.mostinterface.png")),
     accent: Some([0x02, 0xda, 0x96]),
     ..craft_update::suite::FIGCRAFT
 };
@@ -554,7 +555,7 @@ pub struct UiState {
     /// Dev Mode: annotations on the canvas and the ready-for-dev list.
     pub dev: dev_mode::DevUi,
 
-    /// What FigCraft last put on the system clipboard: when the clipboard still holds it, a paste
+    /// What Most Interface last put on the system clipboard: when the clipboard still holds it, a paste
     /// uses our copied layers; anything else there (an image, SVG, text) came from another app.
     /// `None` also means a programmatic copy changed the engine clipboard without writing the OS
     /// clipboard, so the system text is no longer known to be ours.
@@ -729,7 +730,7 @@ pub(crate) struct PendingAck {
     pub(crate) reply: ControlReply,
 }
 
-/// The whole FigCraft UI.
+/// The whole Most Interface UI.
 pub struct FigApp {
     pub session: Session,
     pub ui: UiState,

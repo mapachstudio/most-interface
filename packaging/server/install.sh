@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Install or upgrade figcraft-server on a Debian or Ubuntu machine, behind Caddy (TLS), as a
 # server open to the public. See docs/server.md ("Running a public server").
 #
@@ -398,7 +399,7 @@ cat <<EOF
 
 figcraft-server is running behind Caddy.
 
-  Publish:   in FigCraft, Share > Publish to server..., address wss://$HOST/
+  Publish:   in Most Interface, Share > Publish to server..., address wss://$HOST/
              $(if [[ "$OPEN" = true ]]; then echo "(open to the public: no key needed; each file gets an owner token)"; else echo "(with the key: $ADMIN key)"; fi)
   Check:     curl https://$HOST/healthz      (once DNS points here and Caddy has its certificate)
   Logs:      journalctl -u $SERVICE -f

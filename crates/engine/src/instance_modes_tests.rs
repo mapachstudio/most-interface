@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Variable modes on instances: an instance is on the modes its main component sets, under the
 //! ones set on the instance itself, so switching variants or changing the main's mode reaches it.
 
@@ -182,7 +183,7 @@ fn a_file_from_before_modes_were_overrides_keeps_the_modes_chosen_inside_its_ins
     let (button, _, nested) = modal(&mut s);
     // Saved before `modes` was an override group: the copy has its mode but no marker.
     s.doc_mut().unwrap().node_mut(nested).unwrap().overrides.remove("modes");
-    let path = std::env::temp_dir().join(format!("figcraft-instance-modes-{}.figcraft", std::process::id()));
+    let path = std::env::temp_dir().join(format!("figcraft-instance-modes-{}.mostinterface", std::process::id()));
     let p = path.to_string_lossy().into_owned();
     run(&mut s, "file.saveAs", json!({"path": p}));
     let mut s = Session::new();

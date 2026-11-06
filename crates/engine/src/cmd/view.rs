@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! View menu, preferences and tools. View state is per document and drivable like everything else.
 
 use figcraft_doc::NodeId;
@@ -498,7 +499,7 @@ pub fn specs() -> Vec<CommandSpec> {
         spec!("app.preferences", "Preferences", "{}", false, |s, _| ui(s, "dialog.preferences")),
         spec!("app.actions", "Actions", "{}", false, |s, _| ui(s, "palette.actions")),
         spec!("help.shortcuts", "Keyboard shortcuts", "{}", false, |s, _| ui(s, "panel.shortcuts")),
-        spec!("help.about", "About FigCraft", "{}", false, |s, _| ui(s, "dialog.about")),
+        spec!("help.about", "About Most Interface", "{}", false, |s, _| ui(s, "dialog.about")),
         spec!("help.page", "Help page", "{}", false, |s, _| ui(s, "open.help")),
         spec!(
             "help.gettingStarted",

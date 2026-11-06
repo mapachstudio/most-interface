@@ -1,4 +1,5 @@
-//! Effects behaviour, written from the public documentation of the design tools FigCraft follows:
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Effects behaviour, written from the public documentation of the design tools Most Interface follows:
 //! drop and inner shadows (offset, blur, spread, colour, showing behind transparent areas),
 //! layer and background blurs, effects on groups, the order effects stack in and what exports
 //! include. Each case says in one line why it expects what it does; where the documentation is

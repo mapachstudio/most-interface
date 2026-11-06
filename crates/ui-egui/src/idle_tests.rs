@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! An idle window draws no frames: once renders and animations settle, the whole UI (driven
 //! headless through egui) asks for no further immediate repaint, only far-off deadlines (the
 //! autosave checkpoint, a toast going away). What does need a frame wakes the UI: a finished
@@ -394,7 +395,7 @@ fn a_hidden_window_answers_at_once() {
     // of the window) queues for a forced hidden paint and otherwise expires at its deadline.
     let dir = std::env::temp_dir().join(format!("figcraft-hidden-save-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("hidden.figcraft");
+    let path = dir.join("hidden.mostinterface");
     let (mut h, _) = document();
     h.settle();
     // Exercise admission well after startup, independently of settling speed.
@@ -438,7 +439,7 @@ fn a_hidden_window_answers_at_once() {
 fn auto_save_writes_a_changed_file_then_rests() {
     let dir = std::env::temp_dir().join(format!("figcraft-auto-save-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("auto.figcraft").to_string_lossy().to_string();
+    let path = dir.join("auto.mostinterface").to_string_lossy().to_string();
     let (mut h, _) = document();
     h.run("file.save", json!({"path": path}));
     h.run("pref.autoSave", json!({"on": true}));

@@ -1,4 +1,5 @@
-//! The FigCraft renderer.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! The Most Interface renderer.
 //!
 //! [`render_view`] draws a page region at any zoom into a premultiplied RGBA pixmap (the canvas);
 //! [`render_node`] rasterises one node for export at a scale. Everything is CPU (tiny-skia) so it

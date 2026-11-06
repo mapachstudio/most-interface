@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use serde_json::Value;
 
 use super::{FigApp, dev_mode_refuses, json, trn};
@@ -86,7 +87,7 @@ pub fn paste(app: &mut FigApp, event_text: Option<&str>, at: Option<(f64, f64)>)
     }
 }
 
-/// The marker FigCraft puts on the system clipboard for copied layers with no text/SVG mirror.
+/// The marker Most Interface puts on the system clipboard for copied layers with no text/SVG mirror.
 fn is_clipboard_marker(text: &str) -> bool {
     text.starts_with("figcraft://clipboard/")
 }

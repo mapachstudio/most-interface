@@ -1,4 +1,5 @@
-//! `figcraft-cli`: FigCraft without a window. Inspect, export, convert and render documents, run
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! `figcraft-cli`: Most Interface without a window. Inspect, export, convert and render documents, run
 //! command scripts, list commands, serve MCP on stdio, publish plugins to a server's plugin
 //! directory, publish code connect mappings to a design file and measure performance.
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic, clippy::unimplemented, clippy::todo, clippy::unreachable)]
@@ -126,10 +127,10 @@ fn commands(as_json: bool, filter: Option<&str>) {
 }
 
 /// Publish the plugin folder `folder` to the plugin directory at `server` (the key from the address
-/// or `FIGCRAFT_SERVER_KEY`); never prints the key.
+/// or `MOST_INTERFACE_SERVER_KEY`); never prints the key.
 fn publish_plugin(folder: &str, server: &str) -> CliResult<ExitCode> {
     let address = server.split('?').next().unwrap_or_default().to_string();
-    let server = match std::env::var("FIGCRAFT_SERVER_KEY") {
+    let server = match std::env::var("MOST_INTERFACE_SERVER_KEY") {
         Ok(key) if !server.contains("key=") && !key.trim().is_empty() => format!("{address}?key={}", key.trim()),
         _ => server.to_string(),
     };
@@ -151,7 +152,7 @@ fn publish_plugin(folder: &str, server: &str) -> CliResult<ExitCode> {
 fn mcp(attach: Option<&str>, timeout: Option<u64>, roots: Option<figcraft_engine::file_access::Roots>) -> CliResult<ExitCode> {
     let backend: Box<dyn figcraft_mcp::Backend> = match attach {
         Some(addr) => {
-            let no_app = |e: std::io::Error| format!("can't reach the FigCraft app at {addr}: {e} (start it with `figcraft --control PORT`)");
+            let no_app = |e: std::io::Error| format!("can't reach the Most Interface app at {addr}: {e} (start it with `figcraft --control PORT`)");
             let b = figcraft_mcp::Attached::connect(addr).map_err(no_app)?;
             match timeout {
                 Some(secs) => Box::new(b.with_timeout(std::time::Duration::from_secs(secs)).map_err(no_app)?),

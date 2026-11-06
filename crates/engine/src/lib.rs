@@ -1,4 +1,5 @@
-//! The FigCraft engine.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! The Most Interface engine.
 //!
 //! Every user-visible action is a command with a stable id (`node.create`, `align.left`,
 //! `layout.add`, `component.create`…) taking JSON params. The egui UI, the CLI, the control channel

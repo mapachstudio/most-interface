@@ -1,6 +1,6 @@
 {
   "id": "figcraft",
-  "name": "FigCraft",
+  "name": "Most Interface",
   "upgradeCode": "7F8B9827-D065-41B7-A514-2A454B21F484",
   "sources": [
     "figcraft.wxs"
@@ -65,7 +65,7 @@
       "-1",
       "Software\\Classes\\Applications\\figcraft.exe",
       "FriendlyAppName",
-      "FigCraft"
+      "Most Interface"
     ],
     [
       "-1",
@@ -76,7 +76,7 @@
     [
       "-1",
       "Software\\Classes\\Applications\\figcraft.exe\\SupportedTypes",
-      ".figcraft",
+      ".mostinterface",
       ""
     ],
     [
@@ -117,7 +117,7 @@
     ],
     [
       "-1",
-      "Software\\FigCraft",
+      "Software\\Most Interface",
       "InstallDir",
       "[INSTALLFOLDER]"
     ]

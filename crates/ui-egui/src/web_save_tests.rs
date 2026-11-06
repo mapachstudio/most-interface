@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Save, Save as and Export where the platform saves by downloads (the browser, which has no save
 //! dialogs or paths): the file arrives as a download instead of nothing happening (#969).
 
@@ -27,12 +28,12 @@ fn save_downloads_the_figcraft_file() {
     app.save();
     let got = got.lock().unwrap();
     let [(name, bytes)] = got.as_slice() else { panic!("one download, got {}", got.len()) };
-    assert_eq!(name, "Untitled.figcraft");
+    assert_eq!(name, "Untitled.mostinterface");
     let mut reopened = Session::new();
     let data = base64::engine::general_purpose::STANDARD.encode(bytes);
     reopened.execute("file.open", &json!({"data": data, "name": name})).unwrap();
     assert!(!app.session.ds().unwrap().is_dirty());
-    assert_eq!(toast(&app), "Saved Untitled.figcraft");
+    assert_eq!(toast(&app), "Saved Untitled.mostinterface");
 }
 
 #[test]
@@ -51,7 +52,7 @@ fn a_refused_download_says_so() {
     let (mut app, got, _) = browser(false);
     app.save_as_dialog();
     assert_eq!(got.lock().unwrap().len(), 1);
-    assert_eq!(toast(&app), "Couldn't download Untitled.figcraft");
+    assert_eq!(toast(&app), "Couldn't download Untitled.mostinterface");
     assert!(app.session.ds().unwrap().is_dirty(), "no file arrived: closing must still warn about the edits");
 }
 

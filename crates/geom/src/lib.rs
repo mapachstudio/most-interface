@@ -1,4 +1,5 @@
-//! FigCraft geometry.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Most Interface geometry.
 //!
 //! Re-exports [`kurbo`] and adds the shape builders a design tool needs: rectangles with independent
 //! corner radii and corner smoothing (the "squircle" continuous-curvature corner), regular polygons

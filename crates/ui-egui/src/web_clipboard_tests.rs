@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Copy and paste as the browser does them: Cmd+C arrives as a copy event and the copy reaches the
 //! system clipboard only through egui's output; Cmd+V arrives as the key and a paste event holding
 //! whatever the system clipboard has. A copy that never reached the clipboard pasted the text that
@@ -143,7 +144,7 @@ fn text_copied_elsewhere_after_our_copy_still_pastes_as_text() {
 
 #[test]
 fn copying_text_layers_puts_their_text_on_the_clipboard() {
-    // #808: other apps get a text layer's text, not its SVG; FigCraft still pastes the layers.
+    // #808: other apps get a text layer's text, not its SVG; Most Interface still pastes the layers.
     let mut p = Page::new();
     let a = p.app.session.execute("text.create", &json!({"text": "Hello", "x": 0, "y": 200})).unwrap();
     let b = p.app.session.execute("text.create", &json!({"text": "World", "x": 0, "y": 300})).unwrap();

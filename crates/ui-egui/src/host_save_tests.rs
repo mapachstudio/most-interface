@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! In a page host the browser hands files to the host: a Save of the document the host opened goes
 //! out under the host's file name, a Save As under the document's own name.
 
@@ -38,16 +39,16 @@ fn app(file: Option<&'static str>) -> (FigApp, Saved) {
 
 #[test]
 fn save_keeps_the_name_the_host_opened() {
-    let (mut app, got) = app(Some("client.figcraft"));
+    let (mut app, got) = app(Some("client.mostinterface"));
     app.save();
-    assert_eq!(got.lock().unwrap().as_slice(), ["client.figcraft"]);
+    assert_eq!(got.lock().unwrap().as_slice(), ["client.mostinterface"]);
 }
 
 #[test]
 fn save_as_uses_the_document_s_own_name() {
-    let (mut app, got) = app(Some("client.figcraft"));
+    let (mut app, got) = app(Some("client.mostinterface"));
     app.save_as_dialog();
-    assert_eq!(got.lock().unwrap().as_slice(), ["Original.figcraft"]);
+    assert_eq!(got.lock().unwrap().as_slice(), ["Original.mostinterface"]);
 }
 
 #[test]
@@ -55,6 +56,6 @@ fn without_a_host_file_or_for_a_copy_format_save_is_a_save_as() {
     for file in [None, Some("design.json"), Some("export.fig")] {
         let (mut app, got) = app(file);
         app.save();
-        assert_eq!(got.lock().unwrap().as_slice(), ["Original.figcraft"], "{file:?}");
+        assert_eq!(got.lock().unwrap().as_slice(), ["Original.mostinterface"], "{file:?}");
     }
 }

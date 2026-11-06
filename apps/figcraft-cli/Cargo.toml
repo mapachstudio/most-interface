@@ -1,10 +1,11 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-cli"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 publish = false
-description = "FigCraft command line: info, export, convert, render, scripted commands, MCP server, perf"
+description = "Most Interface command line: info, export, convert, render, scripted commands, MCP server, perf"
 
 [[bin]]
 name = "figcraft-cli"

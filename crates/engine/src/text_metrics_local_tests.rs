@@ -1,5 +1,6 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Text box sizes measured against documents re-saved by other software. Local only: runs when
-//! `FIGCRAFT_FIG_SAMPLES` names a folder of `.fig` files, and only for text whose exact font is
+//! `MOST_INTERFACE_FIG_SAMPLES` names a folder of `.fig` files, and only for text whose exact font is
 //! installed. The rules themselves are tested on built-in fonts in `figcraft_text`.
 
 use figcraft_doc::{LineHeight, Node, NodeKind, TextAutoResize};
@@ -32,7 +33,7 @@ fn soft_starts(t: &figcraft_doc::TextData, w: f64) -> Vec<usize> {
 /// as it would without them). Prints the counts (`--nocapture`).
 #[test]
 fn local_samples_wrap_at_their_saved_line_breaks() {
-    let Some(dir) = std::env::var_os("FIGCRAFT_FIG_SAMPLES") else { return };
+    let Some(dir) = std::env::var_os("MOST_INTERFACE_FIG_SAMPLES") else { return };
     let Ok(dir) = std::fs::read_dir(dir) else { return };
     figcraft_text::scan_system_fonts();
     let (mut matched, mut fell_back, mut differed_before, mut wrapped) = (0, 0, 0, 0);
@@ -70,7 +71,7 @@ fn local_samples_wrap_at_their_saved_line_breaks() {
 /// Each text box that sizes itself comes out at the size stored in the file, to the pixel.
 #[test]
 fn local_samples_keep_their_text_box_sizes() {
-    let Some(dir) = std::env::var_os("FIGCRAFT_FIG_SAMPLES") else { return };
+    let Some(dir) = std::env::var_os("MOST_INTERFACE_FIG_SAMPLES") else { return };
     let Ok(dir) = std::fs::read_dir(dir) else { return };
     figcraft_text::scan_system_fonts();
     for p in dir.flatten().map(|e| e.path()).filter(|p| p.extension().is_some_and(|x| x == "fig")) {

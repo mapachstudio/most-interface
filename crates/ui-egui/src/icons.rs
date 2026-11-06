@@ -1,4 +1,5 @@
-//! FigCraft's icon set, drawn in code from simple primitives on a 16×16 grid. Original artwork
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Most Interface's icon set, drawn in code from simple primitives on a 16×16 grid. Original artwork
 //! (MIT OR Apache-2.0): no third-party icons are used anywhere.
 //!
 //! The grid is pixel-exact at 16 px: 1-unit strokes sit on half coordinates (pixel centres) and

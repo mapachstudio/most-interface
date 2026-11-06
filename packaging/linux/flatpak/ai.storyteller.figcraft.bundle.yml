@@ -1,3 +1,4 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Flatpak manifest for the single-file bundle attached to every GitHub release
 # (figcraft-<version>-linux-<arch>.flatpak). Build it with packaging/linux/flatpak-bundle.sh.
 #
@@ -9,9 +10,9 @@
 # Wayland, xkbcommon and Vulkan at runtime; the freedesktop runtime has all of them, and the
 # GPU driver comes from its org.freedesktop.Platform.GL extension.
 #
-# ai.storyteller.figcraft.yml (same directory) is the from-source manifest for Flathub. Keep
+# com.grupomostmexico.mostinterface.yml (same directory) is the from-source manifest for Flathub. Keep
 # runtime-version and finish-args identical in both (packaging-lint checks this).
-id: ai.storyteller.figcraft
+id: com.grupomostmexico.mostinterface
 runtime: org.freedesktop.Platform
 runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
@@ -41,11 +42,11 @@ modules:
       - install -Dm755 bin/figcraft /app/bin/figcraft
       # The headless CLI, in tarballs built with apps/figcraft-cli.
       - if [ -x bin/figcraft-cli ]; then install -Dm755 bin/figcraft-cli /app/bin/figcraft-cli; fi
-      - install -Dm644 share/applications/ai.storyteller.figcraft.desktop /app/share/applications/ai.storyteller.figcraft.desktop
-      # .figcraft; the runtime's shared-mime-info already knows SVG, PNG and JPEG.
-      - install -Dm644 share/mime/packages/ai.storyteller.figcraft.xml /app/share/mime/packages/ai.storyteller.figcraft.xml
+      - install -Dm644 share/applications/com.grupomostmexico.mostinterface.desktop /app/share/applications/com.grupomostmexico.mostinterface.desktop
+      # .mostinterface; the runtime's shared-mime-info already knows SVG, PNG and JPEG.
+      - install -Dm644 share/mime/packages/com.grupomostmexico.mostinterface.xml /app/share/mime/packages/com.grupomostmexico.mostinterface.xml
       # Already has the release's version and date substituted by package.sh.
-      - install -Dm644 share/metainfo/ai.storyteller.figcraft.metainfo.xml /app/share/metainfo/ai.storyteller.figcraft.metainfo.xml
+      - install -Dm644 share/metainfo/com.grupomostmexico.mostinterface.metainfo.xml /app/share/metainfo/com.grupomostmexico.mostinterface.metainfo.xml
       - mkdir -p /app/share/icons /app/share/doc && cp -R share/icons/hicolor /app/share/icons/ && cp -R share/doc/figcraft /app/share/doc/
     sources:
       - type: dir

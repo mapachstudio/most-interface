@@ -1,6 +1,7 @@
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # figcraft-server
 
-`figcraft-server` keeps FigCraft files for a team and serves their live sessions. A file published
+`figcraft-server` keeps Most Interface files for a team and serves their live sessions. A file published
 to it stays there when everyone has left; people open it with a **share link** that lets them
 **edit** it or only **view** it. Edits are kept as a snapshot plus a log of what changed, so a
 restart (or a crash) loses nothing that was confirmed, and apps reconnect where they were. It is
@@ -76,7 +77,7 @@ and the date the server deletes the file unless someone opens it.
 
 **Share ▸ Online ▸ Start sharing** in the app (`collab.share`) is the short way to do all of the
 above on a server open to the public: it publishes the open file to the server in **Preferences ▸
-Server for online sharing** (the FigCraft server unless you put yours there; Reset goes back; empty
+Server for online sharing** (the Most Interface server unless you put yours there; Reset goes back; empty
 turns online sharing off), then shows a **join code** such as `K7M-2QX-9TD` in place of the links.
 Someone else types it under **Share ▸ Join with a code** (or on the home screen, or
 `collab.join {code}`) with the same server in their Preferences, and is in the file. The popover
@@ -151,7 +152,7 @@ screen lists them under **Online**:
   can't be reached the copy opens as an unsaved document, as before.
 
 The owner token is a password for that one file: it is kept only in the preferences file of your
-user account (`state.json` in FigCraft's settings folder), is never logged, and never appears in
+user account (`state.json` in Most Interface's settings folder), is never logged, and never appears in
 what commands return (`collab.files` says `hasOwnerToken: true`). Whoever can read that file can
 manage your online files; a list of at most 200 files is kept (the one opened longest ago makes
 room). The files are the ones published **from this computer**: another computer of yours doesn't
@@ -180,7 +181,7 @@ someone in, so keep it off on a server open to anyone.
   only published, or shared with links that have no code, aren't listed. The list names each file,
   when it last changed and how many people are in it, most recently changed first (at most 500).
 - **In the app.** Home ▸ Online asks the server in **Preferences ▸ Server for online sharing** for
-  its list each time it opens (not the public server FigCraft ships with, which keeps none) and
+  its list each time it opens (not the public server Most Interface ships with, which keeps none) and
   shows it below your own online files, under **Shared by your team on …**. Clicking a row joins
   the file. Scripts and agents read it from `collab.files {refresh: true}` (`team`).
 - **Links without a secret.** A file of the list is named by the server and the file:
@@ -282,13 +283,13 @@ port as everything else; no other service is involved.
   machines. A plugin's author is shown as the publisher typed it in the manifest; nothing verifies
   it.
 - **Publishing.** `figcraft-cli plugin publish FOLDER --server ws://host:47900/` with the key in
-  `FIGCRAFT_SERVER_KEY` (or `?key=` in the address), or `plugin.directory.publish` from the app's
+  `MOST_INTERFACE_SERVER_KEY` (or `?key=` in the address), or `plugin.directory.publish` from the app's
   scripts and MCP. Each version must be newer than the last (`1.0.0` → `1.0.1`); the server keeps
   every version until it is unpublished, and lists the latest.
 - **What the server checks** before keeping a bundle: its size (`max_plugin_mb`), that it decodes
   (an uncompressed format: nothing expands), that its manifest parses and asks for a plugin API this
-  server's FigCraft runs, a version of one to four numbers newer than the one kept, that the module
-  is WebAssembly that compiles and imports only what FigCraft's sandbox provides (it is never run on
+  server's Most Interface runs, a version of one to four numbers newer than the one kept, that the module
+  is WebAssembly that compiles and imports only what Most Interface's sandbox provides (it is never run on
   the server), and that asset names are plain file names. Then the caps: `max_plugins` versions in
   all and `max_plugins_mb` of bundles.
 - **Downloads** carry the bundle's SHA-256, which the app checks before reading it, and which the
@@ -377,7 +378,7 @@ behaves as before (blocked addresses, report rates and the limits on
                                and for a team link its token
 <data>/files/<id>/snapshot.bin its state at the last compaction (with a checksum)
 <data>/files/<id>/log.bin      what changed since, one checksummed record per change
-<data>/files/<id>/library-<version>.bin  its team library, when one was published (a .figcraft
+<data>/files/<id>/library-<version>.bin  its team library, when one was published (a .mostinterface
                                archive; library.bin when it was published by an older server)
 <data>/files/<id>/usage.json   which files use that library's components, as their apps report it
 <data>/files/<id>/actions.json its components' insertions and detachments week by week
@@ -453,7 +454,7 @@ The desktop app, `figcraft-cli` (and so agents through MCP) and the browser buil
 `wss://` links. The desktop app and the CLI check the certificate against Mozilla's list of root
 authorities built into them (not the operating system's store), so a certificate from a public
 authority such as Let's Encrypt just works. For a certificate from a private authority (or a
-self-signed one, such as Caddy's `tls internal`), set the environment variable `FIGCRAFT_CA_FILE`
+self-signed one, such as Caddy's `tls internal`), set the environment variable `MOST_INTERFACE_CA_FILE`
 to that authority's certificate (a PEM file) before starting the app: it is trusted in addition
 to the built-in list. There is no way to skip the check: a certificate that has expired, is for
 another name or comes from an unknown authority is refused, and the app says which.
@@ -643,7 +644,7 @@ upgrades the binary and restarts the server only when something changed.
    the newer source over and run it again.
 4. Check it: `curl https://figcraft.example.com/healthz` answers `ok` once Caddy has its
    certificate (a minute after DNS is right); `journalctl -u figcraft-server -f` shows the log.
-5. In FigCraft, **Share ▸ Publish to server…** with `wss://figcraft.example.com/`. Moderate with
+5. In Most Interface, **Share ▸ Publish to server…** with `wss://figcraft.example.com/`. Moderate with
    the commands it printed (`sudo -u figcraft figcraft-server --config /etc/figcraft-server/server.toml
    files list --sort size`, `reports`, `block-ip`).
 6. Point an uptime monitor at `https://figcraft.example.com/healthz`, copy
@@ -795,7 +796,7 @@ sudo systemctl start figcraft-server
   the server; on the server they are stored unencrypted, so the operator and anyone who can read
   the data directory can read every file. Tell the people who publish to your server so (the
   README's [Privacy and online sharing](../README.md#privacy-and-online-sharing) says it for the
-  default public server, which a build can replace or leave out with `FIGCRAFT_DEFAULT_SERVER`
+  default public server, which a build can replace or leave out with `MOST_INTERFACE_DEFAULT_SERVER`
   ([releasing](releasing.md#the-default-server)), and whose terms are [online-sharing-terms.md](online-sharing-terms.md): a
   starting point for your own), and set `operator_contact` and `terms_url` on a public one.
 - **Access** is a share link (128-bit random token) per file and access level, an owner token
@@ -833,7 +834,7 @@ sudo systemctl start figcraft-server
   Everything published is checked in full and never run on the server; a bundle's name on disk is
   its hash, so nothing a publisher chooses reaches the file system; downloads are hash-checked at
   both ends and share a bandwidth budget. Installing still means trusting the publisher: a plugin
-  runs in FigCraft's sandbox with the permissions its manifest asks for, which the app shows before
+  runs in Most Interface's sandbox with the permissions its manifest asks for, which the app shows before
   it installs anything.
 - **Not end-to-end encrypted**: the server reads every file it keeps (it validates and stores them);
   so can its operator.

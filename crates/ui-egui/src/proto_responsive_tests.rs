@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Responsive presentation in the player (the frame takes the device's screen or the window and
 //! lays out again, live), device colours and custom sizes in the presenter and the Prototype
 //! panel, and library collections in the Design panel's variable modes.
@@ -118,7 +119,7 @@ fn prototype_panel_shows_colours_custom_sizes_and_responsive() {
 fn brand_library(tag: &str) -> (String, String) {
     let dir = std::env::temp_dir().join(format!("figcraft-libmodes-{}-{tag}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("brand.figcraft").to_string_lossy().into_owned();
+    let path = dir.join("brand.mostinterface").to_string_lossy().into_owned();
     let mut lib = Session::new();
     let ex = |s: &mut Session, c: &str, p: Value| s.execute(c, &p).unwrap();
     ex(&mut lib, "file.rename", json!({"name": "Brand kit"}));

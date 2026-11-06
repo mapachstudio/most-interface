@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Recovery of your online files never loses an edit. The copy of a document that was one of them
 //! when a run ended without closing has a note beside it (the server, the file, who the app was
 //! there and the server's last change it had; never a token). The next start joins the file again
@@ -234,7 +235,7 @@ fn an_online_copy_stays_while_what_it_became_cant_be_copied() {
     arrive(&mut next, &script, &mut server);
     assert!(next.docs[1].is_dirty(), "the copy's edit is on top, not saved anywhere yet");
     // Something is in the way of this run's copy: writing it fails.
-    let mine = root.join(std::process::id().to_string()).join(format!("{}.figcraft", next.docs[1].uid));
+    let mine = root.join(std::process::id().to_string()).join(format!("{}.mostinterface", next.docs[1].uid));
     std::fs::create_dir_all(&mine).unwrap();
     r.tick(&next, 1.0);
     assert_eq!((copies(&left, "figcraft"), copies(&left, "online")), (1, 1), "kept: the work is nowhere else on disk");

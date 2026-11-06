@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Number fields: what typed text means (arithmetic, units, edits relative to the value), how far
 //! a scrub and an arrow key move a value, and the Design panel's fields driven through egui
 //! headless: scrubbing by the label with and without Shift and Alt, arrow keys, arithmetic on
@@ -426,7 +427,7 @@ fn the_save_shortcut_saves_from_a_field_with_what_was_typed() {
     let (mut u, a, _) = setup();
     let dir = std::env::temp_dir().join(format!("figcraft-save-from-field-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let (path, copy) = (dir.join("doc.figcraft"), dir.join("copy.figcraft"));
+    let (path, copy) = (dir.join("doc.mostinterface"), dir.join("copy.mostinterface"));
     u.app.session.execute("file.saveAs", &json!({"path": path.to_string_lossy()})).unwrap();
     let asked = std::rc::Rc::new(std::cell::Cell::new(0));
     u.app.services = Box::new(SaveAsPicker { path: Some(copy.clone()), asked: asked.clone() });
@@ -826,7 +827,7 @@ fn a_deferred_field_save_keeps_its_document_when_the_next_input_switches_tabs() 
         let (mut u, a, _) = setup();
         let dir = std::env::temp_dir().join(format!("figcraft-deferred-field-tab-{}-{save_as}-{same_batch}-{discard}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
-        let (path, copy, other) = (dir.join("a.figcraft"), dir.join("copy.figcraft"), dir.join("b.figcraft"));
+        let (path, copy, other) = (dir.join("a.mostinterface"), dir.join("copy.mostinterface"), dir.join("b.mostinterface"));
         u.app.session.execute("file.saveAs", &json!({"path": path.to_string_lossy()})).unwrap();
         let owner = u.app.session.ds().unwrap().uid;
         u.app.session.execute("file.new", &json!({"name": "Deferred B"})).unwrap();
@@ -919,7 +920,7 @@ fn a_deferred_field_save_does_not_retarget_a_closed_moved_or_foreign_owner() {
             u.ctx.set_embed_viewports(false);
             let dir = std::env::temp_dir().join(format!("figcraft-deferred-field-invalid-{}-{change}-{save_as}", std::process::id()));
             std::fs::create_dir_all(&dir).unwrap();
-            let (path, other, copy) = (dir.join("a.figcraft"), dir.join("b.figcraft"), dir.join("copy.figcraft"));
+            let (path, other, copy) = (dir.join("a.mostinterface"), dir.join("b.mostinterface"), dir.join("copy.mostinterface"));
             u.app.session.execute("file.saveAs", &json!({"path": path.to_string_lossy()})).unwrap();
             let owner = u.app.session.ds().unwrap().uid;
             u.app.session.execute("file.new", &json!({"name": "Deferred B"})).unwrap();
@@ -1035,7 +1036,7 @@ fn prepared_save_cannot_enter_a_replacement(route: &str, save_as: bool, discard:
     let (mut u, a, _) = setup();
     let dir = std::env::temp_dir().join(format!("figcraft-field-save-owner-{}-{route}-{save_as}-{discard}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let (path, other, copy) = (dir.join("a.figcraft"), dir.join("b.figcraft"), dir.join("copy.figcraft"));
+    let (path, other, copy) = (dir.join("a.mostinterface"), dir.join("b.mostinterface"), dir.join("copy.mostinterface"));
     u.app.session.execute("file.saveAs", &json!({"path": path.to_string_lossy()})).unwrap();
     let owner = u.app.session.ds().unwrap().uid;
     let owner_bytes = std::fs::read(&path).unwrap();

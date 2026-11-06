@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Sharing with a join code against a scripted link: `collab.share` online and on the local
 //! network, the codes in `collab.peers`, switching what the code lets people do, stopping (online:
 //! the others' links go, the file and its owner stay; sharing again makes new ones), and
@@ -164,7 +165,7 @@ fn on_the_server_unshared(s: &mut Session, script: &Arc<Mutex<Script>>) {
 fn the_built_in_server_is_the_default_and_can_be_changed_or_turned_off() {
     let (mut s, _) = session();
     assert_eq!(s.prefs.publish_server, DEFAULT_SERVER);
-    // A build may ship without one (`FIGCRAFT_DEFAULT_SERVER=`); any it ships is TLS.
+    // A build may ship without one (`MOST_INTERFACE_DEFAULT_SERVER=`); any it ships is TLS.
     assert!(
         DEFAULT_SERVER.is_empty() || (DEFAULT_SERVER.starts_with("wss://") && DEFAULT_SERVER.ends_with('/')),
         "TLS, and an address the preference itself accepts"

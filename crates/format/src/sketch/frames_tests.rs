@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Sketch 2025 and newer: frames and graphics (groups with a `groupBehavior`), stacks, corners in
 //! the style, pins and sizing, border sides.
 
@@ -362,7 +363,7 @@ fn glass_and_progressive_blurs() {
     assert!(matches!(node(&doc, "Glass").effects[0].kind, figcraft_doc::EffectKind::Glass(_)), "{warnings:?}");
     let figcraft_doc::EffectKind::BackgroundBlur(b) = &node(&doc, "Prog").effects[0].kind else { panic!("not a background blur") };
     assert_eq!(b.blur_type, figcraft_doc::BlurType::Progressive);
-    // Sketch's radius is the blur's standard deviation; FigCraft's twice it.
+    // Sketch's radius is the blur's standard deviation; Most Interface's twice it.
     assert_eq!((b.start_radius, b.radius), (48.0, 0.0));
 }
 

@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! PDF export (vector, via krilla).
 //!
 //! The walk mirrors the SVG exporter and the tiny-skia renderer: every node is drawn in page space
@@ -163,7 +164,7 @@ fn rect_finite(r: Rect) -> bool {
 
 fn write(doc: &Document, pages: &[(Vec<NodeId>, Rect)], opts: &PdfOptions) -> Result<Vec<u8>, PdfError> {
     let mut pdf = krilla::Document::new();
-    let mut meta = krilla::metadata::Metadata::new().creator("FigCraft".into()).producer("FigCraft".into());
+    let mut meta = krilla::metadata::Metadata::new().creator("Most Interface".into()).producer("Most Interface".into());
     if let Some(t) = opts.title.as_ref().filter(|t| !t.trim().is_empty()) {
         meta = meta.title(t.clone());
     }

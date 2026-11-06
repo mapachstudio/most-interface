@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Components can't contain their own instances, directly, through other components or through
 //! the variants of a set (#1084); files holding such a loop open with it broken.
 
@@ -118,7 +119,7 @@ fn a_variant_holds_a_sibling_but_no_loop_back_through_it() {
 fn reopened(doc: &Document) -> (Session, Value) {
     let data = base64::engine::general_purpose::STANDARD.encode(figcraft_format::save_bytes(doc, None).unwrap());
     let mut s = Session::new();
-    let r = ex(&mut s, "file.open", json!({"data": data, "name": "variants.figcraft"}));
+    let r = ex(&mut s, "file.open", json!({"data": data, "name": "variants.mostinterface"}));
     (s, r)
 }
 
@@ -199,7 +200,7 @@ fn a_file_with_a_loop_opens_with_it_broken_and_a_note() {
     let bytes = figcraft_format::save_bytes(&doc, None).unwrap();
     let data = base64::engine::general_purpose::STANDARD.encode(&bytes);
     let mut s = Session::new();
-    let r = ex(&mut s, "file.open", json!({"data": data, "name": "looped.figcraft"}));
+    let r = ex(&mut s, "file.open", json!({"data": data, "name": "looped.mostinterface"}));
     let notes = r["repairs"].as_array().cloned().unwrap_or_default();
     assert!(notes.iter().any(|n| n.as_str().is_some_and(|n| n.contains("was detached"))), "{r}");
     let doc = s.doc().unwrap();
@@ -211,7 +212,7 @@ fn a_file_with_a_loop_opens_with_it_broken_and_a_note() {
     assert_eq!(edit_mains(&mut s, card, badge, 10), vec![count; 10]);
     // Importing it into another file breaks it the same way.
     let mut t = Session::new();
-    let r = ex(&mut t, "file.import", json!({"data": data, "name": "looped.figcraft"}));
+    let r = ex(&mut t, "file.import", json!({"data": data, "name": "looped.mostinterface"}));
     assert!(r["warnings"].as_array().is_some_and(|w| !w.is_empty()), "{r}");
     assert!(component_cycle(t.doc().unwrap()).is_none());
 }

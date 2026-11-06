@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The Assets tab: components as thumbnail tiles filed in folders (their page, the frames holding
 //! them, then the slashes in their names; a folder folds away), searched, clicked to place or
 //! dragged onto the canvas to drop an instance into the frame or auto layout slot under the pointer
@@ -1114,7 +1115,7 @@ fn enabled_libraries(app: &mut FigApp, ui: &mut Ui, w: f32, doc: &Document) {
     let t = Tokens::get(ui.ctx());
     title(ui, w, tr("Libraries in this file"));
     if doc.libraries.enabled.is_empty() {
-        hint(ui, tr("No libraries yet. Add a .figcraft file that was published as a library, or paste a team library's link."));
+        hint(ui, tr("No libraries yet. Add a .mostinterface file that was published as a library, or paste a team library's link."));
     }
     let (mut remove, mut swap) = (None, None);
     let swappable = doc.libraries.enabled.len() > 1;

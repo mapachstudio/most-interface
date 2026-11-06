@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Text node data: characters plus a base style and styled runs.
 
 use figcraft_color::{Color, Paint};
@@ -307,9 +308,9 @@ pub struct TextStyle {
     pub style_id: Option<String>,
 }
 
-/// The font new text starts in. A build can name another (`FIGCRAFT_DEFAULT_FONT="Noto Sans Thai"`,
+/// The font new text starts in. A build can name another (`MOST_INTERFACE_DEFAULT_FONT="Noto Sans Thai"`,
 /// for a distribution whose users mostly write a script Inter lacks); empty means Inter.
-pub const DEFAULT_FONT: &str = match option_env!("FIGCRAFT_DEFAULT_FONT") {
+pub const DEFAULT_FONT: &str = match option_env!("MOST_INTERFACE_DEFAULT_FONT") {
     Some(family) if !family.is_empty() => family,
     _ => "Inter",
 };
@@ -952,8 +953,8 @@ mod case_tests {
 
     #[test]
     fn new_text_starts_in_the_builds_default_font() {
-        // Inter, unless the build names another with `FIGCRAFT_DEFAULT_FONT` (empty means Inter).
-        let named = option_env!("FIGCRAFT_DEFAULT_FONT").filter(|f| !f.is_empty());
+        // Inter, unless the build names another with `MOST_INTERFACE_DEFAULT_FONT` (empty means Inter).
+        let named = option_env!("MOST_INTERFACE_DEFAULT_FONT").filter(|f| !f.is_empty());
         assert_eq!(DEFAULT_FONT, named.unwrap_or("Inter"));
         let st = TextStyle::default();
         assert_eq!(st.font_family, DEFAULT_FONT);

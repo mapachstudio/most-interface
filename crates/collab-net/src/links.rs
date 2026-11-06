@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Making the desktop app the opener of `figcraft://` invite links (the engine's
 //! [`LinkRegistrar`]). On Windows that's a per-user URL scheme under
 //! `HKEY_CURRENT_USER\Software\Classes\figcraft` (no administrator rights; uninstalling the user's
@@ -47,7 +48,7 @@ impl<R: Registry> UrlScheme<R> {
 
     fn values(&self) -> [(String, &'static str, String); 4] {
         [
-            (KEY.into(), "", "URL:FigCraft invite link".into()),
+            (KEY.into(), "", "URL:Most Interface invite link".into()),
             (KEY.into(), "URL Protocol", String::new()),
             (format!(r"{KEY}\DefaultIcon"), "", format!("\"{}\",0", self.exe.display())),
             (format!(r"{KEY}\shell\open\command"), "", self.command()),

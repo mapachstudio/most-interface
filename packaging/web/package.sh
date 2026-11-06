@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Build the browser version and zip it:  $DIST/figcraft-web-<version>.zip
 #
 # Usage: packaging/web/package.sh [--skip-build]
@@ -26,8 +27,8 @@ fi
 
 # Size gate: Cloudflare Pages/Workers reject any single file over 25 MiB, and other
 # hosts and CDNs have similar caps. Fail well before that so a regression shows up here, not at
-# upload time. Override with FIGCRAFT_WASM_MAX_BYTES only to investigate.
-MAX_WASM_BYTES="${FIGCRAFT_WASM_MAX_BYTES:-25165824}" # 24 MiB
+# upload time. Override with MOST_INTERFACE_WASM_MAX_BYTES only to investigate.
+MAX_WASM_BYTES="${MOST_INTERFACE_WASM_MAX_BYTES:-25165824}" # 24 MiB
 WASM_COUNT=0
 for wasm in "$SITE"/*.wasm; do
   [[ -f "$wasm" ]] || continue

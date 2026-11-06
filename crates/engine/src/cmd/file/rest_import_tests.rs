@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::*;
 
 /// A synthetic REST API file JSON: a component with a text layer, an instance of it whose text
@@ -120,7 +121,7 @@ fn open_takes_data_and_a_name_as_a_new_unsaved_document() {
     let data = base64::engine::general_purpose::STANDARD.encode(&bytes);
     let mut s = Session::new();
     let recent = s.prefs.recent_files.clone();
-    let r = s.execute("file.open", &json!({"data": data, "name": "Dropped.figcraft"})).unwrap();
+    let r = s.execute("file.open", &json!({"data": data, "name": "Dropped.mostinterface"})).unwrap();
     let open = s.docs.len();
     assert_eq!(r["index"], open - 1, "a document of its own, made active");
     assert_eq!(s.ds().unwrap().path, None, "no path to save over");
@@ -139,7 +140,7 @@ fn save_as_data_hands_back_the_file_and_marks_it_saved_once_delivered() {
     assert!(s.execute("file.saveAs", &json!({})).is_err(), "no path and no data: still asks for a path");
     let recent = s.prefs.recent_files.clone();
     let r = s.execute("file.saveAs", &json!({"data": true})).unwrap();
-    assert_eq!(r["name"], "Untitled.figcraft");
+    assert_eq!(r["name"], "Untitled.mostinterface");
     assert!(s.ds().unwrap().is_dirty(), "not delivered yet: a refused download must not lose the edits");
     s.execute("file.markSaved", &json!({})).unwrap();
     assert!(!s.ds().unwrap().is_dirty());

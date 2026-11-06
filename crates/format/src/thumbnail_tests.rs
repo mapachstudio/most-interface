@@ -1,4 +1,5 @@
-//! Reading the picture a saved file carries: from `.figcraft` and `.fig` archives and image files,
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Reading the picture a saved file carries: from `.mostinterface` and `.fig` archives and image files,
 //! and `None` (never a panic) for missing, damaged, oversized and non-zip input.
 
 use std::io::{Cursor, Write};
@@ -42,7 +43,7 @@ fn a_figcraft_file_gives_its_thumbnail() {
     assert_eq!((t.width, t.height, t.rgba.len()), (40, 20, 40 * 20 * 4));
     assert_eq!(t.rgba.get(..4), Some([10, 20, 30, 255].as_slice()));
     // And from disk.
-    let path = dir("figcraft").join("a.figcraft");
+    let path = dir("figcraft").join("a.mostinterface");
     std::fs::write(&path, &bytes).unwrap();
     assert_eq!(file_thumbnail(&path, 640), Some(t));
 }
@@ -105,25 +106,25 @@ fn files_on_disk_by_kind() {
     let svg = d.join("icon.svg");
     std::fs::write(&svg, "<svg xmlns='http://www.w3.org/2000/svg'/>").unwrap();
     assert_eq!(file_thumbnail(&svg, 640), None);
-    assert_eq!(file_thumbnail(&d.join("gone.figcraft"), 640), None);
-    // A `.figcraft` that is plain JSON, and one that is junk.
-    let json = d.join("plain.figcraft");
+    assert_eq!(file_thumbnail(&d.join("gone.mostinterface"), 640), None);
+    // A `.mostinterface` that is plain JSON, and one that is junk.
+    let json = d.join("plain.mostinterface");
     std::fs::write(&json, "{}").unwrap();
     assert_eq!(file_thumbnail(&json, 640), None);
     let junk = d.join("junk.fig");
     std::fs::write(&junk, [0xFFu8; 64]).unwrap();
     assert_eq!(file_thumbnail(&junk, 640), None);
     // A folder named like a file.
-    let folder = d.join("folder.figcraft");
+    let folder = d.join("folder.mostinterface");
     std::fs::create_dir_all(&folder).unwrap();
     assert_eq!(file_thumbnail(&folder, 640), None);
-    let kinds: Vec<FileKind> = ["a.figcraft", "a.FIG", "a.Sketch", "a.svg", "a.jpeg", "a.webp", "a.txt", "noext"]
+    let kinds: Vec<FileKind> = ["a.mostinterface", "a.FIG", "a.Sketch", "a.svg", "a.jpeg", "a.webp", "a.txt", "noext"]
         .iter()
         .map(|p| FileKind::of(std::path::Path::new(p)))
         .collect();
     assert_eq!(
         kinds,
-        [FileKind::FigCraft, FileKind::Fig, FileKind::Sketch, FileKind::Svg, FileKind::Image, FileKind::Image, FileKind::Other, FileKind::Other]
+        [FileKind::Most Interface, FileKind::Fig, FileKind::Sketch, FileKind::Svg, FileKind::Image, FileKind::Image, FileKind::Other, FileKind::Other]
     );
 }
 
@@ -141,7 +142,7 @@ fn doc_on(rgb: [f32; 3]) -> Document {
 fn previews_carry_the_first_pages_colour() {
     use crate::thumbnail::{Preview, archive_preview, file_preview};
     let thumb = png(8, 4);
-    // `.figcraft`: the first page's background from document.json.
+    // `.mostinterface`: the first page's background from document.json.
     let bytes = crate::save_bytes(&doc_on([0.1, 0.2, 0.3]), Some(&thumb)).unwrap();
     let p = archive_preview(Cursor::new(&bytes), 640);
     assert_eq!(p.page, Some([0.1, 0.2, 0.3, 1.0]));
@@ -176,7 +177,7 @@ fn previews_carry_the_first_pages_colour() {
     assert_eq!(archive_preview(Cursor::new(zip(&[("document.json", doc)])), 640).page, Some([1.0, 0.0, 0.5, 1.0]));
     // Not an archive, or no file at all.
     assert_eq!(archive_preview(Cursor::new(b"junk".to_vec()), 640), Preview::default());
-    assert_eq!(file_preview(std::path::Path::new("/nonexistent/x.figcraft"), 640), Preview::default());
+    assert_eq!(file_preview(std::path::Path::new("/nonexistent/x.mostinterface"), 640), Preview::default());
     let d = dir("preview");
     let svg = d.join("a.svg");
     std::fs::write(&svg, "<svg/>").unwrap();

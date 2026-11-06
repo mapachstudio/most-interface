@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `.fig` export tests: generated documents round trip through our own importer (layer tree,
 //! geometry within tolerance, paints, text, auto layout, components, prototypes); the written file
 //! decodes with the generic decoder and lists every layer after its parent; the encoder agrees
@@ -1219,7 +1220,7 @@ fn link(doc: &mut Document) {
     }
 }
 
-/// Local only (`FIGCRAFT_FIG_SAMPLES`): each sample imported, exported and imported again comes
+/// Local only (`MOST_INTERFACE_FIG_SAMPLES`): each sample imported, exported and imported again comes
 /// back the same, apart from what the export leaves out (shared style links, variables).
 #[test]
 fn local_samples_round_trip() {

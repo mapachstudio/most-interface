@@ -1,4 +1,5 @@
-//! FigCraft text: fonts, shaping and layout.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Most Interface text: fonts, shaping and layout.
 //!
 //! Fonts come from the optional craft-fonts build input (Inter and friends, embedded at build time)
 //! and, on desktop, from the system's font folders. [`layout`] turns a text node's

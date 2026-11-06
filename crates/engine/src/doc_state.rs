@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::view_state::ViewState;
 use super::{Arc, BTreeSet, Deserialize, Document, NodeId, Serialize, cmd, components, file_access, guides, library, rotation_origin, vectoredit};
 
@@ -82,9 +83,9 @@ pub struct DocState {
     /// Vector edit mode: the vector being edited, its selected points and the edit tool.
     pub vector_edit: Option<vectoredit::VectorEdit>,
     pub uid: u64,
-    /// The file's version history, oldest first (saved in the `.figcraft` file; not undoable).
+    /// The file's version history, oldest first (saved in the `.mostinterface` file; not undoable).
     pub versions: Vec<figcraft_format::Version>,
-    /// The file's branches (saved in the `.figcraft` file; not undoable).
+    /// The file's branches (saved in the `.mostinterface` file; not undoable).
     pub branches: Vec<figcraft_format::Branch>,
     /// This tab shows a branch: the `uid` of its main file's tab and the branch id. Its edits go
     /// into the main file's branch (and are saved with the main file).

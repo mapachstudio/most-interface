@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The page colour of a new file follows the interface's theme when it is made (dark: #1E1E1E,
 //! light: #F5F5F5) and is the page's own from then on; an added page takes the colour of the page
 //! it was added from. A session without an interface (CLI, MCP, exports) has no theme and keeps the
@@ -109,7 +110,7 @@ fn an_added_page_takes_the_current_pages_colour() {
 fn added_page_colours_survive_save_and_reopen() {
     let dir = std::env::temp_dir().join(format!("figcraft-added-pages-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("pages.figcraft");
+    let path = dir.join("pages.mostinterface");
     let mut s = Session::new();
     ex(&mut s, "page.setBackground", json!({"color": "#336699"}));
     ex(&mut s, "page.add", json!({}));
@@ -152,7 +153,7 @@ fn the_file_the_app_opened_with_takes_the_theme_once_it_is_known() {
 fn opened_files_keep_their_page_colour() {
     let dir = std::env::temp_dir().join(format!("figcraft-theme-pages-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("light.figcraft");
+    let path = dir.join("light.mostinterface");
     let mut s = Session::new();
     ex(&mut s, "file.saveAs", json!({"path": path.to_string_lossy()}));
     let mut s = Session::empty();

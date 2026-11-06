@@ -1,3 +1,4 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [workspace]
 resolver = "3"
 members = ["crates/*", "apps/*", "xtask"]
@@ -38,7 +39,7 @@ figcraft-plugin = { path = "crates/plugin" }
 # Which paths stored in a document may be followed (craft-libs).
 craft-docpath = { version = "0.1.0", git = "https://github.com/storytold/craft-libs", rev = "e11f9d9aebea5f6b8e74643c1ea1ed172ba5f545" }
 # Who draws the window frame on Linux — the compositor or the app — so every Craft app shows the
-# same native titlebar per desktop (craft-libs). FigCraft only reads the probe result and maps it
+# same native titlebar per desktop (craft-libs). Most Interface only reads the probe result and maps it
 # to its own `TitleBar`, so it does not enable craft-window's optional `egui` helpers (which would
 # pull a second egui family version).
 craft-window = { git = "https://github.com/storytold/craft-libs", rev = "e11f9d9aebea5f6b8e74643c1ea1ed172ba5f545" }
@@ -127,7 +128,7 @@ dbg_macro = "warn"
 # Style lints from newer toolchains that fight index-heavy pixel code.
 needless_range_loop = "allow"
 chunks_exact_to_as_chunks = "allow"
-# FigCraft never crashes: shipped code returns `Result`/`Option` instead of panicking (see
+# Most Interface never crashes: shipped code returns `Result`/`Option` instead of panicking (see
 # AGENTS.md › Never crash). Tests may unwrap (clippy.toml).
 unwrap_used = "deny"
 expect_used = "deny"

@@ -1,5 +1,5 @@
 {
-  "id": "org.figcraft.examples.counter",
+  "id": "org.mostinterface.examples.counter",
   "name": "Counter",
   "version": "1.2.0",
   "description": "A widget that counts on the canvas: click its + and − buttons, double-click its label to edit it, and use its menu to reset it, set it in a panel, count in tens or colour it. Everything is kept in the document.",

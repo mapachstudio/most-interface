@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Boards: a file kind for whiteboarding, and the small piece of metadata board objects carry.
 //!
 //! Board objects are ordinary nodes (frames, vectors, text) with a [`BoardItem`] on them, so
@@ -460,7 +461,7 @@ impl Stamp {
         }
     }
 
-    /// The mark, drawn for FigCraft from lines, arcs and simple outlines.
+    /// The mark, drawn for Most Interface from lines, arcs and simple outlines.
     pub fn mark(self) -> &'static [MarkPart] {
         match self {
             // A cuff and a raised hand with its thumb up.

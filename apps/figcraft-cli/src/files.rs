@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The file subcommands: info, export, convert, render and run.
 
 use std::ffi::OsStr;
@@ -321,7 +322,7 @@ pub fn export(file: &str, out: &str, t: &Target) -> CliResult<ExitCode> {
 fn refuse_dropping_images(input: &str, out: &str, images_left_out: usize) -> CliResult<()> {
     if images_left_out > 0 && figcraft_engine::file_access::same_file(input, out) {
         return Err(CliError::Failed(format!(
-            "{out} wasn't written: {images_left_out} of its images weren't loaded (together they pass what FigCraft reads from one file), and writing over it would delete them. Write to another path; {input} keeps them."
+            "{out} wasn't written: {images_left_out} of its images weren't loaded (together they pass what Most Interface reads from one file), and writing over it would delete them. Write to another path; {input} keeps them."
         )));
     }
     Ok(())
@@ -459,12 +460,12 @@ pub fn run_script(script: &str, input: Option<&str>, out: Option<&str>) -> CliRe
     Ok(ExitCode::SUCCESS)
 }
 
-/// Link the components of `file` (a `.figcraft`) to their code as `mappings` (a
+/// Link the components of `file` (a `.mostinterface`) to their code as `mappings` (a
 /// `figcraft.connect.json`) says, and save it in place unless `dry_run`. Prints what was linked;
 /// entries that were skipped are warnings on stderr, and linking nothing fails (exit code 1).
 pub fn connect_publish(file: &str, mappings: &str, dry_run: bool) -> CliResult<ExitCode> {
     if ext(file) != "figcraft" {
-        return Err(CliError::Usage(format!("{file}: connect publish saves code links in a .figcraft file")));
+        return Err(CliError::Usage(format!("{file}: connect publish saves code links in a .mostinterface file")));
     }
     let mut s = Session::empty();
     s.execute("file.open", &json!({"path": file})).map_err(|e| CliError::Failed(format!("can't open {file}: {e}")))?;
@@ -590,7 +591,7 @@ mod tests {
     #[test]
     fn connect_publish_links_components_and_saves_the_file() {
         let dir = temp_dir("connect");
-        let file = dir.join("ui.figcraft");
+        let file = dir.join("ui.mostinterface");
         let file = file.to_str().unwrap();
         let mut s = Session::new();
         let frame = s.execute("frame.create", &json!({"x": 0, "y": 0, "width": 100, "height": 40, "name": "Card"})).unwrap();
@@ -636,7 +637,7 @@ mod tests {
             ]"#,
         )
         .unwrap();
-        let out = dir.join("out.figcraft");
+        let out = dir.join("out.mostinterface");
         run_script(script.to_str().unwrap(), None, Some(out.to_str().unwrap())).unwrap();
 
         let mut s = Session::empty();
@@ -666,7 +667,7 @@ mod tests {
             ]"#,
         )
         .unwrap();
-        let out = dir.join("out.figcraft");
+        let out = dir.join("out.mostinterface");
         run_script(script.to_str().unwrap(), None, Some(out.to_str().unwrap())).unwrap();
 
         let mut s = Session::empty();
@@ -702,7 +703,7 @@ mod tests {
             ]"#,
         )
         .unwrap();
-        let out = dir.join("out.figcraft");
+        let out = dir.join("out.mostinterface");
         // The failure is the script's, not the call's: the CLI reports it and exits non-zero.
         run_script(script.to_str().unwrap(), None, Some(out.to_str().unwrap())).unwrap();
         assert!(!out.exists(), "a script that failed writes nothing");
@@ -712,11 +713,11 @@ mod tests {
     #[test]
     fn a_script_output_over_its_input_is_refused_whichever_tab_the_script_left_active() {
         let dir = temp_dir("script-images-left-out");
-        let input = dir.join("big.figcraft");
+        let input = dir.join("big.mostinterface");
         std::fs::write(&input, b"kept").unwrap();
-        let link = dir.join("link.figcraft");
+        let link = dir.join("link.mostinterface");
         std::fs::hard_link(&input, &link).unwrap();
-        let (input, link, other) = (input.to_str().unwrap(), link.to_str().unwrap(), dir.join("other.figcraft"));
+        let (input, link, other) = (input.to_str().unwrap(), link.to_str().unwrap(), dir.join("other.mostinterface"));
         let duplicate = Session::new();
         let active = duplicate.ds().unwrap();
 

@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! End-to-end agent tasks: an in-process MCP client completes realistic design tasks only through
 //! MCP tool calls, and checks every result through inspect_document / get_node like an agent would.
 
@@ -232,7 +233,7 @@ fn task_export_png_and_svg() {
     let (w, h) = png_dims(shot["content"][0]["data"].as_str().unwrap());
     assert!(w <= 80 && h <= 80 && w > 0, "{w}x{h}");
     // Save and reopen round-trip.
-    let file = dir.join("banner.figcraft");
+    let file = dir.join("banner.mostinterface");
     c.ok("save_file", json!({"path": file.to_string_lossy()}));
     let opened = c.ok("open_file", json!({"path": file.to_string_lossy()}));
     assert!(opened["document"]["pages"][0]["children"].to_string().contains("Banner"));

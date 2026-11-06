@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The plugin manifest, `figcraft-plugin.json`: who the plugin is, which module to run, the menu
 //! commands it adds (with their parameters) and the permissions it asks for. Also the panel a
 //! plugin shows while it runs (ABI v2), whose controls are parameters too.
@@ -346,7 +347,7 @@ impl Manifest {
         self.author = clean("author", &self.author, MAX_NAME)?;
         check_main(&self.main)?;
         if self.api == 0 || self.api > API_VERSION {
-            return Err(format!("plugin API {} isn't supported (this FigCraft runs API {API_VERSION})", self.api));
+            return Err(format!("plugin API {} isn't supported (this Most Interface runs API {API_VERSION})", self.api));
         }
         if self.permissions.commands.len() > MAX_ALLOW {
             return Err(format!("more than {MAX_ALLOW} entries in `permissions.commands`"));
@@ -395,7 +396,7 @@ impl Manifest {
     }
 }
 
-/// A panel a plugin shows while it runs (ABI v2): a title and controls drawn with FigCraft's own
+/// A panel a plugin shows while it runs (ABI v2): a title and controls drawn with Most Interface's own
 /// widgets. Fields hold values; a button press or a changed value calls the plugin back.
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 pub struct Panel {

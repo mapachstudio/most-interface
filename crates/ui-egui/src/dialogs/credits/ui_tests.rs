@@ -1,4 +1,5 @@
-//! The credits tabs as drawn, through egui headless with FigCraft's fonts and theme: every column
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! The credits tabs as drawn, through egui headless with Most Interface's fonts and theme: every column
 //! keeps its measured width and scrolls when needed, switching the Contributors view keeps its size, clicking a header sorts
 //! by it, and empty tables (no contributors.json) draw a note instead.
 
@@ -34,7 +35,7 @@ fn model(name: &'static str, commits: u64) -> Model {
     Model { company: "Anthropic", model: name, version: "5.5", commits, lines_added: 150_000 + commits, lines_deleted: 20_000 }
 }
 
-/// A headless egui with FigCraft's fonts and light theme; `draw` runs inside a fixed-width column.
+/// A headless egui with Most Interface's fonts and light theme; `draw` runs inside a fixed-width column.
 struct Ui {
     ctx: egui::Context,
     time: f64,

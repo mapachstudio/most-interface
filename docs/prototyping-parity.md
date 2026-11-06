@@ -1,3 +1,4 @@
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # Prototyping parity
 
 > **Last reviewed:** 2026-10-11 · **Last updated:** 2026-11-01 · **Change:** minor (Hide UI in the presenter's Options menu, and Cmd/Ctrl+\ as in the editor: the bar above the prototype and the navigation bar under it go away, a toast names the key that brings them back, `proto.presentOptions {hideUi}` (#1820); the Controller menu names each button as PlayStation and Switch controllers do; "Open in new tab" on Open link: off, the web build's own tab goes to the link; a manual overlay's position can be dragged on the canvas (#405); Open link notices now cover mail links, and skipping them covers only links the viewer fired (#1096); overlay positions relative to the layer that opens them; the Triggers row no longer lists delays on mouse triggers as missing; top-level frames bigger than the device's screen scroll in the player; Change to, set variable and set variable mode lay out what they change in the player, as the canvas does; presentation tabs, one per page of a file; a Present tab with device and scale controls (#537); core editor leftovers: delays on mouse triggers and manual overlay offsets; controller buttons on key/gamepad triggers, widgets that react in prototypes, `proto.evaluate` and the mode lookup rules pinned) · **Target:** Figma Design (desktop app 126.10.7)
@@ -13,7 +14,7 @@ tests; the tail: `crates/engine/src/proto_tail_tests.rs`, 4 tests, and
 `crates/ui-egui/src/present/tail_tests.rs`, 5 tests), and all pass. Not yet checked against
 larger real prototypes. Remaining: 2–5 h.
 
-| Group | Figma | FigCraft | Missing |
+| Group | Figma | Most Interface | Missing |
 |---|---|---|---|
 | Triggers | On click, on drag, while hovering, while pressing, key/gamepad, mouse enter, mouse leave, mouse down, mouse up, after delay, on media hit, on media end | 10: OnClick, OnHover, OnPress, OnDrag, MouseEnter, MouseLeave, MouseDown, MouseUp, AfterDelay, KeyPress (keys, combinations and controller buttons) | media triggers; controllers on macOS, Linux and FreeBSD |
 | Actions | Navigate to, change to, back, scroll to, open link, open / swap / close overlay, set variable, set variable mode, conditional, play/pause/mute/seek media | 11: Navigate, Back, ScrollTo (with an offset), OpenOverlay, SwapOverlay, CloseOverlay, OpenUrl, ChangeTo, SetVariable, SetVariableMode, Conditional | media actions |
@@ -23,7 +24,7 @@ larger real prototypes. Remaining: 2–5 h.
 ## Rules from the documentation
 
 Status: **pass** (a case in the suite holds), **fixed** (the suite found a divergence, now fixed),
-**added** (the setting was missing and now exists), **extra** (FigCraft's own, beyond the reference
+**added** (the setting was missing and now exists), **extra** (Most Interface's own, beyond the reference
 tool; opt-in), **silent** (the documentation doesn't say; the case pins the current behaviour).
 
 | Rule | Status | Evidence / notes |

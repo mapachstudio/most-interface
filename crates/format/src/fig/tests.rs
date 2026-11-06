@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `.fig` import tests on fixtures built in code: a small schema written in a compact text form,
 //! a message encoded with our own kiwi encoder, compressed (deflate and zstd), framed and zipped.
 
@@ -1491,14 +1492,14 @@ mod image_filters;
 #[path = "text_list_tests.rs"]
 mod text_list;
 
-/// `.fig` files in the folder `FIGCRAFT_FIG_SAMPLES` names (none when it's unset).
+/// `.fig` files in the folder `MOST_INTERFACE_FIG_SAMPLES` names (none when it's unset).
 pub(super) fn samples() -> Vec<std::path::PathBuf> {
-    let Some(dir) = std::env::var_os("FIGCRAFT_FIG_SAMPLES") else { return Vec::new() };
+    let Some(dir) = std::env::var_os("MOST_INTERFACE_FIG_SAMPLES") else { return Vec::new() };
     let dir = std::fs::read_dir(dir).into_iter().flatten().flatten();
     dir.map(|e| e.path()).filter(|p| p.extension().is_some_and(|x| x == "fig")).collect()
 }
 
-/// Local only (`FIGCRAFT_FIG_SAMPLES`): every file imports without warnings.
+/// Local only (`MOST_INTERFACE_FIG_SAMPLES`): every file imports without warnings.
 #[test]
 fn local_samples_import() {
     for p in samples() {

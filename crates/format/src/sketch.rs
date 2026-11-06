@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Import of `.sketch` files saved by Sketch 48 or newer (best effort), written from the public
 //! description of the format only.
 //!
@@ -153,8 +154,8 @@ fn import_parts(
 }
 
 /// The note about fonts the file carries (Sketch 7x and newer can embed them, as `fontReferences`
-/// with `fontData`): FigCraft doesn't use fonts from inside documents, so their text shows in
-/// installed fonts. To do once `.figcraft` documents can carry fonts (loading them only for the
+/// with `fontData`): Most Interface doesn't use fonts from inside documents, so their text shows in
+/// installed fonts. To do once `.mostinterface` documents can carry fonts (loading them only for the
 /// session would lose them on the first save and reopen).
 fn embedded_fonts(document: &Value) -> Option<String> {
     let refs = document.get("fontReferences").and_then(Value::as_array)?;
@@ -170,7 +171,7 @@ fn embedded_fonts(document: &Value) -> Option<String> {
         return None;
     }
     let list: Vec<&str> = families.iter().map(String::as_str).collect();
-    Some(format!("the file has embedded fonts FigCraft doesn't use ({}); install them to see the text as designed", list.join(", ")))
+    Some(format!("the file has embedded fonts Most Interface doesn't use ({}); install them to see the text as designed", list.join(", ")))
 }
 
 fn corrupt(msg: impl Into<String>) -> FormatError {
@@ -214,7 +215,7 @@ impl<'b> Archive<'b> {
                 let why = other.err().map_or_else(|| "not an object".to_string(), |e| e.to_string());
                 warnings.push(format!(
                     "the document's shared styles and library symbols were skipped: {}",
-                    why.trim_start_matches("not a valid FigCraft file: ")
+                    why.trim_start_matches("not a valid Most Interface file: ")
                 ));
                 let pages: Vec<Value> = z
                     .file_names()
@@ -239,7 +240,7 @@ impl<'b> Archive<'b> {
             match json_member(&mut z, &format!("pages/{id}.json"), max_member, &mut total) {
                 Ok(page) if page.is_object() => pages.push((id.to_string(), page)),
                 Ok(_) => warnings.push("pages that aren't JSON objects were skipped".into()),
-                Err(e) => warnings.push(format!("a page was skipped: {}", e.to_string().trim_start_matches("not a valid FigCraft file: "))),
+                Err(e) => warnings.push(format!("a page was skipped: {}", e.to_string().trim_start_matches("not a valid Most Interface file: "))),
             }
         }
         if refs.len() > MAX_PAGES {

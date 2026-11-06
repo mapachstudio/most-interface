@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The floating bottom toolbar (UI3): tool groups with flyouts, comments, actions.
 
 use egui::{Align2, Color32, CornerRadius, Rect, Sense, Stroke, StrokeKind, Ui, pos2, vec2};
@@ -343,7 +344,7 @@ fn help_button(app: &mut FigApp, ui: &mut Ui, canvas: Rect, pill: Rect, t: &Toke
             (tr("Keyboard shortcuts"), "help.shortcuts"),
             (tr("Help page"), "help.page"),
             (tr("Check for updates…"), "help.checkForUpdates"),
-            (tr("About FigCraft"), "help.about"),
+            (tr("About Most Interface"), "help.about"),
         ] {
             if crate::right::menu_item(ui, l, crate::shortcuts::shortcut(c).unwrap_or("")) {
                 crate::menus::invoke(app, c);

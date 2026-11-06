@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The data directory: the files a server keeps, their share links and the server key, and the
 //! [`Backend`] the hub serves them through.
 //!
@@ -11,7 +12,7 @@
 //!                                link's token (see `team`)
 //! <data>/files/<id>/snapshot.bin the session state at the last compaction
 //! <data>/files/<id>/log.bin      what changed since (see `disk`)
-//! <data>/files/<id>/library-<version>.bin  its team library, when one was published (a `.figcraft`
+//! <data>/files/<id>/library-<version>.bin  its team library, when one was published (a `.mostinterface`
 //!                                archive; `library.bin` from servers before versioned names)
 //! <data>/files/<id>/usage.json   how other files use that library, as their apps report it
 //! <data>/files/<id>/actions.json its components' insertions and detachments week by week

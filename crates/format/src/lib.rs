@@ -1,4 +1,5 @@
-//! The native `.figcraft` format.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! The native `.mostinterface` format.
 //!
 //! A zip archive holding `document.json` (the [`Document`] as JSON, with a `format`/`version`
 //! header; layer fields at their default values are left out and read back as those defaults),
@@ -67,7 +68,7 @@ const MAX_VERSION_INDEX: u64 = 16 * 1024 * 1024;
 const MAX_VERSION_BYTES: u64 = 1024 * 1024 * 1024;
 /// Most images, and image bytes together, read from one file (members past it are left out).
 const IMAGE_BUDGET: ImageBudget = ImageBudget { images: 20_000, bytes: 4 * 1024 * 1024 * 1024 };
-/// Most bytes one open of a `.figcraft` file unpacks, every area together: its document, images,
+/// Most bytes one open of a `.mostinterface` file unpacks, every area together: its document, images,
 /// published library, version history and branches ([`Unpacked`], #1079). Each area keeps its own
 /// cap; their sum was about 10 GB. Read in that order, the document (a 900 000-layer one unpacks
 /// to 1.5 GB) and the images up to their own 4 GiB cap fit, so a file whose images pass that cap
@@ -94,8 +95,8 @@ impl std::fmt::Display for FormatError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             FormatError::Io(e) => write!(f, "{e}"),
-            FormatError::Corrupt(e) => write!(f, "not a valid FigCraft file: {e}"),
-            FormatError::Newer(v) => write!(f, "this file was saved by a newer FigCraft (format version {v})"),
+            FormatError::Corrupt(e) => write!(f, "not a valid Most Interface file: {e}"),
+            FormatError::Newer(v) => write!(f, "this file was saved by a newer Most Interface (format version {v})"),
         }
     }
 }
@@ -483,7 +484,7 @@ impl<'de> Deserialize<'de> for Header {
         impl<'de> Visitor<'de> for HeaderVisitor {
             type Value = Header;
             fn expecting(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-                f.write_str("a FigCraft document object")
+                f.write_str("a Most Interface document object")
             }
             fn visit_map<A: MapAccess<'de>>(self, mut map: A) -> Result<Header, A::Error> {
                 let mut h = Header::default();
@@ -571,17 +572,17 @@ pub(crate) fn json_options() -> zip::write::SimpleFileOptions {
     zip::write::SimpleFileOptions::default().compression_method(zip::CompressionMethod::Deflated).compression_level(Some(JSON_LEVEL))
 }
 
-/// Write a `.figcraft` archive to bytes.
+/// Write a `.mostinterface` archive to bytes.
 pub fn save_bytes(doc: &Document, thumbnail_png: Option<&[u8]>) -> Result<Vec<u8>, FormatError> {
     save_bytes_with_versions(doc, thumbnail_png, &[])
 }
 
-/// Write a `.figcraft` archive with a version history (oldest first) to bytes.
+/// Write a `.mostinterface` archive with a version history (oldest first) to bytes.
 pub fn save_bytes_with_versions(doc: &Document, thumbnail_png: Option<&[u8]>, versions: &[Version]) -> Result<Vec<u8>, FormatError> {
     save_bytes_with_history(doc, thumbnail_png, versions, &[])
 }
 
-/// Write a `.figcraft` archive with a version history (oldest first) and branches to bytes.
+/// Write a `.mostinterface` archive with a version history (oldest first) and branches to bytes.
 pub fn save_bytes_with_history(
     doc: &Document,
     thumbnail_png: Option<&[u8]>,
@@ -657,7 +658,7 @@ fn put_versions<W: Write + Seek>(z: &mut zip::ZipWriter<W>, dir: &str, versions:
     Ok(())
 }
 
-/// Read a `.figcraft` archive (or bare JSON) from bytes. Returns the document and any repairs made.
+/// Read a `.mostinterface` archive (or bare JSON) from bytes. Returns the document and any repairs made.
 pub fn load_bytes(bytes: &[u8]) -> Result<(Document, Vec<String>), FormatError> {
     load_bytes_with_versions(bytes).map(|l| (l.doc, l.issues))
 }
@@ -725,7 +726,7 @@ pub(crate) struct ImageBudget {
     pub bytes: u64,
 }
 
-/// Read a `.figcraft` archive (or bare JSON) with its version history.
+/// Read a `.mostinterface` archive (or bare JSON) with its version history.
 pub fn load_bytes_with_versions(bytes: &[u8]) -> Result<Loaded, FormatError> {
     load_within(bytes, IMAGE_BUDGET)
 }

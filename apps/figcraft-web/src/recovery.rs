@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Recovery copies in the browser. The browser build can't catch a panic (wasm32 always aborts),
 //! so a command or frame that panics ends the page instead of failing as on the desktop. The page
 //! follows its files with unsaved changes after every frame ([`Unsaved::follow`]: cheap shared
@@ -54,7 +55,7 @@ impl Unsaved {
         self.0.len()
     }
 
-    /// Each file as a saved `.figcraft` file in base64 (one that can't be written is left out).
+    /// Each file as a saved `.mostinterface` file in base64 (one that can't be written is left out).
     pub fn files(&self) -> Vec<String> {
         let b64 = base64::engine::general_purpose::STANDARD;
         self.0

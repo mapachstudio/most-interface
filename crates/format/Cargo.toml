@@ -1,9 +1,10 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-format"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-description = "FigCraft native file format (.figcraft: zip of document.json + images), image import helpers, REST API file JSON import and .fig import"
+description = "Most Interface native file format (.mostinterface: zip of document.json + images), image import helpers, REST API file JSON import and .fig import"
 
 [lints]
 workspace = true

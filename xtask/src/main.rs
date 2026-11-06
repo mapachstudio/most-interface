@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Project tasks: `cargo xtask <task>`.
 //!
 //! - `ci`      fmt check, clippy -D warnings, tests, the translation report, layers, assets, docs, wasm
@@ -157,7 +158,7 @@ fn plugins() -> bool {
 /// whole UI headless), release builds, for each comma-separated document size in layers.
 fn bench(sizes: &str) -> bool {
     run(cargo().args(["run", "--release", "-p", "figcraft-cli", "--", "perf", "--layers", sizes]))
-        && run(cargo().env("FIGCRAFT_BENCH_LAYERS", sizes).args([
+        && run(cargo().env("MOST_INTERFACE_BENCH_LAYERS", sizes).args([
             "test",
             "--release",
             "-p",
@@ -245,7 +246,7 @@ fn parity() -> bool {
         .map(|d| d.trim().to_string())
         .unwrap_or_default();
     let mut md = format!(
-        "# Parity checklist\n\n> **Generated:** {date} by `cargo xtask parity`. Do not edit by hand.\n\nFigCraft commands registered for the incumbent's main menu and toolbar ({} commands in the engine).\n\n**{done} / {total} menu items ({pct:.1}%)**\n\n",
+        "# Parity checklist\n\n> **Generated:** {date} by `cargo xtask parity`. Do not edit by hand.\n\nMost Interface commands registered for the incumbent's main menu and toolbar ({} commands in the engine).\n\n**{done} / {total} menu items ({pct:.1}%)**\n\n",
         figcraft_engine::all_commands().len()
     );
     if missing.is_empty() {

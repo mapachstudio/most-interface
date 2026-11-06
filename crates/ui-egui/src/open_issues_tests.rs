@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Opening a native file with a damaged image: the app says what was lost.
 
 use base64::Engine as _;
@@ -17,7 +18,7 @@ const PNG: [u8; 70] = [
 fn opening_a_file_with_a_damaged_image_toasts_what_was_lost() {
     let dir = std::env::temp_dir().join(format!("figcraft-ui-open-issues-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
-    let path = dir.join("pics.figcraft");
+    let path = dir.join("pics.mostinterface");
     let mut s = Session::new();
     let data = base64::engine::general_purpose::STANDARD.encode(PNG);
     s.execute("file.import", &json!({"data": data, "name": "dot.png"})).unwrap();

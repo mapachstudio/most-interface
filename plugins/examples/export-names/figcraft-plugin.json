@@ -1,5 +1,5 @@
 {
-  "id": "org.figcraft.examples.export-names",
+  "id": "org.mostinterface.examples.export-names",
   "name": "Export names",
   "version": "1.0.0",
   "description": "Saves the names of the selected layers as a text file, one per line.",

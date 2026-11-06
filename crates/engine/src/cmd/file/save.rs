@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::export::export_fig;
 use super::load::{ext, file_stem, write};
 use super::open::remember;
@@ -37,7 +38,7 @@ pub fn thumbnail(doc: &Document) -> Option<Vec<u8>> {
         })
 }
 
-/// The `.figcraft` file for a document: content, thumbnail and version history.
+/// The `.mostinterface` file for a document: content, thumbnail and version history.
 pub fn file_bytes(ds: &DocState) -> Result<Vec<u8>> {
     FileSnapshot::of(ds).encode()
 }
@@ -106,7 +107,7 @@ impl FileSnapshot {
 fn refuse_dropping_images(ds: &DocState, path: &str) -> Result<()> {
     match ds.images_lost_saving_to(path) {
         Some(count) => Err(EngineError::Other(format!(
-            "{} wasn't saved: {count} of its images weren't loaded (together they pass what FigCraft reads from one file), and saving over it would delete them. Save it under another name; this file keeps them.",
+            "{} wasn't saved: {count} of its images weren't loaded (together they pass what Most Interface reads from one file), and saving over it would delete them. Save it under another name; this file keeps them.",
             file_stem(path)
         ))),
         None => Ok(()),
@@ -180,7 +181,7 @@ fn save_to(s: &mut Session, path: Option<String>) -> Result<Value> {
     let bytes = snapshot.encode()?;
     let Some(path) = path else {
         // The download can still be refused: the caller marks the file saved once it was delivered.
-        let name = format!("{}.figcraft", ds.doc.name);
+        let name = format!("{}.mostinterface", ds.doc.name);
         return Ok(json!({"name": name, "bytes": bytes.len(), "data": base64::engine::general_purpose::STANDARD.encode(&bytes)}));
     };
     write(&path, &bytes)?;
@@ -231,7 +232,7 @@ pub(super) fn save_as(s: &mut Session, p: &Value) -> Result<Value> {
     match string(p, "path") {
         Some(mut path) => {
             if ext(&path).is_empty() {
-                path.push_str(".figcraft");
+                path.push_str(".mostinterface");
             }
             save_to(s, Some(path))
         }

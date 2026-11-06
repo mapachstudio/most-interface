@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The data directory on its own: publishing, links and their hashes, persistence across a crash
 //! (snapshot plus log) and compaction, damaged files skipped and reported, caps, the lock, and
 //! temporary directories cleaned up.
@@ -267,7 +268,7 @@ fn operator_key_authentication() {
         c.hosting.open = open;
         let mut store = Store::open(dir.path(), c).unwrap();
         let refusal = match open {
-            true => "wrong server key (this server is open to the public: publish without a key, with an up-to-date FigCraft)",
+            true => "wrong server key (this server is open to the public: publish without a key, with an up-to-date Most Interface)",
             false => "wrong server key",
         };
         assert_eq!(store.manage(key), Ok(()));

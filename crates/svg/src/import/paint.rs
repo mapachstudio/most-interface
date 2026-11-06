@@ -1,4 +1,5 @@
-//! SVG paints → FigCraft paints: colours; gradients as editable gradients with their handles
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! SVG paints → Most Interface paints: colours; gradients as editable gradients with their handles
 //! placed exactly (any `gradientTransform`, skewed or not), `reflect` and `repeat` spreads baked
 //! into the stops across the layer's box and a focal point as the centre; patterns as image fills.
 //! A pattern of one image becomes that image (fill, fit or cropped when it shows once, tiled when

@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The browser shell: web `Services` and the eframe web runner.
 
 use figcraft_engine::Session;
@@ -11,7 +12,7 @@ const STOPPED_ID: &str = "figcraft_stopped";
 /// The local storage key your name is kept under ([`crate::kept`]).
 const NAME_KEY: &str = "figcraft.userName";
 /// The local storage key the recovery copies are kept under ([`crate::recovery`]): a JSON list of
-/// base64 `.figcraft` files.
+/// base64 `.mostinterface` files.
 const RECOVERY_KEY: &str = "figcraft.recovery";
 
 thread_local! {
@@ -32,10 +33,10 @@ pub fn start() {
             log::error!("missing <canvas id=\"{CANVAS_ID}\">");
             return;
         };
-        // Host modes (`craft-web-host`): `?host=parent`, a same-origin page framing FigCraft, opens
+        // Host modes (`craft-web-host`): `?host=parent`, a same-origin page framing Most Interface, opens
         // documents in it and stores what it saves (`host`); unframed there is no parent, so that URL
         // on its own stays the normal app with downloads. `data-host="page"` on the canvas opts a
-        // page in instead: it runs FigCraft in its own document and talks over DOM `CustomEvent`s on
+        // page in instead: it runs Most Interface in its own document and talks over DOM `CustomEvent`s on
         // the canvas.
         let bridge = crate::host::Bridge::connect(&canvas);
         let app_bridge = bridge.clone();
@@ -90,11 +91,11 @@ pub fn start() {
                         let link = js_sys::decode_uri_component(link).ok().and_then(|s| s.as_string()).unwrap_or_else(|| link.to_string());
                         figcraft_ui_egui::live::open_invite(&mut fig, &link);
                     }
-                    // `?control`: `window.figcraft`, the page's control channel (crate::api), opt-in.
+                    // `?control`: `window.mostinterface`, the page's control channel (crate::api), opt-in.
                     if crate::query::control(&query()) {
                         crate::api::connect(cc.egui_ctx.clone());
                         if let Err(e) = crate::api::install() {
-                            log::error!("couldn't install window.figcraft: {e:?}");
+                            log::error!("couldn't install window.mostinterface: {e:?}");
                         }
                     }
                     // The host's files arrive on the app's own open path (a dropped file's).
@@ -115,7 +116,7 @@ pub fn start() {
         if let Some(el) = document.get_element_by_id(LOADING_ID) {
             match result {
                 Ok(()) => el.remove(),
-                Err(e) => el.set_inner_html(&format!("<p>FigCraft failed to start: {e:?}</p><p>A browser with WebGPU or WebGL2 is required.</p>")),
+                Err(e) => el.set_inner_html(&format!("<p>Most Interface failed to start: {e:?}</p><p>A browser with WebGPU or WebGL2 is required.</p>")),
             }
         }
     });

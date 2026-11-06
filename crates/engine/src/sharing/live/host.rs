@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::types::{Bind, HostOptions, NetReply, NetRequest, ONLINE_OFF, PublishOptions, Role, SessionId, Share, Shared, SharedLink, Status, Via};
 use super::{
     Access, Admin, AdminReply, ClientMsg, EngineError, HostInfo, IpAddr, Live, Result, Session, Value, bad, code, display_name, get, json,
@@ -267,7 +268,7 @@ pub(super) fn report(s: &mut Session, p: &Value) -> Result<Value> {
     }
     let live = s.live();
     if live.status != Status::Live || live.role() != Some(Role::Guest) {
-        return Err(bad(CMD, "join a file on a FigCraft server first: reports go to that server's operator"));
+        return Err(bad(CMD, "join a file on a Most Interface server first: reports go to that server's operator"));
     }
     if live.hosting.is_none() {
         return Err(bad(CMD, "this server doesn't take reports (it is older than this app); contact its operator another way"));

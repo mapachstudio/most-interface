@@ -1,10 +1,11 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-server"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 publish = false
-description = "FigCraft's standalone collaboration server: keeps many files with share links (edit or view), persists them as snapshots plus a log, and serves live sessions (headless, native only)"
+description = "Most Interface's standalone collaboration server: keeps many files with share links (edit or view), persists them as snapshots plus a log, and serves live sessions (headless, native only)"
 
 [lib]
 path = "src/lib.rs"

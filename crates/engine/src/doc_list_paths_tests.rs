@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `doc.list` tells the user's own scripts where the open files are, but AI agents and plugins
 //! get their names only (#1117).
 
@@ -7,7 +8,7 @@ use crate::Session;
 use crate::components::tests::ex;
 use crate::plugins_tests::{OnRefusal, install, manifest, script};
 
-const SECRET: &str = "/home/someone/private/clients/acme.figcraft";
+const SECRET: &str = "/home/someone/private/clients/acme.mostinterface";
 
 fn two_files() -> Session {
     let mut s = Session::new();

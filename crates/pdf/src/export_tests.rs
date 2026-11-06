@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! PDF export depth: mask types, background blur, text hyperlinks, image deduplication, page sizes
 //! and hostile inputs. Every document here is synthetic.
 
@@ -265,10 +266,10 @@ fn hostile_effects_and_masks_never_panic() {
 }
 
 /// Writes PDFs and PNG renders of the documents above for a visual comparison:
-/// `FIGCRAFT_PDF_SAMPLE=/path/stem cargo test -p figcraft-pdf depth_samples`.
+/// `MOST_INTERFACE_PDF_SAMPLE=/path/stem cargo test -p figcraft-pdf depth_samples`.
 #[test]
 fn depth_samples() {
-    let Ok(stem) = std::env::var("FIGCRAFT_PDF_SAMPLE") else { return };
+    let Ok(stem) = std::env::var("MOST_INTERFACE_PDF_SAMPLE") else { return };
     let mut docs: Vec<(String, Document, NodeId)> = MaskType::ALL
         .into_iter()
         .map(|k| {

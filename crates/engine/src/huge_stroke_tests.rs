@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! An absurd stroke weight must not take the renderer down with it: saving (thumbnail) and exporting still work.
 
 use serde_json::{Value, json};
@@ -18,7 +19,7 @@ fn huge_stroke_weight_with_round_caps_still_saves_and_exports() {
         let v = id(s.execute("vector.create", &json!({"parent": f, "path": "M0 0.8333 L7.5 6.25 L15 0.8333"})).unwrap());
         s.execute("node.set", &json!({"id": v, "props": {"stroke": "#ff0000", "strokeWeight": weight, "strokeCap": "round", "strokeJoin": "round"}}))
             .unwrap();
-        let path = std::env::temp_dir().join(format!("figcraft-huge-stroke-{}-{weight}.figcraft", std::process::id()));
+        let path = std::env::temp_dir().join(format!("figcraft-huge-stroke-{}-{weight}.mostinterface", std::process::id()));
         let saved = s.execute("file.saveAs", &json!({"path": path.to_string_lossy()}));
         let _ = std::fs::remove_file(&path);
         assert!(saved.is_ok(), "saveAs at weight {weight}: {:?}", saved.err());

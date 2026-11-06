@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Desktop services: native file dialogs, clipboard, URLs, persisted preferences.
 
 use std::cell::RefCell;
@@ -28,8 +29,8 @@ pub struct Desktop {
 }
 
 /// The settings folder's name in the platform folder, as it always was (the suite keeps existing
-/// folder names), and craft-settings' app id: `FIGCRAFT_CONFIG_DIR` names another folder.
-const APP_ID: &str = "FigCraft";
+/// folder names), and craft-settings' app id: `MOST_INTERFACE_CONFIG_DIR` names another folder.
+const APP_ID: &str = "Most Interface";
 
 /// Where the preferences, recovery copies and installed plugins live ([`settings_dir`]).
 pub fn config_dir() -> Option<PathBuf> {
@@ -49,9 +50,9 @@ fn platform_dir() -> Option<PathBuf> {
 }
 
 /// The settings folder by the suite's rules (craft-settings), from what `probe` sees:
-/// `FIGCRAFT_CONFIG_DIR` (set but empty: none, nothing read or written); a `portable` file next
+/// `MOST_INTERFACE_CONFIG_DIR` (set but empty: none, nothing read or written); a `portable` file next
 /// to the executable (next to the `.app` on macOS), which puts them in `config/` beside it; else
-/// `FigCraft` in the platform folder, where they always were. A portable folder without
+/// `Most Interface` in the platform folder, where they always were. A portable folder without
 /// preferences yet starts with a copy of the platform folder's, so an existing copy that becomes
 /// portable keeps its settings; the original stays for an installed app. No platform folder: none.
 pub(crate) fn settings_dir(probe: &craft_settings::Probe) -> Option<PathBuf> {
@@ -439,7 +440,7 @@ fn read_clipboard<T>(c: &mut arboard::Clipboard, read: fn(&mut arboard::Clipboar
 /// Native Save as filters; other callers keep their existing combined filter.
 fn save_filters<'a>(exts: &'a [&'a str]) -> Vec<(&'static str, &'a [&'a str])> {
     if exts == ["figcraft", "fig"] {
-        vec![("FigCraft (.figcraft)", &exts[..1]), (figcraft_ui_egui::i18n::tr(".fig (experimental)"), &exts[1..])]
+        vec![("Most Interface (.mostinterface)", &exts[..1]), (figcraft_ui_egui::i18n::tr(".fig (experimental)"), &exts[1..])]
     } else {
         vec![("File", exts)]
     }
@@ -575,7 +576,7 @@ pub fn window_icon() -> Option<egui::IconData> {
     #[cfg(target_os = "macos")]
     let bytes = include_bytes!("../../../assets/app-icon/figcraft-256.png");
     #[cfg(not(target_os = "macos"))]
-    let bytes = include_bytes!("../../../assets/app-icon/hicolor/256x256/apps/ai.storyteller.figcraft.png");
+    let bytes = include_bytes!("../../../assets/app-icon/hicolor/256x256/apps/com.grupomostmexico.mostinterface.png");
     let img = image::load_from_memory(bytes).ok()?.to_rgba8();
     let (w, h) = img.dimensions();
     Some(egui::IconData { rgba: img.into_raw(), width: w, height: h })
@@ -646,7 +647,7 @@ mod save_filter_tests {
         let extensions = ["figcraft", "fig"];
         assert_eq!(
             save_filters(&extensions),
-            vec![("FigCraft (.figcraft)", &extensions[..1]), (figcraft_ui_egui::i18n::tr(".fig (experimental)"), &extensions[1..])]
+            vec![("Most Interface (.mostinterface)", &extensions[..1]), (figcraft_ui_egui::i18n::tr(".fig (experimental)"), &extensions[1..])]
         );
     }
 

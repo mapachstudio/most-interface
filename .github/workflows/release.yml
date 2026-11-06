@@ -1,3 +1,4 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 name: Release
 
 on:
@@ -24,7 +25,7 @@ jobs:
     uses: storytold/craft-common-actions/.github/workflows/release.yml@main
     with:
       app-name: figcraft
-      app-title: FigCraft
+      app-title: Most Interface
       # Combined Latin presentation and core UI catalog. Required web builds enforce
       # Inter Regular/SemiBold and Noto Sans Georgian Regular after asset-policy filtering.
       craft-fonts-ref: 37827adc41fd165f9a9234ac40f94dbad353aa69

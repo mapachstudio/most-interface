@@ -1,4 +1,5 @@
-//! FigCraft path operations.
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Most Interface path operations.
 //!
 //! - [`boolean`]: Union, Subtract, Intersect and Exclude over any number of closed paths (robust
 //!   sweep-line topology from `linesweeper`); results use the even-odd rule.

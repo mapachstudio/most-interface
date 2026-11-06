@@ -1,9 +1,10 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-geom"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-description = "FigCraft geometry: affine transforms, shape path builders (rounded/smoothed corners, polygons, stars, arcs)"
+description = "Most Interface geometry: affine transforms, shape path builders (rounded/smoothed corners, polygons, stars, arcs)"
 
 [lints]
 workspace = true

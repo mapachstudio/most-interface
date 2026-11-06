@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # App-specific checks retained alongside shared packaging lint.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
@@ -13,12 +14,12 @@ fi
 python3 - <<'PYEOF'
 import yaml
 manifests = []
-for name in ("ai.storyteller.figcraft.yml", "ai.storyteller.figcraft.bundle.yml"):
+for name in ("com.grupomostmexico.mostinterface.yml", "com.grupomostmexico.mostinterface.bundle.yml"):
     with open("packaging/linux/flatpak/" + name) as source:
         manifest = yaml.safe_load(source)
-    assert manifest["id"] == "ai.storyteller.figcraft" and manifest["command"] == "figcraft", name
+    assert manifest["id"] == "com.grupomostmexico.mostinterface" and manifest["command"] == "figcraft", name
     manifests.append(manifest)
 for key in ("runtime", "runtime-version", "sdk", "finish-args"):
     assert manifests[0][key] == manifests[1][key], f"Flatpak manifests disagree on {key}"
-print("FigCraft package identity ok")
+print("Most Interface package identity ok")
 PYEOF

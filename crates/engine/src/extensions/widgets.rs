@@ -1,6 +1,7 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Widgets: layers on the canvas that a plugin draws (plugin API 3). A widget is a frame owned by
 //! its plugin: the plugin describes it ([`WidgetRender`]: frames with auto layout, text, shapes and
-//! images) and FigCraft builds the layers inside it, locked, so the widget moves as one layer.
+//! images) and Most Interface builds the layers inside it, locked, so the widget moves as one layer.
 //! Each widget keeps its plugin's id and a small state (a JSON object) in its own layer data, so it
 //! is saved, copied, undone, exported and synced in a live session like any layer. Clicking a part
 //! of it the plugin named as a target calls the plugin back with that state, in a fresh sandbox
@@ -26,7 +27,7 @@ use crate::params::{id, num, string};
 use crate::plugins::{InstalledPlugin, call_plugin, close_panel, installed, limits, module_of, open_panel, plugin_error};
 use crate::{Result, Session, bad, spec};
 
-/// Layer data FigCraft keeps for widgets starts with this; plugins can't write it.
+/// Layer data Most Interface keeps for widgets starts with this; plugins can't write it.
 pub const DATA_PREFIX: &str = "figcraft.widget";
 /// On a widget's own layer: its plugin's id, and its state (JSON).
 const PLUGIN: &str = "figcraft.widget";

@@ -1,7 +1,8 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The prototyping tail, written from the public documentation: controller buttons on key/gamepad
 //! triggers, widgets reacting to clicks in a presented prototype, and variable mode lookups in
 //! expressions. Each case states the rule and a one-line derivation; where the documentation is
-//! silent the case says so and pins what FigCraft does. The player's side (injected controller
+//! silent the case says so and pins what Most Interface does. The player's side (injected controller
 //! presses, clicks on a widget in the presenter) is `ui-egui`'s `present_tail_tests`.
 
 use figcraft_doc::proto::{Action, GAMEPAD_BUTTONS, KeyMods, Trigger, gamepad_button, uses_gamepad};

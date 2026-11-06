@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::layer::{cap_name, own_text, svg_path, valid_size};
 use super::paint::{paint, stroke};
 use super::{Affine, Kv, Mapper, NO_STYLE, Obj, Point, Value, View, generated_record, guid, json, matrix, network, num, rows};
@@ -99,7 +100,7 @@ impl<'a> Mapper<'a> {
             return None;
         };
         if routing != Routing::Straight {
-            self.warn("elbowed and curved connectors without a saved path follow FigCraft's own routing");
+            self.warn("elbowed and curved connectors without a saved path follow Most Interface's own routing");
         }
         // A curved route is one curve: its ends and the two control points between them.
         let (path, vertices) = match (routing, pts.as_slice()) {

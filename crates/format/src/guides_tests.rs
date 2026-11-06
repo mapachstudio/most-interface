@@ -1,4 +1,5 @@
-//! Ruler guides in `.figcraft` files: a reopened page keeps its guides, and files saved with a
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Ruler guides in `.mostinterface` files: a reopened page keeps its guides, and files saved with a
 //! page's guides written twice open again (#1476).
 
 use figcraft_doc::{Document, Guide, NodeKind};

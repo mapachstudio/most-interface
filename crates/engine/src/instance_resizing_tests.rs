@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Size and resizing overrides of layers inside instances: a layer in an instance can hug, fill or
 //! keep a fixed size of its own, and that override is kept through relayout, edits of the main
 //! (only the overridden property stays), undo, save and reopen (native and .fig), REST import,
@@ -138,7 +139,7 @@ fn resizing_overrides_survive_save_and_reopen() {
     ex(&mut s, "node.set", json!({"id": idot, "props": {"width": 40}}));
     let native = figcraft_format::save_bytes(s.doc().unwrap(), None).unwrap();
     let (fig, _) = figcraft_format::fig::export(s.doc().unwrap(), None).unwrap();
-    for (bytes, name) in [(native, "field.figcraft"), (fig, "field.fig")] {
+    for (bytes, name) in [(native, "field.mostinterface"), (fig, "field.fig")] {
         let mut s = Session::new();
         open(&mut s, &bytes, name);
         let i = instance(&s);

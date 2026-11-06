@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Design tokens (UI3 light and dark) and fonts.
 
 use std::sync::{Arc, OnceLock};
@@ -47,7 +48,7 @@ pub struct Tokens {
     pub focus: Color32,
 }
 
-/// FigCraft's brand green for solid surfaces.
+/// Most Interface's brand green for solid surfaces.
 pub const BRAND: Color32 = Color32::from_rgb(0x02, 0xDA, 0x96);
 /// Contrast-safe green for thin selection outlines and white-on-green labels.
 /// It reaches 4.5:1 on white and 3:1 on the dark canvas.
@@ -311,7 +312,7 @@ pub fn install_fonts(ctx: &Context, system: bool, cjk: u8) {
     }
     brand.extend(fonts.families.get(&FontFamily::Name("semibold".into())).cloned().unwrap_or_default());
     fonts.families.insert(FontFamily::Name("brand".into()), brand);
-    // CJK and other scripts from craft-fonts as fallbacks (Noto Sans CJK only with FIGCRAFT_EMBED_CJK).
+    // CJK and other scripts from craft-fonts as fallbacks (Noto Sans CJK only with MOST_INTERFACE_EMBED_CJK).
     const BUILT_IN: [&str; 7] =
         ["Inter", "BIZ UDPGothic", "Noto Sans CJK SC", "Noto Sans Arabic", "Noto Sans Hebrew", "Noto Sans Georgian", "Noto Sans Thai"];
     let lang = crate::i18n::current().map_or("en", |l| l.code);

@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use std::io::Read;
 use std::sync::Arc;
 
@@ -229,7 +230,7 @@ fn every_paint_and_scale_mode() {
     let pdf = export_pdf(&d, &[f], &PdfOptions::default()).unwrap();
     assert!(pdf.starts_with(b"%PDF"));
     assert!(String::from_utf8_lossy(&pdf).contains("/PatternType 1"), "tiled image pattern");
-    if let Ok(stem) = std::env::var("FIGCRAFT_PDF_SAMPLE") {
+    if let Ok(stem) = std::env::var("MOST_INTERFACE_PDF_SAMPLE") {
         std::fs::write(format!("{stem}-images.pdf"), &pdf).unwrap();
         let pix = figcraft_render::render_node(&d, f, 2.0).unwrap();
         std::fs::write(format!("{stem}-images.png"), figcraft_render::encode_png(&pix).unwrap()).unwrap();
@@ -289,10 +290,10 @@ fn hostile_inputs_error_or_skip() {
 }
 
 /// Writes a sample PDF and the renderer's PNG of the same frames for a visual comparison:
-/// `FIGCRAFT_PDF_SAMPLE=/path/stem cargo test -p figcraft-pdf sample`.
+/// `MOST_INTERFACE_PDF_SAMPLE=/path/stem cargo test -p figcraft-pdf sample`.
 #[test]
 fn sample_files() {
-    let Ok(stem) = std::env::var("FIGCRAFT_PDF_SAMPLE") else { return };
+    let Ok(stem) = std::env::var("MOST_INTERFACE_PDF_SAMPLE") else { return };
     let (d, frames) = sample_doc();
     let pdf = export_pdf(&d, &frames, &PdfOptions::default()).unwrap();
     std::fs::write(format!("{stem}.pdf"), pdf).unwrap();

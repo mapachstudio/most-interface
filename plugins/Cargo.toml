@@ -1,4 +1,5 @@
-# FigCraft plugins written in Rust: the SDK and example plugins. A workspace of its own (not part of
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Most Interface plugins written in Rust: the SDK and example plugins. A workspace of its own (not part of
 # the app's): it builds for wasm32-unknown-unknown with `cargo xtask plugins` (from the repository
 # root), which puts each example's .wasm next to its figcraft-plugin.json under target/plugins/dist/.
 # CARGO_TARGET_DIR selects the shared Cargo target root, including this plugin dist directory.

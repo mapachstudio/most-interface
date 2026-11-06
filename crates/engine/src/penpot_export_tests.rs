@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use base64::Engine as _;
 use figcraft_doc::{Document, NodeKind};
 use serde_json::{Value, json};
@@ -97,7 +98,7 @@ fn missing_provider_fonts_stay_offline_and_text_stays_editable() {
     let mut source = Document::new("Offline font");
     let page = source.first_page().unwrap();
     let mut text = figcraft_doc::TextData::new("Offline text");
-    text.style.font_family = "FigCraft Missing Provider Q7".into();
+    text.style.font_family = "Most Interface Missing Provider Q7".into();
     source.create(page, NodeKind::Text(text), "Label", 0.0, 0.0, 200.0, 30.0).unwrap();
     let bytes = figcraft_format::penpot::export(&source).unwrap().0;
     let data = base64::engine::general_purpose::STANDARD.encode(bytes);
@@ -106,7 +107,7 @@ fn missing_provider_fonts_stay_offline_and_text_stays_editable() {
         let result = s.execute(command, &json!({"name": "offline.penpot", "data": data})).unwrap();
         let doc = s.doc().unwrap();
         let label = doc.nodes().find(|n| n.name == "Label").unwrap();
-        assert_eq!(label.kind.text().unwrap().style.font_family, "FigCraft Missing Provider Q7");
+        assert_eq!(label.kind.text().unwrap().style.font_family, "Most Interface Missing Provider Q7");
         assert_eq!(label.kind.text().unwrap().characters, "Offline text");
         assert!(label.plugin_data.contains_key("penpot.googleFontRefs"));
         assert!(result["warnings"].as_array().unwrap().iter().any(|w| w.as_str().is_some_and(|w| w.contains("Missing"))));
@@ -136,7 +137,7 @@ fn penpot_export_survives_junk_params() {
 
 #[test]
 fn local_penpot_samples_export_and_open_again() {
-    let Some(dir) = std::env::var_os("FIGCRAFT_PENPOT_SAMPLES") else { return };
+    let Some(dir) = std::env::var_os("MOST_INTERFACE_PENPOT_SAMPLES") else { return };
     let Ok(dir) = std::fs::read_dir(dir) else { return };
     for p in dir.flatten().map(|e| e.path()).filter(|p| p.extension().is_some_and(|x| x == "penpot")) {
         let mut s = Session::new();

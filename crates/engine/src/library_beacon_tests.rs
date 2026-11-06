@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Opening a file that names a team library on some server doesn't contact that server (#1097):
 //! only team libraries you added or checked are asked for updates by themselves.
 
@@ -62,7 +63,7 @@ impl LiveLink for Link {
 fn opened(prefs: Prefs, tag: &str) -> (Session, Arc<Mutex<Wire>>, std::path::PathBuf) {
     let mut d = Document::new("Someone else's file");
     d.libraries_mut().enabled.push(LibraryLink { id: "lib".into(), name: "Kit".into(), path: LINK.into(), version: 3 });
-    let path = std::env::temp_dir().join(format!("figcraft-beacon-{}-{tag}.figcraft", std::process::id()));
+    let path = std::env::temp_dir().join(format!("figcraft-beacon-{}-{tag}.mostinterface", std::process::id()));
     std::fs::write(&path, figcraft_format::save_bytes(&d, None).unwrap()).unwrap();
     let mut s = Session::new();
     s.prefs = prefs;

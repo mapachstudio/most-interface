@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Glass render timings: a 600 × 360 rounded glass pane over coloured stripes, 2400 × 1600 device
 //! pixels. Run in release:
 //! `cargo test --release -p figcraft-render --lib glass_render_timings -- --ignored --nocapture`.
@@ -81,11 +82,11 @@ fn set_glass(d: &mut Document, pane: NodeId, g: Glass) {
 }
 
 /// Writes the bench scene's render (rendered twice, so a kept shape is read) to the PNG named by
-/// `FIGCRAFT_GLASS_PNG`, to compare builds by eye.
+/// `MOST_INTERFACE_GLASS_PNG`, to compare builds by eye.
 #[test]
-#[ignore = "writes a PNG: FIGCRAFT_GLASS_PNG=<path>"]
+#[ignore = "writes a PNG: MOST_INTERFACE_GLASS_PNG=<path>"]
 fn glass_bench_png() {
-    let Ok(path) = std::env::var("FIGCRAFT_GLASS_PNG") else { return };
+    let Ok(path) = std::env::var("MOST_INTERFACE_GLASS_PNG") else { return };
     let (d, p, _, _) = scene();
     let _ = render_view(&d, p, &view((0.0, 0.0), 2.0), &Options::default());
     let pix = render_view(&d, p, &view((0.0, 0.0), 2.0), &Options::default()).unwrap();

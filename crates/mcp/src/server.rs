@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! JSON-RPC 2.0 framing and the MCP lifecycle / tools / resources / prompts methods.
 
 use std::io::{BufRead, Read, Write};
@@ -28,7 +29,7 @@ pub const RESOURCE_NOT_FOUND: i64 = -32002;
 const MAX_LINE: usize = 32 * 1024 * 1024;
 
 /// The `instructions` string sent on initialize.
-pub const INSTRUCTIONS: &str = "FigCraft is an interface design tool (Figma-class): pages hold frames, \
+pub const INSTRUCTIONS: &str = "Most Interface is an interface design tool (Figma-class): pages hold frames, \
 groups, shapes, text, components and instances, with auto layout, styles, variables and prototyping. \
 Coordinates are page units (1 unit = 1 px at 100% zoom), x right and y DOWN. create_node and set_properties \
 take x/y RELATIVE TO THE PARENT (the page when there is no parent, so page coordinates); inspect_document \
@@ -257,7 +258,7 @@ impl Server {
                         "resources": {"subscribe": false, "listChanged": false},
                         "prompts": {"listChanged": false},
                     },
-                    "serverInfo": {"name": "figcraft", "title": "FigCraft", "version": env!("CARGO_PKG_VERSION")},
+                    "serverInfo": {"name": "figcraft", "title": "Most Interface", "version": env!("CARGO_PKG_VERSION")},
                     "instructions": format!("{INSTRUCTIONS} Backend: {}.{}", self.backend.describe(), self.roots_note()),
                 }))
             }

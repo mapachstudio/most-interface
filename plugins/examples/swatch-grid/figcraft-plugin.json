@@ -1,5 +1,5 @@
 {
-  "id": "org.figcraft.examples.swatch-grid",
+  "id": "org.mostinterface.examples.swatch-grid",
   "name": "Swatch grid",
   "version": "1.2.0",
   "description": "Makes a grid of colour swatches from a built-in palette (in a panel) or from hex colours.",

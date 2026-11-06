@@ -1,8 +1,9 @@
-# FigCraft architecture
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+# Most Interface architecture
 
 > **Last reviewed:** 2026-10-10 · **Last updated:** 2026-10-18 · **Change:** minor (the `vectordrawable` crate, L4: Android Vector Drawable export; earlier: the shared hub in `collab-net` and the `figcraft-server` app) · **Target:** Figma Design
 
-How FigCraft is built today. Engine first, a thin swappable UI, everything a command; a Figma-shaped
+How Most Interface is built today. Engine first, a thin swappable UI, everything a command; a Figma-shaped
 data model (a scene graph of frames with auto layout, components and variables). ~108,800 lines of
 Rust (2026-10-10).
 
@@ -23,7 +24,7 @@ replaced.
 | L2 | `figcraft-plugin` | ~1.0k | Plugin manifest and the WebAssembly sandbox (wasmi, metered, memory cap, no file system, network or clock) |
 | L2 | `figcraft-pathops` | ~1.1k | Booleans (linesweeper), outline stroke with alignment, arrowheads |
 | L3 | `figcraft-render` | ~5.4k | Scene → pixels on tiny-skia (CPU): isolated layers for opacity/blend/effects, clips, masks, shadows, blurs (uniform, progressive, background), noise, texture, glass, text; banded in parallel; retained rendering of only what changed; levels of detail when zoomed out |
-| L3 | `figcraft-format` | ~5.2k | Native `.figcraft` (zip of `document.json` + images; streamed JSON), local library files, versions, REST API file JSON import (`rest/`) |
+| L3 | `figcraft-format` | ~5.2k | Native `.mostinterface` (zip of `document.json` + images; streamed JSON), local library files, versions, REST API file JSON import (`rest/`) |
 | L4 | `figcraft-svg` | ~3.7k | SVG export and import (usvg) |
 | L4 | `figcraft-pdf` | ~2.3k | PDF export (krilla) with print options |
 | L4 | `figcraft-vectordrawable` | ~1.2k | Android Vector Drawable (XML) export: baked path data, gradients through `aapt:attr`, clip groups, compatibility modes and warnings |
@@ -65,7 +66,7 @@ express an effect.
 
 ## File I/O
 
-`.figcraft` is the native format (atomic saves, autosave checkpoints; the desktop app keeps
+`.mostinterface` is the native format (atomic saves, autosave checkpoints; the desktop app keeps
 recovery copies of unsaved documents that reopen after a crash or a forced quit). Imports: REST API
 file JSON with variables and images, SVG, raster images, clipboard
 content. Exports: PNG, JPG, WebP, SVG, PDF, code. There is no `.fig` reader yet

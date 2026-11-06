@@ -1,7 +1,8 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # .deb and .rpm packages (nfpm: https://nfpm.goreleaser.com). Run by package.sh, which stages
 # the file tree, substitutes its path for ${STAGE} (nfpm doesn't expand env vars in `src`),
 # drops the lines marked `#cli` when the workspace has no apps/figcraft-cli, and exports VERSION,
-# NFPM_ARCH and FIGCRAFT_MAINTAINER.
+# NFPM_ARCH and MOST_INTERFACE_MAINTAINER.
 #
 #   nfpm package -f packaging/linux/nfpm.yaml -p deb -t dist/release/
 name: figcraft
@@ -13,8 +14,8 @@ version_schema: semver
 release: 1
 section: graphics
 priority: optional
-maintainer: ${FIGCRAFT_MAINTAINER}
-vendor: Learning Machines LLC
+maintainer: ${MOST_INTERFACE_MAINTAINER}
+vendor: Grupo MOST
 homepage: https://getartcraft.com/apps/figcraft
 license: MIT OR Apache-2.0
 description: |-

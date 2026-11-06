@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 #[cfg(target_arch = "wasm32")]
 use super::services::browser_can_read;
 use super::services::{ReadFuture, unreadable};
@@ -12,7 +13,7 @@ pub(crate) fn opens(path: &Path) -> bool {
     path.extension().and_then(OsStr::to_str).is_some_and(|e| OPEN_EXTENSIONS.iter().any(|x| x.eq_ignore_ascii_case(e)))
 }
 
-/// Whether `path` is a whole document (`.figcraft`, `.fig`, `.jam`, `.penpot`, `.sketch`, file JSON) rather than an image or SVG:
+/// Whether `path` is a whole document (`.mostinterface`, `.fig`, `.jam`, `.penpot`, `.sketch`, file JSON) rather than an image or SVG:
 /// dropped on the canvas it opens as a file of its own instead of adding its pages to the open one.
 pub(crate) fn is_document(path: &Path) -> bool {
     path.extension()

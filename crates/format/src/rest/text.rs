@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! TEXT nodes: characters, the base `style` (TypeStyle) and per-character overrides
 //! (`characterStyleOverrides` + `styleOverrideTable`) → styled runs.
 
@@ -116,7 +117,7 @@ fn type_style(cx: &mut Ctx, s: &Value, base: &TextStyle) -> TextStyle {
         let weight = num(s, "fontWeight").map_or_else(|| t.weight(), |w| w.clamp(1.0, 1000.0) as u16);
         t.font_style = style_name(weight, flag(s, "italic").unwrap_or_else(|| t.italic()));
     }
-    // Variable font axes, `{tag: value}` (FigCraft's own key; the Sketch importer writes it).
+    // Variable font axes, `{tag: value}` (Most Interface's own key; the Sketch importer writes it).
     if let Some(axes) = s.get("fontVariations").and_then(Value::as_object) {
         t.variations = axes
             .iter()

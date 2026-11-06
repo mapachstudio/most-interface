@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Opening a native file that lost something (a damaged image): the session says so, with the
 //! reason, and the file still opens.
 
@@ -24,7 +25,7 @@ fn file(name: &str, damage: bool) -> std::path::PathBuf {
         let at = bytes.windows(PNG.len()).position(|w| w == PNG).unwrap();
         bytes[at + 30] ^= 0xff;
     }
-    let path = dir.join("pics.figcraft");
+    let path = dir.join("pics.mostinterface");
     std::fs::write(&path, bytes).unwrap();
     path
 }

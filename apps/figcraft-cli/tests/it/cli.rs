@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The binary end to end.
 
 use std::io::Write;
@@ -33,7 +34,7 @@ fn penpot_import_notes_reach_convert_export_and_render() {
     });
     let input = d.join("source.penpot");
     std::fs::write(&input, figcraft_format::penpot::export(&doc).unwrap().0).unwrap();
-    for (command, name) in [("convert", "out.figcraft"), ("export", "out.svg"), ("render", "out.png")] {
+    for (command, name) in [("convert", "out.mostinterface"), ("export", "out.svg"), ("render", "out.png")] {
         let mut cmd = bin();
         cmd.arg(command).arg(&input);
         if command != "convert" {
@@ -52,7 +53,7 @@ fn option_terminator_allows_dash_prefixed_filenames() {
     let dir = tmp("option-terminator");
     let doc = figcraft_doc::Document::new("Dash-prefixed file");
     let bytes = figcraft_format::save_bytes(&doc, None).unwrap();
-    for name in ["--drawing.figcraft", "-h", "--json", "--no-system-fonts", "--"] {
+    for name in ["--drawing.mostinterface", "-h", "--json", "--no-system-fonts", "--"] {
         std::fs::write(dir.join(name), &bytes).unwrap();
         let output = bin().current_dir(&dir).args(["info", "--json", "--no-system-fonts", "--", name]).output().unwrap();
         assert!(output.status.success(), "{name}: {}", String::from_utf8_lossy(&output.stderr));
@@ -86,7 +87,7 @@ fn bad_arguments_exit_2_without_panicking() {
         &[][..],
         &["bogus"],
         &["export"],
-        &["export", "x.figcraft"],
+        &["export", "x.mostinterface"],
         &["info", "--nope"],
         &["render", "a", "-o"],
         &["perf", "--shapes", "lots"],
@@ -102,7 +103,7 @@ fn bad_arguments_exit_2_without_panicking() {
         assert!(err.contains("Usage: figcraft-cli") || err.contains("try '--help'"), "{args:?}: {err}");
         assert!(!err.contains("panicked"));
     }
-    let out = bin().args(["info", "/no/such/file.figcraft"]).output().unwrap();
+    let out = bin().args(["info", "/no/such/file.mostinterface"]).output().unwrap();
     assert_eq!(out.status.code(), Some(1));
 }
 
@@ -118,7 +119,7 @@ fn help_after_a_subcommand_prints_the_usage() {
         &["mcp", "-h"],
         &["info", "--help"],
         &["export", "--help"],
-        &["export", "x.figcraft", "-o", "out", "--help"],
+        &["export", "x.mostinterface", "-o", "out", "--help"],
         &["convert", "-h"],
         &["render", "--help"],
         &["run", "--help"],
@@ -145,7 +146,7 @@ fn run_export_info_convert() {
     let d = tmp("run");
     let script = d.join("s.jsonl");
     std::fs::write(&script, "{\"command\":\"frame.create\",\"params\":{\"x\":0,\"y\":0,\"width\":100,\"height\":50,\"name\":\"A\",\"props\":{\"fill\":\"#ff0000\"}}}\n{\"command\":\"frame.create\",\"params\":{\"x\":200,\"y\":0,\"width\":30,\"height\":30,\"name\":\"B\"}}\n").unwrap();
-    let file = d.join("doc.figcraft");
+    let file = d.join("doc.mostinterface");
     let out = bin().arg("run").arg(&script).arg("--out").arg(&file).output().unwrap();
     assert!(out.status.success(), "{}", String::from_utf8_lossy(&out.stderr));
     let lines: Vec<serde_json::Value> = String::from_utf8_lossy(&out.stdout).lines().map(|l| serde_json::from_str(l).unwrap()).collect();
@@ -194,7 +195,7 @@ fn export_file_names_keep_what_the_app_keeps() {
         .map(|(i, n)| serde_json::json!({"command": "frame.create", "params": {"x": i * 200, "y": 0, "width": 20, "height": 20, "name": n}}))
         .collect();
     std::fs::write(&script, serde_json::to_string(&steps).unwrap()).unwrap();
-    let file = d.join("doc.figcraft");
+    let file = d.join("doc.mostinterface");
     assert!(bin().arg("run").arg(&script).arg("--out").arg(&file).output().unwrap().status.success());
     let dir = d.join("out");
     let out = bin().arg("export").arg(&file).arg("-o").arg(&dir).output().unwrap();
@@ -216,7 +217,7 @@ fn run_takes_the_documented_gradient_shorthand() {
             {"command":"node.set","params":{"ids":[2],"fills":[{"type":"linearGradient","stops":["#ff0000","#0000ff"],"from":[0,0.5],"to":[1,0.5]}]}}]"##,
     )
     .unwrap();
-    let file = d.join("g.figcraft");
+    let file = d.join("g.mostinterface");
     let out = bin().arg("run").arg(&script).arg("--out").arg(&file).output().unwrap();
     assert!(out.status.success(), "{}{}", String::from_utf8_lossy(&out.stdout), String::from_utf8_lossy(&out.stderr));
     let json = d.join("g.json");
@@ -272,10 +273,10 @@ fn mcp_over_stdio_confined_to_automation_roots() {
         };
         writeln!(stdin, r#"{{"jsonrpc":"2.0","id":1,"method":"initialize","params":{{"protocolVersion":"2025-06-18"}}}}"#).unwrap();
         writeln!(stdin, "{}", call(2, "create_node", serde_json::json!({"type": "ellipse"}))).unwrap();
-        writeln!(stdin, "{}", call(3, "save_file", serde_json::json!({"path": p("outside/a.figcraft")}))).unwrap();
-        writeln!(stdin, "{}", call(4, "save_file", serde_json::json!({"path": p("out/a.figcraft")}))).unwrap();
-        writeln!(stdin, "{}", call(5, "open_file", serde_json::json!({"path": p("outside/a.figcraft")}))).unwrap();
-        writeln!(stdin, "{}", call(6, "open_file", serde_json::json!({"path": p("out/a.figcraft")}))).unwrap();
+        writeln!(stdin, "{}", call(3, "save_file", serde_json::json!({"path": p("outside/a.mostinterface")}))).unwrap();
+        writeln!(stdin, "{}", call(4, "save_file", serde_json::json!({"path": p("out/a.mostinterface")}))).unwrap();
+        writeln!(stdin, "{}", call(5, "open_file", serde_json::json!({"path": p("outside/a.mostinterface")}))).unwrap();
+        writeln!(stdin, "{}", call(6, "open_file", serde_json::json!({"path": p("out/a.mostinterface")}))).unwrap();
     }
     drop(child.stdin.take());
     let out = child.wait_with_output().unwrap();
@@ -286,7 +287,7 @@ fn mcp_over_stdio_confined_to_automation_roots() {
     let error = |i: usize| lines[i]["result"]["isError"] == true;
     assert!(!error(1) && error(2) && !error(3) && error(4) && !error(5), "{lines:?}");
     assert!(lines[2]["result"]["content"][0]["text"].as_str().unwrap().contains("automation path rejected"));
-    assert!(d.join("out/a.figcraft").is_file() && !d.join("outside/a.figcraft").exists());
+    assert!(d.join("out/a.mostinterface").is_file() && !d.join("outside/a.mostinterface").exists());
     let _ = std::fs::remove_dir_all(&d);
 }
 
@@ -312,12 +313,12 @@ fn file_subcommands_are_confined_to_automation_roots() {
 
     // A document to work on, made unconfined.
     std::fs::write(d.join("in/make.json"), br#"[{"command":"shape.rectangle","params":{"x":0,"y":0,"width":40,"height":20}}]"#).unwrap();
-    let made = bin().args(["run", &p("in/make.json"), "--out", &p("in/doc.figcraft")]).output().unwrap();
+    let made = bin().args(["run", &p("in/make.json"), "--out", &p("in/doc.mostinterface")]).output().unwrap();
     assert!(made.status.success(), "{}", out_of(&made));
 
     // Inside the roots: renders as usual.
     let ok = bin()
-        .args(["render", &p("in/doc.figcraft"), "-o", &p("out/ok.png"), "--automation-read-root", &p("in"), "--automation-write-root", &p("out")])
+        .args(["render", &p("in/doc.mostinterface"), "-o", &p("out/ok.png"), "--automation-read-root", &p("in"), "--automation-write-root", &p("out")])
         .output()
         .unwrap();
     assert!(ok.status.success(), "{}", out_of(&ok));
@@ -328,7 +329,7 @@ fn file_subcommands_are_confined_to_automation_roots() {
     let refused = bin()
         .args([
             "render",
-            &p("in/doc.figcraft"),
+            &p("in/doc.mostinterface"),
             "-o",
             &escaped.to_string_lossy(),
             "--automation-read-root",
@@ -343,22 +344,22 @@ fn file_subcommands_are_confined_to_automation_roots() {
     assert!(!escaped.exists(), "the refused render wrote a file anyway");
 
     // No write root at all: writing is refused outright, reading still works.
-    let no_write = bin().args(["render", &p("in/doc.figcraft"), "-o", &p("out/no.png"), "--automation-read-root", &p("in")]).output().unwrap();
+    let no_write = bin().args(["render", &p("in/doc.mostinterface"), "-o", &p("out/no.png"), "--automation-read-root", &p("in")]).output().unwrap();
     assert!(!no_write.status.success());
     assert!(out_of(&no_write).contains("no folder may be written"), "{}", out_of(&no_write));
 
     // A read outside every root is refused: `info` on the document with only `out` readable.
-    let read_refused = bin().args(["info", &p("in/doc.figcraft"), "--automation-read-root", &p("out")]).output().unwrap();
+    let read_refused = bin().args(["info", &p("in/doc.mostinterface"), "--automation-read-root", &p("out")]).output().unwrap();
     assert!(!read_refused.status.success());
     assert!(out_of(&read_refused).contains("may be read"), "{}", out_of(&read_refused));
 
     // `convert` and `run` take them as well, and a root that is not a folder is refused.
-    let missing = bin().args(["convert", &p("in/doc.figcraft"), &p("out/c.svg"), "--automation-read-root", &p("missing")]).output().unwrap();
+    let missing = bin().args(["convert", &p("in/doc.mostinterface"), &p("out/c.svg"), "--automation-read-root", &p("missing")]).output().unwrap();
     assert!(!missing.status.success());
     assert!(out_of(&missing).contains("automation-read-root"), "{}", out_of(&missing));
 
     // Unconfined, the same render still writes wherever it is told.
-    let plain = bin().args(["render", &p("in/doc.figcraft"), "-o", &escaped.to_string_lossy()]).output().unwrap();
+    let plain = bin().args(["render", &p("in/doc.mostinterface"), "-o", &escaped.to_string_lossy()]).output().unwrap();
     assert!(plain.status.success(), "{}", out_of(&plain));
     assert!(escaped.is_file());
     let _ = std::fs::remove_dir_all(&d);
@@ -376,7 +377,7 @@ fn an_unconfined_write_follows_a_symbolic_link() {
     std::fs::create_dir_all(d.join("real")).unwrap();
     let p = |rel: &str| d.join(rel).to_string_lossy().into_owned();
     std::fs::write(d.join("in.json"), br#"[{"command":"shape.rectangle","params":{"x":0,"y":0,"width":40,"height":20}}]"#).unwrap();
-    let made = bin().args(["run", &p("in.json"), "--out", &p("doc.figcraft")]).output().unwrap();
+    let made = bin().args(["run", &p("in.json"), "--out", &p("doc.mostinterface")]).output().unwrap();
     assert!(made.status.success(), "{}", String::from_utf8_lossy(&made.stderr));
 
     let target = d.join("real/target.png");
@@ -384,7 +385,7 @@ fn an_unconfined_write_follows_a_symbolic_link() {
     let link = d.join("link.png");
     std::os::unix::fs::symlink(&target, &link).unwrap();
 
-    let out = bin().args(["render", &p("doc.figcraft"), "-o", &link.to_string_lossy()]).output().unwrap();
+    let out = bin().args(["render", &p("doc.mostinterface"), "-o", &link.to_string_lossy()]).output().unwrap();
     assert!(out.status.success(), "{}", String::from_utf8_lossy(&out.stderr));
     assert!(std::fs::symlink_metadata(&link).unwrap().file_type().is_symlink(), "the link is still a link");
     let written = std::fs::read(&target).unwrap();

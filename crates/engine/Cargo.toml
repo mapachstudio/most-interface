@@ -1,9 +1,10 @@
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 [package]
 name = "figcraft-engine"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-description = "FigCraft engine: sessions, undo history, the command registry every surface (UI, CLI, control channel, MCP) dispatches through, pointer tools, components and the Figma menu catalog"
+description = "Most Interface engine: sessions, undo history, the command registry every surface (UI, CLI, control channel, MCP) dispatches through, pointer tools, components and the Figma menu catalog"
 
 [lints]
 workspace = true

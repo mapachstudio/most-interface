@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Build and package FigCraft for FreeBSD:
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Build and package Most Interface for FreeBSD:
 #
 #   $DIST/figcraft-<version>-freebsd-<arch>.tar.gz   (arch: x86_64 or aarch64) a /usr/local-style tree:
 #       figcraft-<version>-freebsd-<arch>/{bin, share/applications, share/icons, share/mime,
@@ -17,7 +18,7 @@ set -euo pipefail
 # shellcheck source=../env.sh
 . "$(dirname "${BASH_SOURCE[0]}")/../env.sh"
 LINUX="$ROOT/packaging/linux"
-APP_ID=ai.storyteller.figcraft
+APP_ID=com.grupomostmexico.mostinterface
 
 SKIP_BUILD=0
 DRY_RUN=0
@@ -63,7 +64,7 @@ if [[ "$DRY_RUN" = 0 ]] && [[ "$(uname -s)" != FreeBSD ]]; then
 fi
 BASENAME="figcraft-$VERSION-freebsd-$ARCH"
 
-echo "==> FigCraft $VERSION for FreeBSD $ARCH"
+echo "==> Most Interface $VERSION for FreeBSD $ARCH"
 
 # The release VM has 12 GB; full parallelism on the biggest crates runs it out of memory.
 export CARGO_BUILD_JOBS="${CARGO_BUILD_JOBS:-4}"
@@ -103,7 +104,7 @@ done
 sed -e "s/^StartupWMClass=.*/StartupWMClass=figcraft/" "$LINUX/$APP_ID.desktop" >"$STAGE/share/applications/$APP_ID.desktop"
 chmod 644 "$STAGE/share/applications/$APP_ID.desktop"
 install -m 644 "$LINUX/$APP_ID.mime.xml" "$STAGE/share/mime/packages/$APP_ID.xml"
-sed -e "s/@VERSION@/$VERSION/g" -e "s/@DATE@/$FIGCRAFT_BUILD_DATE/g" \
+sed -e "s/@VERSION@/$VERSION/g" -e "s/@DATE@/$MOST_INTERFACE_BUILD_DATE/g" \
   "$LINUX/$APP_ID.metainfo.xml.in" >"$STAGE/share/metainfo/$APP_ID.metainfo.xml"
 cp -R "$ROOT/assets/app-icon/hicolor" "$STAGE/share/icons/"
 copy_docs "$STAGE/share/doc/figcraft"

@@ -1,6 +1,7 @@
-# FigCraft — instructions for agents
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+# Most Interface — instructions for agents
 
-FigCraft is a clean-room, open-source, pure-Rust (egui) reimplementation of the Figma design workflow:
+Most Interface is a clean-room, open-source, pure-Rust (egui) reimplementation of the Figma design workflow:
 interface design, auto layout, components and variants, styles and variables, prototyping and
 inspection. It runs natively on macOS, Windows, Linux and FreeBSD, and in the browser via WASM.
 Siblings: `../vectorcraft` (Illustrator-class), `../photocraft` (Photoshop-class), `../designcraft`
@@ -34,14 +35,14 @@ Repos don't share code.
   other product, or from any source whose licence doesn't allow it.** This includes "lookalike"
   redraws of their icons. Breaking this rule is the worst thing you can do in this repo.
 - Every image, icon, font or other asset must be one of:
-  - original work created for FigCraft by a contributor (licensed MIT OR Apache-2.0);
+  - original work created for Most Interface by a contributor (licensed MIT OR Apache-2.0);
   - OSI open source;
   - public domain / CC0;
   - Creative Commons with redistribution allowed.
 - **Every asset file must have a row in [`ATTRIBUTION.md`](ATTRIBUTION.md)** (path, author, source,
   licence, notes). `cargo xtask assets` (part of `cargo xtask ci`) fails on any unlisted file under
   `assets/`, `docs/brand/` or `docs/images/`.
-- FigCraft's UI icons are drawn in code (`crates/ui-egui/src/icons.rs`) from simple primitives and
+- Most Interface's UI icons are drawn in code (`crates/ui-egui/src/icons.rs`) from simple primitives and
   are original. Keep it that way: new icons are new code, designed from scratch.
 - The app icon is the owner's chameleon drawing, vectorised (`assets/app-icon/README.md`); `cargo xtask icon`
   renders the PNGs and `.ico` from `assets/app-icon/figcraft.svg`.
@@ -52,7 +53,7 @@ Repos don't share code.
 - Demo and test content is synthetic or public domain; never personal photos or data.
 - Code and original assets are MIT OR Apache-2.0 (`LICENSE-MIT`, `LICENSE-APACHE`, `NOTICE`). The
   ArtCraft logos in `docs/brand/` are trademarks, not open source, under
-  `docs/brand/LICENSE-brand.txt`: never modify them or use them outside FigCraft.
+  `docs/brand/LICENSE-brand.txt`: never modify them or use them outside Most Interface.
 - If the provenance of an asset is unclear, don't add it.
 
 ### Never crash
@@ -87,7 +88,7 @@ milestone id in the message (`M2.1: auto layout wrap`). Commit after every lande
 to `main`.
 
 ## Running and looking at the app
-- `cargo run -p figcraft -- --control <port> [file.figcraft|file.svg|image]`. Pick a free port
+- `cargo run -p figcraft -- --control <port> [file.mostinterface|file.svg|image]`. Pick a free port
   (`python3 -c 'import socket;s=socket.socket();s.bind(("127.0.0.1",0));print(s.getsockname()[1])'`);
   sibling apps use the control channel too.
 - Drive it with JSON lines, e.g.

@@ -1,23 +1,24 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Embeds the optional craft-fonts build input (`CRAFT_FONTS_DIR`): both `fonts/manifest.txt` and the
 //! opt-in Latin presentation fonts in `fonts/latin-manifest.txt` (Inter, Roboto, …). Unset or missing,
 //! `CRAFT_FONTS` is empty and native apps use system fonts. Required web releases enforce Inter
 //! Regular/SemiBold and Noto Sans Georgian Regular after filtering. Recipe: craft-fonts `docs/integration.md`.
-//! Noto Sans CJK only with `FIGCRAFT_EMBED_CJK` set (the web build's only way to show CJK UI text).
+//! Noto Sans CJK only with `MOST_INTERFACE_EMBED_CJK` set (the web build's only way to show CJK UI text).
 use std::fmt::Write as _;
 use std::path::PathBuf;
 
 /// Font build script: emit `craft_fonts.rs` from `input_fonts`, passing the
-/// `CRAFT_FONTS_DIR`, `CRAFT_FONTS_REQUIRED`, wasm target and `FIGCRAFT_EMBED_CJK` inputs;
+/// `CRAFT_FONTS_DIR`, `CRAFT_FONTS_REQUIRED`, wasm target and `MOST_INTERFACE_EMBED_CJK` inputs;
 /// report generation and write failures with `cargo::error`.
 fn main() {
     println!("cargo::rerun-if-env-changed=CRAFT_FONTS_DIR");
     println!("cargo::rerun-if-env-changed=CRAFT_FONTS_REQUIRED");
-    println!("cargo::rerun-if-env-changed=FIGCRAFT_EMBED_CJK");
+    println!("cargo::rerun-if-env-changed=MOST_INTERFACE_EMBED_CJK");
     let mut src = String::from("pub static CRAFT_FONTS: &[CraftFont] = &[\n");
     let dir = std::env::var_os("CRAFT_FONTS_DIR").map(PathBuf::from);
     let required = std::env::var_os("CRAFT_FONTS_REQUIRED").is_some();
     let wasm = std::env::var("CARGO_CFG_TARGET_ARCH").is_ok_and(|a| a == "wasm32");
-    let embed_cjk = std::env::var_os("FIGCRAFT_EMBED_CJK").is_some();
+    let embed_cjk = std::env::var_os("MOST_INTERFACE_EMBED_CJK").is_some();
     match input_fonts(dir.as_deref(), wasm, required, embed_cjk) {
         Ok(entries) => src.push_str(&entries),
         Err(e) => println!("cargo::error={e}"),
@@ -95,7 +96,7 @@ fn craft_fonts(dir: &std::path::Path, manifest_rel: &str, wasm: bool, embed_cjk:
         let [family, style, file, scripts, ..] = f.as_slice() else {
             return Err(format!("malformed manifest line: {line}"));
         };
-        // FigCraft's asset policy excludes Adobe-authored visual assets on every target.
+        // Most Interface's asset policy excludes Adobe-authored visual assets on every target.
         if matches!(*family, "Source Sans 3" | "Source Serif 4") {
             continue;
         }

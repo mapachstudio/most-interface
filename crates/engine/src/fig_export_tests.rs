@@ -1,7 +1,8 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `.fig` export through `file.export {format: "fig"}`: files written by the command open again
 //! with the same layers, linked instances and auto layout. The export's own round-trip tests
 //! (generated documents, fuzzing) are in `figcraft_format::fig`; the local check here runs only
-//! when `FIGCRAFT_FIG_SAMPLES` names a folder of `.fig` files.
+//! when `MOST_INTERFACE_FIG_SAMPLES` names a folder of `.fig` files.
 
 use base64::Engine as _;
 use figcraft_doc::{Document, NodeKind};
@@ -122,11 +123,11 @@ fn fig_export_survives_junk_params() {
     assert!(s.execute("file.export", &json!({"format": "fig"})).is_ok());
 }
 
-/// Local only (`FIGCRAFT_FIG_SAMPLES`): each sample opened, exported and opened again has the
+/// Local only (`MOST_INTERFACE_FIG_SAMPLES`): each sample opened, exported and opened again has the
 /// same layers, with its instances linked.
 #[test]
 fn local_samples_export_and_open_again() {
-    let Some(dir) = std::env::var_os("FIGCRAFT_FIG_SAMPLES") else { return };
+    let Some(dir) = std::env::var_os("MOST_INTERFACE_FIG_SAMPLES") else { return };
     let Ok(dir) = std::fs::read_dir(dir) else { return };
     for p in dir.flatten().map(|e| e.path()).filter(|p| p.extension().is_some_and(|x| x == "fig")) {
         let mut s = Session::new();

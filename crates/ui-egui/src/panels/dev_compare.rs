@@ -1,3 +1,4 @@
+// Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Dev Mode's compare view: a frame or section as it was when it was marked ready for dev, or in
 //! a saved version picked at the bottom, next to how it is now (side by side, or one over the
 //! other with a slider), the changed layers outlined, and the list of what changed
@@ -239,7 +240,7 @@ fn compared(ui: &mut Ui, r: Rect, cache: &Cached, version_name: Option<&str>, mo
             tr("This version can't be read.")
         } else if cache.cmp.changed {
             tr(
-                "What this changed from isn't known: it changed before FigCraft kept a copy of ready-for-dev frames. Resolve the change (or mark it ready again) to compare from now on.",
+                "What this changed from isn't known: it changed before Most Interface kept a copy of ready-for-dev frames. Resolve the change (or mark it ready again) to compare from now on.",
             )
         } else {
             tr("Nothing changed since this was marked ready for dev.")
