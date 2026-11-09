@@ -1,5 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-//! Windows: embed the icon and version info in figcraft.exe and size its main thread's stack
+//! Windows: embed the icon and version info in most-interface.exe and size its main thread's stack
 //! (no-op elsewhere).
 fn main() {
     println!("cargo::rustc-check-cfg=cfg(windows_slim_errors)");

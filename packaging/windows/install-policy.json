@@ -16,7 +16,7 @@
   "payloads": [
     "NOTICE",
     "figcraft-cli.exe",
-    "figcraft.exe"
+    "most-interface.exe"
   ],
   "registry": [
     [
@@ -63,55 +63,55 @@
     ],
     [
       "-1",
-      "Software\\Classes\\Applications\\figcraft.exe",
+      "Software\\Classes\\Applications\\most-interface.exe",
       "FriendlyAppName",
       "Most Interface"
     ],
     [
       "-1",
-      "Software\\Classes\\Applications\\figcraft.exe\\shell\\open\\command",
+      "Software\\Classes\\Applications\\most-interface.exe\\shell\\open\\command",
       "",
       "\"[#FigcraftExe]\" \"%1\""
     ],
     [
       "-1",
-      "Software\\Classes\\Applications\\figcraft.exe\\SupportedTypes",
+      "Software\\Classes\\Applications\\most-interface.exe\\SupportedTypes",
       ".mostinterface",
       ""
     ],
     [
       "-1",
-      "Software\\Classes\\Applications\\figcraft.exe\\SupportedTypes",
+      "Software\\Classes\\Applications\\most-interface.exe\\SupportedTypes",
       ".svg",
       ""
     ],
     [
       "-1",
-      "Software\\Classes\\Applications\\figcraft.exe\\SupportedTypes",
+      "Software\\Classes\\Applications\\most-interface.exe\\SupportedTypes",
       ".png",
       ""
     ],
     [
       "-1",
-      "Software\\Classes\\Applications\\figcraft.exe\\SupportedTypes",
+      "Software\\Classes\\Applications\\most-interface.exe\\SupportedTypes",
       ".jpg",
       ""
     ],
     [
       "-1",
-      "Software\\Classes\\Applications\\figcraft.exe\\SupportedTypes",
+      "Software\\Classes\\Applications\\most-interface.exe\\SupportedTypes",
       ".jpeg",
       ""
     ],
     [
       "-1",
-      "Software\\Classes\\Applications\\figcraft.exe\\SupportedTypes",
+      "Software\\Classes\\Applications\\most-interface.exe\\SupportedTypes",
       ".sketch",
       ""
     ],
     [
       "-1",
-      "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\figcraft.exe",
+      "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\most-interface.exe",
       "",
       "[#FigcraftExe]"
     ],

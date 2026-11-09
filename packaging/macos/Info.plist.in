@@ -65,7 +65,7 @@
         <key>public.filename-extension</key>
         <array><string>figcraft</string></array>
         <key>public.mime-type</key>
-        <array><string>application/x-figcraft</string></array>
+        <array><string>application/x-most-interface</string></array>
       </dict>
     </dict>
   </array>

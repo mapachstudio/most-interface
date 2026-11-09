@@ -50,7 +50,7 @@ case "$ARCH" in
   aarch64 | arm64) ARCH=aarch64; DEB_ARCH=arm64 ;;
   *) echo "unsupported architecture $ARCH" >&2; exit 2 ;;
 esac
-export MOST_INTERFACE_MAINTAINER="${MOST_INTERFACE_MAINTAINER:-Most Interface maintainers <figcraft@storyteller.ai>}"
+export MOST_INTERFACE_MAINTAINER="${MOST_INTERFACE_MAINTAINER:-Most Interface maintainers <soporte@grupomostmexico.com>}"
 BASENAME="most-interface-$VERSION-linux-$ARCH"
 
 echo "==> Most Interface $VERSION for Linux $ARCH ($FORMATS; ${BINS[*]})"

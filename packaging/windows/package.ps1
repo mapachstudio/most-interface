@@ -5,7 +5,7 @@
 .DESCRIPTION
   Produces, in $env:DIST (default: dist/release):
     figcraft-<version>-windows-<arch>.msi            per-machine installer (WiX v5)
-    figcraft-<version>-windows-<arch>-portable.zip   figcraft.exe (+ figcraft-cli.exe) and the licences
+    figcraft-<version>-windows-<arch>-portable.zip   most-interface.exe (+ figcraft-cli.exe) and the licences
 
   figcraft-cli.exe is built and shipped once apps/figcraft-cli exists in the workspace.
 
@@ -83,7 +83,7 @@ function Get-PeHeader([string] $Path) {
   return @{ Machine = [BitConverter]::ToUInt16($bytes, $pe + 4); Subsystem = [BitConverter]::ToUInt16($bytes, $pe + 0x5C) }
 }
 $Machine = switch ($Arch) { 'x64' { 0x8664 } 'x86' { 0x14C } 'arm64' { 0xAA64 } }
-$checks = @(, @('figcraft.exe', 2)); if ($HasCli) { $checks += , @('figcraft-cli.exe', 3) }
+$checks = @(, @('most-interface.exe', 2)); if ($HasCli) { $checks += , @('figcraft-cli.exe', 3) }
 foreach ($check in $checks) {
   $h = Get-PeHeader (Join-Path $Bin $check[0])
   if ($h.Machine -ne $Machine) { throw "$($check[0]) is for machine 0x$('{0:X}' -f $h.Machine), expected 0x$('{0:X}' -f $Machine) ($Arch)" }
@@ -189,7 +189,7 @@ if ($env:CRAFT_FONTS_DIR) {
     if (Test-Path $lic) { Copy-Item $lic (Join-Path $Portable "OFL-$($_.Name).txt") }
   }
 }
-# A `portable` file next to figcraft.exe keeps its settings, recovery copies and plugins in
+# A `portable` file next to most-interface.exe keeps its settings, recovery copies and plugins in
 # config\ beside it instead of %APPDATA%\Most Interface (#1320). The first start copies the
 # preferences an installed Most Interface kept there, if any.
 New-Item -ItemType File -Force -Path (Join-Path $Portable 'portable') | Out-Null
@@ -200,9 +200,9 @@ Compress-Archive -Path $Portable -DestinationPath $Zip
 # Smoke-test the CLI when this machine can run it. An ARM64 build made on an x64 runner can't run
 # here; .github/workflows/windows-arm64.yml installs and runs it on ARM64 instead.
 $HostArch = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture.ToString().ToLowerInvariant()
-$Smoke = if ($HasCli) { 'figcraft-cli.exe' } else { 'figcraft.exe' }
+$Smoke = if ($HasCli) { 'figcraft-cli.exe' } else { 'most-interface.exe' }
 if ($Arch -ne 'arm64' -or $HostArch -eq 'arm64') {
-  # figcraft.exe is a GUI-subsystem exe: pipe it so PowerShell waits and shows its --version output.
+  # most-interface.exe is a GUI-subsystem exe: pipe it so PowerShell waits and shows its --version output.
   Invoke-Native "$Smoke --version" { & (Join-Path $Stage $Smoke) --version | Out-Host }
 } else {
   Write-Output "skipping $Smoke --version: an $Arch build doesn't run on this $HostArch machine"

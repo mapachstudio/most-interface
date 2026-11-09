@@ -7,7 +7,7 @@
 //! `NSApplicationDelegate`, so AppKit answered "Most Interface cannot open files in the Most Interface Document
 //! format". Handling it ourselves needs Objective-C class declarations, i.e. `unsafe`, which this
 //! workspace forbids. The `fmv-macos-events` crate (also used by GridCraft, EffectCraft and
-//! PhotoCraft) wraps exactly that, an `NSAppleEventManager` handler registered before Finder's
+//! Most Image) wraps exactly that, an `NSAppleEventManager` handler registered before Finder's
 //! launch event that leaves winit's delegate alone, behind a safe main-thread API.
 
 use std::path::PathBuf;

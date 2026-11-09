@@ -3,7 +3,7 @@
      Most Interface opens (SVG, PNG and JPEG are already in the system database). Installed to /usr/share/mime/packages/ (update-mime-database runs on
      install). -->
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-  <mime-type type="application/x-figcraft">
+  <mime-type type="application/x-most-interface">
     <comment>Most Interface document</comment>
     <icon name="com.grupomostmexico.mostinterface"/>
     <glob pattern="*.mostinterface"/>

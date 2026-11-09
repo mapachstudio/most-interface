@@ -2,7 +2,7 @@
 //! Making the desktop app the opener of `figcraft://` invite links (the engine's
 //! [`LinkRegistrar`]). On Windows that's a per-user URL scheme under
 //! `HKEY_CURRENT_USER\Software\Classes\figcraft` (no administrator rights; uninstalling the user's
-//! registration removes nothing else); the shell then starts `figcraft.exe "<link>"`, and the app
+//! registration removes nothing else); the shell then starts `most-interface.exe "<link>"`, and the app
 //! joins the session it names. macOS and Linux declare the scheme in their packages
 //! (`CFBundleURLTypes`, the desktop entry's `x-scheme-handler/figcraft`), so there is nothing to
 //! register at run time.

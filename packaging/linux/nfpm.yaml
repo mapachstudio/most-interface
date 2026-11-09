@@ -16,7 +16,6 @@ section: graphics
 priority: optional
 maintainer: ${MOST_INTERFACE_MAINTAINER}
 vendor: Grupo MOST
-homepage: https://getartcraft.com/apps/figcraft
 license: MIT OR Apache-2.0
 description: |-
   Open-source, native interface design and prototyping tool.

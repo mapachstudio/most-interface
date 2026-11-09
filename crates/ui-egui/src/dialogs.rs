@@ -63,7 +63,7 @@ pub fn window_failed(error: &str, backend_set: bool, tried: Option<&str>) -> Str
             "{}
 
 set WGPU_BACKEND=gl
-figcraft.exe",
+most-interface.exe",
             tr("Updating the graphics driver often helps. To use OpenGL only, start Most Interface from a Command Prompt with:")
         )
     } else {

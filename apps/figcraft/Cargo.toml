@@ -47,7 +47,7 @@ zbus = { version = "5", default-features = false, features = ["async-io", "block
 
 # Finder double-clicks, Open With, Dock drops and `open -a Most Interface file.mostinterface` arrive as a
 # kAEOpenDocuments Apple event, which winit 0.30 doesn't handle. This crate (also used by GridCraft,
-# EffectCraft and PhotoCraft) registers the handler behind a safe API (Objective-C interop needs
+# EffectCraft and Most Image) registers the handler behind a safe API (Objective-C interop needs
 # unsafe, which the workspace forbids). Pinned exactly: review the diff before bumping.
 [target.'cfg(target_os = "macos")'.dependencies]
 fmv-macos-events = "=0.1.0"

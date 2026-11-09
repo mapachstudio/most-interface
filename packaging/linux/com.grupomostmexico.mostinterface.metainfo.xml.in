@@ -53,7 +53,7 @@
   </supports>
   <provides>
     <binary>figcraft</binary>
-    <mediatype>application/x-figcraft</mediatype>
+    <mediatype>application/x-most-interface</mediatype>
     <mediatype>application/x-sketch</mediatype>
   </provides>
   <content_rating type="oars-1.1"/>

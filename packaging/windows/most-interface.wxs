@@ -17,7 +17,7 @@
     <Property Id="ARPPRODUCTICON" Value="FigcraftIcon.exe" />
 
     <StandardDirectory Id="ProgramFiles6432Folder">
-      <Directory Id="CraftSuiteFolder" Name="ArtCraft">
+      <Directory Id="CraftSuiteFolder" Name="Grupo MOST">
         <Directory Id="INSTALLFOLDER" Name="Most Interface" />
       </Directory>
     </StandardDirectory>
@@ -66,13 +66,13 @@
     <ComponentGroup Id="FigcraftFiles" Directory="INSTALLFOLDER">
       <Component Id="FigcraftApp" Guid="238228C3-4C1D-4B33-8C5D-C31B65BC2DA4">
         <File Id="FigcraftNotice" Source="$(var.BinDir)\NOTICE" KeyPath="no" />
-        <File Id="FigcraftExe" Source="$(var.BinDir)\figcraft.exe" KeyPath="yes">
+        <File Id="FigcraftExe" Source="$(var.BinDir)\most-interface.exe" KeyPath="yes">
           <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="Most Interface" Description="Most Interface interface design and prototyping" WorkingDirectory="INSTALLFOLDER" Advertise="yes" Icon="FigcraftIcon.exe" IconIndex="0" />
         </File>
 
         <!-- .mostinterface: Most Interface's own format; Most Interface is its default app. -->
         <ProgId Id="Figcraft.Document" Description="Most Interface Document" Icon="FigcraftExe" IconIndex="0">
-          <Extension Id="figcraft" ContentType="application/x-figcraft">
+          <Extension Id="figcraft" ContentType="application/x-most-interface">
             <Verb Id="open" Command="Open" TargetFile="FigcraftExe" Argument="&quot;%1&quot;" />
           </Extension>
         </ProgId>
@@ -89,15 +89,15 @@
         <RegistryValue Root="HKMU" Key="Software\Classes\.sketch\OpenWithProgids" Name="Figcraft.Sketch" Value="" Type="string" />
 
         <!-- "Open with" app list and the Run dialog (Win+R "figcraft"). -->
-        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\figcraft.exe" Name="FriendlyAppName" Value="Most Interface" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\figcraft.exe\shell\open\command" Value="&quot;[#FigcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\figcraft.exe\SupportedTypes" Name=".mostinterface" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\figcraft.exe\SupportedTypes" Name=".svg" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\figcraft.exe\SupportedTypes" Name=".png" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\figcraft.exe\SupportedTypes" Name=".jpg" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\figcraft.exe\SupportedTypes" Name=".jpeg" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\figcraft.exe\SupportedTypes" Name=".sketch" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\figcraft.exe" Value="[#FigcraftExe]" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe" Name="FriendlyAppName" Value="Most Interface" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe\shell\open\command" Value="&quot;[#FigcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe\SupportedTypes" Name=".mostinterface" Value="" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe\SupportedTypes" Name=".svg" Value="" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe\SupportedTypes" Name=".png" Value="" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe\SupportedTypes" Name=".jpg" Value="" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe\SupportedTypes" Name=".jpeg" Value="" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe\SupportedTypes" Name=".sketch" Value="" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\most-interface.exe" Value="[#FigcraftExe]" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Most Interface" Name="InstallDir" Value="[INSTALLFOLDER]" Type="string" />
       </Component>
 

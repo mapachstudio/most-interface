@@ -6,7 +6,7 @@ installers for macOS, Windows, Linux and the web, plus a FreeBSD tarball and the
 server for Linux, then creates or updates a **draft** GitHub Release named `Most Interface v<version>`.
 Nobody sees a draft until a maintainer publishes it.
 
-This is Most Interface's copy of the shared [release playbook](release-playbook.md) (PhotoCraft is the
+This is Most Interface's copy of the shared [release playbook](release-playbook.md) (Most Image is the
 reference implementation). User-facing names say **Most Interface**. Files, binaries and ids stay
 lowercase (`figcraft-<version>-<platform>-<arch>.<ext>`, `com.grupomostmexico.mostinterface`).
 
