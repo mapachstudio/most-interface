@@ -500,7 +500,6 @@ pub fn specs() -> Vec<CommandSpec> {
         spec!("app.actions", "Actions", "{}", false, |s, _| ui(s, "palette.actions")),
         spec!("help.shortcuts", "Keyboard shortcuts", "{}", false, |s, _| ui(s, "panel.shortcuts")),
         spec!("help.about", "About Most Interface", "{}", false, |s, _| ui(s, "dialog.about")),
-        spec!("help.page", "Help page", "{}", false, |s, _| ui(s, "open.help")),
         spec!(
             "help.gettingStarted",
             "Getting started",

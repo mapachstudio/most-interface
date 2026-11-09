@@ -13,7 +13,7 @@ fn main() {
         }
         res.set("ProductName", "Most Interface");
         res.set("FileDescription", "Most Interface");
-        res.set("CompanyName", "ArtCraft");
+        res.set("CompanyName", "Grupo MOST");
         if let Err(e) = res.compile() {
             println!("cargo::warning=winresource: {e}");
         }

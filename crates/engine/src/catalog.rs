@@ -264,7 +264,6 @@ pub static MENU: &[MenuItem] = &[
     // Help
     m!("Help", "Getting started", "help.gettingStarted"),
     m!("Help", "Keyboard shortcuts", "help.shortcuts"),
-    m!("Help", "Help page", "help.page"),
     m!("Help", "About Most Interface", "help.about"),
     // Toolbar
     m!("Tools", "Move", "tool.move"),

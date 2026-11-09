@@ -342,7 +342,6 @@ fn help_button(app: &mut FigApp, ui: &mut Ui, canvas: Rect, pill: Rect, t: &Toke
         for (l, c) in [
             (tr("Getting started"), "help.gettingStarted"),
             (tr("Keyboard shortcuts"), "help.shortcuts"),
-            (tr("Help page"), "help.page"),
             (tr("Check for updates…"), "help.checkForUpdates"),
             (tr("About Most Interface"), "help.about"),
         ] {
