@@ -116,7 +116,9 @@ mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 # Executable and icon carry the display name (CFBundleExecutable / CFBundleIconFile).
 cp "$WORK/bin/figcraft" "$APP/Contents/MacOS/Most Interface"
 cp "$WORK/Most Interface.icns" "$APP/Contents/Resources/Most Interface.icns"
-cp "$ROOT/NOTICE" "$APP/Contents/Resources/"
+# Apache-2.0 §4: con cada distribucion van una copia de la LICENCIA y los
+# avisos del NOTICE. Antes solo se copiaba el NOTICE.
+copy_docs "$APP/Contents/Resources"
 # Licences of the embedded craft-fonts fonts (only when built with CRAFT_FONTS_DIR).
 if [[ -n "${CRAFT_FONTS_DIR:-}" ]]; then
   mkdir -p "$APP/Contents/Resources/Licenses"
