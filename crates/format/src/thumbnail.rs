@@ -66,7 +66,7 @@ pub fn decode_thumbnail(bytes: &[u8], fit: u32) -> Option<Thumbnail> {
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FileKind {
     /// `.mostinterface`
-    Most Interface,
+    MostInterface,
     /// `.fig`
     Fig,
     /// `.sketch`
@@ -82,7 +82,7 @@ impl FileKind {
     pub fn of(path: &Path) -> FileKind {
         let ext = path.extension().map(|e| e.to_string_lossy().to_ascii_lowercase()).unwrap_or_default();
         match ext.as_str() {
-            "figcraft" => FileKind::Most Interface,
+            "figcraft" => FileKind::MostInterface,
             // A FigJam `.jam` is the same archive.
             "fig" | "jam" => FileKind::Fig,
             "sketch" => FileKind::Sketch,
@@ -98,7 +98,7 @@ impl FileKind {
 /// `None` for anything else, and for a file that is missing, unreadable or damaged.
 pub fn file_thumbnail(path: &Path, fit: u32) -> Option<Thumbnail> {
     match FileKind::of(path) {
-        FileKind::Most Interface | FileKind::Fig => {
+        FileKind::MostInterface | FileKind::Fig => {
             let file = std::fs::File::open(path).ok()?;
             let png = thumbnail_png(std::io::BufReader::new(file))?;
             decode_thumbnail(&png, fit)
@@ -136,7 +136,7 @@ pub struct Preview {
 /// Empty for a file that is missing, unreadable, damaged or of another kind.
 pub fn file_preview(path: &Path, fit: u32) -> Preview {
     match FileKind::of(path) {
-        FileKind::Most Interface | FileKind::Fig => {
+        FileKind::MostInterface | FileKind::Fig => {
             let Ok(file) = std::fs::File::open(path) else { return Preview::default() };
             archive_preview(std::io::BufReader::new(file), fit)
         }
