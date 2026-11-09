@@ -1,4 +1,4 @@
-# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/mapachstudio/most-interface), Apache-2.0.
 # Flatpak manifest for the single-file bundle attached to every GitHub release
 # (figcraft-<version>-linux-<arch>.flatpak). Build it with packaging/linux/flatpak-bundle.sh.
 #

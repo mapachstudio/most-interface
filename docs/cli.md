@@ -59,7 +59,7 @@ The directory contains completions for five shells:
 It also contains `figcraft-cli.1` and one man page per subcommand, including nested commands such
 as `figcraft-cli-plugin-publish.1`. For example, `man target/cli-docs/figcraft-cli-export.1` shows
 the export subcommand's options. Generating these files doesn't install them; package installation
-is still outstanding in [#1396](https://github.com/storytold/figcraft/issues/1396).
+is still outstanding in [#1396](https://github.com/mapachstudio/most-interface/issues/1396).
 
 ## Fonts
 

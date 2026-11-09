@@ -1,42 +1,31 @@
-<!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
-# Most Interface app icon
+# Icono de Most Interface
 
-A **chameleon**: an engraving portrait in profile with a curled tail, in the Crafting Apps'
-owl-template framing (full-bleed field, head and body filling the tile, body running off the edges).
+Dibujo propio de Grupo MOST. No queda nada del icono de la obra original:
+su licencia de marca obliga a retirarlo en toda versión modificada, y en el
+caso de Most Anything además no era código abierto.
 
-## Palette
+**El dibujo.** Un azulejo de 512 a sangre con esquinas redondeadas (112 de
+radio), degradado de `#A855F7` a `#7C3AED` en diagonal, y encima el motivo en
+blanco: 3 trazo(s) y 2 nodo(s) cuadrados.
+Dice de un vistazo qué hace el programa.
 
-Exactly three colours:
+**Cómo se generan.** `tools/iconos.mjs` de la suite, que rasteriza con el
+motor de Most Studio: el mismo barrido de líneas que usa el texto de área,
+así que el icono es literalmente lo que Most Studio dibujaría. De ahí salen:
 
-| Colour | Hex | Used for |
-|---|---|---|
-| Ink | `#0b0b0c` | line work and contours |
-| Paper | `#efe9dc` | the figure |
-| Most Interface green (app colour) | `#02da96` | the full-bleed field |
+| Archivo | Para qué |
+|---|---|
+| `most-interface.svg` | La pieza canónica, 512 a sangre |
+| `most-interface-small.svg` | La misma, para tamaños pequeños |
+| `hicolor/<n>x<n>/apps/com.grupomostmexico.mostinterface.png` | Tema de iconos de Linux |
+| `most-interface-1024.png`, `-512`, `-256`, `-64` | Los que el código incrusta por nombre |
+| `most-interface-macos-512.png` | Icono de ventana y Dock en macOS |
+| `most-interface.icns` | Paquete de macOS |
+| `most-interface.ico` | Ejecutable e instalador de Windows |
 
-## Geometry
+Si cambia el dibujo, se regenera todo de una vez. No se editan a mano: el
+código los incrusta por nombre con `include_bytes!` y un archivo que falte
+no es un aviso, es un error de compilación.
 
-A 512-unit tile (`viewBox="0 0 512 512"`), rounded square with `rx=112`, no border. The macOS
-renders pad it onto Apple's 824/1024 icon grid; Windows and Linux use the tile edge to edge, with
-its rounded corners, like the other Crafting Apps.
-
-## Provenance
-
-The owner's original engraving-style drawing (1500 px, keyed to the palette), supplied for
-Most Interface and vectorised. The source
-image is not kept in this repo. License: see `LICENSE.txt`.
-
-## Files
-
-- `most-interface.svg`: canonical master (traced at 1500 px, the source's size).
-- `most-interface-small.svg`: lighter trace (traced at 1024 px); also the hicolor scalable icon.
-- `figcraft-<size>.png` (16–1024): renders on the macOS grid; `packaging/macos/package.sh` builds
-  the `.icns` from them.
-- `most-interface.ico`: Windows icon, 16–256 px, embedded in the `.exe` by `apps/figcraft/build.rs`.
-- `hicolor/<size>/apps/com.grupomostmexico.mostinterface.png` (16–512) and `hicolor/scalable/...svg`:
-  Linux icon theme; the 256 px one is also the runtime window icon off macOS.
-
-## Regenerate
-
-Replace `most-interface.svg` (and `most-interface-small.svg`), then run `cargo xtask icon`. It needs `resvg`
-(`cargo install resvg`).
+**Licencia.** Los dibujos son propiedad de Grupo MOST. `LICENSE.txt` es el
+de la obra original y se conserva por lo que cubre de ella.

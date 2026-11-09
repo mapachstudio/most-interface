@@ -623,8 +623,8 @@ upgrades the binary and restarts the server only when something changed.
 
    ```sh
    ssh root@figcraft.example.com
-   VERSION=$(curl -fsSL https://api.github.com/repos/storytold/figcraft/releases/latest | sed -n 's/.*"tag_name": *"v\([^"]*\)".*/\1/p')
-   curl -fLO "https://github.com/storytold/figcraft/releases/download/v$VERSION/most-interface-server-$VERSION-linux-$(uname -m).tar.gz"
+   VERSION=$(curl -fsSL https://api.github.com/repos/mapachstudio/most-interface/releases/latest | sed -n 's/.*"tag_name": *"v\([^"]*\)".*/\1/p')
+   curl -fLO "https://github.com/mapachstudio/most-interface/releases/download/v$VERSION/most-interface-server-$VERSION-linux-$(uname -m).tar.gz"
    tar -xzf figcraft-server-*.tar.gz && cd figcraft-server-*/
    sudo ./install.sh --host figcraft.example.com --email abuse@example.com --terms https://example.com/figcraft-terms
    ```
@@ -662,10 +662,10 @@ it ([above](#on-a-fresh-ubuntu-server-with-installsh)); these are the steps by h
 release's `SHA256SUMS.txt`:
 
 ```sh
-VERSION=$(curl -fsSL https://api.github.com/repos/storytold/figcraft/releases/latest | sed -n 's/.*"tag_name": *"v\([^"]*\)".*/\1/p')
+VERSION=$(curl -fsSL https://api.github.com/repos/mapachstudio/most-interface/releases/latest | sed -n 's/.*"tag_name": *"v\([^"]*\)".*/\1/p')
 NAME="most-interface-server-$VERSION-linux-$(uname -m)"
-curl -fLO "https://github.com/storytold/figcraft/releases/download/v$VERSION/$NAME.tar.gz"
-curl -fLO "https://github.com/storytold/figcraft/releases/download/v$VERSION/SHA256SUMS.txt"
+curl -fLO "https://github.com/mapachstudio/most-interface/releases/download/v$VERSION/$NAME.tar.gz"
+curl -fLO "https://github.com/mapachstudio/most-interface/releases/download/v$VERSION/SHA256SUMS.txt"
 sha256sum --ignore-missing -c SHA256SUMS.txt
 tar -xzf "$NAME.tar.gz" && cd "$NAME"
 sudo install -m 755 figcraft-server /usr/local/bin/
@@ -677,7 +677,7 @@ or from source (it needs a C compiler for the TLS library; the example files are
 ```sh
 sudo apt install -y build-essential git curl
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && . "$HOME/.cargo/env"
-git clone https://github.com/storytold/figcraft && cd figcraft
+git clone https://github.com/mapachstudio/most-interface && cd figcraft
 cargo build --release --locked -p figcraft-server
 sudo install -m 755 target/release/figcraft-server /usr/local/bin/
 cd packaging/server

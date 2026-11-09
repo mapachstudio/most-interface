@@ -1167,7 +1167,7 @@ Primary sources consulted:
 
 The user clarified that reviewed plans remain local and implementation proceeds before publication. The earlier requirement to publish/land this plan first is superseded; pushes and PR publication still require explicit approval.
 
-Canonical `storytold/figcraft` `main` now resolves to `8d790607ff1ad40e32343ca2116d8fdcf3244c8d`. The owned checkout was fast-forwarded to this revision. Earlier baseline SHAs and line anchors above are retained as historical review evidence; use this new revision and its exact lockfile for current-main integration and paired measurements. The original refs remain reachable.
+Canonical `mapachstudio/most-interface` `main` now resolves to `8d790607ff1ad40e32343ca2116d8fdcf3244c8d`. The owned checkout was fast-forwarded to this revision. Earlier baseline SHAs and line anchors above are retained as historical review evidence; use this new revision and its exact lockfile for current-main integration and paired measurements. The original refs remain reachable.
 
 No migration API redesign required by this delta; preserve the merged packaging, test and chrono changes where present.
 
