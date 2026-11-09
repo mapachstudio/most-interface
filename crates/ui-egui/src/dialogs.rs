@@ -42,7 +42,7 @@ pub mod variables_panel;
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 
 /// Where a report goes.
-const ISSUES: &str = "https://github.com/storytold/figcraft/issues";
+const ISSUES: &str = "https://github.com/mapachstudio/most-interface/issues";
 
 /// What the desktop app says when its window couldn't open with `error` (no frame was drawn: the
 /// language is the one [`i18n::set`] picked from the preferences). `backend_set`: `WGPU_BACKEND`

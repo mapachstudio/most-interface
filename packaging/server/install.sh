@@ -28,7 +28,7 @@
 #   -h, --help         this text
 set -euo pipefail
 
-REPO="storytold/figcraft"
+REPO="mapachstudio/most-interface"
 CONFIG_DIR=/etc/figcraft-server
 CONFIG="$CONFIG_DIR/server.toml"
 DATA=/var/lib/figcraft-server

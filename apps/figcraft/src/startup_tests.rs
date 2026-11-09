@@ -17,7 +17,7 @@ const DRIVER_HINT: &str = if cfg!(windows) {
 fn the_message_carries_the_error_and_where_to_report_it() {
     let text = message(ERROR, false, None);
     assert!(text.contains(ERROR), "the error itself: {text}");
-    assert!(text.contains("https://github.com/storytold/figcraft/issues"), "where to report it: {text}");
+    assert!(text.contains("https://github.com/mapachstudio/most-interface/issues"), "where to report it: {text}");
 }
 
 #[test]
@@ -48,5 +48,5 @@ fn after_every_attempt_failed_it_names_what_was_tried_and_no_other_api() {
     assert!(text.contains(ERROR), "the last error: {text}");
     assert!(text.contains("Direct3D 12, Vulkan, OpenGL"), "what was tried: {text}");
     assert!(!text.contains(tr(DRIVER_HINT)), "every API was tried already: {text}");
-    assert!(text.contains("https://github.com/storytold/figcraft/issues"), "where to report it: {text}");
+    assert!(text.contains("https://github.com/mapachstudio/most-interface/issues"), "where to report it: {text}");
 }
