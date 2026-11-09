@@ -10,9 +10,26 @@
 /// prompt shows both, and an AppImage's menu entry gets the icon.
 #[cfg(not(target_arch = "wasm32"))]
 pub const UPDATE_APP: craft_update::app::App = craft_update::app::App {
+    // Se escribe entero, sin `..craft_update::suite::FIGCRAFT`.
+    //
+    // Aquel descriptor es el SUYO: su nombre, «by ArtCraft» y, sobre todo,
+    // `repo: "storytold/figcraft"`, que su propia documentación define como «el
+    // único repositorio del que se descargan releases». Con eso, Most Interface
+    // consultaba las versiones de ellos, enseñaba su marca en el aviso de
+    // actualización y se ofrecía a instalar su binario encima del nuestro.
+    // Visto al abrir el .dmg que compiló el CI, no leyendo código: los
+    // textos venían de la respuesta del servidor.
+    id: "most-interface",
+    name: "Most Interface",
+    tagline: "Interface design and prototyping",
+    repo: "mapachstudio/most-interface",
+    // Sin nombres anteriores: los artefactos de la obra original no son
+    // nuestros y no se deben reclamar como versiones previas de esto.
+    former_ids: &[],
+    former_names: &[],
     icon_png: Some(include_bytes!("../../../assets/app-icon/hicolor/128x128/apps/com.grupomostmexico.mostinterface.png")),
-    accent: Some([0x02, 0xda, 0x96]),
-    ..craft_update::suite::FIGCRAFT
+    accent: Some([0x7C, 0x3A, 0xED]),
+    developer: "Grupo MOST",
 };
 
 pub mod a11y;
