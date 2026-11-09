@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Command-line parsing: files, the control port and invite links.
 
 use crate::args::{Args, file_url_path, is_invite, parse};

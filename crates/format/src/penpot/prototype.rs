@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Penpot prototype interactions and flows, mapped to Most Interface's native prototype model.
 //!
 //! Penpot stores an interaction on the shape that fires it: an event type (`click`,

@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The command line, as clap types (craft-contrib RFC-0012). Values are parsed into their types
 //! here, so a bad one is a usage error naming its flag (exit 2) before any work starts, and the
 //! handlers never see it. A flag a subcommand doesn't take is a usage error, and so is one given

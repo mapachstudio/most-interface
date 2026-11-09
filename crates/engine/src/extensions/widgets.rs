@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Widgets: layers on the canvas that a plugin draws (plugin API 3). A widget is a frame owned by
 //! its plugin: the plugin describes it ([`WidgetRender`]: frames with auto layout, text, shapes and
 //! images) and Most Interface builds the layers inside it, locked, so the widget moves as one layer.

@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::types::{Bind, HostOptions, NetReply, NetRequest, ONLINE_OFF, PublishOptions, Role, SessionId, Share, Shared, SharedLink, Status, Via};
 use super::{
     Access, Admin, AdminReply, ClientMsg, EngineError, HostInfo, IpAddr, Live, Result, Session, Value, bad, code, display_name, get, json,

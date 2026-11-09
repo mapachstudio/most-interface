@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Where the settings live (#1320): a portable copy keeps them next to the executable, taking the
 //! ones it had before; without a marker they stay in the platform folder they always used. Every
 //! folder here is a temporary one: the probe sees no real environment, executable or profile.

@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The credits tabs as drawn, through egui headless with Most Interface's fonts and theme: every column
 //! keeps its measured width and scrolls when needed, switching the Contributors view keeps its size, clicking a header sorts
 //! by it, and empty tables (no contributors.json) draw a note instead.

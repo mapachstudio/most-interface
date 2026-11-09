@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Text drawn in its own font by Most Interface's text engine, as textures for the panels: font family
 //! names in the font picker, text styles in the style browser. Rendered lazily (a few per frame:
 //! callers pass a budget) and cached for the session. Textures are white; paint them tinted.

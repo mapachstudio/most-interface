@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Saving never silently replaces what another app wrote to the open file since it was opened or
 //! saved here (#1330): Save and auto-save refuse, `overwrite` and Revert to saved settle it.
 

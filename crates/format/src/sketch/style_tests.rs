@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Sketch styles → paints, strokes, effects, opacity, blend modes and masks.
 
 use figcraft_doc::color::{BlendMode, ColorProfile, GradientKind, ImageScaleMode, PaintKind};

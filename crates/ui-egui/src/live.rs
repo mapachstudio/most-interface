@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Live sessions in the window: other people's cursors (smoothly following their pointer, with a
 //! name tag) and selections on the canvas (their edits arrive through the engine's sync), their avatars at the top of the right panel (click one
 //! to follow their view), the Share popover (share the file online or on the local network and

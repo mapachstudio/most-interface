@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Variables import and export: a file's collections as the local variables JSON (the shape the
 //! REST importer reads, so exports round-trip), as CSS custom properties or as Dart constants for
 //! Flutter, and such JSON read back into a file.

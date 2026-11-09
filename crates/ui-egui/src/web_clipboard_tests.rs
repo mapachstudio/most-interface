@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Copy and paste as the browser does them: Cmd+C arrives as a copy event and the copy reaches the
 //! system clipboard only through egui's output; Cmd+V arrives as the key and a paste event holding
 //! whatever the system clipboard has. A copy that never reached the clipboard pasted the text that

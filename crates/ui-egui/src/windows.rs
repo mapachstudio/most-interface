@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Several windows (desktop app): File ▸ New window, a tab's "Open in new window" or a tab dragged
 //! off the tab strip opens files in another OS window with its own tabs, panels and canvas. The
 //! session (open files, preferences, libraries, the clipboard) is shared: a window is a set of tabs

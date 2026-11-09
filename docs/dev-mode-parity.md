@@ -1,5 +1,4 @@
 <!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
-<!-- Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # Dev Mode parity
 
 > **Last reviewed:** 2026-10-24 · **Last updated:** 2026-10-26 · **Change:** minor (class names transliterate non-ASCII layer names (#1235); measurements kept on the canvas; a read-only layers panel in Dev Mode; earlier: import lines in generated layer trees; compare with any saved version; Dev Mode behaviour suite: an inspect-only canvas, Changed in the ready list, statuses only on frames and sections; plugin panels from the Inspect tab) · **Target:** Figma Design Dev Mode (desktop app 126.10.7)

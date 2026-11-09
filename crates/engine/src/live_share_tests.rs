@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Sharing with a join code against a scripted link: `collab.share` online and on the local
 //! network, the codes in `collab.peers`, switching what the code lets people do, stopping (online:
 //! the others' links go, the file and its owner stay; sharing again makes new ones), and

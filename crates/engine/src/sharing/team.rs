@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The team list of the server in Preferences (milestone M9): the files shared from it now, which
 //! everyone who reaches the server may open, when its operator turned the list on (`team_files`).
 //! `collab.files {refresh: true}` asks for it beside your own files, and Home ▸ Online shows it.

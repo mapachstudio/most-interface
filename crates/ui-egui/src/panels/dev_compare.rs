@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Dev Mode's compare view: a frame or section as it was when it was marked ready for dev, or in
 //! a saved version picked at the bottom, next to how it is now (side by side, or one over the
 //! other with a slider), the changed layers outlined, and the list of what changed

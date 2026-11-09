@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Copying one fill, stroke or effect row (`fill.copy`, `stroke.copy`, `effect.copy`) and pasting
 //! it onto other layers (`fill.paste`, `stroke.paste`, `effect.paste`): the Design panel's row
 //! menus.

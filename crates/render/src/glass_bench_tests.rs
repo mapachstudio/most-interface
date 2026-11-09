@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Glass render timings: a 600 × 360 rounded glass pane over coloured stripes, 2400 × 1600 device
 //! pixels. Run in release:
 //! `cargo test --release -p figcraft-render --lib glass_render_timings -- --ignored --nocapture`.

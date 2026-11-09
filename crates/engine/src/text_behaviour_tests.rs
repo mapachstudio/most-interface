@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Text behaviour through commands (the rules of `figcraft_text`'s behaviour suite that involve
 //! editing or settings): caret moves, deletes and word selection by grapheme cluster and by script,
 //! vertical trim and paragraph indent through `node.set`, and renders and exports from one layout.

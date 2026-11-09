@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Widgets (ABI v3; editable text fields and a property menu since v4): a plugin draws a layer on
 //! the canvas by describing it, and Most Interface builds the layers. The description comes from the plugin, so it is untrusted: [`WidgetRender::parse`]
 //! checks its size, node count, depth, numbers, strings, colours and image sizes before the engine

@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! A branch's own version history: versions saved on a branch tab go into the branch (not the
 //! main file's history), are viewed and restored there, are saved in the file with the branch and
 //! stay with it when it is merged or archived; merging adds a version to the main file's history.

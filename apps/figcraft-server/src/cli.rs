@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The command line: `figcraft-server` serves; `key`, `files`, `links` and `plugins` manage the
 //! data directory. When a server is running on the directory they ask it (so revoking a link
 //! disconnects whoever joined with it at once); otherwise they change the directory themselves.

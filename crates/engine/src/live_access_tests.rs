@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Files on a server, against a scripted link: `collab.publish` makes the open tab the server
 //! file's synced document (read-only until it is there, its undo history per person after), and
 //! a view link makes the synced document read-only (commands, gestures, editing tools and changes

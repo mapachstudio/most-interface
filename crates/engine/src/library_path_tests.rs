@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! A library link is stored in the document, so it is followed only on this computer
 //! ([`crate::library_server`]): a path on another server would make opening someone else's file
 //! contact that server, and on Windows send the credentials of whoever opened it.

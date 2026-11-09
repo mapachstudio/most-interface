@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `.fig` import tests on fixtures built in code: a small schema written in a compact text form,
 //! a message encoded with our own kiwi encoder, compressed (deflate and zstd), framed and zipped.
 

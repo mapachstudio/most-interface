@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Extended collections' tail: variables a library adds to a collection this file extends are an
 //! update of their own, and a library collection that is itself an extended collection can be
 //! extended again, values flowing down the chain as each file accepts updates. A collection of

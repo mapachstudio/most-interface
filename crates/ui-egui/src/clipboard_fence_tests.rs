@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Programmatic gestures never replace the user's system clipboard: keys and clicks injected
 //! through the control channel (`ui.input`, `ui.menu.invoke`, …) may copy inside Most Interface but the
 //! OS clipboard is the user's. Every copy command goes through `FigApp::clipboard_set_text` /

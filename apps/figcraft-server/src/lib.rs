@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `figcraft-server`: Most Interface's standalone collaboration server (milestone M9, step 5 of
 //! `docs/collab-protocol.md`; running it: `docs/server.md`).
 //!

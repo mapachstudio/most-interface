@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Plugin bundles: a plugin as a plugin directory keeps and serves it (its manifest, its module and
 //! a few optional asset files) in one uncompressed binary form, so nothing about it can expand
 //! beyond the bytes that arrived. The SHA-256 of those bytes names the bundle: a server lists it

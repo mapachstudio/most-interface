@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Plugins in the UI: the installed plugins in the Plugins menu (widgets in Plugins ▸ Widgets), the
 //! parameters form a command with parameters asks for before it runs, the panels running plugins
 //! show, and the Manage plugins window (installed plugins, and a server's plugin directory to

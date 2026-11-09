@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The browser client (step 4 of `docs/collab-protocol.md`): the web build joins a session a
 //! desktop app hosts, or a file on a `figcraft-server` (also over `wss://` behind a TLS reverse
 //! proxy), and publishes files to a server, through the browser's WebSocket API (`web-sys`), with

@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The plugin manifest, `most-interface-plugin.json`: who the plugin is, which module to run, the menu
 //! commands it adds (with their parameters) and the permissions it asks for. Also the panel a
 //! plugin shows while it runs (ABI v2), whose controls are parameters too.

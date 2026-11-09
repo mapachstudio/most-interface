@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The SVG import corpus: synthetic files covering what design and illustration tools write.
 //!
 //! Each `tests/corpus/*.svg` carries its expected pixels as `<!-- probe X Y #RRGGBBAA ~TOL -->`

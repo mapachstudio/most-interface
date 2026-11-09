@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Headless runs lay text out with the installed fonts, like the desktop app, unless
 //! `--no-system-fonts` or `MOST_INTERFACE_NO_SYSTEM_FONTS=1` opts out.
 

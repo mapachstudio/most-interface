@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::common::{layout_grid, node_field, prop_type, resolved_type, scope_name, variant_pairs};
 use super::{
     AUX, Action, Affine, Bound, Color, Exporter, Fields, Kv, LAYERS, MAX_NODES, Node, NodeId, NodeKind, Overlay, OverlayPosition, Paint, StyleKind,

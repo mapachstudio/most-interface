@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The app icon: rasterises the master `assets/app-icon/most-interface.svg` (the chameleon, see
 //! `assets/app-icon/README.md`) with the `resvg` CLI (`cargo install resvg`). Writes
 //! figcraft-<size>.png (macOS grid), the hicolor theme and most-interface.ico. The outputs are

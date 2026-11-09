@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Live sessions over the network for Most Interface (milestone M9, steps 2 and 4
 //! of `docs/collab-protocol.md`): the WebSocket transport, the session host the desktop app embeds,
 //! invite links, and presence relay. It carries the collaboration core's messages

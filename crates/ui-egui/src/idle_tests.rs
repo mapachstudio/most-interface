@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! An idle window draws no frames: once renders and animations settle, the whole UI (driven
 //! headless through egui) asks for no further immediate repaint, only far-off deadlines (the
 //! autosave checkpoint, a toast going away). What does need a frame wakes the UI: a finished

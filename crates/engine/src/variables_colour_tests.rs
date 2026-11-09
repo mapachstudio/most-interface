@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Colour calculations: `{alpha: …}` (a referenced colour with its alpha replaced) and `{mix: …}`
 //! (a blend of two colour operands) as per-mode variable values — set and create shapes, lazy
 //! propagation to bound layers and mode switches, composition over aliases and other

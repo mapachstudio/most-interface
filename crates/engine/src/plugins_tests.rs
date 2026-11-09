@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Plugins: runs are one undo step and roll back when they fail, permissions and the host's own
 //! limits are enforced, fuel and memory are capped, and junk never gets in. Test plugins are
 //! assembled from WAT text: each makes a fixed list of command calls.

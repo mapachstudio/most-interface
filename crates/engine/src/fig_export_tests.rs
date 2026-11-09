@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `.fig` export through `file.export {format: "fig"}`: files written by the command open again
 //! with the same layers, linked instances and auto layout. The export's own round-trip tests
 //! (generated documents, fuzzing) are in `figcraft_format::fig`; the local check here runs only

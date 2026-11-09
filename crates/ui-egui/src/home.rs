@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The home screen: Recents (new file, open, join with a code, the Getting started tips, open and
 //! recent files ([`crate::home_recents`]), and templates to start from on a first run), Online (your online files:
 //! [`crate::online`]) and Templates (the starter templates as cards with thumbnails rendered from

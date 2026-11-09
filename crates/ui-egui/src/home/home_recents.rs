@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The home screen's recent files: a grid of cards, each with the picture its file carries on the
 //! colour of its page, or a table (name, last modified, created). Sorted by name, creation or last
 //! change either way round; a click selects a file, a double-click or Enter opens it, the arrow

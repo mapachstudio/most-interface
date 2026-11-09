@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Comments: add, reply, edit, react, resolve, read state, delete, find and reveal comment threads.
 //!
 //! Messages are addressed by `reply` (an index into the replies; omitted: the thread's first

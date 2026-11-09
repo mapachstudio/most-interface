@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Text box sizes measured against documents re-saved by other software. Local only: runs when
 //! `MOST_INTERFACE_FIG_SAMPLES` names a folder of `.fig` files, and only for text whose exact font is
 //! installed. The rules themselves are tested on built-in fonts in `figcraft_text`.

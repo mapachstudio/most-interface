@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `figcraft-cli perf`: synthetic large documents and timings of the hot paths.
 //!
 //! The documents come from [`figcraft_engine::synthetic`] (screens with an auto layout header, a

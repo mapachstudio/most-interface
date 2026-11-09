@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Sketch styles → REST paints, strokes, effects, opacity and blend modes.
 //!
 //! A layer's `style` lists `fills` and `borders` (each a colour, gradient or, for fills, an image

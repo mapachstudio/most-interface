@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Build, sign and (optionally) notarize the macOS release artifacts:
 #
 #   $DIST/figcraft-<version>-macos-<arch>.dmg          Most Interface.app on a drag-to-Applications DMG

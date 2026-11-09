@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Requests to a server outside a live session, each on a connection of its own answered in
 //! order: managing its files with the server's key ([`Manage`], [`request`]; the app publishes
 //! through it, and the server's command line uses it to reach a running server), and using a

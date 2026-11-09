@@ -1,5 +1,4 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The staging write behind `save_file`: a pre-existing file or symlink at a staging name is never
 //! truncated or followed, concurrent savers of one file never corrupt it, and a failed write
 //! cleans up after itself and leaves the destination alone.
