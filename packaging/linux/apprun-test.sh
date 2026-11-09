@@ -2,7 +2,7 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Smoke test for packaging/linux/AppRun: the AppImage's desktop integration writes
 # and refreshes the host .desktop entry and icons, is idempotent, honours the opt-out
-# and an unwritable HOME, and always launches the app; `cli` runs figcraft-cli instead.
+# and an unwritable HOME, and always launches the app; `cli` runs most-interface-cli instead.
 #
 # Runs in seconds with no build (CI: .github/workflows/packaging-lint.yml).
 set -euo pipefail
@@ -21,10 +21,10 @@ install -Dm755 "$HERE/AppRun" "$APPDIR/AppRun"
 install -Dm644 "$HERE/$APP_ID.desktop" "$APPDIR/usr/share/applications/$APP_ID.desktop"
 mkdir -p "$APPDIR/usr/share/icons"
 cp -R "$ROOT/assets/app-icon/hicolor" "$APPDIR/usr/share/icons/"
-printf '#!/bin/sh\necho "stub: $*"\n' >"$APPDIR/usr/bin/figcraft"
-chmod +x "$APPDIR/usr/bin/figcraft"
+printf '#!/bin/sh\necho "stub: $*"\n' >"$APPDIR/usr/bin/most-interface"
+chmod +x "$APPDIR/usr/bin/most-interface"
 
-APPIMAGE="$TMP/figcraft test.AppImage" # spaces on purpose: Exec must stay quoted
+APPIMAGE="$TMP/most-interface test.AppImage" # spaces on purpose: Exec must stay quoted
 : >"$APPIMAGE"
 export APPIMAGE
 export HOME="$TMP/home"
@@ -96,12 +96,12 @@ out="$(APPIMAGE="$odd" "$APPDIR/AppRun" x)" || fail "launch with an odd path exi
 [[ "$out" = "stub: x" ]] || fail "odd path: $out"
 [[ ! -e "$XDG_DATA_HOME" ]] || fail "integrated an AppImage path that needs escaping"
 
-# 10. `cli <args>` runs figcraft-cli with the remaining arguments and integrates nothing.
+# 10. `cli <args>` runs most-interface-cli with the remaining arguments and integrates nothing.
 rm -rf "$XDG_DATA_HOME"
-out="$("$APPDIR/AppRun" cli mcp --attach 7979 2>&1)" && fail "cli ran without figcraft-cli in the AppDir"
-[[ "$out" = "figcraft: this AppImage was built without figcraft-cli" ]] || fail "missing cli: $out"
-printf '#!/bin/sh\necho "cli stub: $*"\n' >"$APPDIR/usr/bin/figcraft-cli"
-chmod +x "$APPDIR/usr/bin/figcraft-cli"
+out="$("$APPDIR/AppRun" cli mcp --attach 7979 2>&1)" && fail "cli ran without most-interface-cli in the AppDir"
+[[ "$out" = "most-interface: this AppImage was built without most-interface-cli" ]] || fail "missing cli: $out"
+printf '#!/bin/sh\necho "cli stub: $*"\n' >"$APPDIR/usr/bin/most-interface-cli"
+chmod +x "$APPDIR/usr/bin/most-interface-cli"
 out="$("$APPDIR/AppRun" cli mcp --attach 7979)" || fail "cli launch exited non-zero"
 [[ "$out" = "cli stub: mcp --attach 7979" ]] || fail "cli arguments not forwarded: $out"
 out="$("$APPDIR/AppRun" cli)" || fail "bare cli launch exited non-zero"

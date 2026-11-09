@@ -5,7 +5,7 @@ use std::io::Write;
 use std::process::{Command, Stdio};
 
 fn bin() -> Command {
-    Command::new(env!("CARGO_BIN_EXE_figcraft-cli"))
+    Command::new(env!("CARGO_BIN_EXE_most-interface-cli"))
 }
 
 fn tmp(name: &str) -> std::path::PathBuf {
@@ -100,7 +100,7 @@ fn bad_arguments_exit_2_without_panicking() {
         let out = bin().args(args).output().unwrap();
         assert_eq!(out.status.code(), Some(2), "{args:?}: {}", String::from_utf8_lossy(&out.stderr));
         let err = String::from_utf8_lossy(&out.stderr);
-        assert!(err.contains("Usage: figcraft-cli") || err.contains("try '--help'"), "{args:?}: {err}");
+        assert!(err.contains("Usage: most-interface-cli") || err.contains("try '--help'"), "{args:?}: {err}");
         assert!(!err.contains("panicked"));
     }
     let out = bin().args(["info", "/no/such/file.mostinterface"]).output().unwrap();
@@ -132,7 +132,7 @@ fn help_after_a_subcommand_prints_the_usage() {
         let out = bin().args(args).stdin(Stdio::null()).output().unwrap();
         assert_eq!(out.status.code(), Some(0), "{args:?}: {}", String::from_utf8_lossy(&out.stderr));
         let text = String::from_utf8_lossy(&out.stdout);
-        assert!(text.contains("Usage: figcraft-cli"), "{args:?}: {text}");
+        assert!(text.contains("Usage: most-interface-cli"), "{args:?}: {text}");
         assert!(out.stderr.is_empty(), "{args:?}: nothing on stderr, got {}", String::from_utf8_lossy(&out.stderr));
     }
     // A value that happens to be `--help` is still a value, not a request for help.

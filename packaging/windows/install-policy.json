@@ -1,5 +1,5 @@
 {
-  "id": "figcraft",
+  "id": "most-interface",
   "name": "Most Interface",
   "upgradeCode": "7F8B9827-D065-41B7-A514-2A454B21F484",
   "sources": [
@@ -15,7 +15,7 @@
   ],
   "payloads": [
     "NOTICE",
-    "figcraft-cli.exe",
+    "most-interface-cli.exe",
     "most-interface.exe"
   ],
   "registry": [

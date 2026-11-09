@@ -2,7 +2,7 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Build, sign and (optionally) notarize the macOS release artifacts:
 #
-#   $DIST/figcraft-<version>-macos-<arch>.dmg          Most Interface.app on a drag-to-Applications DMG
+#   $DIST/most-interface-<version>-macos-<arch>.dmg          Most Interface.app on a drag-to-Applications DMG
 #   $DIST/figcraft-cli-<version>-macos-<arch>.zip      the headless CLI (when apps/figcraft-cli exists)
 #
 # Usage: packaging/macos/package.sh [--arch universal|aarch64|x86_64] [--skip-build]
@@ -99,14 +99,14 @@ notarize() {
 }
 
 # ---- icon --------------------------------------------------------------------------------------
-# The .icns is generated here from the committed PNGs (assets/app-icon/figcraft-<size>.png, made by
+# The .icns is generated here from the committed PNGs (assets/app-icon/most-interface-<size>.png, made by
 # `cargo xtask icon`); it is never committed.
 ICONS="$ROOT/assets/app-icon"
 ICONSET="$WORK/Most Interface.iconset"
 mkdir -p "$ICONSET"
 for s in 16 32 128 256 512; do
-  cp "$ICONS/figcraft-$s.png" "$ICONSET/icon_${s}x${s}.png"
-  cp "$ICONS/figcraft-$((s * 2)).png" "$ICONSET/icon_${s}x${s}@2x.png"
+  cp "$ICONS/most-interface-$s.png" "$ICONSET/icon_${s}x${s}.png"
+  cp "$ICONS/most-interface-$((s * 2)).png" "$ICONSET/icon_${s}x${s}@2x.png"
 done
 iconutil -c icns -o "$WORK/Most Interface.icns" "$ICONSET"
 
@@ -114,7 +114,7 @@ iconutil -c icns -o "$WORK/Most Interface.icns" "$ICONSET"
 echo "==> assembling $APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 # Executable and icon carry the display name (CFBundleExecutable / CFBundleIconFile).
-cp "$WORK/bin/figcraft" "$APP/Contents/MacOS/Most Interface"
+cp "$WORK/bin/most-interface" "$APP/Contents/MacOS/Most Interface"
 cp "$WORK/Most Interface.icns" "$APP/Contents/Resources/Most Interface.icns"
 # Apache-2.0 §4: con cada distribucion van una copia de la LICENCIA y los
 # avisos del NOTICE. Antes solo se copiaba el NOTICE.
@@ -170,23 +170,23 @@ if [[ "$HAS_CLI" = 1 ]]; then
   echo "==> building $CLI_ZIP"
   CLI_DIR="$WORK/most-interface-cli-$VERSION-macos-$ARCH"
   mkdir -p "$CLI_DIR"
-  cp "$WORK/bin/figcraft-cli" "$CLI_DIR/"
+  cp "$WORK/bin/most-interface-cli" "$CLI_DIR/"
   copy_docs "$CLI_DIR"
   # Same Developer ID and hardened runtime as the app, with an explicit reverse-DNS identifier
   # (codesign would otherwise use the bare file name).
-  sign --options runtime --identifier com.grupomostmexico.mostinterface-cli "$CLI_DIR/figcraft-cli"
-  codesign --verify --strict --verbose=2 "$CLI_DIR/figcraft-cli"
+  sign --options runtime --identifier com.grupomostmexico.mostinterface-cli "$CLI_DIR/most-interface-cli"
+  codesign --verify --strict --verbose=2 "$CLI_DIR/most-interface-cli"
   rm -f "$CLI_ZIP"
   ditto -c -k --keepParent "$CLI_DIR" "$CLI_ZIP"
   # notarytool accepts a zip of the bare binary. A bare Mach-O can't carry a stapled ticket, so
   # Gatekeeper looks the notarization up online when a quarantined copy first runs.
   if [[ "$NOTARIZE" = 1 ]]; then notarize "$CLI_ZIP"; fi
-  "$WORK/bin/figcraft-cli" --version
+  "$WORK/bin/most-interface-cli" --version
 else
   warn "apps/figcraft-cli is not in this workspace: no CLI zip"
   rm -f "$CLI_ZIP"
 fi
 
-"$WORK/bin/figcraft" --version
+"$WORK/bin/most-interface" --version
 echo "==> done (check the artifacts as shipped with packaging/macos/verify.sh --arch $ARCH)"
 ls -lh "$DIST"/most-interface*-"$VERSION"-macos-"$ARCH".*

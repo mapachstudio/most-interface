@@ -21,7 +21,7 @@ runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
-command: figcraft
+command: most-interface
 finish-args:
   - --filesystem=xdg-data/GrupoMOST/versions:ro
   # Display: Wayland first; X11 only when no Wayland compositor is running.
@@ -43,19 +43,19 @@ finish-args:
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
 modules:
-  - name: figcraft
+  - name: most-interface
     buildsystem: simple
     build-options:
       env:
-        CARGO_HOME: /run/build/figcraft/cargo
+        CARGO_HOME: /run/build/most-interface/cargo
         CARGO_NET_OFFLINE: 'true'
         # .cargo/config.toml points CRAFT_FONTS_DIR at ../craft-fonts for local builds; there is
         # none here, so build without it (a warning, not an error).
         CRAFT_FONTS_DIR: /nonexistent
     build-commands:
       - cargo --offline build --release --locked -p figcraft
-      - install -Dm755 target/release/figcraft /app/bin/figcraft
-      - install -Dm644 NOTICE /app/share/doc/figcraft/NOTICE
+      - install -Dm755 target/release/most-interface /app/bin/most-interface
+      - install -Dm644 NOTICE /app/share/doc/most-interface/NOTICE
       - install -Dm644 packaging/linux/com.grupomostmexico.mostinterface.desktop /app/share/applications/com.grupomostmexico.mostinterface.desktop
       - install -Dm644 packaging/linux/com.grupomostmexico.mostinterface.mime.xml /app/share/mime/packages/com.grupomostmexico.mostinterface.xml
       - mkdir -p /app/share/icons && cp -R assets/app-icon/hicolor /app/share/icons/

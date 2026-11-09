@@ -5,7 +5,7 @@
 # NFPM_ARCH and MOST_INTERFACE_MAINTAINER.
 #
 #   nfpm package -f packaging/linux/nfpm.yaml -p deb -t dist/release/
-name: figcraft
+name: most-interface
 arch: ${NFPM_ARCH}
 platform: linux
 version: ${VERSION}
@@ -70,11 +70,11 @@ overrides:
       - xdg-desktop-portal
 
 contents:
-  - src: ${STAGE}/usr/bin/figcraft
-    dst: /usr/bin/figcraft
+  - src: ${STAGE}/usr/bin/most-interface
+    dst: /usr/bin/most-interface
     file_info: { mode: 0755 }
-  - src: ${STAGE}/usr/bin/figcraft-cli #cli
-    dst: /usr/bin/figcraft-cli #cli
+  - src: ${STAGE}/usr/bin/most-interface-cli #cli
+    dst: /usr/bin/most-interface-cli #cli
     file_info: { mode: 0755 } #cli
   - src: ${STAGE}/usr/share/
     dst: /usr/share/

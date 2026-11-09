@@ -553,7 +553,7 @@ mod tests {
         }
         // The help is the subcommand's, even after a mistake.
         let help = try_parse(&["plugin", "publish", "--bogus", "--help"]).err().map(|e| e.to_string()).unwrap_or_default();
-        assert!(help.contains("Usage: figcraft-cli plugin publish"), "{help}");
+        assert!(help.contains("Usage: most-interface-cli plugin publish"), "{help}");
         // After `--`, `-h` is a file name.
         let Command::Info(a) = ok(&["info", "--", "-h"]) else { panic!("info") };
         assert_eq!(a.file, "-h");
@@ -567,7 +567,7 @@ mod tests {
         let mut todo = vec![cli];
         while let Some(mut cmd) = todo.pop() {
             let help = cmd.render_long_help().to_string();
-            assert!(help.contains("Usage: figcraft-cli"), "{}: {help}", cmd.get_name());
+            assert!(help.contains("Usage: most-interface-cli"), "{}: {help}", cmd.get_name());
             for arg in cmd.get_arguments().filter(|a| !matches!(a.get_long(), Some("help" | "version"))) {
                 assert!(arg.get_help().is_some(), "{} {}", cmd.get_name(), arg.get_id());
             }

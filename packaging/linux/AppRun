@@ -9,7 +9,7 @@
 # hicolor icons into $XDG_DATA_HOME, then launch. Every failure here must leave
 # the launch untouched. Opt out with MOST_INTERFACE_NO_DESKTOP_INTEGRATION=1.
 #
-# `Most Interface.AppImage cli <args>` runs the bundled headless figcraft-cli with <args>
+# `Most Interface.AppImage cli <args>` runs the bundled headless most-interface-cli with <args>
 # (e.g. `cli mcp`) instead of the app, without touching the desktop.
 
 set -u
@@ -75,13 +75,13 @@ integrate() {
 # desktop integration, straight to the binary.
 if [ "${1:-}" = cli ]; then
   shift
-  cli="$APPDIR/usr/bin/figcraft-cli"
+  cli="$APPDIR/usr/bin/most-interface-cli"
   if [ ! -x "$cli" ]; then
-    echo "figcraft: this AppImage was built without figcraft-cli" >&2
+    echo "most-interface: this AppImage was built without most-interface-cli" >&2
     exit 127
   fi
   exec "$cli" "$@"
 fi
 
 integrate
-exec "$APPDIR/usr/bin/figcraft" "$@"
+exec "$APPDIR/usr/bin/most-interface" "$@"

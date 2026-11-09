@@ -52,7 +52,7 @@
     <control>pointing</control>
   </supports>
   <provides>
-    <binary>figcraft</binary>
+    <binary>most-interface</binary>
     <mediatype>application/x-most-interface</mediatype>
     <mediatype>application/x-sketch</mediatype>
   </provides>

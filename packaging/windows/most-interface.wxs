@@ -72,7 +72,7 @@
 
         <!-- .mostinterface: Most Interface's own format; Most Interface is its default app. -->
         <ProgId Id="Figcraft.Document" Description="Most Interface Document" Icon="FigcraftExe" IconIndex="0">
-          <Extension Id="figcraft" ContentType="application/x-most-interface">
+          <Extension Id="most-interface" ContentType="application/x-most-interface">
             <Verb Id="open" Command="Open" TargetFile="FigcraftExe" Argument="&quot;%1&quot;" />
           </Extension>
         </ProgId>
@@ -88,7 +88,7 @@
         <RegistryValue Root="HKMU" Key="Software\Classes\Figcraft.Sketch\shell\open\command" Value="&quot;[#FigcraftExe]&quot; &quot;%1&quot;" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\.sketch\OpenWithProgids" Name="Figcraft.Sketch" Value="" Type="string" />
 
-        <!-- "Open with" app list and the Run dialog (Win+R "figcraft"). -->
+        <!-- "Open with" app list and the Run dialog (Win+R "most-interface"). -->
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe" Name="FriendlyAppName" Value="Most Interface" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe\shell\open\command" Value="&quot;[#FigcraftExe]&quot; &quot;%1&quot;" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\most-interface.exe\SupportedTypes" Name=".mostinterface" Value="" Type="string" />
@@ -103,7 +103,7 @@
 
 <?if $(var.HasCli) = 1 ?>
       <Component Id="FigcraftCli">
-        <File Id="FigcraftCliExe" Source="$(var.BinDir)\figcraft-cli.exe" KeyPath="yes" />
+        <File Id="FigcraftCliExe" Source="$(var.BinDir)\most-interface-cli.exe" KeyPath="yes" />
       </Component>
 <?endif?>
     </ComponentGroup>

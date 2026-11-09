@@ -154,7 +154,7 @@ fn main() -> eframe::Result {
     let args = args::parse(&args);
     if let Some(flag) = args.unknown.first() {
         eprintln!(
-            "Most Interface: unknown option {flag}\nUsage: figcraft [--control PORT] [--automation-read-root DIR]... [--automation-write-root DIR]... [FILE | figcraft://join?...]..."
+            "Most Interface: unknown option {flag}\nUsage: most-interface [--control PORT] [--automation-read-root DIR]... [--automation-write-root DIR]... [FILE | figcraft://join?...]..."
         );
         std::process::exit(2);
     }

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Build and package the collaboration server for this machine (see docs/server.md):
 #
-#   $DIST/figcraft-server-<version>-<os>-<arch>.tar.gz
+#   $DIST/most-interface-server-<version>-<os>-<arch>.tar.gz
 #
-# One directory with the figcraft-server binary, the licences, docs/server.md and the deployment
+# One directory with the most-interface-server binary, the licences, docs/server.md and the deployment
 # files (install.sh, systemd units, Caddyfile, nginx). A headless binary: no desktop files, no fonts.
 #
 # Usage: packaging/server/package.sh [--skip-build]
@@ -28,7 +28,7 @@ case "$ARCH" in
   *) ;; # already a release name (x86_64, aarch64)
 esac
 NAME="most-interface-server-$VERSION-$OS-$ARCH"
-echo "==> figcraft-server $VERSION for $OS $ARCH"
+echo "==> most-interface-server $VERSION for $OS $ARCH"
 
 if [[ "$SKIP_BUILD" = 0 ]]; then
   (cd "$ROOT" && cargo build --release --locked -p figcraft-server)
@@ -37,14 +37,14 @@ WORK="$CARGO_TARGET_DIR/server-package"
 STAGE="$WORK/$NAME"
 rm -rf "$WORK"
 mkdir -p "$STAGE"
-cp "$CARGO_TARGET_DIR/release/figcraft-server" "$STAGE/"
-strip "$STAGE/figcraft-server" 2>/dev/null || true
+cp "$CARGO_TARGET_DIR/release/most-interface-server" "$STAGE/"
+strip "$STAGE/most-interface-server" 2>/dev/null || true
 for f in LICENSE-MIT LICENSE-APACHE NOTICE docs/server.md; do cp "$ROOT/$f" "$STAGE/"; done
 cp "$HERE/most-interface-server.service" "$HERE/most-interface-backup.service" "$HERE/most-interface-backup.timer" "$HERE/Caddyfile" "$HERE/nginx.conf" "$STAGE/"
 install -m 755 "$HERE/install.sh" "$STAGE/"
 
 # Smoke test: the binary runs and reports the version being shipped.
-"$STAGE/figcraft-server" --version | grep -F "$VERSION"
+"$STAGE/most-interface-server" --version | grep -F "$VERSION"
 
 tar -C "$WORK" -czf "$DIST/$NAME.tar.gz" "$NAME"
 echo "==> $DIST/$NAME.tar.gz"

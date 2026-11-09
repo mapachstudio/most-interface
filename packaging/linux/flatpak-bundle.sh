@@ -2,16 +2,16 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Repackage a Most Interface Linux tarball as a single-file Flatpak bundle:
 #
-#   $DIST/figcraft-<version>-linux-<arch>.flatpak
+#   $DIST/most-interface-<version>-linux-<arch>.flatpak
 #
 # Usage: packaging/linux/flatpak-bundle.sh [--no-test] [TARBALL]
 #
-# TARBALL defaults to $DIST/figcraft-<version>-linux-<arch>.tar.gz from package.sh. The bundle
+# TARBALL defaults to $DIST/most-interface-<version>-linux-<arch>.tar.gz from package.sh. The bundle
 # is built for the host architecture (x86_64 or aarch64), which must match the tarball's.
 # Needs flatpak, flatpak-builder and the SVG pixbuf loader (librsvg2-common) for the host's
 # `appstreamcli compose`; the freedesktop runtime and SDK named in the manifest are
 # installed per-user from Flathub. Unless --no-test, the bundle is then installed per-user and
-# `figcraft-cli --version` (or `figcraft --version` without the CLI) is run inside the sandbox
+# `most-interface-cli --version` (or `most-interface --version` without the CLI) is run inside the sandbox
 # as a smoke test.
 # Manifest: packaging/linux/flatpak/com.grupomostmexico.mostinterface.bundle.yml.
 set -euo pipefail
@@ -53,7 +53,7 @@ WORK="$CARGO_TARGET_DIR/flatpak-bundle"
 rm -rf "$WORK"
 mkdir -p "$WORK/stage"
 tar -xzf "$TARBALL" -C "$WORK/stage" --strip-components=1
-[[ -x "$WORK/stage/bin/figcraft" ]] || { echo "error: $TARBALL has no bin/figcraft" >&2; exit 1; }
+[[ -x "$WORK/stage/bin/most-interface" ]] || { echo "error: $TARBALL has no bin/most-interface" >&2; exit 1; }
 cp "$HERE/flatpak/$APP_ID.bundle.yml" "$WORK/$APP_ID.yml"
 
 flatpak remote-add --user --if-not-exists flathub "$FLATHUB"
@@ -75,7 +75,7 @@ fi
 if [[ "$TEST" = 1 ]]; then
   flatpak install --user -y --noninteractive --reinstall "$OUT"
   flatpak info --user "$APP_ID"
-  if [[ -x "$WORK/stage/bin/figcraft-cli" ]]; then smoke=figcraft-cli; else smoke=figcraft; fi
+  if [[ -x "$WORK/stage/bin/most-interface-cli" ]]; then smoke=most-interface-cli; else smoke=most-interface; fi
   flatpak run --command="$smoke" "$APP_ID" --version
   flatpak run --command=sh "$APP_ID" -c 'ls /app/share/applications /app/share/metainfo /app/share/mime/packages /app/share/icons/hicolor/256x256/apps'
 fi

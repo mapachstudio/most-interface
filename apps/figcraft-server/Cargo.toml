@@ -11,7 +11,7 @@ description = "Most Interface's standalone collaboration server: keeps many file
 path = "src/lib.rs"
 
 [[bin]]
-name = "figcraft-server"
+name = "most-interface-server"
 path = "src/main.rs"
 
 [lints]

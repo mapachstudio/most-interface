@@ -11,7 +11,7 @@ publish = false
 workspace = true
 
 [[bin]]
-name = "figcraft-web"
+name = "most-interface-web"
 path = "src/main.rs"
 
 [dependencies]

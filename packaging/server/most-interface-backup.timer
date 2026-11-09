@@ -1,9 +1,9 @@
-# Runs figcraft-backup.service every night (see that file).
-#   sudo systemctl enable --now figcraft-backup.timer
-#   systemctl list-timers figcraft-backup.timer
+# Runs most-interface-backup.service every night (see that file).
+#   sudo systemctl enable --now most-interface-backup.timer
+#   systemctl list-timers most-interface-backup.timer
 
 [Unit]
-Description=Nightly backup of figcraft-server's data directory
+Description=Nightly backup of most-interface-server's data directory
 
 [Timer]
 OnCalendar=*-*-* 04:00:00

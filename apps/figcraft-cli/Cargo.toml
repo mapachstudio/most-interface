@@ -8,7 +8,7 @@ publish = false
 description = "Most Interface command line: info, export, convert, render, scripted commands, MCP server, perf"
 
 [[bin]]
-name = "figcraft-cli"
+name = "most-interface-cli"
 path = "src/main.rs"
 
 [lints]

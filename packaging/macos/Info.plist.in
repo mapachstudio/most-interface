@@ -63,7 +63,7 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.filename-extension</key>
-        <array><string>figcraft</string></array>
+        <array><string>most-interface</string></array>
         <key>public.mime-type</key>
         <array><string>application/x-most-interface</string></array>
       </dict>
@@ -92,7 +92,7 @@
     </dict>
   </array>
 
-  <!-- figcraft://join?... live session invite links open Most Interface. -->
+  <!-- most-interface://join?... live session invite links open Most Interface. -->
   <key>CFBundleURLTypes</key>
   <array>
     <dict>
@@ -101,7 +101,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLSchemes</key>
-      <array><string>figcraft</string></array>
+      <array><string>most-interface</string></array>
     </dict>
   </array>
 

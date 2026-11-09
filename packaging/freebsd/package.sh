@@ -2,13 +2,13 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Build and package Most Interface for FreeBSD:
 #
-#   $DIST/figcraft-<version>-freebsd-<arch>.tar.gz   (arch: x86_64 or aarch64) a /usr/local-style tree:
-#       figcraft-<version>-freebsd-<arch>/{bin, share/applications, share/icons, share/mime,
-#       share/metainfo, share/doc/figcraft}
+#   $DIST/most-interface-<version>-freebsd-<arch>.tar.gz   (arch: x86_64 or aarch64) a /usr/local-style tree:
+#       most-interface-<version>-freebsd-<arch>/{bin, share/applications, share/icons, share/mime,
+#       share/metainfo, share/doc/most-interface}
 #   bin/ holds figcraft, plus figcraft-cli once apps/figcraft-cli exists.
 #
 # Install by copying the tree's contents into /usr/local:
-#   tar -xzf figcraft-<version>-freebsd-<arch>.tar.gz --strip-components 1 -C /usr/local
+#   tar -xzf most-interface-<version>-freebsd-<arch>.tar.gz --strip-components 1 -C /usr/local
 #
 # Usage: packaging/freebsd/package.sh [--skip-build] [--dry-run]
 #   --dry-run   stage the tree from stub binaries and list it, without building (works on any OS)
@@ -93,7 +93,7 @@ fi
 # ---- stage a /usr/local-style tree --------------------------------------------------------------
 # FreeBSD's install(1) has no -D: create the directories first.
 mkdir -p "$STAGE/bin" "$STAGE/share/applications" "$STAGE/share/mime/packages" \
-  "$STAGE/share/metainfo" "$STAGE/share/icons" "$STAGE/share/doc/figcraft"
+  "$STAGE/share/metainfo" "$STAGE/share/icons" "$STAGE/share/doc/most-interface"
 for b in "${BINS[@]}"; do
   install -m 755 "$BIN/$b" "$STAGE/bin/"
   strip "$STAGE/bin/$b" 2>/dev/null || true
@@ -101,18 +101,18 @@ done
 # The desktop entry, MIME type, metainfo and icons are the freedesktop files Linux ships. The
 # window's X11 class is the binary's name here (egui-winit names the window after the app id on
 # Linux only), so the entry matches that.
-sed -e "s/^StartupWMClass=.*/StartupWMClass=figcraft/" "$LINUX/$APP_ID.desktop" >"$STAGE/share/applications/$APP_ID.desktop"
+sed -e "s/^StartupWMClass=.*/StartupWMClass=most-interface/" "$LINUX/$APP_ID.desktop" >"$STAGE/share/applications/$APP_ID.desktop"
 chmod 644 "$STAGE/share/applications/$APP_ID.desktop"
 install -m 644 "$LINUX/$APP_ID.mime.xml" "$STAGE/share/mime/packages/$APP_ID.xml"
 sed -e "s/@VERSION@/$VERSION/g" -e "s/@DATE@/$MOST_INTERFACE_BUILD_DATE/g" \
   "$LINUX/$APP_ID.metainfo.xml.in" >"$STAGE/share/metainfo/$APP_ID.metainfo.xml"
 cp -R "$ROOT/assets/app-icon/hicolor" "$STAGE/share/icons/"
-copy_docs "$STAGE/share/doc/figcraft"
-if [[ -f "$ROOT/ATTRIBUTION.md" ]]; then install -m 644 "$ROOT/ATTRIBUTION.md" "$STAGE/share/doc/figcraft/"; fi
+copy_docs "$STAGE/share/doc/most-interface"
+if [[ -f "$ROOT/ATTRIBUTION.md" ]]; then install -m 644 "$ROOT/ATTRIBUTION.md" "$STAGE/share/doc/most-interface/"; fi
 
 for f in "${BINS[@]/#/bin/}" "share/applications/$APP_ID.desktop" \
   "share/icons/hicolor/256x256/apps/$APP_ID.png" \
-  share/doc/figcraft/LICENSE-MIT share/doc/figcraft/LICENSE-APACHE; do
+  share/doc/most-interface/LICENSE-MIT share/doc/most-interface/LICENSE-APACHE; do
   if [[ ! -e "$STAGE/$f" ]]; then echo "error: $f is missing from the package" >&2; exit 1; fi
 done
 

@@ -56,7 +56,7 @@ if (-not $haveCert -and -not $haveAzure) {
 
 $script:SignTool = Find-SignTool
 $common = @('sign', '/v', '/fd', 'SHA256', '/td', 'SHA256', '/d', 'Most Interface', '/du', 'https://github.com/mapachstudio/most-interface')
-$tmp = Join-Path ([IO.Path]::GetTempPath()) "figcraft-sign-$([IO.Path]::GetRandomFileName())"
+$tmp = Join-Path ([IO.Path]::GetTempPath()) "most-interface-sign-$([IO.Path]::GetRandomFileName())"
 New-Item -ItemType Directory -Path $tmp | Out-Null
 
 try {

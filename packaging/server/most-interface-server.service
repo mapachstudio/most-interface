@@ -1,7 +1,7 @@
-# systemd unit for figcraft-server; setup in docs/server.md ("Deploy on a Linux server").
-# Install: sudo cp figcraft-server.service /etc/systemd/system/ && sudo systemctl daemon-reload
-#          sudo systemctl enable --now figcraft-server
-# Logs:    journalctl -u figcraft-server
+# systemd unit for most-interface-server; setup in docs/server.md ("Deploy on a Linux server").
+# Install: sudo cp most-interface-server.service /etc/systemd/system/ && sudo systemctl daemon-reload
+#          sudo systemctl enable --now most-interface-server
+# Logs:    journalctl -u most-interface-server
 
 [Unit]
 Description=Most Interface collaboration server
@@ -11,9 +11,9 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=figcraft
-Group=figcraft
-ExecStart=/usr/local/bin/figcraft-server --config /etc/figcraft-server/server.toml
+User=most-interface
+Group=most-interface
+ExecStart=/usr/local/bin/most-interface-server --config /etc/most-interface-server/server.toml
 # SIGTERM (systemctl stop/restart) stops it gracefully: open files are saved and compacted, and
 # apps are told the server is restarting (they reconnect when it is back).
 KillSignal=SIGTERM
@@ -35,7 +35,7 @@ IPAddressDeny=any
 # Hardening: the only writable place is the data directory.
 NoNewPrivileges=yes
 ProtectSystem=strict
-ReadWritePaths=/var/lib/figcraft-server
+ReadWritePaths=/var/lib/most-interface-server
 ProtectHome=yes
 PrivateTmp=yes
 PrivateDevices=yes

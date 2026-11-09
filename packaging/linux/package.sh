@@ -2,11 +2,11 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Build and package Most Interface for Linux (<arch> is x86_64 or aarch64, or riscv64 when cross-compiling):
 #
-#   $DIST/figcraft-<version>-linux-<arch>.AppImage  any distro with glibc >= the build host's
-#   $DIST/figcraft-<version>-linux-<arch>.AppImage.zsync  delta updates (needs zsyncmake)
-#   $DIST/figcraft-<version>-linux-<arch>.deb       Debian, Ubuntu, Mint, Pop!_OS, ...
-#   $DIST/figcraft-<version>-linux-<arch>.rpm       Fedora, openSUSE, RHEL, ...
-#   $DIST/figcraft-<version>-linux-<arch>.tar.gz    plain FHS-style tree (bin/, share/)
+#   $DIST/most-interface-<version>-linux-<arch>.AppImage  any distro with glibc >= the build host's
+#   $DIST/most-interface-<version>-linux-<arch>.AppImage.zsync  delta updates (needs zsyncmake)
+#   $DIST/most-interface-<version>-linux-<arch>.deb       Debian, Ubuntu, Mint, Pop!_OS, ...
+#   $DIST/most-interface-<version>-linux-<arch>.rpm       Fedora, openSUSE, RHEL, ...
+#   $DIST/most-interface-<version>-linux-<arch>.tar.gz    plain FHS-style tree (bin/, share/)
 #
 # figcraft-cli is built and shipped next to figcraft once apps/figcraft-cli exists.
 #
@@ -75,8 +75,8 @@ sed -e "s/@VERSION@/$VERSION/g" -e "s/@DATE@/$MOST_INTERFACE_BUILD_DATE/g" \
   "$HERE/$APP_ID.metainfo.xml.in" >"$STAGE/usr/share/metainfo/$APP_ID.metainfo.xml"
 mkdir -p "$STAGE/usr/share/icons"
 cp -R "$ROOT/assets/app-icon/hicolor" "$STAGE/usr/share/icons/"
-mkdir -p "$STAGE/usr/share/doc/figcraft"
-copy_docs "$STAGE/usr/share/doc/figcraft"
+mkdir -p "$STAGE/usr/share/doc/most-interface"
+copy_docs "$STAGE/usr/share/doc/most-interface"
 
 if command -v desktop-file-validate >/dev/null; then
   desktop-file-validate "$STAGE/usr/share/applications/$APP_ID.desktop"
@@ -179,7 +179,7 @@ if has appimage; then
   # next to each AppImage on GitHub Releases. `latest` is the newest published release that is
   # not a pre-release. A fork's builds point at its own releases through GITHUB_REPOSITORY.
   REPO="${GITHUB_REPOSITORY:-mapachstudio/most-interface}"
-  UPDATE_INFO="gh-releases-zsync|${REPO%%/*}|${REPO#*/}|latest|figcraft-*-linux-$ARCH.AppImage.zsync"
+  UPDATE_INFO="gh-releases-zsync|${REPO%%/*}|${REPO#*/}|latest|most-interface-*-linux-$ARCH.AppImage.zsync"
   # Extract-and-run: works without FUSE (containers, CI). The output embeds the static runtime,
   # so users don't need libfuse2 either. With zsyncmake on the host (CI installs the zsync
   # package) appimagetool also writes the .zsync, into its working directory, hence the cd.

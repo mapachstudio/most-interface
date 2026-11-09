@@ -17,7 +17,7 @@ manifests = []
 for name in ("com.grupomostmexico.mostinterface.yml", "com.grupomostmexico.mostinterface.bundle.yml"):
     with open("packaging/linux/flatpak/" + name) as source:
         manifest = yaml.safe_load(source)
-    assert manifest["id"] == "com.grupomostmexico.mostinterface" and manifest["command"] == "figcraft", name
+    assert manifest["id"] == "com.grupomostmexico.mostinterface" and manifest["command"] == "most-interface", name
     manifests.append(manifest)
 for key in ("runtime", "runtime-version", "sdk", "finish-args"):
     assert manifests[0][key] == manifests[1][key], f"Flatpak manifests disagree on {key}"

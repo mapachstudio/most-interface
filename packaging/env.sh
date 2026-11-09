@@ -10,9 +10,9 @@
 #   MOST_INTERFACE_BUILD_DATE   UTC build date, YYYY-MM-DD
 #   CARGO_TARGET_DIR      cargo's target dir (default: $ROOT/target)
 # Sets (not exported):
-#   BINS                  the binaries to build and ship: figcraft, plus figcraft-cli when the
+#   BINS                  the binaries to build and ship: most-interface, plus most-interface-cli when the
 #                         workspace has apps/figcraft-cli
-#   HAS_CLI               1 when figcraft-cli is part of the build, else 0
+#   HAS_CLI               1 when most-interface-cli is part of the build, else 0
 #   CARGO_PKGS            `-p <bin>` arguments for cargo build
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -47,20 +47,26 @@ export MOST_INTERFACE_BUILD_DATE="${MOST_INTERFACE_BUILD_DATE:-$(date -u +%Y-%m-
 export CARGO_TARGET_DIR="${CARGO_TARGET_DIR:-$ROOT/target}"
 
 # The headless CLI ships next to the app once apps/figcraft-cli exists.
-BINS=(figcraft)
+# El nombre del EJECUTABLE y el del PAQUETE de cargo son distintos y lo
+# seguirán siendo: el ejecutable lleva nuestra marca porque el cliente lo
+# ve, y el paquete conserva el suyo porque es un identificador de código
+# (y moverlo movería el Cargo.lock entero).
+BINS=(most-interface)
+PKGS=(figcraft)
 HAS_CLI=0
 if [[ -f "$ROOT/apps/figcraft-cli/Cargo.toml" ]]; then
-  BINS+=(figcraft-cli)
+  BINS+=(most-interface-cli)
+  PKGS+=(figcraft-cli)
   HAS_CLI=1
 fi
 CARGO_PKGS=()
-for _bin in "${BINS[@]}"; do CARGO_PKGS+=(-p "$_bin"); done
-unset _bin
+for _pkg in "${PKGS[@]}"; do CARGO_PKGS+=(-p "$_pkg"); done
+unset _pkg
 
 # The binary used for a `--version` smoke test: the CLI when shipped, else the app (which answers
 # --version before opening a window).
 smoke_bin() {
-  if [[ "$HAS_CLI" = 1 ]]; then echo figcraft-cli; else echo figcraft; fi
+  if [[ "$HAS_CLI" = 1 ]]; then echo most-interface-cli; else echo most-interface; fi
   return 0
 }
 
