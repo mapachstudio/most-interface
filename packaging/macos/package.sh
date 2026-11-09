@@ -187,4 +187,4 @@ fi
 
 "$WORK/bin/figcraft" --version
 echo "==> done (check the artifacts as shipped with packaging/macos/verify.sh --arch $ARCH)"
-ls -lh "$DIST"/figcraft*-"$VERSION"-macos-"$ARCH".*
+ls -lh "$DIST"/most-interface*-"$VERSION"-macos-"$ARCH".*
