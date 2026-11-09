@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Build, sign and package FigCraft for Windows.
+  Build, sign and package Most Interface for Windows.
 
 .DESCRIPTION
   Produces, in $env:DIST (default: dist/release):
@@ -36,7 +36,7 @@ function Invoke-Native([string] $What, [scriptblock] $Block) {
 }
 
 # The version lives in one place: [workspace.package] version in the root Cargo.toml.
-$Version = $env:FIGCRAFT_VERSION
+$Version = $env:MOST_INTERFACE_VERSION
 if (-not $Version) {
   $inPkg = $false
   foreach ($line in Get-Content (Join-Path $Root 'Cargo.toml')) {
@@ -53,14 +53,14 @@ $Dist = if ($env:DIST) { $env:DIST } else { Join-Path $Root 'dist\release' }
 $TargetDir = if ($env:CARGO_TARGET_DIR) { $env:CARGO_TARGET_DIR } else { Join-Path $Root 'target' }
 New-Item -ItemType Directory -Force -Path $Dist | Out-Null
 
-if (-not $env:FIGCRAFT_BUILD_SHA) { $env:FIGCRAFT_BUILD_SHA = (git -C $Root rev-parse HEAD 2>$null) }
-if (-not $env:FIGCRAFT_BUILD_DATE) { $env:FIGCRAFT_BUILD_DATE = (Get-Date).ToUniversalTime().ToString('yyyy-MM-dd') }
+if (-not $env:MOST_INTERFACE_BUILD_SHA) { $env:MOST_INTERFACE_BUILD_SHA = (git -C $Root rev-parse HEAD 2>$null) }
+if (-not $env:MOST_INTERFACE_BUILD_DATE) { $env:MOST_INTERFACE_BUILD_DATE = (Get-Date).ToUniversalTime().ToString('yyyy-MM-dd') }
 
 # The headless CLI ships next to the app once apps/figcraft-cli exists.
 $HasCli = Test-Path (Join-Path $Root 'apps\figcraft-cli\Cargo.toml')
 $Bins = @('figcraft'); if ($HasCli) { $Bins += 'figcraft-cli' }
 
-Write-Output "FigCraft $Version for Windows $Arch ($Target): $($Bins -join ', ')"
+Write-Output "Most Interface $Version for Windows $Arch ($Target): $($Bins -join ', ')"
 
 if (-not $SkipBuild) {
   # Static CRT: no VC++ redistributable needed. Scoped to the target so host build scripts and
@@ -115,7 +115,7 @@ if ($env:CRAFT_FONTS_DIR) {
 # ---- end font notices for the MSI --------------------------------------------------------------
 
 # ---- MSI ---------------------------------------------------------------------------------------
-# The setup wizard's art, drawn here from the app icon so the MSI shows FigCraft rather than
+# The setup wizard's art, drawn here from the app icon so the MSI shows Most Interface rather than
 # WiX's stock bitmaps: a 493x58 banner across the top of the inner pages (the page title is drawn
 # over its left side, so that stays white) and a 493x312 backdrop for the Welcome and Finish pages
 # (their text sits on the right; the left 164 px are ours). Both must be 24-bit BMPs.
@@ -150,15 +150,15 @@ function New-InstallerArt([string] $IconPng, [string] $BannerOut, [string] $Dial
 }
 $Banner = Join-Path $Stage 'installer-banner.bmp'
 $Dialog = Join-Path $Stage 'installer-dialog.bmp'
-New-InstallerArt (Join-Path $Root 'assets\app-icon\hicolor\256x256\apps\ai.storyteller.figcraft.png') $Banner $Dialog
+New-InstallerArt (Join-Path $Root 'assets\app-icon\hicolor\256x256\apps\ai.storyteller.most-interface.png') $Banner $Dialog
 
-$Msi = Join-Path $Dist "figcraft-$Version-windows-$Arch.msi"
+$Msi = Join-Path $Dist "most-interface-$Version-windows-$Arch.msi"
 & (Join-Path $PSScriptRoot 'check-icons.ps1')
 Invoke-Native 'wix build' {
-  wix build (Join-Path $PSScriptRoot 'figcraft.wxs') -arch $Arch `
+  wix build (Join-Path $PSScriptRoot 'most-interface.wxs') -arch $Arch `
     -ext WixToolset.UI.wixext -ext WixToolset.Util.wixext `
-    -culture en-US -loc (Join-Path $PSScriptRoot 'figcraft.en-us.wxl') `
-    -d "Version=$MsiVersion" -d "DisplayVersion=$Version" -d "BinDir=$Stage" -d "IconPath=$(Join-Path $Root 'assets\app-icon\figcraft.ico')" `
+    -culture en-US -loc (Join-Path $PSScriptRoot 'most-interface.en-us.wxl') `
+    -d "Version=$MsiVersion" -d "DisplayVersion=$Version" -d "BinDir=$Stage" -d "IconPath=$(Join-Path $Root 'assets\app-icon\most-interface.ico')" `
     -d "BannerBmp=$Banner" -d "DialogBmp=$Dialog" -d "HasCli=$([int]$HasCli)" `
     -d "DocsDir=$Docs" -d "HasCraftFontLicences=$HasCraftFontLicences" `
     -o $Msi
@@ -173,7 +173,7 @@ Remove-Item -Force -ErrorAction SilentlyContinue ([IO.Path]::ChangeExtension($Ms
 & (Join-Path $PSScriptRoot 'sign.ps1') $Msi
 
 # ---- portable zip ------------------------------------------------------------------------------
-$Portable = Join-Path $TargetDir "windows-package\figcraft-$Version-windows-$Arch-portable"
+$Portable = Join-Path $TargetDir "windows-package\most-interface-$Version-windows-$Arch-portable"
 Remove-Item -Recurse -Force $Portable -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $Portable | Out-Null
 Copy-Item (Join-Path $Stage '*.exe') $Portable
@@ -190,10 +190,10 @@ if ($env:CRAFT_FONTS_DIR) {
   }
 }
 # A `portable` file next to figcraft.exe keeps its settings, recovery copies and plugins in
-# config\ beside it instead of %APPDATA%\FigCraft (#1320). The first start copies the
-# preferences an installed FigCraft kept there, if any.
+# config\ beside it instead of %APPDATA%\Most Interface (#1320). The first start copies the
+# preferences an installed Most Interface kept there, if any.
 New-Item -ItemType File -Force -Path (Join-Path $Portable 'portable') | Out-Null
-$Zip = Join-Path $Dist "figcraft-$Version-windows-$Arch-portable.zip"
+$Zip = Join-Path $Dist "most-interface-$Version-windows-$Arch-portable.zip"
 Remove-Item -Force $Zip -ErrorAction SilentlyContinue
 Compress-Archive -Path $Portable -DestinationPath $Zip
 

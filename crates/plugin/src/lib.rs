@@ -1,5 +1,6 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-//! Most Interface plugins: the manifest (`figcraft-plugin.json`) and the WebAssembly sandbox a plugin
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! Most Interface plugins: the manifest (`most-interface-plugin.json`) and the WebAssembly sandbox a plugin
 //! runs in, and the widget descriptions a plugin hands back. The engine decides what a plugin may
 //! do (its permissions, which commands it may call, one undo step per run, panel or widget
 //! callback, where settings are kept); this crate only runs modules safely: a metered interpreter

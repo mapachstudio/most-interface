@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! UI frame benchmarks on large documents (ignored by default; `cargo xtask bench` runs them in
 //! release): the whole UI drawn headless through egui, timing idle frames, hovering, panning and a
 //! layers panel with every screen expanded. Also the per-document-version caches that keep those

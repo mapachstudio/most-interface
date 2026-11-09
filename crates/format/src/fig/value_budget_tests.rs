@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Dense legitimate canvases must open whole within the value budget their size gives them, and a
 //! small canvas that unpacks past the floor (tens of millions of values) must stay refused. The dense ones take seconds and gigabytes:
 //! `cargo test -p figcraft-format --release --lib value_budget -- --ignored --test-threads=1`.

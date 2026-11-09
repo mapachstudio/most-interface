@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The Join dialog's keyboard (its field takes the keys when it opens; Escape closes it without
 //! reaching the canvas), opening the app with an invite link, and the browser's Share popover
 //! (it joins but can't host).

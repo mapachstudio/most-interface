@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! What other readers of `.fig` files need from the export: the document and its pages say they
 //! are visible and opaque, every drawn layer carries its outline, text carries its layout
 //! settings, and the schema written into the file numbers its definitions, fields and enum values

@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::{
     AUTO_SAVE_RETRY_SECS, AUTO_SAVE_SECS, AUTOSAVE_SECS, Arc, DialogFuture, FigApp, OPEN_EXTENSIONS, OsStr, Path, PathBuf, PendingDialog, PickFuture,
     Picked, Poll, RepaintWaker, Services, TaskContext, Value, Waker, dialogs, i18n, json, repaint_in, windows,

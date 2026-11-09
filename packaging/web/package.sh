@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-# Build the browser version and zip it:  $DIST/figcraft-web-<version>.zip
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Build the browser version and zip it:  $DIST/most-interface-web-<version>.zip
 #
 # Usage: packaging/web/package.sh [--skip-build]
 #
 # Needs: trunk (brew install trunk / cargo install trunk --locked) and the wasm32-unknown-unknown
-# target. The zip holds a self-contained static site in figcraft-web-<version>/ that works
+# target. The zip holds a self-contained static site in most-interface-web-<version>/ that works
 # from any URL path and inside an <iframe>. Hosting notes: packaging/web/README.md.
 set -euo pipefail
 # shellcheck source=../env.sh
@@ -42,7 +43,7 @@ for wasm in "$SITE"/*.wasm; do
 done
 [[ "$WASM_COUNT" -gt 0 ]] || { echo "error: no .wasm in $SITE" >&2; exit 1; }
 
-NAME="figcraft-web-$VERSION"
+NAME="most-interface-web-$VERSION"
 WORK="$CARGO_TARGET_DIR/web-package"
 rm -rf "$WORK"
 mkdir -p "$WORK/$NAME"

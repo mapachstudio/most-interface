@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Pasting an image copied in another app (#663, #492). On the desktop, egui-winit swallows a plain
 //! Cmd/Ctrl+V, press and release, and sends a paste event for text or an image paste event for an
 //! image. The browser sends the press and a paste event (`web_clipboard_tests`).

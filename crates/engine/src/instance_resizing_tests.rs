@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Size and resizing overrides of layers inside instances: a layer in an instance can hug, fill or
 //! keep a fixed size of its own, and that override is kept through relayout, edits of the main
 //! (only the overridden property stays), undo, save and reopen (native and .fig), REST import,

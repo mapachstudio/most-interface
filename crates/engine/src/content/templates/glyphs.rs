@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Original icons for the starter templates: each is one outline drawn for Most Interface from straight
 //! lines, arcs and simple curves on a 24 px grid (2 px margin, 2 px round strokes).
 

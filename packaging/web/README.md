@@ -1,8 +1,9 @@
 <!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # Hosting Most Interface for the web
 
-`figcraft-web-<version>.zip` (from the GitHub release, or `packaging/web/package.sh`) holds a
-static site in `figcraft-web-<version>/`:
+`most-interface-web-<version>.zip` (from the GitHub release, or `packaging/web/package.sh`) holds a
+static site in `most-interface-web-<version>/`:
 
 | File | What it is |
 |---|---|
@@ -228,5 +229,5 @@ on SwiftShader:
 ```sh
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
   --use-angle=swiftshader --enable-unsafe-swiftshader --window-size=1440,900 \
-  --timeout=30000 --screenshot=figcraft-web.png "http://127.0.0.1:8767/?webgl"
+  --timeout=30000 --screenshot=most-interface-web.png "http://127.0.0.1:8767/?webgl"
 ```

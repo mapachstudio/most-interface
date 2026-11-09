@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! TLS for `wss://` addresses (native): rustls with ring, trusting Mozilla's root certificates
 //! (compiled in) plus any in the PEM file `MOST_INTERFACE_CA_FILE` names (a private authority or a
 //! self-signed server). Certificates are always verified.

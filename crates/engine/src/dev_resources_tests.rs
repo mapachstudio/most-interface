@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Dev resources: links for developers on layers, added, edited and removed, shown on a main
 //! component's instances, checked as web links (never fetched), saved, synced, undoable and in
 //! what agents inspect.

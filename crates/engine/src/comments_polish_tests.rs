@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Comment polish: pins that follow their layers (and stay put when the layers go), messages you
 //! edit and delete, reactions, @mentions, read state, filters and sorting, links that reveal a
 //! thread, and files from before all this.

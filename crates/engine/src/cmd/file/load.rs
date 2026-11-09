@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use std::collections::{BTreeMap, BTreeSet};
 
 use super::{DocState, Document, EngineError, LineHeight, NodeId, NodeKind, Result, StyleKind, TextStyle, Value, bad, get, json};

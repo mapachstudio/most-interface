@@ -261,7 +261,7 @@ fn publish(s: &mut Session, p: &Value) -> Result<Value> {
                 }
             }
         }
-        (None, None) => return Err(bad(cmd, "pass `path` (a plugin folder or its figcraft-plugin.json) or `plugin` (an installed plugin's id)")),
+        (None, None) => return Err(bad(cmd, "pass `path` (a plugin folder or its most-interface-plugin.json) or `plugin` (an installed plugin's id)")),
     };
     // Checked here too, for a clear message before anything is sent.
     bundle.check().map_err(|e| bad(cmd, e))?;
@@ -302,7 +302,7 @@ pub fn specs() -> Vec<CommandSpec> {
         spec!(
             "plugin.directory.publish",
             "Publish plugin to directory",
-            "{path (a plugin folder or its figcraft-plugin.json) | plugin (an installed plugin's id), server (ws://host:port/?key=…)} → {published: entry, server}",
+            "{path (a plugin folder or its most-interface-plugin.json) | plugin (an installed plugin's id), server (ws://host:port/?key=…)} → {published: entry, server}",
             false,
             publish
         ),

@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The player's side of the prototyping tail, written from the public documentation: controller
 //! buttons play key/gamepad triggers (from the system's controllers and injected through the
 //! control channel; no physical controller needed), and widgets react to clicks in a presented

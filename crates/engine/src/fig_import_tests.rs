@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `.fig` files through the file commands. The importer's own tests (fixtures built in code) are
 //! in `figcraft_format::fig`; the local check here runs only when `MOST_INTERFACE_FIG_SAMPLES` names a
 //! folder of `.fig` files with their frames' PNG exports next to them.

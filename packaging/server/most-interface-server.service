@@ -4,7 +4,7 @@
 # Logs:    journalctl -u figcraft-server
 
 [Unit]
-Description=FigCraft collaboration server
+Description=Most Interface collaboration server
 Documentation=https://github.com/storytold/figcraft/blob/main/docs/server.md
 Wants=network-online.target
 After=network-online.target

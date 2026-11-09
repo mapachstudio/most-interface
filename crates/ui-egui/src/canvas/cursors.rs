@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The pointer on the canvas: each engine cursor ([`figcraft_engine::tools::Cursor`]) as one of
 //! the system's cursors, or as a small glyph Most Interface draws at the pointer with the system's
 //! hidden (a rotate cursor turned to its corner, the pen's states, the eyedropper, the comment

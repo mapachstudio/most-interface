@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Bosnian (bosanski), Latin script, ijekavian.
 #
 # Written from the English catalog with ordinary Bosnian software vocabulary; no other catalog and no
@@ -938,7 +939,7 @@ status = "draft — needs native review"
 "No other pages" = "Nema drugih stranica"
 "No paints" = "Nema boja"
 "No plugins on {server}." = "Nema dodataka na serveru {server}."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Još nema dodataka. Uvezite razvojni dodatak iz njegovog figcraft-plugin.json."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Još nema dodataka. Uvezite razvojni dodatak iz njegovog most-interface-plugin.json."
 "No preferred components" = "Nema preferiranih komponenti"
 "No preset" = "Bez predloška"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Još nema sačuvanih verzija. Sačuvajte verziju da označite tačku u radu na koju se možete vratiti."

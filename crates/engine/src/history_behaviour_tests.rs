@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Comments and version history behaviour suite, written from the public documentation of design
 //! tools: each rule is a table row with what it implies and a one-line derivation. Where the
 //! documentation is silent the row says so and pins today's behaviour.

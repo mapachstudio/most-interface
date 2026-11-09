@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Finnish interface catalog. Original translations; MIT OR Apache-2.0.
 # AI-assisted draft; not reviewed by a human Finnish/native speaker.
 # Sentence case, imperative commands. Integer plurals: 1 taso, 0/2/21 tasoa.
@@ -947,7 +948,7 @@ status = "draft — needs native review"
 "No other pages" = "Ei muita sivuja"
 "No paints" = "Ei täyttöjä"
 "No plugins on {server}." = "Palvelimella {server} ei ole liitännäisiä."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Ei vielä liitännäisiä. Tuo kehitysliitännäinen sen figcraft-plugin.json-tiedostosta."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Ei vielä liitännäisiä. Tuo kehitysliitännäinen sen most-interface-plugin.json-tiedostosta."
 "No preferred components" = "Ei ensisijaisia komponentteja"
 "No preset" = "Ei esiasetusta"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Ei vielä tallennettuja versioita. Tallenna versio, jotta voit palata tähän työvaiheeseen myöhemmin."

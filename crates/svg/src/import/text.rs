@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! SVG text → text layers. Each absolutely positioned chunk (`<text x y>`, `<tspan x y>`) is a
 //! line; lines stacked at a steady pitch with the same anchor and font become one multi-line
 //! layer with that line height. `<tspan>` styles become style runs. The layer is placed so its

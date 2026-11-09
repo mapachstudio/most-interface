@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The Assets tab: components as thumbnail tiles filed in folders (their page, the frames holding
 //! them, then the slashes in their names; a folder folds away), searched, clicked to place or
 //! dragged onto the canvas to drop an instance into the frame or auto layout slot under the pointer

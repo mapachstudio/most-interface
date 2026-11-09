@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Command-line parsing: files, the control port and invite links.
 
 use crate::args::{Args, file_url_path, is_invite, parse};
@@ -58,7 +59,7 @@ fn invite_links_join_instead_of_opening() {
     let a = parse(&args(&["design.mostinterface", "FIGCRAFT://join/?host=h:1&file=f&token=t"]));
     assert_eq!(a.files, args(&["design.mostinterface"]));
     assert_eq!(a.join.as_deref(), Some("FIGCRAFT://join/?host=h:1&file=f&token=t"));
-    assert!(is_invite("figcraft:join") && !is_invite("figcraft.svg") && !is_invite("fig") && !is_invite("ü€figcraft:"));
+    assert!(is_invite("figcraft:join") && !is_invite("most-interface.svg") && !is_invite("fig") && !is_invite("ü€figcraft:"));
 }
 
 #[test]

@@ -1,4 +1,5 @@
 <!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # figcraft-server
 
 `figcraft-server` keeps Most Interface files for a team and serves their live sessions. A file published
@@ -414,8 +415,8 @@ file is used, and when the server stops).
 
 ## Backups
 
-[`packaging/server/figcraft-backup.timer`](../packaging/server/figcraft-backup.timer) (installed by
-`install.sh`; `sudo systemctl enable --now figcraft-backup.timer`) does the following every night:
+[`packaging/server/most-interface-backup.timer`](../packaging/server/most-interface-backup.timer) (installed by
+`install.sh`; `sudo systemctl enable --now most-interface-backup.timer`) does the following every night:
 it checks there is twice the data directory's size free, stops the server for the seconds the copy
 takes, keeps `/var/backups/figcraft-server/figcraft-YYYY-MM-DD.tar.gz` (readable by root only) for
 7 days and starts it again. Copy that folder off the machine too. The archives hold every file,
@@ -624,7 +625,7 @@ upgrades the binary and restarts the server only when something changed.
    ```sh
    ssh root@figcraft.example.com
    VERSION=$(curl -fsSL https://api.github.com/repos/storytold/figcraft/releases/latest | sed -n 's/.*"tag_name": *"v\([^"]*\)".*/\1/p')
-   curl -fLO "https://github.com/storytold/figcraft/releases/download/v$VERSION/figcraft-server-$VERSION-linux-$(uname -m).tar.gz"
+   curl -fLO "https://github.com/storytold/figcraft/releases/download/v$VERSION/most-interface-server-$VERSION-linux-$(uname -m).tar.gz"
    tar -xzf figcraft-server-*.tar.gz && cd figcraft-server-*/
    sudo ./install.sh --host figcraft.example.com --email abuse@example.com --terms https://example.com/figcraft-terms
    ```
@@ -663,7 +664,7 @@ release's `SHA256SUMS.txt`:
 
 ```sh
 VERSION=$(curl -fsSL https://api.github.com/repos/storytold/figcraft/releases/latest | sed -n 's/.*"tag_name": *"v\([^"]*\)".*/\1/p')
-NAME="figcraft-server-$VERSION-linux-$(uname -m)"
+NAME="most-interface-server-$VERSION-linux-$(uname -m)"
 curl -fLO "https://github.com/storytold/figcraft/releases/download/v$VERSION/$NAME.tar.gz"
 curl -fLO "https://github.com/storytold/figcraft/releases/download/v$VERSION/SHA256SUMS.txt"
 sha256sum --ignore-missing -c SHA256SUMS.txt
@@ -699,7 +700,7 @@ EOF
 
 (Add the settings of [a public server](#running-a-public-server) to open it to everyone.)
 
-**3. Run it with systemd.** [`figcraft-server.service`](../packaging/server/figcraft-server.service)
+**3. Run it with systemd.** [`most-interface-server.service`](../packaging/server/most-interface-server.service)
 runs it as that user, restarts it if it fails, stops it gracefully, and locks it down: no new
 privileges, a read-only system with only the data directory writable, no capabilities, private
 `/tmp` and devices, a system-call filter, memory caps (60% of the machine slows it down, 75%
@@ -707,7 +708,7 @@ stops and restarts it, so only this service is hit) and network only to this mac
 remove `IPAddressAllow`/`IPAddressDeny` to listen on a network address without one).
 
 ```sh
-sudo cp figcraft-server.service /etc/systemd/system/
+sudo cp most-interface-server.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now figcraft-server
 systemctl status figcraft-server        # logs: journalctl -u figcraft-server

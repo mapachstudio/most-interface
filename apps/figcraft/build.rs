@@ -1,13 +1,14 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Windows: embed the icon and version info in figcraft.exe and size its main thread's stack
 //! (no-op elsewhere).
 fn main() {
     println!("cargo::rustc-check-cfg=cfg(windows_slim_errors)");
-    println!("cargo::rerun-if-changed=../../assets/app-icon/figcraft.ico");
+    println!("cargo::rerun-if-changed=../../assets/app-icon/most-interface.ico");
     let target_os = std::env::var("CARGO_CFG_TARGET_OS").unwrap_or_default();
     if target_os == "windows" {
         let mut res = winresource::WindowsResource::new();
-        let ico = "../../assets/app-icon/figcraft.ico";
+        let ico = "../../assets/app-icon/most-interface.ico";
         if std::path::Path::new(ico).exists() {
             res.set_icon(ico);
         }

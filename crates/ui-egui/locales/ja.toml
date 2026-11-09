@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Japanese.
 #
 # Draft — needs native review: machine-drafted from the English catalog. Brand names, keyboard
@@ -893,7 +894,7 @@ status = "draft — needs native review"
 "No number variables yet. Create them in Local variables." = "数値変数はまだない。ローカル変数で作成。"
 "No paints" = "ペイントなし"
 "No plugins on {server}." = "{server} にプラグインはない。"
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "プラグインはまだない。開発用プラグインを figcraft-plugin.json からインポート。"
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "プラグインはまだない。開発用プラグインを most-interface-plugin.json からインポート。"
 "No preferred components" = "優先コンポーネントなし"
 "No preset" = "プリセットなし"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "保存したバージョンはまだない。バージョンを保存すると、作業の途中に戻れる地点を残せる。"

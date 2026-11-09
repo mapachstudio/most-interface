@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Paint behaviour, written from the public documentation of the design tools Most Interface follows:
 //! fill stacking and opacity, paint and layer blend modes (pass-through and isolating groups),
 //! the four gradient kinds and their handles, image scale modes, rotation and adjustments, the

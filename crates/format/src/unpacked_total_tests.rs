@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! One budget for everything a `.mostinterface` file unpacks when it opens (#1079): the document,
 //! images, version history and branches share it, beyond each area's own cap, and what passes it
 //! is left out (or, for the document, refused) with a note that says so. Images left out this way

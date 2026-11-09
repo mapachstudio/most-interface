@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Polish.
 #
 # Wording reviewed and approved by Lucas (@lukasz-sklad).
@@ -904,7 +905,7 @@ name = "Polski"
 "No other pages" = "Brak innych stron"
 "No paints" = "Brak wypełnień/obrysów"
 "No plugins on {server}." = "Brak wtyczek na {server}."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Brak wtyczek. Zaimportuj wtyczkę deweloperską z pliku figcraft-plugin.json."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Brak wtyczek. Zaimportuj wtyczkę deweloperską z pliku most-interface-plugin.json."
 "No preferred components" = "Brak preferowanych komponentów"
 "No preset" = "Brak presetu"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Brak zapisanych wersji. Zapisz wersję, aby oznaczyć punkt w pracy, do którego możesz wrócić."

@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Transform behaviour suite, written from the public documentation of design tools: resizing
 //! (Shift, Alt, both, flipping past an edge), rotating (Shift in 15° steps), groups and several
 //! layers with different rotations or flips, frames and constraints, lines, text, nudging, the

@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The home screen, drawn headless: the Templates grid (opened by click and by keyboard, searched,
 //! filtered, its empty state, its names for screen readers, thumbnails cached per theme and no
 //! frames once they are in), the first-run row (only without recent files) and the Getting

@@ -1,7 +1,8 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-//! The app icon: rasterises the master `assets/app-icon/figcraft.svg` (the chameleon, see
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! The app icon: rasterises the master `assets/app-icon/most-interface.svg` (the chameleon, see
 //! `assets/app-icon/README.md`) with the `resvg` CLI (`cargo install resvg`). Writes
-//! figcraft-<size>.png (macOS grid), the hicolor theme and figcraft.ico. The outputs are
+//! figcraft-<size>.png (macOS grid), the hicolor theme and most-interface.ico. The outputs are
 //! committed, so building and packaging never need `resvg`.
 
 use std::path::Path;
@@ -22,17 +23,17 @@ fn render(svg: &Path, size: u32, out: &Path) -> bool {
 
 pub fn generate(root: &Path) -> bool {
     let dir = root.join("assets/app-icon");
-    let Ok(master) = std::fs::read_to_string(dir.join("figcraft.svg")) else {
-        eprintln!("icon: cannot read {}", dir.join("figcraft.svg").display());
+    let Ok(master) = std::fs::read_to_string(dir.join("most-interface.svg")) else {
+        eprintln!("icon: cannot read {}", dir.join("most-interface.svg").display());
         return false;
     };
     if !master.contains(VIEW_BOX) {
-        eprintln!("icon: expected {VIEW_BOX} in figcraft.svg");
+        eprintln!("icon: expected {VIEW_BOX} in most-interface.svg");
         return false;
     }
     let tmp = root.join("target/icon");
     // Windows and Linux show the tile edge to edge, rounded corners and all: the master as it is.
-    let (mac, tile) = (tmp.join("mac.svg"), dir.join("figcraft.svg"));
+    let (mac, tile) = (tmp.join("mac.svg"), dir.join("most-interface.svg"));
     let mut ok = std::fs::create_dir_all(&tmp).is_ok() && std::fs::write(&mac, master.replacen(VIEW_BOX, MAC_VIEW_BOX, 1)).is_ok();
     if !ok {
         eprintln!("icon: cannot write {}", tmp.display());
@@ -68,7 +69,7 @@ pub fn generate(root: &Path) -> bool {
     for png in &pngs {
         ico.extend_from_slice(png);
     }
-    let ico_path = dir.join("figcraft.ico");
+    let ico_path = dir.join("most-interface.ico");
     let _ = std::fs::remove_file(&ico_path);
     ok &= std::fs::write(&ico_path, ico).is_ok();
     // The lighter trace keeps the scalable theme icon cheap to render.
@@ -76,7 +77,7 @@ pub fn generate(root: &Path) -> bool {
     let _ = std::fs::create_dir_all(&sd);
     let target = sd.join("com.grupomostmexico.mostinterface.svg");
     let _ = std::fs::remove_file(&target);
-    ok &= std::fs::copy(dir.join("figcraft-small.svg"), &target).is_ok();
+    ok &= std::fs::copy(dir.join("most-interface-small.svg"), &target).is_ok();
     eprintln!("icon: wrote {}", dir.display());
     ok
 }

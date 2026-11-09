@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Making the desktop app the opener of `figcraft://` invite links (the engine's
 //! [`LinkRegistrar`]). On Windows that's a per-user URL scheme under
 //! `HKEY_CURRENT_USER\Software\Classes\figcraft` (no administrator rights; uninstalling the user's

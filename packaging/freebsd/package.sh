@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Build and package Most Interface for FreeBSD:
 #
 #   $DIST/figcraft-<version>-freebsd-<arch>.tar.gz   (arch: x86_64 or aarch64) a /usr/local-style tree:
@@ -62,7 +63,7 @@ if [[ "$DRY_RUN" = 0 ]] && [[ "$(uname -s)" != FreeBSD ]]; then
   echo "error: build on FreeBSD (or pass --dry-run to check the tree layout)" >&2
   exit 2
 fi
-BASENAME="figcraft-$VERSION-freebsd-$ARCH"
+BASENAME="most-interface-$VERSION-freebsd-$ARCH"
 
 echo "==> Most Interface $VERSION for FreeBSD $ARCH"
 

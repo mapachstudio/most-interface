@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Responsive presentation in the player (the frame takes the device's screen or the window and
 //! lays out again, live), device colours and custom sizes in the presenter and the Prototype
 //! panel, and library collections in the Design panel's variable modes.

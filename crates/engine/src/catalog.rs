@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The incumbent's main-menu tree with stable Most Interface command ids. A command registered under a
 //! catalog id lights up its menu item, and `cargo xtask parity` measures coverage against it.
 //!

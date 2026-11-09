@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The data directory on its own: publishing, links and their hashes, persistence across a crash
 //! (snapshot plus log) and compaction, damaged files skipped and reported, caps, the lock, and
 //! temporary directories cleaned up.

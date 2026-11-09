@@ -219,7 +219,7 @@ fn publishing_sends_a_checked_folder() {
     std::fs::create_dir_all(dir.join("assets")).unwrap();
     std::fs::write(dir.join("build").join("tiny.wasm"), wasm()).unwrap();
     let text = json!({"id": ID, "name": "Tiny", "version": "1.0.0", "main": "build/tiny.wasm"}).to_string();
-    std::fs::write(dir.join("figcraft-plugin.json"), &text).unwrap();
+    std::fs::write(dir.join("most-interface-plugin.json"), &text).unwrap();
     std::fs::write(dir.join("assets").join("icon.png"), [1, 2, 3]).unwrap();
     let e = s.execute("plugin.directory.publish", &json!({"path": dir.to_string_lossy()})).unwrap_err().to_string();
     assert!(e.contains("server"), "{e}");
@@ -239,7 +239,7 @@ fn publishing_sends_a_checked_folder() {
             .contains("asset")
     );
     std::fs::remove_file(dir.join("assets").join(".secret")).unwrap();
-    std::fs::write(dir.join("figcraft-plugin.json"), text.replace("1.0.0", "next")).unwrap();
+    std::fs::write(dir.join("most-interface-plugin.json"), text.replace("1.0.0", "next")).unwrap();
     assert!(
         s.execute("plugin.directory.publish", &json!({"path": dir.to_string_lossy(), "server": "ws://h:1/"}))
             .unwrap_err()

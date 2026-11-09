@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Recovery of your online files never loses an edit. The copy of a document that was one of them
 //! when a run ended without closing has a note beside it (the server, the file, who the app was
 //! there and the server's last change it had; never a token). The next start joins the file again

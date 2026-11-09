@@ -157,7 +157,7 @@ fn ex(s: &mut figcraft_engine::Session, cmd: &str, p: serde_json::Value) -> serd
 fn folder(root: &Path, version: &str) -> std::path::PathBuf {
     let dir = root.join(format!("tiny-{version}"));
     std::fs::create_dir_all(dir.join("assets")).unwrap();
-    std::fs::write(dir.join("figcraft-plugin.json"), manifest(ID, version)).unwrap();
+    std::fs::write(dir.join("most-interface-plugin.json"), manifest(ID, version)).unwrap();
     std::fs::write(dir.join("tiny.wasm"), wasm()).unwrap();
     std::fs::write(dir.join("assets").join("icon.png"), [1, 2, 3]).unwrap();
     dir

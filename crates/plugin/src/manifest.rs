@@ -1,5 +1,6 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-//! The plugin manifest, `figcraft-plugin.json`: who the plugin is, which module to run, the menu
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+//! The plugin manifest, `most-interface-plugin.json`: who the plugin is, which module to run, the menu
 //! commands it adds (with their parameters) and the permissions it asks for. Also the panel a
 //! plugin shows while it runs (ABI v2), whose controls are parameters too.
 
@@ -7,7 +8,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::{Map, Value};
 
 /// The manifest's file name.
-pub const MANIFEST_FILE: &str = "figcraft-plugin.json";
+pub const MANIFEST_FILE: &str = "most-interface-plugin.json";
 /// The plugin API version this build implements (`api` in the manifest).
 pub const API_VERSION: u32 = 6;
 /// Largest manifest read.

@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Variables, shared styles and instance sizes in exported `.fig` files: collections with their
 //! modes, variables with a value per mode, the bindings on layers, paints, gradient stops, effects
 //! and layout grids, the modes frames and pages set, style definitions and the links to them, and

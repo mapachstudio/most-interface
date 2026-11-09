@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Reading the picture a saved file carries: from `.mostinterface` and `.fig` archives and image files,
 //! and `None` (never a panic) for missing, damaged, oversized and non-zip input.
 

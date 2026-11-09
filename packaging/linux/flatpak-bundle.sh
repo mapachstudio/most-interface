@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Repackage a Most Interface Linux tarball as a single-file Flatpak bundle:
 #
 #   $DIST/figcraft-<version>-linux-<arch>.flatpak
@@ -40,7 +41,7 @@ case "$ARCH" in
   aarch64 | arm64) ARCH=aarch64 ;;
   *) echo "unsupported architecture $ARCH" >&2; exit 2 ;;
 esac
-BASENAME="figcraft-$VERSION-linux-$ARCH"
+BASENAME="most-interface-$VERSION-linux-$ARCH"
 TARBALL="${TARBALL:-$DIST/$BASENAME.tar.gz}"
 [[ -f "$TARBALL" ]] || { echo "error: $TARBALL not found (run packaging/linux/package.sh --formats tar first)" >&2; exit 1; }
 for tool in flatpak flatpak-builder; do

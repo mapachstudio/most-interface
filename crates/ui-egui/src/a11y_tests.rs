@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Accessibility, driven through egui headless: the AccessKit tree names the custom-painted widgets
 //! (tools, layer rows, number fields, tabs, the canvas), and keyboard navigation: F6 cycles the
 //! regions, Tab moves within one, arrows and Enter pick a tool, the arrows walk the layer rows,

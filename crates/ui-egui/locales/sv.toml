@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Swedish.
 #
 # Written from the English catalog with ordinary Swedish software vocabulary; no other catalog and no
@@ -955,7 +956,7 @@ name = "Svenska"
 "No other pages" = "Inga andra sidor"
 "No paints" = "Inga färger"
 "No plugins on {server}." = "Inga plugins på {server}."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Inga plugins än. Importera ett plugin under utveckling från dess figcraft-plugin.json."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Inga plugins än. Importera ett plugin under utveckling från dess most-interface-plugin.json."
 "No preferred components" = "Inga föredragna komponenter"
 "No preset" = "Ingen förinställning"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Inga sparade versioner än. Spara en version för att markera en punkt i arbetet som du kan återvända till."

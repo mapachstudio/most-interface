@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Install or upgrade figcraft-server on a Debian or Ubuntu machine, behind Caddy (TLS), as a
 # server open to the public. See docs/server.md ("Running a public server").
 #
@@ -251,8 +252,8 @@ elif [[ "$FROM_SOURCE" = true ]] || ! from_release; then
 fi
 [[ -x "$NEW_BIN" ]] || die "no figcraft-server binary to install"
 # The units and the Caddyfile beside this script when it has them (a checkout or an archive).
-[[ -f "$HERE/figcraft-backup.timer" ]] && FILES="$HERE"
-for f in figcraft-server.service Caddyfile figcraft-backup.service figcraft-backup.timer; do
+[[ -f "$HERE/most-interface-backup.timer" ]] && FILES="$HERE"
+for f in most-interface-server.service Caddyfile most-interface-backup.service most-interface-backup.timer; do
   [[ -f "$FILES/$f" ]] || die "$FILES/$f is missing"
 done
 
@@ -314,9 +315,9 @@ install_file() { # install_file SOURCE TARGET MODE: true when it changed
 
 # --- systemd --------------------------------------------------------------------------------
 UNITS=false
-install_file "$FILES/figcraft-server.service" /etc/systemd/system/figcraft-server.service 644 && UNITS=true
-install_file "$FILES/figcraft-backup.service" /etc/systemd/system/figcraft-backup.service 644 && UNITS=true
-install_file "$FILES/figcraft-backup.timer" /etc/systemd/system/figcraft-backup.timer 644 && UNITS=true
+install_file "$FILES/most-interface-server.service" /etc/systemd/system/most-interface-server.service 644 && UNITS=true
+install_file "$FILES/most-interface-backup.service" /etc/systemd/system/most-interface-backup.service 644 && UNITS=true
+install_file "$FILES/most-interface-backup.timer" /etc/systemd/system/most-interface-backup.timer 644 && UNITS=true
 if [[ "$UNITS" = true ]]; then
   systemctl daemon-reload
   CHANGED=true
@@ -327,7 +328,7 @@ if [[ "$CHANGED" = true ]] || ! systemctl is-active --quiet "$SERVICE"; then
   systemctl restart "$SERVICE"
 fi
 if [[ "$BACKUPS" = true ]]; then
-  systemctl enable --now --quiet figcraft-backup.timer
+  systemctl enable --now --quiet most-interface-backup.timer
 fi
 
 # --- Caddy ----------------------------------------------------------------------------------
@@ -410,7 +411,7 @@ figcraft-server is running behind Caddy.
              $ADMIN block-ip ADDRESS      (unblock-ip, blocked)
   Server key: $ADMIN key
   Settings:  $CONFIG (then: systemctl restart $SERVICE)
-  Backups:   systemctl enable --now figcraft-backup.timer   (nightly, to /var/backups/figcraft-server;
+  Backups:   systemctl enable --now most-interface-backup.timer   (nightly, to /var/backups/figcraft-server;
              the archives hold every file and the server key: keep them as private as the server)
   Upgrade:   run this script again
 

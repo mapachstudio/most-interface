@@ -1,4 +1,5 @@
 <!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # Most Interface control protocol
 
 The desktop app can be driven by other programs (tests, scripts, `figcraft-cli mcp --attach`,
@@ -445,7 +446,7 @@ figcraft --control $port &
 exec 3<>/dev/tcp/127.0.0.1/$port
 echo '{"id":1,"method":"engine.execute","params":{"command":"frame.create","params":{"preset":"iPhone 16","x":0,"y":0}}}' >&3
 read -r reply <&3; echo "$reply"
-echo '{"id":2,"method":"ui.screenshot","params":{"path":"/tmp/figcraft.png"}}' >&3
+echo '{"id":2,"method":"ui.screenshot","params":{"path":"/tmp/most-interface.png"}}' >&3
 read -r reply <&3; echo "$reply"
 ```
 

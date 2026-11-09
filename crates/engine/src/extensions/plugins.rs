@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Plugins: WebAssembly modules that act on the document through the same commands as the menus,
 //! CLI and MCP server, inside the sandbox of `figcraft-plugin`. This module is the policy: which
 //! commands a plugin may call (its manifest's permissions, and never files, other documents, the
@@ -356,7 +357,7 @@ pub(crate) fn read_file(path: &std::path::Path, max: usize) -> Result<Vec<u8>> {
     crate::file_access::read_capped(path, max as u64)
 }
 
-/// The manifest at `path` (the file, or the folder holding `figcraft-plugin.json`), its absolute
+/// The manifest at `path` (the file, or the folder holding `most-interface-plugin.json`), its absolute
 /// path and its module.
 #[cfg(not(target_arch = "wasm32"))]
 fn load_from_disk(cmd: &str, path: &str) -> Result<(Manifest, String, Vec<u8>)> {
@@ -459,7 +460,7 @@ fn import(s: &mut Session, p: &Value) -> Result<Value> {
             let wasm = base64::engine::general_purpose::STANDARD.decode(b64.trim()).map_err(|e| bad(cmd, format!("`wasm`: {e}")))?;
             (m, None, wasm)
         }
-        (None, None) => return Err(bad(cmd, "pass `path` (a figcraft-plugin.json or its folder), or `manifest` and `wasm`")),
+        (None, None) => return Err(bad(cmd, "pass `path` (a most-interface-plugin.json or its folder), or `manifest` and `wasm`")),
     };
     figcraft_plugin::check_module(&wasm, &Limits::default()).map_err(|e| plugin_error(&manifest.name, e))?;
     let mut out = describe(s, &InstalledPlugin { manifest: manifest.clone(), path: path.clone(), source: None });
@@ -667,7 +668,7 @@ pub fn specs() -> Vec<CommandSpec> {
         spec!(
             "plugin.import",
             "Import plugin from manifest…",
-            "{path (figcraft-plugin.json or its folder) | manifest (object or JSON text), wasm (base64)} replaces a plugin with the same id",
+            "{path (most-interface-plugin.json or its folder) | manifest (object or JSON text), wasm (base64)} replaces a plugin with the same id",
             false,
             import
         ),

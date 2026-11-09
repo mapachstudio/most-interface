@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Vietnamese.
 #
 # Draft — needs native review: machine-drafted from the English catalog. Brand names, keyboard
@@ -873,7 +874,7 @@ status = "draft — needs native review"
 "No other pages" = "Không có trang nào khác"
 "No paints" = "Không có màu tô"
 "No plugins on {server}." = "Không có plugin nào trên {server}."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Chưa có plugin nào. Hãy nhập một plugin phát triển từ tệp figcraft-plugin.json."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Chưa có plugin nào. Hãy nhập một plugin phát triển từ tệp most-interface-plugin.json."
 "No preferred components" = "Chưa có thành phần ưu tiên"
 "No preset" = "Không có thiết lập sẵn"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Chưa có phiên bản đã lưu nào. Hãy lưu một phiên bản để đánh dấu mốc công việc có thể quay lại sau."

@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Extended variable collections (overrides, library updates, reset), variables import and
 //! export (JSON round trip, merging by name, CSS, Dart, junk), gradient stops bound to variables and
 //! variant properties driven by string variables.

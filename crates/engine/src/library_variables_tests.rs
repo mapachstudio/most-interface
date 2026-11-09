@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Library variables: publishing collections (hidden variables, versions), binding, aliasing and
 //! explicit modes from a library, read-only copies, updates, components that bind variables, and
 //! files that bring copies along.

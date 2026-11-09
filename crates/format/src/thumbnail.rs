@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The picture a saved file carries of itself: `thumbnail.png` inside a `.mostinterface` or `.fig` zip,
 //! `previews/preview.png` inside a `.sketch` zip (the home screen's recent files show it), and the colour of the page it sits on. Image files are
 //! their own picture. Everything is read within caps: a missing, damaged or oversized picture gives

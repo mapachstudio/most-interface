@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Czech interface catalog. Machine-drafted; awaiting native review.
 # Plurals use count-neutral other forms for Czech 0, 2–4 and 5+.
 [meta]
@@ -882,7 +883,7 @@ status = "draft — needs native review"
 "No number variables yet. Create them in Local variables." = "Zatím žádné číselné proměnné. Vytvořte je v Místních proměnných."
 "No paints" = "Žádné výplně"
 "No plugins on {server}." = "Na serveru {server} nejsou žádné pluginy."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Zatím žádné pluginy. Importujte vývojový plugin z jeho souboru figcraft-plugin.json."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Zatím žádné pluginy. Importujte vývojový plugin z jeho souboru most-interface-plugin.json."
 "No preferred components" = "Žádné preferované komponenty"
 "No preset" = "Bez předvolby"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Zatím žádné uložené verze. Uložte verzi jako bod práce, ke kterému se můžete vrátit."

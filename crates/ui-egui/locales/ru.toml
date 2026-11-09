@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Russian.
 # Wording reviewed and approved by VanTan.
 # Strings added since that review (2026-10-20) are a machine draft awaiting review.
@@ -904,7 +905,7 @@ name = "Русский"
 "No other pages" = "Других страниц нет"
 "No paints" = "Заливок нет"
 "No plugins on {server}." = "На {server} нет плагинов."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Плагинов пока нет. Импортируйте плагин для разработки из его figcraft-plugin.json."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Плагинов пока нет. Импортируйте плагин для разработки из его most-interface-plugin.json."
 "No preferred components" = "Предпочтительных компонентов нет"
 "No preset" = "Без пресета"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Сохранённых версий пока нет. Сохраните версию, чтобы можно было вернуться к этому этапу работы."

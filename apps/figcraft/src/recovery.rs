@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Recovery copies, so a crash, a forced quit or a power cut loses at most a few seconds of work.
 //!
 //! While the app runs, each document with unsaved changes is copied to `Recovery/<pid>/<uid>.mostinterface`

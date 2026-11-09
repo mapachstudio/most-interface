@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Components at scale: a synthetic design system (every property kind, nesting four deep, styles
 //! and light/dark variables) and a file using it with overrides at every nesting level. Edits of
 //! deep mains, variant switches, swaps, resets, detach, push, library updates, copy/paste and

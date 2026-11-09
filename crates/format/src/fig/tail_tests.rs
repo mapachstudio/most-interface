@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The import's tail: editable vector networks, the closest layers for kinds the editor doesn't
 //! have (sticky notes, shapes with text, connectors, tables) and variable prototype actions, on
 //! fixtures built in code with the parent module's helpers.

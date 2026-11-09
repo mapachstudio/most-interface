@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Host modes: a page that runs Most Interface (as an `<iframe>`, or in its own document) opens
 //! documents in it and stores what it saves instead of the browser downloading. The messages
 //! and the two transports are `craft-web-host`'s (storytold/craft-libs): the same contract as

@@ -24,15 +24,7 @@ identificadores de código, no marcas presentadas al usuario.
 
 Su formato no admite comentarios:
 
-- `packaging/linux/ai.storyteller.figcraft.metainfo.xml.in`
-- `packaging/linux/ai.storyteller.figcraft.mime.xml`
-- `packaging/macos/Info.plist.in`
-- `packaging/macos/entitlements.plist`
-- `packaging/windows/install-policy.json`
-- `plugins/examples/counter/figcraft-plugin.json`
-- `plugins/examples/export-names/figcraft-plugin.json`
-- `plugins/examples/swatch-grid/figcraft-plugin.json`
-- `plugins/examples/tidy-names/figcraft-plugin.json`
+(ninguno)
 
 ## Atribución
 
@@ -40,4 +32,4 @@ Su formato no admite comentarios:
 > comunidad (https://github.com/storytold/figcraft), bajo licencia Apache-2.0. Grupo MOST no está
 > asociado con el equipo ArtCraft, que no patrocina ni avala este producto.
 
-Total de archivos modificados: 357.
+Total de archivos modificados: 355.

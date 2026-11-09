@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Portuguese (Brazil).
 #
 # Draft — needs native review: machine-drafted from the English catalog. Brand names and keyboard
@@ -852,7 +853,7 @@ status = "draft — needs native review"
 "No number variables yet. Create them in Local variables." = "Ainda não há variáveis numéricas. Crie-as em Variáveis locais."
 "No paints" = "Nenhuma pintura"
 "No plugins on {server}." = "Nenhum plugin em {server}."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Ainda não há plugins. Importe um plugin em desenvolvimento a partir do figcraft-plugin.json dele."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Ainda não há plugins. Importe um plugin em desenvolvimento a partir do most-interface-plugin.json dele."
 "No preferred components" = "Nenhum componente preferido"
 "No preset" = "Nenhuma predefinição"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Ainda não há versões salvas. Salve uma versão para marcar um ponto do seu trabalho ao qual você possa voltar."

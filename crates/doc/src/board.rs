@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Boards: a file kind for whiteboarding, and the small piece of metadata board objects carry.
 //!
 //! Board objects are ordinary nodes (frames, vectors, text) with a [`BoardItem`] on them, so

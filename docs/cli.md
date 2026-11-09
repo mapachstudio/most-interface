@@ -1,4 +1,5 @@
 <!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # figcraft-cli
 
 Most Interface without a window: inspect, export, convert and render documents, run command scripts, list
@@ -290,7 +291,7 @@ live sessions (`collab.*`: without a key on a server open to the public, with `c
 
 ### `plugin publish <folder> --server ws://host:port/[?key=KEY]`
 
-Publishes a plugin folder (`figcraft-plugin.json`, the module its `main` names, an optional `assets/`
+Publishes a plugin folder (`most-interface-plugin.json`, the module its `main` names, an optional `assets/`
 folder) to a `figcraft-server`'s plugin directory as a new version, and prints its name, version,
 size and SHA-256. The server's key comes from the address or, better, from the
 `MOST_INTERFACE_SERVER_KEY` environment variable (it then stays out of the shell history and process

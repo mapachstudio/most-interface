@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Desktop services: native file dialogs, clipboard, URLs, persisted preferences.
 
 use std::cell::RefCell;
@@ -574,7 +575,7 @@ impl Services for Desktop {
 pub fn window_icon() -> Option<egui::IconData> {
     // macOS wants Apple's padded grid; the other platforms the rounded tile edge to edge.
     #[cfg(target_os = "macos")]
-    let bytes = include_bytes!("../../../assets/app-icon/figcraft-256.png");
+    let bytes = include_bytes!("../../../assets/app-icon/most-interface-256.png");
     #[cfg(not(target_os = "macos"))]
     let bytes = include_bytes!("../../../assets/app-icon/hicolor/256x256/apps/com.grupomostmexico.mostinterface.png");
     let img = image::load_from_memory(bytes).ok()?.to_rgba8();

@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: English, the source language.
 #
 # Keys are the English text as the code writes it (`tr("…")`, `trf`, `trn`, `tr_noop`); values are
@@ -967,7 +968,7 @@ name = "English"
 "No other pages" = "No other pages"
 "No paints" = "No paints"
 "No plugins on {server}." = "No plugins on {server}."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "No plugins yet. Import a development plugin from its figcraft-plugin.json."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "No plugins yet. Import a development plugin from its most-interface-plugin.json."
 "No preferred components" = "No preferred components"
 "No preset" = "No preset"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "No saved versions yet. Save a version to mark a point in your work you can come back to."

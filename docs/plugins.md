@@ -1,4 +1,5 @@
 <!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # Most Interface plugins
 
 A Most Interface plugin is a WebAssembly module with a small JSON manifest. It acts on the document only
@@ -53,7 +54,7 @@ large data instead of logging it in full.
 
 ## Using plugins
 
-- **Plugins ▸ Development ▸ Import plugin from manifest…** picks a `figcraft-plugin.json`. The
+- **Plugins ▸ Development ▸ Import plugin from manifest…** picks a `most-interface-plugin.json`. The
   plugin is kept in the preferences and its module is read again on every run, so a rebuilt
   development plugin runs its new code without importing it again.
 - The desktop app saves the preferences the moment a plugin is imported, installed, updated or
@@ -151,7 +152,7 @@ plugins: import them in the script.
 | Command | Params | Does |
 |---|---|---|
 | `plugin.list` | `{}` | `{plugins: [{id, name, version, description, main, api, permissions, commands, path, loaded}], last: {id, command}}` |
-| `plugin.import` | `{path}` or `{manifest, wasm}` | `path` is a `figcraft-plugin.json` or its folder. Without files (the browser, tests), pass the manifest (an object or JSON text) and the module as base64 `wasm`; such a plugin lasts for the session only. A plugin with the same id is replaced. The module is checked first. |
+| `plugin.import` | `{path}` or `{manifest, wasm}` | `path` is a `most-interface-plugin.json` or its folder. Without files (the browser, tests), pass the manifest (an object or JSON text) and the module as base64 `wasm`; such a plugin lasts for the session only. A plugin with the same id is replaced. The module is checked first. |
 | `plugin.remove` | `{id}` | Uninstalls it. |
 | `plugin.run` | `{id, command?, params?, fuel?}` | Runs a command (default: the first) with its parameters checked against the manifest and the missing ones filled with their defaults; `fuel` lowers the instruction budget (for the panel's callbacks too). Returns `{plugin, command, output, logs, calls, fuel, panel}`; `output` is the plugin's result, parsed as JSON when it is JSON; `panel` is the plugin's open panel (as `plugin.ui` returns it) or null. |
 | `plugin.ui` | `{id?}` | Plugin `id`'s open panel: `{plugin, command, title, controls, values}` (`values`: every field's current value by name), or null. Without `id`, the panel opened last. |
@@ -167,7 +168,7 @@ plugins: import them in the script.
 | `widget.list` | `{}` | `{widgets: [{id, plugin, name, page, state, targets, fields, menu}]}`: every widget in the file. |
 | `plugin.directory.list` | `{server?, query?}` | The plugin directory at `server` (`ws://host:port/`; default: the one browsed last): `{server, plugins: [{id, name, version, description, author, api, access, commands, widget, bytes, sha256, published, versions, installed, update}]}`, the latest version of each plugin whose id, name, description or author contains `query`. `installed` is the installed version (or null), `update` whether the listed one is newer. |
 | `plugin.directory.install` | `{id, version?, confirm, server?, sha256?}` | Downloads version `version` (default: the latest) and installs it, or updates the installed one. `confirm` must be `true` (installing runs the plugin's code: show its permissions first); without it nothing is downloaded. The download must match the SHA-256 the directory lists (and `sha256`, the one shown, when given). Returns `{installed, name, version, permissions, sha256, path, source, replaced}`. |
-| `plugin.directory.publish` | `{path \| plugin, server}` | Publishes a plugin folder (or its `figcraft-plugin.json`), or an installed plugin, as a new version. `server` carries the server's key: `ws://host:port/?key=…`. Returns `{published, server}`. |
+| `plugin.directory.publish` | `{path \| plugin, server}` | Publishes a plugin folder (or its `most-interface-plugin.json`), or an installed plugin, as a new version. `server` carries the server's key: `ws://host:port/?key=…`. Returns `{published, server}`. |
 | `plugin.directory.unpublish` | `{id, version?, server}` | Removes one version (default: every version) from the directory; needs the key. Returns `{id, removed}`. |
 
 ## Plugin directories
@@ -201,7 +202,7 @@ module and its assets. The CLI and the MCP server install for the session only.
 offers **Update**, with the same confirmation (the permissions may have changed). Browsing again is
 the update check; nothing checks in the background. **Remove** uninstalls it and deletes its folder.
 
-**Publishing.** A plugin folder holds `figcraft-plugin.json`, the module its `main` names and, if
+**Publishing.** A plugin folder holds `most-interface-plugin.json`, the module its `main` names and, if
 you like, an `assets/` folder of up to 32 plain files (an icon, a licence) that are installed with
 it. Publish it with the server's key:
 
@@ -219,7 +220,7 @@ remove`) takes a version, or the whole plugin, down; installed copies keep worki
 plugin directory requests (`plugin.directory.*` says so). Import plugins with `plugin.import
 {manifest, wasm}` there.
 
-## The manifest: `figcraft-plugin.json`
+## The manifest: `most-interface-plugin.json`
 
 ```json
 {
@@ -527,7 +528,7 @@ entry!(run);
 ```
 
 Build it with `cargo build --release --target wasm32-unknown-unknown`, put
-`target/wasm32-unknown-unknown/release/my_plugin.wasm` next to a `figcraft-plugin.json` whose `main`
+`target/wasm32-unknown-unknown/release/my_plugin.wasm` next to a `most-interface-plugin.json` whose `main`
 names it, and import the manifest. The SDK gives `call`, `selection`, `log`, `notify` and the
 `Input` (`command`, `params` with `str`/`f64`/`bool` helpers, `selection`, and `event` when the
 panel calls back: `control`, `value` and every field's `values`); returning `Err` fails the run and

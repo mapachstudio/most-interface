@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The home screen's recent files, drawn headless: cards with the picture each file carries on its
 //! page's colour (read off the frame's thread, only for cards in view), "Edited …" and "File not
 //! found", the sort menu and the table's headers, grid and list kept in the preferences and set

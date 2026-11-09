@@ -1,4 +1,5 @@
 <!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # Releasing Most Interface
 
 Every push to the `release` branch runs `.github/workflows/release.yml`. The workflow builds
@@ -97,7 +98,7 @@ faces that are. The release workflow leaves it unset.
 
 `figcraft-cli` ships in every desktop package (and its own macOS zip) when `apps/figcraft-cli`
 is in the workspace: `packaging/env.sh` sets `BINS`/`HAS_CLI` from that, and `package.ps1`,
-`figcraft.wxs` (`HasCli`), `nfpm.yaml` (`#cli` lines) and the Flatpak bundle follow it.
+`most-interface.wxs` (`HasCli`), `nfpm.yaml` (`#cli` lines) and the Flatpak bundle follow it.
 
 `figcraft --version` prints the version and, in CI builds, the commit (`MOST_INTERFACE_BUILD_SHA`,
 read by `apps/figcraft/build.rs`).
@@ -151,7 +152,7 @@ hdiutil attach -nobrowse -readonly dist/release/figcraft-*-macos-aarch64.dmg   #
 
 `packaging/windows/package.ps1 -Arch x64|x86|arm64` builds with `+crt-static` (no VC++
 redistributable), checks each exe's PE machine and subsystem (app GUI, CLI console), signs the
-exes, builds the MSI with WiX v5 (`figcraft.wxs`: per-machine, Start Menu shortcut, owner of
+exes, builds the MSI with WiX v5 (`most-interface.wxs`: per-machine, Start Menu shortcut, owner of
 `.mostinterface`, "Open with" for SVG/PNG/JPEG, App Paths, setup wizard with art drawn from the app
 icon), validates ICE50, signs the MSI and zips a portable build. `sign.ps1` uses a `.pfx`
 (`WINDOWS_CERTIFICATE*`) or Azure Trusted Signing (`AZURE_*`), else warns and leaves files

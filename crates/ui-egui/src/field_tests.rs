@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Number fields: what typed text means (arithmetic, units, edits relative to the value), how far
 //! a scrub and an arrow key move a value, and the Design panel's fields driven through egui
 //! headless: scrubbing by the label with and without Shift and Alt, arrow keys, arithmetic on

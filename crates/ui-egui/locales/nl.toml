@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Dutch (Nederlands).
 #
 # Draft — needs native review: machine-drafted from the English catalog. Established tool terms
@@ -902,7 +903,7 @@ status = "draft — needs native review"
 "No other pages" = "Geen andere pagina's"
 "No paints" = "Geen vullingen"
 "No plugins on {server}." = "Geen plugins op {server}."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Nog geen plugins. Importeer een development-plugin via zijn figcraft-plugin.json."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Nog geen plugins. Importeer een development-plugin via zijn most-interface-plugin.json."
 "No preferred components" = "Geen voorkeurscomponenten"
 "No preset" = "Geen preset"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Nog geen opgeslagen versies. Sla een versie op om een moment in je werk vast te leggen waar je later naartoe kunt terugkeren."

@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The page colour of a new file follows the interface's theme when it is made (dark: #1E1E1E,
 //! light: #F5F5F5) and is the page's own from then on; an added page takes the colour of the page
 //! it was added from. A session without an interface (CLI, MCP, exports) has no theme and keeps the

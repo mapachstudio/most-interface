@@ -1,4 +1,5 @@
 <!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # Most Interface MCP server
 
 Most Interface ships a [Model Context Protocol](https://modelcontextprotocol.io) server so AI agents can
@@ -1612,7 +1613,7 @@ only: a host stops hosting it, a guest leaves it.
 
 Sandboxed WebAssembly plugins act through the same commands (see [`plugins.md`](plugins.md) for the
 manifest, the ABI and the Rust SDK). Driven with `run_command`: `plugin.import {path}` (a
-`figcraft-plugin.json` or its folder) or `plugin.import {manifest, wasm}` (the manifest as an
+`most-interface-plugin.json` or its folder) or `plugin.import {manifest, wasm}` (the manifest as an
 object or JSON text and the module as base64, for this session only), `plugin.list`,
 `plugin.remove {id}`, and `plugin.run {id, command?, params?, fuel?}`, which returns
 `{plugin, command, output, logs, calls, fuel, panel}`. A run is one undo step and is rolled back when it

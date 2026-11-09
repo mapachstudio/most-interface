@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Home ▸ Online: the files you put on a server from this computer (`collab.files`), each with
 //! where it is, whether others get in and when it was last opened. A row opens its file as its
 //! owner; its menu starts or stops sharing, copies the join code or link, renames it on the

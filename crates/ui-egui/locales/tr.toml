@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Turkish.
 #
 # Machine-drafted from the English catalog and reviewed by a native speaker. Brand names and keyboard
@@ -886,7 +887,7 @@ name = "Türkçe"
 "No number variables yet. Create them in Local variables." = "Henüz sayı değişkeni yok. Onları Yerel değişkenler'de oluşturun."
 "No paints" = "Boya yok"
 "No plugins on {server}." = "{server} üzerinde eklenti yok."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Henüz eklenti yok. Bir geliştirme eklentisini figcraft-plugin.json dosyasından içe aktarın."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Henüz eklenti yok. Bir geliştirme eklentisini most-interface-plugin.json dosyasından içe aktarın."
 "No preferred components" = "Tercih edilen bileşen yok"
 "No preset" = "Ön ayar yok"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Henüz kaydedilmiş sürüm yok. İşinizde geri dönebileceğiniz bir noktayı işaretlemek için bir sürüm kaydedin."

@@ -1,4 +1,5 @@
 <!-- Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
+<!-- Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0. -->
 # Most Interface app icon
 
 A **chameleon**: an engraving portrait in profile with a curled tail, in the Crafting Apps'
@@ -28,15 +29,15 @@ image is not kept in this repo. License: see `LICENSE.txt`.
 
 ## Files
 
-- `figcraft.svg`: canonical master (traced at 1500 px, the source's size).
-- `figcraft-small.svg`: lighter trace (traced at 1024 px); also the hicolor scalable icon.
+- `most-interface.svg`: canonical master (traced at 1500 px, the source's size).
+- `most-interface-small.svg`: lighter trace (traced at 1024 px); also the hicolor scalable icon.
 - `figcraft-<size>.png` (16–1024): renders on the macOS grid; `packaging/macos/package.sh` builds
   the `.icns` from them.
-- `figcraft.ico`: Windows icon, 16–256 px, embedded in the `.exe` by `apps/figcraft/build.rs`.
+- `most-interface.ico`: Windows icon, 16–256 px, embedded in the `.exe` by `apps/figcraft/build.rs`.
 - `hicolor/<size>/apps/com.grupomostmexico.mostinterface.png` (16–512) and `hicolor/scalable/...svg`:
   Linux icon theme; the 256 px one is also the runtime window icon off macOS.
 
 ## Regenerate
 
-Replace `figcraft.svg` (and `figcraft-small.svg`), then run `cargo xtask icon`. It needs `resvg`
+Replace `most-interface.svg` (and `most-interface-small.svg`), then run `cargo xtask icon`. It needs `resvg`
 (`cargo install resvg`).

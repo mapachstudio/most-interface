@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! A `.fig` file whose text names an installed family another way than the font list does (#1292)
 //! isn't reported missing and draws in that family: by the legacy name of one of its weights
 //! ("<Family> Bold", style Regular) or spelt with other case and spaces. Through the real import

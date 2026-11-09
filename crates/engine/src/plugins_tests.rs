@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Plugins: runs are one undo step and roll back when they fail, permissions and the host's own
 //! limits are enforced, fuel and memory are capped, and junk never gets in. Test plugins are
 //! assembled from WAT text: each makes a fixed list of command calls.
@@ -330,7 +331,7 @@ fn junk_manifests_and_modules_are_refused() {
         json!({"manifest": "{ not json", "wasm": b64(&ok)}),
         json!({"manifest": 7, "wasm": b64(&ok)}),
         json!({"manifest": manifest("org.test.x", "write", &[])}),
-        json!({"path": "Z:/definitely/not/here/figcraft-plugin.json"}),
+        json!({"path": "Z:/definitely/not/here/most-interface-plugin.json"}),
         json!({"path": 5}),
         json!({"manifest": manifest("org.test.x", "write", &[]), "wasm": "A".repeat(23_000_000)}),
     ];
@@ -372,14 +373,14 @@ fn development_plugins_load_from_a_manifest_and_reload_their_module() {
     let dir = TempDir(std::env::temp_dir().join(format!("figcraft-plugin-dev-{}", std::process::id())));
     std::fs::create_dir_all(&dir.0).unwrap();
     let write_module = |calls: &[(&str, Value)]| std::fs::write(dir.0.join("plugin.wasm"), script(calls, OnRefusal::Fail, "")).unwrap();
-    std::fs::write(dir.0.join("figcraft-plugin.json"), manifest("org.test.dev", "write", &[]).to_string()).unwrap();
+    std::fs::write(dir.0.join("most-interface-plugin.json"), manifest("org.test.dev", "write", &[]).to_string()).unwrap();
     write_module(&[("shape.rectangle", json!({"x": 0, "y": 0, "width": 5, "height": 5}))]);
     let mut s = Session::new();
     // The folder or the manifest file itself.
     let out = ex(&mut s, "plugin.import", json!({"path": dir.0.to_string_lossy()}));
     assert_eq!(out["id"], "org.test.dev");
     assert_eq!(out["replaced"], false);
-    let manifest_path = dir.0.join("figcraft-plugin.json").to_string_lossy().into_owned();
+    let manifest_path = dir.0.join("most-interface-plugin.json").to_string_lossy().into_owned();
     assert_eq!(ex(&mut s, "plugin.import", json!({"path": manifest_path}))["replaced"], true);
     ex(&mut s, "plugin.run", json!({"id": "org.test.dev"}));
     assert_eq!(layer_count(&s), 1);

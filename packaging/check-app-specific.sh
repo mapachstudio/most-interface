@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # App-specific checks retained alongside shared packaging lint.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."

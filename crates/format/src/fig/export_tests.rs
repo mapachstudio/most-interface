@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! `.fig` export tests: generated documents round trip through our own importer (layer tree,
 //! geometry within tolerance, paints, text, auto layout, components, prototypes); the written file
 //! decodes with the generic decoder and lists every layer after its parent; the encoder agrees

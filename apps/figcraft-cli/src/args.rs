@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The command line, as clap types (craft-contrib RFC-0012). Values are parsed into their types
 //! here, so a bad one is a usage error naming its flag (exit 2) before any work starts, and the
 //! handlers never see it. A flag a subcommand doesn't take is a usage error, and so is one given
@@ -224,7 +225,7 @@ pub enum PluginCommand {
 
 /// Send a plugin folder to a figcraft-server's plugin directory as a new version
 ///
-/// The folder holds figcraft-plugin.json, its module and an optional assets/ folder. The server's
+/// The folder holds most-interface-plugin.json, its module and an optional assets/ folder. The server's
 /// key comes from the address or the MOST_INTERFACE_SERVER_KEY environment variable (which keeps it out
 /// of the shell history); it is never printed.
 #[derive(Args)]

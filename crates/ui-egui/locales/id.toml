@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Indonesian.
 #
 # Draft — needs native review: machine-drafted from the English catalog. Brand names and keyboard
@@ -891,7 +892,7 @@ status = "draft — needs native review"
 "No number variables yet. Create them in Local variables." = "Belum ada variabel angka. Buat di Variabel lokal."
 "No paints" = "Tidak ada paint"
 "No plugins on {server}." = "Tidak ada plugin di {server}."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "Belum ada plugin. Impor plugin pengembangan dari file figcraft-plugin.json."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "Belum ada plugin. Impor plugin pengembangan dari file most-interface-plugin.json."
 "No preferred components" = "Tidak ada component yang diutamakan"
 "No preset" = "Tanpa preset"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "Belum ada versi tersimpan. Simpan versi untuk menandai titik kerja yang bisa Anda kunjungi lagi."

@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Where MCP tool calls end up: a control-channel method call, answered either by an in-process
 //! engine session ([`crate::Headless`]) or by a running Most Interface app ([`Attached`]).
 

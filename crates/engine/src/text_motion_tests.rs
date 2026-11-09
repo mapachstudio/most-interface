@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Text editing keys per platform (Ctrl moves and deletes by word on Windows and Linux, where it
 //! deleted the whole line), and recovering a crashed run's copy as an unsaved document.
 

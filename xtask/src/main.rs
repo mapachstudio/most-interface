@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Project tasks: `cargo xtask <task>`.
 //!
 //! - `ci`      fmt check, clippy -D warnings, tests, the translation report, layers, assets, docs, wasm
@@ -12,7 +13,7 @@
 //!   (what a merge that keeps both sides leaves)
 //! - `parity`  menu-catalog coverage → docs/parity-checklist.md
 //! - `version` print the version, or `version set X.Y.Z`
-//! - `icon`    regenerate the app icon PNGs/ICO from assets/app-icon/figcraft.svg (needs resvg)
+//! - `icon`    regenerate the app icon PNGs/ICO from assets/app-icon/most-interface.svg (needs resvg)
 //! - `wasm`    check the core crates and web app for wasm32, and build the plugin SDK and examples
 //! - `plugins` format-check, lint, test and build the plugin SDK and example plugins (`plugins/`, a
 //!   workspace of its own) for wasm32: `<target>/plugins/dist/<example>/` holds each manifest and
@@ -141,7 +142,7 @@ fn plugins() -> bool {
         let module = format!("{}.wasm", name.replace('-', "_"));
         let dist = target.join("plugins/dist").join(name);
         let copied = std::fs::create_dir_all(&dist)
-            .and_then(|()| std::fs::copy(root.join("plugins/examples").join(name).join("figcraft-plugin.json"), dist.join("figcraft-plugin.json")))
+            .and_then(|()| std::fs::copy(root.join("plugins/examples").join(name).join("most-interface-plugin.json"), dist.join("most-interface-plugin.json")))
             .and_then(|_| std::fs::copy(target.join("wasm32-unknown-unknown/release").join(&module), dist.join(&module)));
         match copied {
             Ok(bytes) => eprintln!("plugins: {} ({} KB)", dist.display(), bytes / 1024),

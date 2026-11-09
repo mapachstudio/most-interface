@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Build, sign and (optionally) notarize the macOS release artifacts:
 #
 #   $DIST/figcraft-<version>-macos-<arch>.dmg          Most Interface.app on a drag-to-Applications DMG
@@ -41,8 +42,8 @@ IDENTITY="${MACOS_SIGN_IDENTITY:--}"
 SHORT_VERSION="${VERSION%%-*}"
 WORK="$CARGO_TARGET_DIR/macos-package"
 APP="$WORK/Most Interface.app"
-DMG="$DIST/figcraft-$VERSION-macos-$ARCH.dmg"
-CLI_ZIP="$DIST/figcraft-cli-$VERSION-macos-$ARCH.zip"
+DMG="$DIST/most-interface-$VERSION-macos-$ARCH.dmg"
+CLI_ZIP="$DIST/most-interface-cli-$VERSION-macos-$ARCH.zip"
 
 NOTARIZE=0
 if [[ "$IDENTITY" = "-" ]]; then
@@ -166,7 +167,7 @@ fi
 # ---- CLI ---------------------------------------------------------------------------------------
 if [[ "$HAS_CLI" = 1 ]]; then
   echo "==> building $CLI_ZIP"
-  CLI_DIR="$WORK/figcraft-cli-$VERSION-macos-$ARCH"
+  CLI_DIR="$WORK/most-interface-cli-$VERSION-macos-$ARCH"
   mkdir -p "$CLI_DIR"
   cp "$WORK/bin/figcraft-cli" "$CLI_DIR/"
   copy_docs "$CLI_DIR"

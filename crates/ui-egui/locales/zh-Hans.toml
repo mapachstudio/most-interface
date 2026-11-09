@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Simplified Chinese.
 #
 # Draft — needs native review: machine-drafted from the English catalog. Brand names, keyboard
@@ -858,7 +859,7 @@ status = "draft — needs native review"
 "No number variables yet. Create them in Local variables." = "还没有数字变量。请在“本地变量”中创建。"
 "No paints" = "无颜料"
 "No plugins on {server}." = "{server} 上没有插件。"
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "还没有插件。可从开发插件的 figcraft-plugin.json 导入。"
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "还没有插件。可从开发插件的 most-interface-plugin.json 导入。"
 "No preferred components" = "无首选组件"
 "No preset" = "无预设"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "还没有保存的版本。保存版本可标记工作中的某个节点，以便日后返回。"

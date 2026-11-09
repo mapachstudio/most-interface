@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: বাংলা, ইংরেজি থেকে অনূদিত।
 #
 # কীগুলো কোডে ব্যবহৃত ইংরেজি টেক্সট (`tr("…")`, `trf`, `trn`, `tr_noop`); মানগুলো অনূদিত,
@@ -900,7 +901,7 @@ status = "draft — needs native review"
 "No other pages" = "অন্য কোনো পেজ নেই"
 "No paints" = "কোনো পেইন্ট নেই"
 "No plugins on {server}." = "{server}-এ কোনো প্লাগইন নেই।"
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "এখনো কোনো প্লাগইন নেই। এর figcraft-plugin.json থেকে একটি ডেভেলপমেন্ট প্লাগইন ইম্পোর্ট করুন।"
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "এখনো কোনো প্লাগইন নেই। এর most-interface-plugin.json থেকে একটি ডেভেলপমেন্ট প্লাগইন ইম্পোর্ট করুন।"
 "No preferred components" = "কোনো পছন্দের কম্পোনেন্ট নেই"
 "No preset" = "কোনো প্রিসেট নেই"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "এখনো কোনো সংরক্ষিত সংস্করণ নেই। আপনার কাজের এমন একটি পয়েন্ট চিহ্নিত করতে একটি সংস্করণ সংরক্ষণ করুন যেখানে আপনি পরে ফিরে আসতে পারেন।"

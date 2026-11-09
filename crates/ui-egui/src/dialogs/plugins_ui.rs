@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Plugins in the UI: the installed plugins in the Plugins menu (widgets in Plugins ▸ Widgets), the
 //! parameters form a command with parameters asks for before it runs, the panels running plugins
 //! show, and the Manage plugins window (installed plugins, and a server's plugin directory to
@@ -158,7 +159,7 @@ fn run(app: &mut FigApp, cmd: &str, params: Value) {
     }
 }
 
-/// Plugins ▸ Development ▸ Import plugin from manifest…: pick a `figcraft-plugin.json`.
+/// Plugins ▸ Development ▸ Import plugin from manifest…: pick a `most-interface-plugin.json`.
 pub fn import_dialog(app: &mut FigApp) {
     app.pick_open(tr("Import plugin from manifest"), &["json"], |app, p| {
         if let Some(v) = app.run("plugin.import", json!({"path": p.to_string_lossy()})) {
@@ -329,7 +330,7 @@ fn installed_tab(app: &FigApp, ui: &mut Ui, t: &Tokens) -> Option<Manage> {
     let mut asked = None;
     let plugins = &app.session.prefs.plugins;
     if plugins.is_empty() {
-        widgets::label(ui, tr("No plugins yet. Import a development plugin from its figcraft-plugin.json."), t.text_secondary);
+        widgets::label(ui, tr("No plugins yet. Import a development plugin from its most-interface-plugin.json."), t.text_secondary);
     }
     for (i, p) in plugins.iter().enumerate() {
         if i > 0 {

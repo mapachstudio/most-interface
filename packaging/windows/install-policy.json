@@ -3,11 +3,11 @@
   "name": "Most Interface",
   "upgradeCode": "7F8B9827-D065-41B7-A514-2A454B21F484",
   "sources": [
-    "figcraft.wxs"
+    "most-interface.wxs"
   ],
-  "icon": "assets/app-icon/figcraft.ico",
+  "icon": "assets/app-icon/most-interface.ico",
   "localization": [
-    "figcraft.en-us.wxl"
+    "most-interface.en-us.wxl"
   ],
   "extensions": [
     "UI",

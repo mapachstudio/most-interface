@@ -1,4 +1,5 @@
 # Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+# Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 # Most Interface interface strings: Georgian.
 #
 # Written with AI assistance (Claude) from the meaning of each English string, following the glossary
@@ -909,7 +910,7 @@ status = "draft — reviewed by a native speaker, awaiting a maintainer's approv
 "No other pages" = "სხვა გვერდები არ არის"
 "No paints" = "საღებავების გარეშე"
 "No plugins on {server}." = "{server}-ზე პლაგინები არ არის."
-"No plugins yet. Import a development plugin from its figcraft-plugin.json." = "პლაგინები ჯერ არ არის. დეველოპერის პლაგინის იმპორტი მოახდინეთ მისი figcraft-plugin.json-იდან."
+"No plugins yet. Import a development plugin from its most-interface-plugin.json." = "პლაგინები ჯერ არ არის. დეველოპერის პლაგინის იმპორტი მოახდინეთ მისი most-interface-plugin.json-იდან."
 "No preferred components" = "სასურველი კომპონენტების გარეშე"
 "No preset" = "პრესეტის გარეშე"
 "No saved versions yet. Save a version to mark a point in your work you can come back to." = "შენახული ვერსიები ჯერ არ არის. შეინახეთ ვერსია, რომ მონიშნოთ თქვენი სამუშაოს წერტილი, სადაც შეგიძლიათ დაბრუნდეთ."

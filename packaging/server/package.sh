@@ -27,7 +27,7 @@ case "$ARCH" in
   amd64) ARCH=x86_64 ;;
   *) ;; # already a release name (x86_64, aarch64)
 esac
-NAME="figcraft-server-$VERSION-$OS-$ARCH"
+NAME="most-interface-server-$VERSION-$OS-$ARCH"
 echo "==> figcraft-server $VERSION for $OS $ARCH"
 
 if [[ "$SKIP_BUILD" = 0 ]]; then
@@ -40,7 +40,7 @@ mkdir -p "$STAGE"
 cp "$CARGO_TARGET_DIR/release/figcraft-server" "$STAGE/"
 strip "$STAGE/figcraft-server" 2>/dev/null || true
 for f in LICENSE-MIT LICENSE-APACHE NOTICE docs/server.md; do cp "$ROOT/$f" "$STAGE/"; done
-cp "$HERE/figcraft-server.service" "$HERE/figcraft-backup.service" "$HERE/figcraft-backup.timer" "$HERE/Caddyfile" "$HERE/nginx.conf" "$STAGE/"
+cp "$HERE/most-interface-server.service" "$HERE/most-interface-backup.service" "$HERE/most-interface-backup.timer" "$HERE/Caddyfile" "$HERE/nginx.conf" "$STAGE/"
 install -m 755 "$HERE/install.sh" "$STAGE/"
 
 # Smoke test: the binary runs and reports the version being shipped.

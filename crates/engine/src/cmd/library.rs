@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Library commands: publish this file as a library (to its file, or to a server for the team);
 //! enable, use and update other libraries (their components, styles and variables), swap one for
 //! another, and see how files use a team library.

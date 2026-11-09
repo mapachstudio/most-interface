@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Sketch prototype links, hotspots, export options and layout grids → REST.
 //!
 //! A layer's `flow` links it to an artboard (`destinationArtboardID`, or `back`) with an

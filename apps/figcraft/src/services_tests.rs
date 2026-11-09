@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! The preferences are kept as plugins change, not only when the app quits: a plugin imported
 //! (then removed) is still there (gone) when the app is killed and starts again.
 
@@ -24,7 +25,7 @@ fn plugin(root: &std::path::Path) -> std::path::PathBuf {
     let dir = root.join("tiny");
     std::fs::create_dir_all(&dir).unwrap();
     let manifest = json!({"id": ID, "name": "Tiny tool", "version": "1.0.0", "main": "tiny.wasm", "permissions": {"access": "read"}});
-    std::fs::write(dir.join("figcraft-plugin.json"), manifest.to_string()).unwrap();
+    std::fs::write(dir.join("most-interface-plugin.json"), manifest.to_string()).unwrap();
     let wasm =
         wat::parse_str(r#"(module (memory (export "memory") 1) (func (export "figcraft_run") (param i32) (result i32) i32.const 0))"#).unwrap();
     std::fs::write(dir.join("tiny.wasm"), wasm).unwrap();

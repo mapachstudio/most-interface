@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 //! Pure host-mode rules, shared by the bridge ([`crate::host`]) and testable without a browser
 //! (like [`crate::query`]): the name the bridge fills in when an open request has none, and whether
 //! a handed-over file becomes the document's file. Which pages host the app is `craft-web-host`'s.

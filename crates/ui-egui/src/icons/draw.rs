@@ -1,4 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
+// Modificado por Grupo MOST para Most Interface. Obra original: Most Interface del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
 use super::{
     Color32, FRAC_PI_2, FRAC_PI_4, Icon, Mesh, PI, Painter, Pos2, Rect, Shape, Stroke, TAU, Vec2, arc_pts, capsule, pos2, triangulate, vec2,
 };
