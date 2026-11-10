@@ -548,7 +548,7 @@ mod tests {
         }
         doc.create(parent, figcraft_doc::NodeKind::Rectangle, "leaf", 0.0, 0.0, 8.0, 8.0).unwrap();
         let stamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos();
-        let dir = std::env::temp_dir().join(format!("figcraft-cli-export-depth-{}-{stamp}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("most-interface-cli-export-depth-{}-{stamp}", std::process::id()));
         std::fs::create_dir(&dir).unwrap();
         for ext in ["svg", "pdf"] {
             let path = dir.join(format!("previous.{ext}"));
@@ -566,7 +566,7 @@ mod tests {
 
     fn temp_dir(tag: &str) -> std::path::PathBuf {
         let stamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos();
-        let dir = std::env::temp_dir().join(format!("figcraft-cli-{tag}-{}-{stamp}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("most-interface-cli-{tag}-{}-{stamp}", std::process::id()));
         std::fs::create_dir(&dir).unwrap();
         dir
     }

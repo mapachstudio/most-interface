@@ -15,7 +15,7 @@ pub const NO_TEAM: &str = "this server keeps no team list (its operator can turn
 /// What asking for the link of a file that isn't shared now answers.
 pub const NOT_SHARED: &str = "this file isn't shared now (its owner stopped sharing it, or removed it)";
 
-/// The label of a team link (as `figcraft-server links list` shows it).
+/// The label of a team link (as `most-interface-server links list` shows it).
 fn label(access: Access) -> String {
     format!("Team ({})", access.id())
 }

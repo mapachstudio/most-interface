@@ -52,7 +52,7 @@ const LEVELS: [(Access, &str); 3] =
 
 /// What a published file's links are.
 const PUBLISHED_NOTE: &str = tr_noop(
-    "Anyone with the edit link can change the file; the view link only lets people look. The links carry their secrets: share them like passwords. `figcraft-server links` makes more and revokes them.",
+    "Anyone with the edit link can change the file; the view link only lets people look. The links carry their secrets: share them like passwords. `most-interface-server links` makes more and revokes them.",
 );
 
 /// What the owner token is for (shown once, when a file is published without the server key).
@@ -1374,12 +1374,12 @@ pub fn publish_dialog(app: &mut FigApp, ctx: &egui::Context) {
             }
             Some(_) => widgets::label(
                 ui,
-                tr("This server needs its key: add ?key=… to the address (`figcraft-server key` prints it on the server's machine)."),
+                tr("This server needs its key: add ?key=… to the address (`most-interface-server key` prints it on the server's machine)."),
                 t.danger,
             ),
             None => widgets::label(
                 ui,
-                tr("Give the address of a server open to the public, or a server's address with its key (`figcraft-server key` prints it)."),
+                tr("Give the address of a server open to the public, or a server's address with its key (`most-interface-server key` prints it)."),
                 t.text_secondary,
             ),
         }

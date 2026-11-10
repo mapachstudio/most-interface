@@ -296,7 +296,7 @@ pub(crate) const FORBIDDEN_FILE_NAME_CHARS: &str = "/\\:*?\"<>|";
 
 /// `name` without path separators and characters file systems reject (`/ \ : * ? " < > |` and
 /// control characters become `_`); everything else is kept, up to the first 200 characters.
-/// `figcraft-cli export` names its files by this rule too (and keeps at most 100 characters before
+/// `most-interface-cli export` names its files by this rule too (and keeps at most 100 characters before
 /// the number and extension it adds).
 pub fn safe_file_name(name: &str) -> String {
     name.chars().take(200).map(|c| if c.is_control() || FORBIDDEN_FILE_NAME_CHARS.contains(c) { '_' } else { c }).collect()

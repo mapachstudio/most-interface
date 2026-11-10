@@ -1,4 +1,4 @@
-//! The hub every host runs, for one file (a session the app hosts) or many (`figcraft-server`):
+//! The hub every host runs, for one file (a session the app hosts) or many (`most-interface-server`):
 //! a WebSocket listener, a reader and a writer thread per connection, and one hub thread that owns
 //! a collaboration core [`Server`] per open file and routes its messages.
 //!

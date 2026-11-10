@@ -1,5 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-//! Team libraries: a file's published library kept on a `figcraft-server` under that file, and
+//! Team libraries: a file's published library kept on a `most-interface-server` under that file, and
 //! used by other files through one of its share links (a view link is enough to read it).
 //!
 //! A library on a server is the same published library a library file holds (manifest and

@@ -56,7 +56,7 @@ pub fn start() {
                 options,
                 Box::new(move |cc| {
                     if let Some(rs) = &cc.wgpu_render_state {
-                        log::info!("figcraft-web: wgpu backend {:?}", rs.adapter.get_info().backend);
+                        log::info!("most-interface-web: wgpu backend {:?}", rs.adapter.get_info().backend);
                     }
                     let reduce_motion = web_sys::window().and_then(|w| w.match_media("(prefers-reduced-motion: reduce)").ok().flatten());
                     // Host mode: the host sends the file to edit, so start with no document (the
@@ -64,7 +64,7 @@ pub fn start() {
                     // starts with one new document.
                     let mut session = if app_bridge.is_some() { Session::empty() } else { Session::new() };
                     // The host names its own server: the default for sharing, codes and the team list.
-                    if let Some(server) = page_meta("figcraft-server").as_deref().and_then(crate::query::page_server) {
+                    if let Some(server) = page_meta("most-interface-server").as_deref().and_then(crate::query::page_server) {
                         session.prefs.publish_server = server;
                     }
                     crate::kept::restore_name(&mut session, local_storage().and_then(|s| s.get_item(NAME_KEY).ok().flatten()));

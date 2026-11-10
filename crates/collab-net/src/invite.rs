@@ -3,7 +3,7 @@
 //! An invite (or share) link names a session's endpoint, its file and a token:
 //! `figcraft://join?host=<host:port>&file=<id>&token=<secret>` for a plain `ws://` endpoint at `/`
 //! (what the desktop app hosts), `figcraft://join?server=<ws(s)://host[:port][/path]>&file=…&token=…`
-//! for any endpoint (a `figcraft-server` behind a TLS reverse proxy, under a path), or the same
+//! for any endpoint (a `most-interface-server` behind a TLS reverse proxy, under a path), or the same
 //! session as a WebSocket URL `ws(s)://host[:port][/path]?file=<id>&token=<secret>`.
 //!
 //! The token never travels in the WebSocket request (a proxy's logs would keep it): the client

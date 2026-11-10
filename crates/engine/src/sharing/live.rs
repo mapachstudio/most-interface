@@ -17,7 +17,7 @@
 //! history. After a dropped connection the client resumes with its id and catches up; what it
 //! made meanwhile goes out then.
 //!
-//! A file can also live on a `figcraft-server`: `collab.publish` uploads the open document and
+//! A file can also live on a `most-interface-server`: `collab.publish` uploads the open document and
 //! syncs that tab through the server, whose share links let others edit or only view. A view link
 //! makes the synced document read-only here (every edit is refused before it is sent; the server
 //! refuses it too).

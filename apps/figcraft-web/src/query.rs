@@ -16,8 +16,8 @@ pub fn join_link(fragment: &str) -> Option<&str> {
     fragment.get(start + "join=".len()..).filter(|link| !link.is_empty() && link.len() <= MAX)
 }
 
-/// The server a page names for itself in `<meta name="figcraft-server" content="wss://…/">` (a
-/// host serving the browser build beside its own `figcraft-server`): the page's default for online
+/// The server a page names for itself in `<meta name="most-interface-server" content="wss://…/">` (a
+/// host serving the browser build beside its own `most-interface-server`): the page's default for online
 /// sharing, join codes and the team list. Only a `ws://` or `wss://` address without a query (no
 /// key can ride in it), at most 512 characters; anything else is ignored.
 pub fn page_server(content: &str) -> Option<String> {

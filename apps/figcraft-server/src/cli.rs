@@ -1,5 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-//! The command line: `figcraft-server` serves; `key`, `files`, `links` and `plugins` manage the
+//! The command line: `most-interface-server` serves; `key`, `files`, `links` and `plugins` manage the
 //! data directory. When a server is running on the directory they ask it (so revoking a link
 //! disconnects whoever joined with it at once); otherwise they change the directory themselves.
 
@@ -281,7 +281,7 @@ fn directory(cfg: &Config, req: PluginReq) -> Result<PluginReply, String> {
 
 fn plugins_table(entries: &[PluginEntry]) -> String {
     if entries.is_empty() {
-        return "No plugins yet (publish one with `figcraft-cli plugin publish FOLDER --server ws://host:port/?key=KEY`).\n".into();
+        return "No plugins yet (publish one with `most-interface-cli plugin publish FOLDER --server ws://host:port/?key=KEY`).\n".into();
     }
     let mut out =
         String::from("ID                                VERSIONS            NAME                  AUTHOR            ACCESS  SIZE       SHA-256\n");
@@ -426,7 +426,7 @@ fn day(secs: u64) -> String {
 
 fn links_table(links: &[LinkInfo]) -> String {
     if links.is_empty() {
-        return "No links (make one with `figcraft-server links create FILE --access view`).\n".into();
+        return "No links (make one with `most-interface-server links create FILE --access view`).\n".into();
     }
     let mut out = String::from("LINK              ACCESS  CREATED               LABEL\n");
     for l in links {

@@ -1,5 +1,5 @@
 // Modificado por Grupo MOST para Most Interface. Obra original: FigCraft del equipo ArtCraft (https://github.com/storytold/figcraft), Apache-2.0.
-//! `figcraft-cli perf`: synthetic large documents and timings of the hot paths.
+//! `most-interface-cli perf`: synthetic large documents and timings of the hot paths.
 //!
 //! The documents come from [`figcraft_engine::synthetic`] (screens with an auto layout header, a
 //! card group, button instances and a grid of shapes and text). Every row is the mean of several

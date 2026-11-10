@@ -1,4 +1,4 @@
-//! `figcraft-server`: see `docs/server.md`, or run it with `--help`.
+//! `most-interface-server`: see `docs/server.md`, or run it with `--help`.
 
 use std::process::ExitCode;
 

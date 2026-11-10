@@ -16,7 +16,7 @@
 //!   computer…", Chromium's Local Font Access) the computer's, each read when text uses it
 //!   (`local_fonts.rs`);
 //! - live sessions: it joins sessions a desktop app hosts (File ▸ Join live session…) and files on
-//!   a `figcraft-server`, and publishes files to a server (Share ▸ Online, Share ▸ Publish to
+//!   a `most-interface-server`, and publishes files to a server (Share ▸ Online, Share ▸ Publish to
 //!   server…), but can't host a session. A page served over `https://` reaches only `wss://`
 //!   servers and the same computer (browsers block `ws://` from secure pages); serve it over
 //!   `http://` on a trusted network to reach plain `ws://` hosts on other machines.

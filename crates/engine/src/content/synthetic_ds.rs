@@ -1,5 +1,5 @@
 //! A synthetic design system and a file using it, for scale tests and benchmarks
-//! (`figcraft-cli perf`). Everything is generated: no third-party content.
+//! (`most-interface-cli perf`). Everything is generated: no third-party content.
 //!
 //! [`design_system`] builds icon components and component sets (buttons, inputs, cards, navs,
 //! badges) whose variants span size × state × type × theme, with boolean, text, instance swap and

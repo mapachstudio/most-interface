@@ -109,7 +109,7 @@ fn wasm() -> bool {
         "-p",
         "figcraft-ui-egui",
         "-p",
-        "figcraft-web",
+        "most-interface-web",
     ])) && plugins()
 }
 
@@ -154,10 +154,10 @@ fn plugins() -> bool {
     true
 }
 
-/// Engine/render timings (`figcraft-cli perf`) and UI frame timings (an ignored test driving the
+/// Engine/render timings (`most-interface-cli perf`) and UI frame timings (an ignored test driving the
 /// whole UI headless), release builds, for each comma-separated document size in layers.
 fn bench(sizes: &str) -> bool {
-    run(cargo().args(["run", "--release", "-p", "figcraft-cli", "--", "perf", "--layers", sizes]))
+    run(cargo().args(["run", "--release", "-p", "most-interface-cli", "--", "perf", "--layers", sizes]))
         && run(cargo().env("MOST_INTERFACE_BENCH_LAYERS", sizes).args([
             "test",
             "--release",

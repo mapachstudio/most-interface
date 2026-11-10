@@ -1,6 +1,6 @@
 //! Automation roots (#715): the folders the files an agent's commands read and write must lie in.
 //!
-//! `figcraft-cli mcp --automation-read-root DIR --automation-write-root DIR` and the desktop app
+//! `most-interface-cli mcp --automation-read-root DIR --automation-write-root DIR` and the desktop app
 //! started with the same flags run their work [`confined`] to [`Roots`]: while a scope is active on
 //! the thread, every file the engine reads must lie inside a read or a write root and every file it
 //! writes inside a write root; anything else is an ordinary error. The engine reaches the file

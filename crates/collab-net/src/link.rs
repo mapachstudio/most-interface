@@ -293,7 +293,7 @@ impl LiveLink for NetLink {
 fn upload(o: PublishOptions, limits: &NetLimits) -> Result<Published, String> {
     let (server, query) = Endpoint::parse(&o.server)?;
     let key = requests::server_key(o.key, query)
-        .ok_or("the server address needs the server's key (ws://host:port/?key=…; `figcraft-server key` prints it)")?;
+        .ok_or("the server address needs the server's key (ws://host:port/?key=…; `most-interface-server key` prints it)")?;
     upload_file(&server, Some(&key), &o.name, &o.doc, limits, CONNECT).map(|(_, published, _)| published)
 }
 

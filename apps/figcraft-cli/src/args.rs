@@ -17,7 +17,7 @@ use figcraft_doc::{PrintSettings, VdCompat};
 /// (best effort; `info` lists what wasn't imported), .sketch (Sketch 48 or newer, best effort),
 /// .svg, .png/.jpg/.webp/.gif/.bmp (open as an image layer).
 #[derive(Parser)]
-#[command(name = "figcraft-cli", bin_name = "figcraft-cli", version, arg_required_else_help = true, after_help = "See docs/cli.md and docs/mcp.md.")]
+#[command(name = "most-interface-cli", bin_name = "most-interface-cli", version, arg_required_else_help = true, after_help = "See docs/cli.md and docs/mcp.md.")]
 pub struct Cli {
     /// Lay text out with the fonts built into Most Interface only, for renders that match on every
     /// machine (or set MOST_INTERFACE_NO_SYSTEM_FONTS=1). Otherwise installed fonts are indexed the
@@ -342,7 +342,7 @@ pub fn parse(args: Vec<OsString>) -> Result<Cli, clap::Error> {
     }
 }
 
-/// The program name and the subcommands `args` names (`figcraft-cli plugin publish`): at each
+/// The program name and the subcommands `args` names (`most-interface-cli plugin publish`): at each
 /// level, the first argument that isn't a flag, while it names a subcommand.
 fn subcommand_path(cmd: &clap::Command, args: &[OsString]) -> Vec<OsString> {
     let mut path: Vec<OsString> = args.first().cloned().into_iter().collect();
@@ -363,7 +363,7 @@ mod tests {
     use super::{Cli, Command, ConnectCommand, PluginCommand, parse};
 
     fn try_parse(args: &[&str]) -> Result<Cli, clap::Error> {
-        parse(std::iter::once("figcraft-cli").chain(args.iter().copied()).map(Into::into).collect())
+        parse(std::iter::once("most-interface-cli").chain(args.iter().copied()).map(Into::into).collect())
     }
 
     fn ok(args: &[&str]) -> Command {

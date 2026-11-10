@@ -3,7 +3,7 @@
 //!
 //! A plugin is a `cdylib` built for `wasm32-unknown-unknown`. It gets the command the user picked
 //! with its parameters and the selection, and acts on the document by calling Most Interface commands
-//! (the ids `figcraft-cli commands` lists) with JSON parameters. Everything one run does is one
+//! (the ids `most-interface-cli commands` lists) with JSON parameters. Everything one run does is one
 //! undo step; when the run returns an error (or panics), the document is put back.
 //!
 //! ```ignore

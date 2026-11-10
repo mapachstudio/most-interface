@@ -1,4 +1,4 @@
-//! Synthetic large documents for benchmarks (`figcraft-cli perf`) and scale tests.
+//! Synthetic large documents for benchmarks (`most-interface-cli perf`) and scale tests.
 //!
 //! A page of "screens" (top-level frames) laid out in a grid. Each screen holds an auto layout
 //! header (text and icons), a card group, three instances of a shared button component and a grid
