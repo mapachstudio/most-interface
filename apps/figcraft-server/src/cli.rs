@@ -202,7 +202,7 @@ pub fn run(cli: &Cli) -> Result<String, String> {
     let cfg = &cli.config;
     match &cli.command {
         Command::Help => Ok(USAGE.to_string()),
-        Command::Version => Ok(format!("figcraft-server {}\n", env!("CARGO_PKG_VERSION"))),
+        Command::Version => Ok(format!("most-interface-server {}\n", env!("CARGO_PKG_VERSION"))),
         Command::Serve => Err("serving runs in the foreground: run figcraft-server without a command".into()),
         Command::Key { rotate } => key(cfg, *rotate),
         Command::Files { sort } => match admin(cfg, Admin::Listing)? {

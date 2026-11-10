@@ -158,7 +158,7 @@ fn about_body(ui: &mut egui::Ui, t: &Tokens) {
     ui.add_space(8.0);
     ui.label(
         RichText::new(tr(
-            "Most Interface, de Grupo MOST. Basado en FigCraft, del equipo ArtCraft y su comunidad, bajo Apache-2.0. Grupo MOST no esta asociado con el equipo ArtCraft, que no patrocina ni avala este producto.",
+            "Most Interface, de Grupo MOST. Basado en FigCraft, del equipo ArtCraft y su comunidad, bajo Apache-2.0. Grupo MOST no está asociado con el equipo ArtCraft, que no patrocina ni avala este producto.",
         ))
         .color(t.text_secondary)
         .font(regular(11.0)),

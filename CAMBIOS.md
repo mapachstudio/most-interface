@@ -106,6 +106,11 @@ del producto. También el identificador interno del formato de documento,
 que es un valor de compatibilidad: cambiarlo rompería la lectura de los
 archivos existentes.
 
+Y el esquema de URI del servidor MCP (`figcraft://document`), por lo mismo:
+es un identificador de protocolo que los clientes ya tienen escrito. El
+ejecutable sí se renombró —eso lo ve el cliente en su disco y en su
+terminal—, pero media renombrada de un esquema es peor que ninguna.
+
 ## Atribución
 
 > Most Interface está basado en FigCraft, del equipo ArtCraft y su

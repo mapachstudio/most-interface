@@ -15,7 +15,7 @@ pub fn failed(error: &eframe::Error, quiet: bool, tried: Option<&str>) {
     if log::log_enabled!(log::Level::Error) {
         log::error!("{text}");
     } else {
-        eprintln!("figcraft: {text}");
+        eprintln!("most-interface: {text}");
     }
     if quiet {
         return;
