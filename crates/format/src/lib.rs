@@ -41,7 +41,14 @@ use serde::{Deserialize, Serialize, Serializer};
 use serde_json::{Value, json};
 use sha2::Digest;
 
-pub const EXTENSION: &str = "figcraft";
+/// The extension Most Interface writes: `pantalla.mostinterface`. It is what the CLI, the
+/// packaging and the tests all use; this constant was the one place still carrying the original
+/// brand, and nothing read it, so the value was wrong AND unused.
+pub const EXTENSION: &str = "mostinterface";
+
+/// The `"format"` header INSIDE the file. Unlike the extension this is not identity but
+/// compatibility: every file already saved says `figcraft`, and changing it would stop those
+/// files opening. Readers key on it; nothing shows it to the user.
 pub const FORMAT: &str = "figcraft";
 pub const VERSION: u32 = 1;
 /// Largest archive member we read (guards against zip bombs).

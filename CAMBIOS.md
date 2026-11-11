@@ -111,6 +111,27 @@ es un identificador de protocolo que los clientes ya tienen escrito. El
 ejecutable sí se renombró —eso lo ve el cliente en su disco y en su
 terminal—, pero media renombrada de un esquema es peor que ninguna.
 
+Y el nombre del módulo WASM que importan los complementos
+(`figcraft_plugin::IMPORT_MODULE`). Todo complemento ya compilado importa
+funciones de un módulo con ese nombre: cambiarlo no renombra nada, deja de
+cargar los complementos que existen.
+
+### La extensión del documento, que sí se tocó
+
+`figcraft_format::EXTENSION` decía `figcraft` mientras el CLI, el
+empaquetado y las pruebas usaban `.mostinterface`. No lo leía nadie, así que
+el valor estaba mal y además no se usaba; ahora dice lo que el programa
+escribe de verdad.
+
+Lo que no se cambia es `FORMAT`, el `"format"` que va DENTRO del archivo: ese
+sí es compatibilidad, y todo archivo ya guardado lo lleva.
+
+Aparte, el `Info.plist` de macOS declaraba la extensión del tipo nativo como
+`most-interface`, con guion, que no existe: el remarcado aplicó ahí la forma
+del identificador en vez de la de la extensión. En macOS eso significa que
+un `.mostinterface` al doble clic no abría el programa. Most Vector tenía el
+mismo fallo y se arregló igual.
+
 ## Atribución
 
 > Most Interface está basado en FigCraft, del equipo ArtCraft y su
